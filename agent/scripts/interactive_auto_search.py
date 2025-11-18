@@ -123,6 +123,10 @@ async def chat_loop(
             # Remove closing tag if present
             answer_content = answer_content.replace("</answer>", "")
             
+            # Clean and strip content
+            thinking_content = clean_text(thinking_content).strip()
+            answer_content = clean_text(answer_content).strip()
+            
             # Prepare Thinking Panel (always static when answer is present)
             formatted_thinking = format_citations(thinking_content)
             renderable_thinking = Text.from_markup(formatted_thinking)
@@ -150,25 +154,30 @@ async def chat_loop(
             spinner_text = "Generating Answer..."
 
         else:
-            formatted = format_citations(content)
-            # Use Text.from_markup to support our citation colors + basic formatting
-            renderable = Text.from_markup(formatted)
+            # Clean and strip content
+            content = clean_text(content).strip()
             
-            thinking_panel = Panel(
-                renderable,
-                title="[yellow]Thinking[/yellow]",
-                title_align="left",
-                border_style="yellow"
-            )
-            renderables.append(thinking_panel)
+            if content:
+                formatted = format_citations(content)
+                # Use Text.from_markup to support our citation colors + basic formatting
+                renderable = Text.from_markup(formatted)
+                
+                thinking_panel = Panel(
+                    renderable,
+                    title="[yellow]Thinking[/yellow]",
+                    title_align="left",
+                    border_style="yellow"
+                )
+                renderables.append(thinking_panel)
             
-            if not content.strip():
+            if not content:
                 spinner_text = "Researching..."
         
         # Add spinner at the bottom if active
         if is_active:
             # Use a padding to separate spinner from panel
-            renderables.append(Text(" ")) 
+            if renderables:
+                renderables.append(Text(" ")) 
             renderables.append(Spinner("dots", text=spinner_text, style="cyan"))
 
         return Group(*renderables)
