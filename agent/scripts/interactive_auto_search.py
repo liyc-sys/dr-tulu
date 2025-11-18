@@ -94,24 +94,70 @@ async def chat_loop(
     def clean_text(t):
         return re.sub(r'\n{3,}', '\n\n', t)
     
-    # Helper to format citations with Rich markup
+    # Helper to format citations and think tags with Rich markup
     def format_citations(t):
+        # Format citation tags
         def format_cite(match):
             cite_id = match.group(2)
             cite_content = match.group(3)
             return f'[dim]<cite id="[/dim][dim cyan]{cite_id}[/dim cyan][dim]">[/dim][cyan bold]{cite_content}[/cyan bold][dim]</cite>[/dim]'
         t = re.sub(r'<cite\s+id=(["\']?)([^"\'>\s]+)\1[^>]*>([^<]+)</cite>', format_cite, t)
+        
+        # Format think tags (dimmed)
+        t = t.replace("<think>", "[dim]<think>[/dim]")
+        t = t.replace("</think>", "[dim]</think>[/dim]")
+        
         return t
         
     # Helper to render the current thinking panel
     def render_thinking_panel(content, is_active=True):
+        # Check for <answer> tag to split content
+        answer_match = re.search(r'(?s)(.*)<answer>(.*)', content)
+        
+        if answer_match:
+            thinking_content = answer_match.group(1)
+            answer_content = answer_match.group(2)
+            # Remove closing tag if present
+            answer_content = answer_content.replace("</answer>", "")
+            
+            # Prepare Thinking Panel (always static when answer is present)
+            formatted_thinking = format_citations(thinking_content)
+            renderable_thinking = Text.from_markup(formatted_thinking)
+            
+            thinking_panel = Panel(
+                renderable_thinking,
+                title="[yellow]Thinking[/yellow]",
+                title_align="left",
+                border_style="yellow"
+            )
+            
+            # Prepare Answer Panel
+            formatted_answer = format_citations(answer_content)
+            renderable_answer = Text.from_markup(formatted_answer)
+            
+            if is_active:
+                title = Group(Spinner("dots", style="green"), Text(" Answer", style="green"))
+            else:
+                title = "[green]Answer[/green]"
+                 
+            answer_panel = Panel(
+                renderable_answer,
+                title=title,
+                title_align="left",
+                border_style="green"
+            )
+            
+            return Group(thinking_panel, answer_panel)
+
         formatted = format_citations(content)
         # Use Text.from_markup to support our citation colors + basic formatting
         renderable = Text.from_markup(formatted)
         
         if is_active:
             # Spinner + Title
-            title = Group(Spinner("dots", style="yellow"), Text(" Thinking", style="yellow"))
+            # If content is empty, use "Researching..." to indicate loading
+            title_text = " Researching..." if not content.strip() else " Thinking"
+            title = Group(Spinner("dots", style="yellow"), Text(title_text, style="yellow"))
         else:
             title = "[yellow]Thinking[/yellow]"
             
