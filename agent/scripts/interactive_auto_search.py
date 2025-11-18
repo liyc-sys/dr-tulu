@@ -126,6 +126,26 @@ async def chat_loop(
     def print_step_update(text, tool_calls):
         nonlocal last_processed_text_len, current_segment_text, active_live
         
+        # Detect if text stream has reset (new generation started, e.g. next agent)
+        if text and len(text) < last_processed_text_len:
+            last_processed_text_len = 0
+            # If we have an active panel, finalize it as it belongs to previous generation
+            if active_live:
+                active_live.update(render_thinking_panel(current_segment_text, is_active=False))
+                active_live.stop()
+                active_live = None
+            current_segment_text = ""
+            
+            # Start new live display for new generation
+            active_live = Live(
+                render_thinking_panel("", is_active=True),
+                console=console,
+                auto_refresh=True,
+                refresh_per_second=10,
+                vertical_overflow="visible"
+            )
+            active_live.start()
+        
         # Handle text updates
         if text and len(text) > last_processed_text_len:
             new_chunk = text[last_processed_text_len:]
@@ -170,11 +190,11 @@ async def chat_loop(
                 output = clean_text(output)
                 console.print(Panel(output, title="[green]Output[/green]", border_style="green"))
                 
-            # Reset segment for next block
+            # Reset segment for next block (next iteration)
             current_segment_text = ""
+            last_processed_text_len = 0 # Reset text tracking for new iteration
             
             # Immediately start a new live display for the next thinking segment
-            # This shows the spinner while waiting for the next model output
             active_live = Live(
                 render_thinking_panel("", is_active=True),
                 console=console,
