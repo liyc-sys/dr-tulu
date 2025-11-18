@@ -1,4 +1,4 @@
-<img src="rl/open-instruct/assets/dr_tulu_logo.png" alt="Figure 1" width="500"/>
+<img src="https://github.com/rlresearch/dr-tulu/blob/rl/rl/open-instruct/assets/dr_tulu_logo.png?raw=true" alt="Figure 1" width="500"/>
 
 # DR Tulu - RL Training Code
 
