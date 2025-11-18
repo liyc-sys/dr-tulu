@@ -172,6 +172,17 @@ async def chat_loop(
                 
             # Reset segment for next block
             current_segment_text = ""
+            
+            # Immediately start a new live display for the next thinking segment
+            # This shows the spinner while waiting for the next model output
+            active_live = Live(
+                render_thinking_panel("", is_active=True),
+                console=console,
+                auto_refresh=True,
+                refresh_per_second=10,
+                vertical_overflow="visible"
+            )
+            active_live.start()
 
     while True:
         try:
@@ -191,6 +202,16 @@ async def chat_loop(
             active_live = None
             
             console.print("\n[bold blue]Search & Reasoning Trace:[/bold blue]")
+            
+            # Start initial live display to show "Thinking" immediately
+            active_live = Live(
+                render_thinking_panel("", is_active=True),
+                console=console,
+                auto_refresh=True,
+                refresh_per_second=10,
+                vertical_overflow="visible"
+            )
+            active_live.start()
             
             # Run workflow
             result = await workflow(
