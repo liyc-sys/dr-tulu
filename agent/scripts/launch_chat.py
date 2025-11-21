@@ -319,11 +319,6 @@ Examples:
         help="MCP server port (default: 8000)"
     )
     parser.add_argument(
-        "--mcp-transport-port",
-        type=int,
-        help="Port used by the MCP client transport (sets MCP_TRANSPORT_PORT). Defaults to the MCP server port."
-    )
-    parser.add_argument(
         "--gpu-id",
         type=int,
         default=0,
@@ -396,9 +391,6 @@ Examples:
     signal.signal(signal.SIGINT, lambda s, f: (cleanup(), sys.exit(0)))
     signal.signal(signal.SIGTERM, lambda s, f: (cleanup(), sys.exit(0)))
     
-    # Determine MCP transport port (defaults to server port)
-    mcp_transport_port = args.mcp_transport_port or args.mcp_port
-
     # Check and launch services
     if not args.skip_checks:
         # Check MCP server
@@ -495,7 +487,7 @@ Examples:
     
     # Prepare environment for the chat subprocess
     run_env = os.environ.copy()
-    run_env["MCP_TRANSPORT_PORT"] = str(mcp_transport_port)
+    run_env["MCP_TRANSPORT_PORT"] = str(args.mcp_port)
 
     # Run the chat script
     try:
