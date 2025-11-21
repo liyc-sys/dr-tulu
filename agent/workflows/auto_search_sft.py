@@ -106,8 +106,8 @@ class SearchAgent(BaseAgent):
             elif "long_form" in str(dataset_name):
                 instruction_field_name = "long_form"
             else:
-                # Default to long_form when dataset_name is None
-                instruction_field_name = "long_form"
+                print("set additional instructions none")
+                instruction_field_name = None
 
         return [
             {

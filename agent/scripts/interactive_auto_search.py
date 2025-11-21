@@ -546,15 +546,15 @@ if __name__ == "__main__":
         import argparse
         parser = argparse.ArgumentParser(description="Interactive chat using auto_search workflow")
         parser.add_argument("--config", "-c", required=True, help="Path to workflow configuration YAML file")
-        parser.add_argument("--dataset-name", "-d", help="Dataset name for dataset-specific instructions")
         parser.add_argument("--verbose", "-v", action="store_true", help="Verbose output")
         parser.add_argument("--show-full-tool-output", action="store_true", help="Show full tool output instead of truncating to 500 chars")
         parser.add_argument("--config-overrides", help="Config overrides in format 'param1=value1,param2=value2'")
         args = parser.parse_args()
         
+        # hardcode dataset name to long_form
         chat(
             config=args.config,
-            dataset_name=args.dataset_name,
+            dataset_name="long_form",
             verbose=args.verbose,
             config_overrides=args.config_overrides,
             show_full_tool_output=args.show_full_tool_output,

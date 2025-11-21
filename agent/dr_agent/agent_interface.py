@@ -203,7 +203,7 @@ class BaseAgent:
 
         # Extract generation parameters
         gen_kwargs = {k: v for k, v in kwargs.items() if k in generation_params}
-        
+
         # Prepare the prompt with remaining kwargs (prompt variables)
         formatted_prompt = self._prepare_prompt(**kwargs)
 
