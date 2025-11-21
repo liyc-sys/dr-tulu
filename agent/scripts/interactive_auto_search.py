@@ -282,17 +282,8 @@ async def chat_loop(
                     header += f" (id={call_id})"
                 console.print(f"\n[bold magenta]{header}[/bold magenta]")
                 
-                output = tool_call.output or ""
-                if (
-                    not show_full_tool_output
-                    and isinstance(output, str)
-                    and len(output) > 500
-                ):
-                    output = output[:500] + "... [truncated]"
-                output = clean_text(output)
-
-                # Append snippet info (if any) underneath the tool output
-                extra_sections = []
+                # Build snippet info if available
+                snippet_sections = []
                 if isinstance(tool_call, DocumentToolOutput) and tool_call.documents:
                     snippet_blocks = []
                     for idx, doc in enumerate(tool_call.documents, start=1):
@@ -301,18 +292,25 @@ async def chat_loop(
                             f"[bold]{idx}. Snippet[/bold] [dim](id={doc.id})[/dim]\n{snippet_content}"
                         )
                     if snippet_blocks:
-                        extra_sections.append("\n\n".join(snippet_blocks))
+                        snippet_sections.append("\n\n".join(snippet_blocks))
 
-                combined_output = output
-                if extra_sections:
-                    combined_output = (
-                        f"{output}\n\n[cyan]Retrieved Documents[/cyan]\n"
-                        + "\n\n".join(extra_sections)
+                if snippet_sections:
+                    content = "[cyan]Retrieved Documents[/cyan]\n" + "\n\n".join(
+                        snippet_sections
                     )
+                else:
+                    output = tool_call.output or ""
+                    if (
+                        not show_full_tool_output
+                        and isinstance(output, str)
+                        and len(output) > 500
+                    ):
+                        output = output[:500] + "... [truncated]"
+                    content = clean_text(output)
 
                 console.print(
                     Panel(
-                        combined_output,
+                        content,
                         title="[green]Output[/green]",
                         border_style="green",
                     )
