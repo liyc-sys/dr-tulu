@@ -269,6 +269,11 @@ class AutoReasonSearchWorkflow(BaseWorkflow):
         browse_agent_max_tokens: int = 32000
         browse_agent_temperature: float = 0.3
 
+        # MCP transport configuration
+        mcp_transport_type: str = "StreamableHttpTransport"
+        mcp_executable: Optional[str] = None
+        mcp_port: int = 8000
+
         # Search configuration
         number_documents_to_search: int = 10
         search_timeout: int = 60
@@ -290,6 +295,14 @@ class AutoReasonSearchWorkflow(BaseWorkflow):
         cfg = self.configuration
         assert cfg is not None
         # print(cfg)
+
+        # Allow configuration overrides for MCP settings
+        if getattr(cfg, "mcp_transport_type", None):
+            mcp_transport_type = cfg.mcp_transport_type
+        if getattr(cfg, "mcp_executable", None):
+            mcp_executable = cfg.mcp_executable
+        if getattr(cfg, "mcp_port", None) is not None:
+            mcp_port = cfg.mcp_port
 
         # Search and browse tools (MCP-backed) with unified tool parser
         if cfg.search_tool_name == "serper":

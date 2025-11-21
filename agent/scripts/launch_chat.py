@@ -479,6 +479,9 @@ Examples:
     # Add search agent model override if provided
     if args.model:
         overrides.append(f"search_agent_model_name={args.model}")
+
+    # Always propagate MCP port to workflow configuration
+    overrides.append(f"mcp_port={args.mcp_port}")
     
     if overrides:
         cmd.extend(["--config-overrides", ",".join(overrides)])
