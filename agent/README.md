@@ -75,8 +75,9 @@ We provide additional flags for the chat script, for e.g. showing full tool outp
 usage: launch_chat.py [-h] [--config CONFIG] [--dataset-name DATASET_NAME]
                       [--model MODEL] [--config-overrides CONFIG_OVERRIDES]
                       [--verbose] [--show-full-tool-output] [--skip-checks]
-                      [--mcp-port MCP_PORT] [--gpu-id GPU_ID]
-                      [--no-auto-launch]
+                      [--mcp-port MCP_PORT]
+                      [--mcp-transport-port MCP_TRANSPORT_PORT]
+                      [--gpu-id GPU_ID] [--no-auto-launch]
 
 Self-contained launcher for interactive chat
 
@@ -98,6 +99,9 @@ options:
                         characters
   --skip-checks         Skip checking/launching services
   --mcp-port MCP_PORT   MCP server port (default: 8000)
+  --mcp-transport-port MCP_TRANSPORT_PORT
+                        Override MCP client transport port (sets
+                        MCP_TRANSPORT_PORT). Defaults to MCP server port.
   --gpu-id GPU_ID       GPU ID for search agent vLLM server (default: 0,
                         browse agent uses GPU 1)
   --no-auto-launch      Don't automatically launch vLLM servers (check only)
