@@ -58,6 +58,7 @@ except ImportError:
 # Import the workflow
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from workflows.auto_search_sft import AutoReasonSearchWorkflow
+from dr_agent.tool_interface.data_types import DocumentToolOutput
 
 if HAS_RICH:
     app = typer.Typer(help="Interactive chat using auto_search workflow")
@@ -275,14 +276,39 @@ async def chat_loop(
             # Print tool calls
             for tool_call in tool_calls:
                 tool_name = tool_call.tool_name
-                console.print(f"\n[bold magenta]Tool Call: {tool_name}[/bold magenta]")
+                call_id = getattr(tool_call, "call_id", None)
+                header = f"Tool Call: {tool_name}"
+                if call_id:
+                    header += f" (id={call_id})"
+                console.print(f"\n[bold magenta]{header}[/bold magenta]")
                 
-                output = tool_call.output
-                if not show_full_tool_output and len(output) > 500:
+                output = tool_call.output or ""
+                if (
+                    not show_full_tool_output
+                    and isinstance(output, str)
+                    and len(output) > 500
+                ):
                     output = output[:500] + "... [truncated]"
                 
                 output = clean_text(output)
                 console.print(Panel(output, title="[green]Output[/green]", border_style="green"))
+
+                # If we have structured documents, list each snippet with its ID
+                if isinstance(tool_call, DocumentToolOutput) and tool_call.documents:
+                    snippet_blocks = []
+                    for idx, doc in enumerate(tool_call.documents, start=1):
+                        snippet_content = clean_text(doc.stringify())
+                        snippet_blocks.append(
+                            f"[bold]{idx}. Snippet[/bold] [dim](id={doc.id})[/dim]\n{snippet_content}"
+                        )
+                    if snippet_blocks:
+                        console.print(
+                            Panel(
+                                "\n\n".join(snippet_blocks),
+                                title="[cyan]Retrieved Documents[/cyan]",
+                                border_style="cyan",
+                            )
+                        )
                 
             # Reset segment for next block (next iteration)
             current_segment_text = ""
