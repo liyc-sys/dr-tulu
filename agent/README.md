@@ -64,9 +64,13 @@ Note you will need to get these API keys from the respective services.
 ## Interactive Chat
 
 We provide an interactive cli demo for the auto_search workflow.
-Requires 1-2 GPUs. We recommend running with `uv`, which should install everything you need and then launch the tool:
+Requires 1-2 GPUs. We recommend running with `uv`, which should install everything you need and then launch the tool, but set your API keys first:
 
 ```bash
+export SERPER_API_KEY="XXXX"
+export S2_API_KEY="XXXX"
+export JINA_API_KEY="XXXX"
+
 uv run --extra vllm  python scripts/launch_chat.py --model rl-research/DR-Tulu-8B
 ```
 

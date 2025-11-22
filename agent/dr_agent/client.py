@@ -1310,6 +1310,7 @@ class LLMToolClient:
                 f"Request timed out after {config.timeout} seconds"
             )
         except Exception as e:
+            print(f"API call failed: {e}")
             raise Exception(f"API call failed: {e}")
 
     @retry(
@@ -1389,6 +1390,7 @@ class LLMToolClient:
                 f"Request timed out after {config.timeout} seconds"
             )
         except Exception as e:
+            print(f"API call failed: {e}")
             raise Exception(f"API call failed: {e}")
 
     # Keep the old method name for backward compatibility, but delegate to vLLM implementation
