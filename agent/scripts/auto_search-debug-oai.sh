@@ -23,7 +23,7 @@ for task in $TASKS; do
         --use-cache \
         --config workflows/$MODEL-oai.yaml \
         --config-overrides "use_browse_agent=true,search_agent_max_tool_calls=10" \
-        --output $SAVE_FOLDER/$MODEL/$task-5samples-reader-max-tool-calls-10.jsonl
+        --output $SAVE_FOLDER/$MODEL/$task-5-samples-reader-max-tool-calls-10.jsonl
     
     python scripts/evaluate.py $task $SAVE_FOLDER/$MODEL/$task-5-samples-reader-max-tool-calls-10.jsonl
 done
