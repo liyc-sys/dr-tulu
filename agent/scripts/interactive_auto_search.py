@@ -89,7 +89,12 @@ async def chat_loop(
         console.print(f"[dim]Using dataset configuration: {dataset_name}[/dim]\n")
     
     if log_file:
-        console.print(f"[dim]Logging to: {log_file}[/dim]\n")
+        log_base = log_file.with_suffix('')
+        full_log = log_base.with_suffix('.full.json')
+        answer_log = log_base.with_suffix('.answer.json')
+        console.print(f"[dim]Logging to: {log_base.parent}/[/dim]")
+        console.print(f"[dim]  - Full: {full_log.name}[/dim]")
+        console.print(f"[dim]  - Answer: {answer_log.name}[/dim]\n")
 
     import re
 
@@ -109,6 +114,9 @@ async def chat_loop(
     current_segment_text = ""
     active_live = None
     is_answering = False
+    
+    # State for logging
+    interaction_logs = []  # List to store all interactions
     final_answer_text = ""  # Store final answer for bibliography extraction
     thinking_text = ""  # Store final thinking text for display
     
@@ -306,6 +314,13 @@ async def chat_loop(
                     header += f" (id={call_id})"
                 console.print(f"\n[bold magenta]{header}[/bold magenta]")
                 
+                # Prepare tool call log entry
+                tool_call_log_entry = {
+                    "tool_name": tool_name,
+                    "call_id": call_id,
+                    "output": None
+                }
+                
                 # Build snippet info if available
                 snippet_sections = []
                 if isinstance(tool_call, DocumentToolOutput) and tool_call.documents:
@@ -333,8 +348,10 @@ async def chat_loop(
                     content = "[cyan]Retrieved Documents[/cyan]\n" + "\n\n".join(
                         snippet_sections
                     )
+                    tool_call_log_entry["output"] = f"Retrieved {len(tool_call.documents)} documents"
                 else:
                     output = tool_call.output or ""
+                    tool_call_log_entry["output"] = output  # Store full output for log
                     if (
                         not show_full_tool_output
                         and isinstance(output, str)
@@ -350,6 +367,10 @@ async def chat_loop(
                         border_style="green",
                     )
                 )
+                
+                # Add to tool calls log
+                if log_file:
+                    tool_calls_log.append(tool_call_log_entry)
                 
             # Reset segment for next block (next iteration)
             current_segment_text = ""
@@ -378,12 +399,13 @@ async def chat_loop(
             if not user_input.strip():
                 continue
             
-            # Log user input
-            if log_file:
-                with open(log_file, "a", encoding="utf-8") as f:
-                    f.write(f"\n{'='*80}\n")
-                    f.write(f"USER: {user_input}\n")
-                    f.write(f"{'='*80}\n")
+            # Initialize log entry for this interaction
+            current_log = {
+                "user_query": user_input,
+                "full_response": [],  # List of display items
+                "final_answer": ""
+            }
+            tool_calls_log = []  # Track tool calls for logging
             
             # Reset state
             last_processed_text_len = 0
@@ -569,13 +591,109 @@ async def chat_loop(
             
             console.print()  # Empty line for spacing
             
-            # Log model response
-            if log_file and final_answer_text:
-                import re
-                # Remove citation tags for cleaner log
-                clean_answer = re.sub(r'<cite\s+ids?=["\']?[^"\'>\s]+["\']?[^>]*>', '', final_answer_text)
-                with open(log_file, "a", encoding="utf-8") as f:
-                    f.write(f"\nMODEL: {clean_answer}\n")
+            # Build full response and final answer for logging
+            if log_file:
+                # Capture thinking text
+                if thinking_text:
+                    current_log["full_response"].append({
+                        "type": "thinking",
+                        "content": thinking_text
+                    })
+                
+                # Capture tool calls
+                if tool_calls_log:
+                    current_log["full_response"].append({
+                        "type": "tool_calls",
+                        "content": tool_calls_log
+                    })
+                
+                # Capture final answer
+                if final_answer_text:
+                    # Remove citation tags for clean display
+                    clean_answer = re.sub(r'<cite\s+ids?=["\']?[^"\'>\s]+["\']?[^>]*>', '', final_answer_text)
+                    current_log["full_response"].append({
+                        "type": "answer",
+                        "content": clean_answer
+                    })
+                    
+                    # Build final answer with bibliography
+                    final_answer_with_citations = clean_answer
+                    
+                    # Add bibliography if available
+                    if cited_snippet_ids and snippets_dict:
+                        bibliography_parts = ["\n\n=== Citations ==="]
+                        for original_id in cited_snippet_ids:
+                            if original_id in snippets_dict:
+                                snippet_info = snippets_dict[original_id]
+                                snippet_content = snippet_info["content"]
+                                tool_name = snippet_info["tool_name"]
+                                display_id = id_mapping.get(original_id, original_id)
+                                
+                                # Truncate snippet_content after the URL line
+                                lines = snippet_content.split('\n')
+                                truncated_lines = []
+                                url_line_found = False
+                                for line in lines:
+                                    truncated_lines.append(line)
+                                    if line.strip().upper().startswith('URL:'):
+                                        url_line_found = True
+                                        break
+                                if url_line_found:
+                                    snippet_content = '\n'.join(truncated_lines)
+                                
+                                bibliography_parts.append(f"\n[{display_id}] ({tool_name})\n{snippet_content}")
+                        
+                        bibliography_text = "\n".join(bibliography_parts)
+                        final_answer_with_citations += bibliography_text
+                        
+                        current_log["full_response"].append({
+                            "type": "bibliography",
+                            "content": bibliography_text
+                        })
+                    
+                    current_log["final_answer"] = final_answer_with_citations
+                
+                # Add tool usage stats
+                if browsed_links or searched_links or total_tool_calls > 0:
+                    stats = {
+                        "searched_links": len(searched_links),
+                        "browsed_links": len(browsed_links),
+                        "total_tool_calls": total_tool_calls,
+                        "failed_tool_calls": failed_tool_calls
+                    }
+                    current_log["full_response"].append({
+                        "type": "stats",
+                        "content": stats
+                    })
+                
+                # Add this interaction to logs
+                interaction_logs.append(current_log)
+                
+                # Save logs to separate JSON files
+                import json
+                log_base = log_file.with_suffix('')
+                
+                # Save full response log
+                full_log_file = log_base.with_suffix('.full.json')
+                full_logs = []
+                for log_entry in interaction_logs:
+                    full_logs.append({
+                        "user_query": log_entry["user_query"],
+                        "full_response": log_entry["full_response"]
+                    })
+                with open(full_log_file, "w", encoding="utf-8") as f:
+                    json.dump(full_logs, f, indent=2, ensure_ascii=False)
+                
+                # Save final answer log
+                answer_log_file = log_base.with_suffix('.answer.json')
+                answer_logs = []
+                for log_entry in interaction_logs:
+                    answer_logs.append({
+                        "user_query": log_entry["user_query"],
+                        "final_answer": log_entry["final_answer"]
+                    })
+                with open(answer_log_file, "w", encoding="utf-8") as f:
+                    json.dump(answer_logs, f, indent=2, ensure_ascii=False)
             
         except KeyboardInterrupt:
             console.print("\n\n[bold yellow]Interrupted. Type 'exit' to quit or continue chatting.[/bold yellow]\n")
