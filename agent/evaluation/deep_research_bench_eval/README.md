@@ -44,7 +44,7 @@ conda activate drb
 pip install -r requirements.txt
 ```
 
-🚨 **Crucial**: The original citation evaluation model is deprecated, go to `/path/to/deep_research_bench/utils/api.py` of the repo and change the `FACT_Moedel` to `gemini-2.5-flash-preview-09-2025`
+🚨 **Crucial**: The original citation evaluation model is deprecated, go to `/path/to/deep_research_bench/utils/api.py` of the repo and change the `FACT_Moedel` to `gemini-2.5-flash-preview-09-2025` to avoid errors in citation evaluation.
 
 #### 3.3 API Configuration
 
