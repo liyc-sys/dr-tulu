@@ -318,13 +318,22 @@ async def chat_loop(
                 tool_call_log_entry = {
                     "tool_name": tool_name,
                     "call_id": call_id,
-                    "output": None
+                    "parameters": {},
+                    "output": None,
+                    "documents": []
                 }
+                
+                # Capture tool call parameters if available
+                if hasattr(tool_call, 'input') and tool_call.input:
+                    tool_call_log_entry["parameters"] = tool_call.input
+                elif hasattr(tool_call, 'arguments') and tool_call.arguments:
+                    tool_call_log_entry["parameters"] = tool_call.arguments
                 
                 # Build snippet info if available
                 snippet_sections = []
                 if isinstance(tool_call, DocumentToolOutput) and tool_call.documents:
                     snippet_blocks = []
+                    retrieved_docs = []
                     for idx, doc in enumerate(tool_call.documents):
                         snippet_id = (
                             f"{tool_call.call_id}-{idx}"
@@ -341,8 +350,14 @@ async def chat_loop(
                         snippet_blocks.append(
                             f"[bold]{idx + 1}. Snippet[/bold] [dim](id={snippet_id})[/dim]\n{snippet_content}"
                         )
+                        # Store document for logging
+                        retrieved_docs.append({
+                            "id": snippet_id,
+                            "content": snippet_content
+                        })
                     if snippet_blocks:
                         snippet_sections.append("\n\n".join(snippet_blocks))
+                    tool_call_log_entry["documents"] = retrieved_docs
 
                 if snippet_sections:
                     content = "[cyan]Retrieved Documents[/cyan]\n" + "\n\n".join(
@@ -370,6 +385,11 @@ async def chat_loop(
                 
                 # Add to tool calls log
                 if log_file:
+                    # Clean up empty fields
+                    if not tool_call_log_entry["documents"]:
+                        del tool_call_log_entry["documents"]
+                    if not tool_call_log_entry["parameters"]:
+                        del tool_call_log_entry["parameters"]
                     tool_calls_log.append(tool_call_log_entry)
                 
             # Reset segment for next block (next iteration)
