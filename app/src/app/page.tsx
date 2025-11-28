@@ -14,6 +14,9 @@ import {
   Loader2,
   Download,
   Upload,
+  Globe,
+  FileText,
+  Wrench,
 } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -182,7 +185,7 @@ const CitationTooltip = ({
     <TooltipProvider>
       <Tooltip delayDuration={200}>
         <TooltipTrigger asChild>
-          <span className="text-foreground underline decoration-blue-400 decoration-dotted cursor-help transition-colors duration-200 hover:text-blue-600">
+          <span className="text-foreground underline decoration-blue-400 decoration-dotted cursor-help transition-colors duration-200 hover:text-blue-600 pl-1">
             {text}
             <sup className="ml-0.5 text-[10px] text-blue-500 font-medium">
               [{citationNumbers.join(", ")}]
@@ -246,7 +249,7 @@ const LiveTraceItem = ({
         (contentWithoutThinkTags.split(" ").length > 30 ? "..." : "");
 
     return (
-      <div className="bg-green-50 rounded-md border border-green-200 overflow-hidden hover:shadow-md hover:border-green-300 hover:bg-green-100">
+      <div className="bg-green-50 rounded-md border border-green-200 overflow-hidden hover:shadow-md hover:border-green-300 hover:bg-green-100 max-w-full">
         <Collapsible open={isThinkingOpen} onOpenChange={setIsThinkingOpen}>
           <CollapsibleTrigger className="flex items-center justify-between p-4 w-full hover:bg-muted/50 transition-colors duration-200">
             <span className="text-xs font-semibold text-green-700 flex items-center gap-2">
@@ -255,7 +258,7 @@ const LiveTraceItem = ({
                 <Loader2 className="h-3 w-3 animate-spin" />
               )}
             </span>
-            <div className="transform transition-all duration-300 ease-in-out">
+            <div className="transform transition-all duration-300 ease-in-out flex-shrink-0">
               {isThinkingOpen ? (
                 <ArrowUpFromLine className="h-3.5 w-3.5 text-muted-foreground" />
               ) : (
@@ -263,10 +266,10 @@ const LiveTraceItem = ({
               )}
             </div>
           </CollapsibleTrigger>
-          <div className="px-4 pb-4 pt-1">
+          <div className="px-4 pb-4 pt-1 max-w-full overflow-hidden">
             <p
               className={cn(
-                "text-xs whitespace-pre-wrap font-mono leading-relaxed break-words",
+                "text-xs whitespace-pre-wrap font-mono leading-relaxed break-words max-w-full",
                 isThinkingOpen ? "" : "text-muted-foreground"
               )}
             >
@@ -316,11 +319,11 @@ const LiveTraceItem = ({
 
         {/* Tool Output Card - separate card like static demo */}
         {output && (
-          <div className="bg-background rounded-md overflow-hidden border hover:shadow-md">
+          <div className="bg-background rounded-md overflow-hidden border hover:shadow-md max-w-full">
             <Collapsible open={isToolOutputOpen} onOpenChange={setIsToolOutputOpen}>
               <CollapsibleTrigger className="flex items-center justify-between p-4 w-full hover:bg-muted/50 transition-colors duration-200">
                 <span className="text-xs font-semibold">Tool Output</span>
-                <div className="transform transition-all duration-300 ease-in-out">
+                <div className="transform transition-all duration-300 ease-in-out flex-shrink-0">
                   {isToolOutputOpen ? (
                     <ArrowUpFromLine className="h-3.5 w-3.5 text-muted-foreground" />
                   ) : (
@@ -329,8 +332,8 @@ const LiveTraceItem = ({
                 </div>
               </CollapsibleTrigger>
               <CollapsibleContent>
-                <div className="px-4 pb-4 pt-1">
-                  <div className="max-h-48 overflow-y-auto overflow-x-hidden min-w-0">
+                <div className="px-4 pb-4 pt-1 max-w-full overflow-hidden">
+                  <div className="max-h-48 overflow-y-auto overflow-x-hidden min-w-0 max-w-full">
                     <p
                       className="text-xs whitespace-pre-wrap font-mono leading-relaxed text-muted-foreground break-words min-w-0 max-w-full"
                       style={{ wordBreak: "break-word", overflowWrap: "anywhere" }}
@@ -352,6 +355,72 @@ const LiveTraceItem = ({
   }
 
   return null;
+};
+
+// Loading message component with rotating text and stats
+const LoadingMessage = ({ traceItems }: { traceItems: TraceItem[] }) => {
+  const [loadingText, setLoadingText] = useState("Researching");
+  
+  useEffect(() => {
+    const loadingTexts = [
+      "Infodigging", "Factgrabbing", "Knowledging", "Studifying", 
+      "Learninating", "Wisdomizing", "Thoughtsifting", "Bookworming", 
+      "Researching", "Cognitating", "Discoverifying", "Deepthinking", 
+      "Sciencifying", "Scholarizing", "Ideahunting", "Thinkworking", 
+      "Smartifying", "Conclusionizing", "Insightfarming", "Infohoovering", 
+      "Factstacking", "Databinging", "Factsniffing", "Mindcooking", 
+      "Factweaving", "Infopiling"
+    ];
+    
+    const interval = setInterval(() => {
+      const randomText = loadingTexts[Math.floor(Math.random() * loadingTexts.length)];
+      setLoadingText(randomText);
+    }, 2000);
+    
+    return () => clearInterval(interval);
+  }, []);
+  
+  // Count tool calls by type
+  const toolCallCount = traceItems.filter(item => item.type === "tool_call").length;
+  const searchCalls = traceItems.filter(
+    item => item.type === "tool_call" && 
+    (item.data.tool_name.includes("search") || item.data.tool_name.includes("Search"))
+  ).length;
+  const browseCalls = traceItems.filter(
+    item => item.type === "tool_call" && 
+    (item.data.tool_name.includes("browse") || item.data.tool_name.includes("Browse"))
+  ).length;
+  
+  return (
+    <div className="space-y-2">
+      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <Loader2 className="h-4 w-4 animate-spin" />
+        <span className="font-medium">{loadingText}...</span>
+      </div>
+      {toolCallCount > 0 && (
+        <div className="text-xs text-muted-foreground pl-6 space-y-1">
+          {searchCalls > 0 && (
+            <div className="flex items-center gap-1.5">
+              <Search className="h-3 w-3" />
+              <span>Searched {searchCalls} {searchCalls === 1 ? 'query' : 'queries'}</span>
+            </div>
+          )}
+          {browseCalls > 0 && (
+            <div className="flex items-center gap-1.5">
+              <Globe className="h-3 w-3" />
+              <span>Browsed {browseCalls} {browseCalls === 1 ? 'page' : 'pages'}</span>
+            </div>
+          )}
+          {toolCallCount > 0 && (
+            <div className="flex items-center gap-1.5">
+              <Wrench className="h-3 w-3" />
+              <span>{toolCallCount} tool {toolCallCount === 1 ? 'call' : 'calls'} total</span>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
 };
 
 // Live Chat Interface Component
@@ -524,7 +593,7 @@ const LiveChatInterface = ({
       <ResizablePanel defaultSize={65} minSize={30}>
         <div className="flex flex-col h-[600px]">
           <div className="px-4 pl-8 py-3 border-b flex items-center justify-between">
-            <h3 className="text-sm font-medium text-muted-foreground">Chat History</h3>
+            <h3 className="text-sm font-medium text-muted-foreground">DR Tulu Deep Research Agent</h3>
             <div className="flex gap-2">
               <Button
                 variant="ghost"
@@ -644,10 +713,7 @@ const LiveChatInterface = ({
                           </>
                         ) : (
                           <div className="rounded-lg px-4 py-3 bg-muted">
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <Loader2 className="h-4 w-4 animate-spin" />
-                              <span>Researching...</span>
-                            </div>
+                            <LoadingMessage traceItems={traceItems} />
                           </div>
                         )}
                       </div>
@@ -762,10 +828,39 @@ const LiveChatInterface = ({
                   className="flex-1 overflow-hidden mt-0 data-[state=active]:animate-in data-[state=inactive]:animate-out data-[state=inactive]:fade-out-0 data-[state=active]:fade-in-0 duration-300"
                 >
                   <div className="p-4 border-b bg-background">
-                    <div className="flex gap-4 text-xs text-muted-foreground">
-                      <span>Tool Calls: {toolCallCount}</span>
+                    <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
+                      <span className="flex items-center gap-1 font-medium">
+                        <Wrench className="h-3 w-3" />
+                        {toolCallCount} tool {toolCallCount === 1 ? 'call' : 'calls'}
+                      </span>
+                      {(() => {
+                        const searchCount = allTraceItems.filter(
+                          item => item.type === "tool_call" && 
+                          (item.data.tool_name.includes("search") || item.data.tool_name.includes("Search"))
+                        ).length;
+                        const browseCount = allTraceItems.filter(
+                          item => item.type === "tool_call" && 
+                          (item.data.tool_name.includes("browse") || item.data.tool_name.includes("Browse"))
+                        ).length;
+                        return (
+                          <>
+                            {searchCount > 0 && (
+                              <span className="flex items-center gap-1">
+                                <Search className="h-3 w-3" />
+                                {searchCount} searches
+                              </span>
+                            )}
+                            {browseCount > 0 && (
+                              <span className="flex items-center gap-1">
+                                <Globe className="h-3 w-3" />
+                                {browseCount} pages
+                              </span>
+                            )}
+                          </>
+                        );
+                      })()}
                       {isLoading && (
-                        <span className="flex items-center gap-1">
+                        <span className="flex items-center gap-1 text-blue-600 font-medium">
                           <Loader2 className="h-3 w-3 animate-spin" />
                           Processing...
                         </span>
@@ -775,9 +870,14 @@ const LiveChatInterface = ({
                   <ScrollArea className="h-[calc(100%-3rem)] p-4">
                     <div className="space-y-3">
                       {allTraceItems.length === 0 && isLoading ? (
-                        <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                          <Loader2 className="h-4 w-4 animate-spin" />
-                          <span>Starting research...</span>
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                            <span>Initializing research agents...</span>
+                          </div>
+                          <p className="text-xs text-muted-foreground pl-6">
+                            Setting up search and reasoning pipeline
+                          </p>
                         </div>
                       ) : (
                         allTraceItems.map((item, index) => (
@@ -887,7 +987,7 @@ export default function Home() {
       <div className="container relative p-16 flex-1">
         <Headline />
         <div className="mt-8 rounded-[0.5rem] border bg-background shadow overflow-hidden">
-          <div className="px-0 pt-6 pb-0">
+          <div className="px-0 pt-0 pb-0">
             <LiveChatInterface
               isPanelOpen={isPanelOpen}
               onPanelToggle={() => setIsPanelOpen(!isPanelOpen)}
