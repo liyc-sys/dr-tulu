@@ -1,0 +1,1027 @@
+{
+  "example_id": "0ddfcbd4323ccafa1256f9fbf58ba127",
+  "problem": "What was the number of recorded injuries in the Weesp train disaster of 1918 in the Netherlands?",
+  "final_response": "42",
+  "full_traces": {
+    "generated_text": "<think>Decompose the question: It asks for the number of recorded injuries in the 1918 Weesp train disaster in the Netherlands. Assumptions: Multiple sources (news, encyclopedias, historical archives) will report consistent figures. Plan: \n1) Start with a broad web search for the exact event and keywords \"injuries\" to find authoritative pages (e.g., Dutch Wikipedia, Britannica, local municipality pages, news archives).\n2) Cross-check at least two sources to confirm the number and note if counts differ (e.g., injured vs. wounded, survivors counted separately).\n3) If discrepancies appear, refine search to official reports or archival sources (e.g., \"NOS,\" \"Telegraph,\" \"Gemeente Weesp,\" \"Nationaal Archief\").\n4) Gather consistent number; provide minimal boxed answer with citations.\n\nFirst query: \"Weesp train disaster 1918 injuries\"</think>\n<call_tool name=\"google_search\" num=\"5\" gl=\"us\" hl=\"en\">Weesp train disaster 1918 injuries</call_tool><tool_output><snippet id=47c00bb1-0>\nTitle: Watery Ways: The 1918 Weesp (Netherlands) Train Derailment\nURL: https://mx-schroeder.medium.com/watery-ways-the-1918-weesp-netherlands-train-derailment-06b2b5b1fe27\nSnippet: 41 passengers are dead, 42 more are injured. The locomotive crew is unharmed though as the derailing train had slowed their forward momentum ...\n</snippet>\n<snippet id=47c00bb1-1>\nTitle: Netherland's Train Crash: Weesp Wreck 106 years Later - YouTube\nURL: https://www.youtube.com/watch?v=Xl1d5TvlI4Y\nSnippet: 1918 Weesp (Netherlands) Train Crash Documentary | 1918 Weesp (Netherlands) Train ... injured when heavy rainfall caused the railway ...\n</snippet>\n<snippet id=47c00bb1-2>\nTitle: The 1918 Weesp (Netherlands) Train Derailment. A poorly ... - Reddit\nURL: https://www.reddit.com/r/CatastrophicFailure/comments/1attdkv/the_1918_weesp_netherlands_train_derailment_a/\nSnippet: 7 killed, over 100 injured. r/CatastrophicFailure. • 3d ago ...\n</snippet>\n<snippet id=47c00bb1-3>\nTitle: Great Train Wreck of 1918 - Wikipedia\nURL: https://en.wikipedia.org/wiki/Great_Train_Wreck_of_1918\nSnippet: Louis Railway (\"NC&StL\"), collided head-on, costing at least 101 lives and injuring an additional 171. It is considered the worst rail accident in U.S. history, ...\n</snippet>\n<snippet id=47c00bb1-4>\nTitle: It'll be all over by Christmas - part 3 - Mike Jupp\nURL: https://mikejupp.uk/itll-be-all-over-by-christmas-part-3/\nSnippet: June 22, 1918 – United States – Hammond, Indiana: An empty troop train runs into the back of a halted Circus Train, resulting in 86 deaths and 127 injured. The ...\n</snippet>\n<snippet id=47c00bb1-5>\nTitle: List of rail accidents (1910–1919) - Wikiwand\nURL: https://www.wikiwand.com/en/articles/List_of_rail_accidents_(1910%E2%80%931919)\nSnippet: This list details rail accidents from 1910-1919, including a UK crossing gate accident, a Canadian derailment, a US avalanche, and a US locomotive explosion.\n</snippet>\n<snippet id=47c00bb1-6>\nTitle: File:Weesp 1918 Train Disaster.jpg - Wikimedia Commons\nURL: https://commons.wikimedia.org/wiki/File:Weesp_1918_Train_Disaster.jpg\nSnippet: Summary ; Date, 13 September 1918 ; Source, Various sources on the subject \"Treinramp Weesp 1918\" (1918 train disaster Weesp, The Netherlands) found at the Web.\n</snippet>\n<snippet id=47c00bb1-7>\nTitle: The Train Accident that Changed US Railroads Forever\nURL: https://www.arnolditkin.com/blog/train-accidents/the-train-accident-that-changed-us-railroads-for/\nSnippet: Many historians place the number of deaths at 101 while other reports place the number of dead as high as 121. Additionally, at least 171 people were seriously ...\n</snippet>\n<snippet id=47c00bb1-8>\nTitle: The Great Train Wreck Of 1918: Tragedy On The Rails | Steam Giants\nURL: https://steamgiants.com/wiki/events/great-train-wreck-of-1918/\nSnippet: The wreck was catastrophic as more than 120 people died and 170 were injured. Among the casualties was William Lloyd, the engineer on the #1 train.\n</snippet></tool_output> \n\nThe initial search returned mixed results. Relevant: Medium article citing \"41 dead, 42 injured\" (likely incorrect for Weesp) and Reddit/comments suggesting 7 dead, >100 injured (likely conflating Weesp with US 1918 derailments). Irrelevant: US \"Great Train Wreck of 1918\" (Hammond, Indiana). I need authoritative Dutch sources (Dutch Wikipedia, municipality of Weesp, Dutch news archives like NOS/Telegraaf). Next query: \"Weesp treinramp 1918 gewonden\" (Dutch) to find local records and numbers.</think>\n<call_tool name=\"google_search\" num=\"5\" gl=\"nl\" hl=\"nl\">Weesp treinramp 1918 gewonden</call_tool><tool_output><snippet id=80ba6527-0>\nTitle: Honderd jaar na groot treinongeluk Weesp - ProRail\nURL: https://www.prorail.nl/nieuws/honderd-jaar-na-groot-treinongeluk-weesp\nSnippet: Vrijdag 13 september 1918 vond bij Weesp een groot treinongeluk plaats. Met 41 doden was dit één van de grootste treinrampen in de Nederlandse ...\n</snippet>\n<snippet id=80ba6527-1>\nTitle: Weesp train disaster - Wikipedia\nURL: https://en.wikipedia.org/wiki/Weesp_train_disaster\nSnippet: The Weesp train disaster took place on 13 September 1918 near Weesp, Netherlands. With 41 deaths and 42 injuries, it was the largest train disaster in Dutch ...\n</snippet>\n<snippet id=80ba6527-2>\nTitle: Gruwelijke details van treinramp Weesp: 'Lijken zonder hoofd óf ...\nURL: https://www.noordhollandsdagblad.nl/regio/gooi/gruwelijke-details-van-treinramp-weesp-lijken-zonder-hoofd-of-zonder-armen-video/10649452.html\nSnippet: WeespMet 41 doden en 42 gewonden was de treinramp bij Weesp op 13 september 1918 lange tijd - tot Harmelen (1962, 93 doden en 52 gewonden) ...\n</snippet>\n<snippet id=80ba6527-3>\nTitle: Geschiedenis treinongelukken - NOS\nURL: https://nos.nl/nieuwsuur/artikel/365485-geschiedenis-treinongelukken\nSnippet: 1918, 13 september, Weesp Door hevige ... Het is het grootste treinongeluk in de Nederlandse geschiedenis, met 93 doden en 52 gewonden.\n</snippet>\n<snippet id=80ba6527-4>\nTitle: Veel slachtoffers 'vreeselijk verminkt' na ramp met trein die vanaf de ...\nURL: https://www.ad.nl/amersfoort/veel-slachtoffers-vreeselijk-verminkt-na-ramp-met-trein-die-vanaf-de-spoordijk-gleed~ae54bc3a/223557494/\nSnippet: Op 13 september 1918 gleed de trein uit Amersfoort in Weesp van de doorweekte spoordijk af. Er vielen 41 doden en 42 gewonden.\n</snippet>\n<snippet id=80ba6527-5>\nTitle: Dodelijke treinramp Weesp van 1918 herdacht | SpoorPro.nl\nURL: https://www.spoorpro.nl/materieel/2018/09/14/dodelijke-treinramp-weesp-van-1918-herdacht/\nSnippet: Er vielen in totaal 41 doden en 42 gewonden bij de treinramp. Er waren geen slachtoffers onder het treinpersoneel.\n</snippet>\n<snippet id=80ba6527-6>\nTitle: Hoofdstuk 13 - Treinramp 'De Amsterdamse Drosten' door Bert Bolle\nURL: https://www.nicospilt.com/bolle/weesp.htm\nSnippet: Dit verhaal gaat over de grote treinramp bij Weesp die op vrijdag 13 september 1918 plaatsvond. ... gewonden en een overledene, het tweede had dertien gewonden ...\n</snippet>\n<snippet id=80ba6527-7>\nTitle: Treinramp Weesp Archieven - OudWinterswijk\nURL: https://www.oudwinterswijk.nl/diversen/treinramp-weesp/\nSnippet: Woensdag 11 september 1918 ... In totaal zullen er 41 doden en 42 gewonden vallen bij deze grootste treinramp in de Nederlandse geschiedenis tot 1962.\n</snippet>\n<snippet id=80ba6527-8>\nTitle: Nederlands spoor relatief veilig | Trouw\nURL: https://www.trouw.nl/nieuws/nederlands-spoor-relatief-veilig~bfd808e2/\nSnippet: 1918 - Weesp De eerste grote treinramp vond in 1918 plaats bij Weesp. Het ongeluk gebeurde bij de brug over het huidige Amsterdam-Rijnkanaal ...\n</snippet></tool_output> \n\nSummary of second search: Multiple Dutch sources converge on 41 dead and 42 injured/gewonden: Dutch Wikipedia (en/nl), ProRail article, Noord-Holland Dagblad, AD, SpoorPro, and a detailed page on Nicospilt (compilation). There's a discrepancy with NOS snippet showing 93 dead and 52 injured, which likely refers to an earlier (1902) Weesp bridge collapse, not the 1918 crash. I should verify the NOS page or find an authoritative source confirming the 1918 numbers.\n\nNext query: target NOS or other reputable Dutch outlets explicitly about 1918 Weesp: \"NOS Weesp 1918 41 doden 42 gewonden\"</think>\n<call_tool name=\"google_search\" num=\"5\" gl=\"nl\" hl=\"nl\">NOS Weesp 1918 41 doden 42 gewonden</call_tool><tool_output><snippet id=ebdde8ca-0>\nTitle: Geschiedenis treinongelukken - NOS\nURL: https://nos.nl/nieuwsuur/artikel/365485-geschiedenis-treinongelukken\nSnippet: 1918, 13 september, Weesp Door hevige regenval verzakt de brug over het Merwedekanaal. Een passagierstrein ontspoort en de locomotief botst ...\n</snippet>\n<snippet id=ebdde8ca-1>\nTitle: Treinramp bij Weesp - Wikipedia\nURL: https://nl.wikipedia.org/wiki/Treinramp_bij_Weesp\nSnippet: Op vrijdag 13 september 1918 vond nabij Weesp een groot spoorwegongeval plaats. Met 41 doden en 42 gewonden was dit de grootste treinramp in de Nederlandse ...\n</snippet>\n<snippet id=ebdde8ca-2>\nTitle: Honderd jaar na groot treinongeluk Weesp - ProRail\nURL: https://www.prorail.nl/nieuws/honderd-jaar-na-groot-treinongeluk-weesp\nSnippet: Vrijdag 13 september 1918 vond bij Weesp een groot treinongeluk plaats. Met 41 doden was dit één van de grootste treinrampen in de Nederlandse ...\n</snippet>\n<snippet id=ebdde8ca-3>\nTitle: Spoorwegongeluk Weesp 1918 - Langs de rails\nURL: https://www.nicospilt.com/Weesp1918.htm\nSnippet: Op vrijdag 13 september 1918 vond bij de brug over het Merwedekanaal (later Amsterdam-Rijnkanaal genoemd) een spoorwegongeval plaats van voor Nederland tot dan ...\n</snippet>\n<snippet id=ebdde8ca-4>\nTitle: [PDF] Kramp na de ramp - Slachtofferhulp Nederland\nURL: https://www.slachtofferhulp.nl/globalassets/media/professionals/publicaties-pdf/manifest-kramp-na-de-ramp---slachtofferhulp-nederland.pdf\nSnippet: Treinramp Weesp. Met 41 doden en 42 gewonden was dit een van de groot- ste treinrampen in de Nederlandse geschiedenis. De snel- trein 102 van Amersfoort naar ...\n</snippet>\n<snippet id=ebdde8ca-5>\nTitle: Een venster op verdriet - de lage landen\nURL: https://www.de-lage-landen.com/article/een-venster-op-verdriet/\nSnippet: Er waren 41 doden te betreuren, nog eens 42 mensen raakten gewond. Eerste hulp werd verleend door artsen, militairen en vier nonnen – hulp ...\n</snippet>\n<snippet id=ebdde8ca-6>\nTitle: Dodelijke treinramp Weesp van 1918 herdacht | SpoorPro.nl\nURL: https://www.spoorpro.nl/materieel/2018/09/14/dodelijke-treinramp-weesp-van-1918-herdacht/\nSnippet: Er vielen in totaal 41 doden en 42 gewonden bij de treinramp. Er waren geen slachtoffers onder het treinpersoneel.\n</snippet>\n<snippet id=ebdde8ca-7>\nTitle: Weesp 1918 - TIS3\nURL: https://tis3.nl/incident/b69e9e48-e0f3-4104-a4e5-12e439c71498\nSnippet: Bij Weesp ontspoorde een sneltrein omdat de spoordijk het begaf. De trein stortte van het talud, waarbij 41 passagiers om het leven kwamen.\n</snippet>\n<snippet id=ebdde8ca-8>\nTitle: vorige - Vandaag in het Verleden - mobiel\nURL: https://www.vandaaginhetverleden.nl/index.php?actie=vorige&zoekdag=13&zoekmaand=9\nSnippet: 13 september 1918 - In de buurt van Weesp zakt de spoordijk bij de Merwedebrug in. Een sneltrein stort naar beneden. Er vallen 41 doden en 42 ...\n</snippet>\n<snippet id=ebdde8ca-9>\nTitle: Lijst van ernstige spoorwegongevallen in Nederland - Wikipedia\nURL: https://nl.wikipedia.org/wiki/Lijst_van_ernstige_spoorwegongevallen_in_Nederland\nSnippet: In dit chronologisch overzicht van ernstige spoorwegongevallen in Nederland is een zo compleet mogelijk overzicht gegeven van ernstige spoorwegongevallen in ...\n</snippet></tool_output> \n\nThe third search confirms multiple Dutch authoritative sources listing 41 dead and 42 injured/gewonden (Dutch Wikipedia, ProRail, Noord-Holland Dagblad, AD, SpoorPro, Slachtofferhulp, de Lage Landen). The earlier NOS snippet likely mixed in the 1902 Weesp bridge disaster; I will look for a clarifying source on NOS or an official commemoration page to fully resolve the discrepancy.\n\nNext query: \"Weesp treinramp 1918 41 doden 42 gewonden ProRail herdenking\"</think>\n<call_tool name=\"google_search\" num=\"5\" gl=\"nl\" hl=\"nl\">Weesp treinramp 1918 41 doden 42 gewonden ProRail herdenking</call_tool><tool_output><snippet id=8b2aa457-0>\nTitle: Treinramp bij Weesp - Wikipedia\nURL: https://nl.wikipedia.org/wiki/Treinramp_bij_Weesp\nSnippet: Op vrijdag 13 september 1918 vond nabij Weesp een groot spoorwegongeval plaats. Met 41 doden en 42 gewonden was dit de grootste treinramp in de Nederlandse ...\n</snippet>\n<snippet id=8b2aa457-1>\nTitle: Honderd jaar na groot treinongeluk Weesp - ProRail\nURL: https://www.prorail.nl/nieuws/honderd-jaar-na-groot-treinongeluk-weesp\nSnippet: Vrijdag 13 september 1918 vond bij Weesp een groot treinongeluk plaats. Met 41 doden was dit één van de grootste treinrampen in de Nederlandse ...\n</snippet>\n<snippet id=8b2aa457-2>\nTitle: Weesp train disaster - Wikipedia\nURL: https://en.wikipedia.org/wiki/Weesp_train_disaster\nSnippet: The Weesp train disaster took place on 13 September 1918 near Weesp, Netherlands. With 41 deaths and 42 injuries, it was the largest train disaster in Dutch ...\n</snippet>\n<snippet id=8b2aa457-3>\nTitle: Dodelijke treinramp Weesp van 1918 herdacht | SpoorPro.nl\nURL: https://www.spoorpro.nl/materieel/2018/09/14/dodelijke-treinramp-weesp-van-1918-herdacht/\nSnippet: Bij het ongeval kwamen 41 mensen om het leven doordat de trein van een dijk afgleed. Het ongeval is een van de grootste treinongelukken in de ...\n</snippet>\n<snippet id=8b2aa457-4>\nTitle: Weesp train disaster , Gooise Meren Podcast - Loquis\nURL: https://www.loquis.com/en/loquis/2023998/Weesp+train+disaster\nSnippet: It took place on 13 September 1918 near Weesp in the Netherlands. With 41 deaths and 42 injured, it was the largest train disaster in Dutch railway history ...\n</snippet>\n<snippet id=8b2aa457-5>\nTitle: Weesp 1918 - TIS3\nURL: https://tis3.nl/incident/b69e9e48-e0f3-4104-a4e5-12e439c71498\nSnippet: Bij Weesp ontspoorde een sneltrein omdat de spoordijk het begaf. De trein stortte van het talud, waarbij 41 passagiers om het leven kwamen.\n</snippet>\n<snippet id=8b2aa457-6>\nTitle: Spoorweg Weesp (jaartal: 1910 tot 1920) - Foto's SERC\nURL: http://fotos.serc.nl/noord-holland/weesp/weesp-53875/\nSnippet: Op vrijdag 13 september 1918 vond nabij Weesp een groot spoorwegongeval plaats. Met 41 doden en 42 gewonden was dit de grootste treinramp in ...\n</snippet>\n<snippet id=8b2aa457-7>\nTitle: Rond half elf in de ochtend reed de trein de helling op naar de brug ...\nURL: https://www.vergetenverleden.nl/trweesp.html\nSnippet: Op vrijdag 13 september 1918 vond bij Weesp de tweede grootste treinramp plaats uit de Nederlandse geschiedenis. ... In totaal verloren 41 mensen het leven bij ...\n</snippet>\n<snippet id=8b2aa457-8>\nTitle: Mijn boekenkast - Nico Spilt\nURL: https://www.nicospilt.com/boeken1.htm\nSnippet: ... Weesp in vroeger tijden · Weesp, spoorwegongeluk 1918 · Westervoort (spoorbrug) · Winschoten · Winterswijk • Transit Oost · Woerden · Woerden, ongelukken\n</snippet>\n<snippet id=8b2aa457-9>\nTitle: [PDF] 2018 - Buun Venlo\nURL: https://www.buunvenlo.nl/wp-content/uploads/2020/05/Buun-2018-compressed.pdf\nSnippet: Joep werkte begin jaren negentig in Hilversum, zijn vrouw in Weesp. Ze woonden samen in Laren en daarna in Weesp, maar allebei hun ouders komen uit Venlo ...\n</snippet></tool_output> \n\nFourth search confirms consistency: Dutch Wikipedia, ProRail, Dutch sources (Noord-Holland Dagblad, AD), and organizations (Slachtofferhulp, de Lage Landen) report 41 dead and 42 injured/gewonden. One NOS history page snippet appeared to list higher numbers, but that likely conflated the 1902 Weesp bridge collapse with the 1918 event; multiple other Dutch sources and commemorative pages give 41–42. Evidence is sufficient: I will provide the minimal boxed number.</think>\n<answer>\\boxed{42}</answer>",
+    "total_tokens": 6620,
+    "tool_call_count": 4,
+    "stopped_reason": "natural",
+    "tool_calls": [
+      {
+        "tool_name": "google_search",
+        "output": "Title: Watery Ways: The 1918 Weesp (Netherlands) Train Derailment\nURL: https://mx-schroeder.medium.com/watery-ways-the-1918-weesp-netherlands-train-derailment-06b2b5b1fe27\nSnippet: 41 passengers are dead, 42 more are injured. The locomotive crew is unharmed though as the derailing train had slowed their forward momentum ...\n\nTitle: Netherland's Train Crash: Weesp Wreck 106 years Later - YouTube\nURL: https://www.youtube.com/watch?v=Xl1d5TvlI4Y\nSnippet: 1918 Weesp (Netherlands) Train Crash Documentary | 1918 Weesp (Netherlands) Train ... injured when heavy rainfall caused the railway ...\n\nTitle: The 1918 Weesp (Netherlands) Train Derailment. A poorly ... - Reddit\nURL: https://www.reddit.com/r/CatastrophicFailure/comments/1attdkv/the_1918_weesp_netherlands_train_derailment_a/\nSnippet: 7 killed, over 100 injured. r/CatastrophicFailure. • 3d ago ...\n\nTitle: Great Train Wreck of 1918 - Wikipedia\nURL: https://en.wikipedia.org/wiki/Great_Train_Wreck_of_1918\nSnippet: Louis Railway (\"NC&StL\"), collided head-on, costing at least 101 lives and injuring an additional 171. It is considered the worst rail accident in U.S. history, ...\n\nTitle: It'll be all over by Christmas - part 3 - Mike Jupp\nURL: https://mikejupp.uk/itll-be-all-over-by-christmas-part-3/\nSnippet: June 22, 1918 – United States – Hammond, Indiana: An empty troop train runs into the back of a halted Circus Train, resulting in 86 deaths and 127 injured. The ...\n\nTitle: List of rail accidents (1910–1919) - Wikiwand\nURL: https://www.wikiwand.com/en/articles/List_of_rail_accidents_(1910%E2%80%931919)\nSnippet: This list details rail accidents from 1910-1919, including a UK crossing gate accident, a Canadian derailment, a US avalanche, and a US locomotive explosion.\n\nTitle: File:Weesp 1918 Train Disaster.jpg - Wikimedia Commons\nURL: https://commons.wikimedia.org/wiki/File:Weesp_1918_Train_Disaster.jpg\nSnippet: Summary ; Date, 13 September 1918 ; Source, Various sources on the subject \"Treinramp Weesp 1918\" (1918 train disaster Weesp, The Netherlands) found at the Web.\n\nTitle: The Train Accident that Changed US Railroads Forever\nURL: https://www.arnolditkin.com/blog/train-accidents/the-train-accident-that-changed-us-railroads-for/\nSnippet: Many historians place the number of deaths at 101 while other reports place the number of dead as high as 121. Additionally, at least 171 people were seriously ...\n\nTitle: The Great Train Wreck Of 1918: Tragedy On The Rails | Steam Giants\nURL: https://steamgiants.com/wiki/events/great-train-wreck-of-1918/\nSnippet: The wreck was catastrophic as more than 120 people died and 170 were injured. Among the casualties was William Lloyd, the engineer on the #1 train.",
+        "called": true,
+        "timeout": false,
+        "runtime": 11.557187557220459,
+        "error": "",
+        "call_id": "47c00bb1",
+        "raw_output": {
+          "searchParameters": {
+            "q": "Weesp train disaster 1918 injuries",
+            "gl": "us",
+            "hl": "en",
+            "type": "search",
+            "num": 10,
+            "engine": "google"
+          },
+          "answerBox": {
+            "snippet": "The Weesp train disaster took place on 13 September 1918 near Weesp, Netherlands. With 41 deaths and 42 injuries, it was the largest train disaster in Dutch railway history until the 1962 Harmelen train disaster.",
+            "snippetHighlighted": [
+              "42 injuries"
+            ],
+            "title": "Weesp train disaster - Wikipedia",
+            "link": "https://en.wikipedia.org/wiki/Weesp_train_disaster"
+          },
+          "organic": [
+            {
+              "title": "Watery Ways: The 1918 Weesp (Netherlands) Train Derailment",
+              "link": "https://mx-schroeder.medium.com/watery-ways-the-1918-weesp-netherlands-train-derailment-06b2b5b1fe27",
+              "snippet": "41 passengers are dead, 42 more are injured. The locomotive crew is unharmed though as the derailing train had slowed their forward momentum ...",
+              "date": "Feb 17, 2024",
+              "position": 1
+            },
+            {
+              "title": "Netherland's Train Crash: Weesp Wreck 106 years Later - YouTube",
+              "link": "https://www.youtube.com/watch?v=Xl1d5TvlI4Y",
+              "snippet": "1918 Weesp (Netherlands) Train Crash Documentary | 1918 Weesp (Netherlands) Train ... injured when heavy rainfall caused the railway ...",
+              "date": "Mar 13, 2025",
+              "position": 2
+            },
+            {
+              "title": "The 1918 Weesp (Netherlands) Train Derailment. A poorly ... - Reddit",
+              "link": "https://www.reddit.com/r/CatastrophicFailure/comments/1attdkv/the_1918_weesp_netherlands_train_derailment_a/",
+              "snippet": "7 killed, over 100 injured. r/CatastrophicFailure. • 3d ago ...",
+              "date": "Feb 18, 2024",
+              "sitelinks": [
+                {
+                  "title": "Bad train crash in the Netherlands : r/trains - Reddit",
+                  "link": "https://www.reddit.com/r/trains/comments/12bd2bz/bad_train_crash_in_the_netherlands/"
+                },
+                {
+                  "title": "Train Crash Series #213: Watery Ways: The 1918 Weesp ... - Reddit",
+                  "link": "https://www.reddit.com/r/TrainCrashSeries/comments/1attg5d/train_crash_series_213_watery_ways_the_1918_weesp/"
+                }
+              ],
+              "position": 3
+            },
+            {
+              "title": "Great Train Wreck of 1918 - Wikipedia",
+              "link": "https://en.wikipedia.org/wiki/Great_Train_Wreck_of_1918",
+              "snippet": "Louis Railway (\"NC&StL\"), collided head-on, costing at least 101 lives and injuring an additional 171. It is considered the worst rail accident in U.S. history, ...",
+              "attributes": {
+                "Missing": "Weesp | Show results with:Weesp"
+              },
+              "position": 4
+            },
+            {
+              "title": "It'll be all over by Christmas - part 3 - Mike Jupp",
+              "link": "https://mikejupp.uk/itll-be-all-over-by-christmas-part-3/",
+              "snippet": "June 22, 1918 – United States – Hammond, Indiana: An empty troop train runs into the back of a halted Circus Train, resulting in 86 deaths and 127 injured. The ...",
+              "position": 5
+            },
+            {
+              "title": "List of rail accidents (1910–1919) - Wikiwand",
+              "link": "https://www.wikiwand.com/en/articles/List_of_rail_accidents_(1910%E2%80%931919)",
+              "snippet": "This list details rail accidents from 1910-1919, including a UK crossing gate accident, a Canadian derailment, a US avalanche, and a US locomotive explosion.",
+              "position": 6
+            },
+            {
+              "title": "File:Weesp 1918 Train Disaster.jpg - Wikimedia Commons",
+              "link": "https://commons.wikimedia.org/wiki/File:Weesp_1918_Train_Disaster.jpg",
+              "snippet": "Summary ; Date, 13 September 1918 ; Source, Various sources on the subject \"Treinramp Weesp 1918\" (1918 train disaster Weesp, The Netherlands) found at the Web.",
+              "attributes": {
+                "Missing": "injuries | Show results with:injuries"
+              },
+              "position": 7
+            },
+            {
+              "title": "The Train Accident that Changed US Railroads Forever",
+              "link": "https://www.arnolditkin.com/blog/train-accidents/the-train-accident-that-changed-us-railroads-for/",
+              "snippet": "Many historians place the number of deaths at 101 while other reports place the number of dead as high as 121. Additionally, at least 171 people were seriously ...",
+              "attributes": {
+                "Missing": "Weesp | Show results with:Weesp"
+              },
+              "position": 8
+            },
+            {
+              "title": "The Great Train Wreck Of 1918: Tragedy On The Rails | Steam Giants",
+              "link": "https://steamgiants.com/wiki/events/great-train-wreck-of-1918/",
+              "snippet": "The wreck was catastrophic as more than 120 people died and 170 were injured. Among the casualties was William Lloyd, the engineer on the #1 train.",
+              "attributes": {
+                "Missing": "Weesp | Show results with:Weesp"
+              },
+              "position": 9
+            }
+          ],
+          "peopleAlsoAsk": [
+            {
+              "question": "What was the worst subway accident in history?",
+              "snippet": "The Malbone Street wreck remains the deadliest crash in the New York City Subway's history, as well as one of the worst rapid transit crashes in the history of the United States. The reported death toll ranged from 93 to 102, with about 250 injuries.",
+              "title": "Malbone Street wreck - Wikipedia",
+              "link": "https://en.wikipedia.org/wiki/Malbone_Street_wreck"
+            },
+            {
+              "question": "What happened to the truck driver in the Kerang train crash?",
+              "snippet": "On 18 August 2008, Scholl was committed for trial on 11 charges of causing death by culpable driving and 8 charges of causing injury by negligent driving. His trial began in Bendigo on 26 May 2009. On 13 June 2009, he was found not guilty on all charges.",
+              "title": "Kerang train accident - Wikipedia",
+              "link": "https://en.wikipedia.org/wiki/Kerang_train_accident"
+            },
+            {
+              "question": "How many people died in the Great Train Wreck of 1918?",
+              "snippet": "101\nGreat Train Wreck of 1918 / Number of deaths"
+            },
+            {
+              "question": "What was the worst accident in Amtrak history?",
+              "snippet": "Big Bayou Canot rail accident. The Big Bayou Canot rail accident refers to the derailment of the Amtrak Sunset Limited passenger train on the CSX Transportation Big Bayou Canot Bridge near Mobile, Alabama, on September 22, 1993.",
+              "title": "Big Bayou Canot rail accident - Wikipedia",
+              "link": "https://en.wikipedia.org/wiki/Big_Bayou_Canot_rail_accident"
+            }
+          ],
+          "relatedSearches": [
+            {
+              "query": "Train accident Netherlands today"
+            },
+            {
+              "query": "Harmelen train disaster"
+            },
+            {
+              "query": "1912 train crash"
+            },
+            {
+              "query": "NS train accident"
+            },
+            {
+              "query": "Holland train crash"
+            },
+            {
+              "query": "July 4, 1910 train wreck"
+            },
+            {
+              "query": "Amsterdam train crash"
+            },
+            {
+              "query": "The Great train wreck of 1918"
+            }
+          ],
+          "credits": 1
+        },
+        "documents": [
+          {
+            "id": "856429b9-5dea-4706-a6b4-e1f887b5be83",
+            "title": "Watery Ways: The 1918 Weesp (Netherlands) Train Derailment",
+            "url": "https://mx-schroeder.medium.com/watery-ways-the-1918-weesp-netherlands-train-derailment-06b2b5b1fe27",
+            "snippet": "41 passengers are dead, 42 more are injured. The locomotive crew is unharmed though as the derailing train had slowed their forward momentum ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "77b0db6b-61d0-4e31-b72a-53c2a6d2caa5",
+            "title": "Netherland's Train Crash: Weesp Wreck 106 years Later - YouTube",
+            "url": "https://www.youtube.com/watch?v=Xl1d5TvlI4Y",
+            "snippet": "1918 Weesp (Netherlands) Train Crash Documentary | 1918 Weesp (Netherlands) Train ... injured when heavy rainfall caused the railway ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "0d778a24-dc1d-454e-bb22-fb5ee4ae649a",
+            "title": "The 1918 Weesp (Netherlands) Train Derailment. A poorly ... - Reddit",
+            "url": "https://www.reddit.com/r/CatastrophicFailure/comments/1attdkv/the_1918_weesp_netherlands_train_derailment_a/",
+            "snippet": "7 killed, over 100 injured. r/CatastrophicFailure. • 3d ago ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "a18a7ce6-c718-4aa9-8a30-f33ebff674ed",
+            "title": "Great Train Wreck of 1918 - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Great_Train_Wreck_of_1918",
+            "snippet": "Louis Railway (\"NC&StL\"), collided head-on, costing at least 101 lives and injuring an additional 171. It is considered the worst rail accident in U.S. history, ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "87841a1a-5f72-4467-9485-2685e8af7376",
+            "title": "It'll be all over by Christmas - part 3 - Mike Jupp",
+            "url": "https://mikejupp.uk/itll-be-all-over-by-christmas-part-3/",
+            "snippet": "June 22, 1918 – United States – Hammond, Indiana: An empty troop train runs into the back of a halted Circus Train, resulting in 86 deaths and 127 injured. The ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "5a96e502-a0cc-4514-abf6-994a0e3b56a4",
+            "title": "List of rail accidents (1910–1919) - Wikiwand",
+            "url": "https://www.wikiwand.com/en/articles/List_of_rail_accidents_(1910%E2%80%931919)",
+            "snippet": "This list details rail accidents from 1910-1919, including a UK crossing gate accident, a Canadian derailment, a US avalanche, and a US locomotive explosion.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "1636315e-ce7a-4e9f-8e3a-c0c14b397041",
+            "title": "File:Weesp 1918 Train Disaster.jpg - Wikimedia Commons",
+            "url": "https://commons.wikimedia.org/wiki/File:Weesp_1918_Train_Disaster.jpg",
+            "snippet": "Summary ; Date, 13 September 1918 ; Source, Various sources on the subject \"Treinramp Weesp 1918\" (1918 train disaster Weesp, The Netherlands) found at the Web.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "becd2b31-8c57-45c0-8e62-9d33e6d3f4d5",
+            "title": "The Train Accident that Changed US Railroads Forever",
+            "url": "https://www.arnolditkin.com/blog/train-accidents/the-train-accident-that-changed-us-railroads-for/",
+            "snippet": "Many historians place the number of deaths at 101 while other reports place the number of dead as high as 121. Additionally, at least 171 people were seriously ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "dd7752bc-5545-4895-89e6-dc1d7449ccb5",
+            "title": "The Great Train Wreck Of 1918: Tragedy On The Rails | Steam Giants",
+            "url": "https://steamgiants.com/wiki/events/great-train-wreck-of-1918/",
+            "snippet": "The wreck was catastrophic as more than 120 people died and 170 were injured. Among the casualties was William Lloyd, the engineer on the #1 train.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          }
+        ],
+        "query": "Weesp train disaster 1918 injuries"
+      },
+      {
+        "tool_name": "google_search",
+        "output": "Title: Honderd jaar na groot treinongeluk Weesp - ProRail\nURL: https://www.prorail.nl/nieuws/honderd-jaar-na-groot-treinongeluk-weesp\nSnippet: Vrijdag 13 september 1918 vond bij Weesp een groot treinongeluk plaats. Met 41 doden was dit één van de grootste treinrampen in de Nederlandse ...\n\nTitle: Weesp train disaster - Wikipedia\nURL: https://en.wikipedia.org/wiki/Weesp_train_disaster\nSnippet: The Weesp train disaster took place on 13 September 1918 near Weesp, Netherlands. With 41 deaths and 42 injuries, it was the largest train disaster in Dutch ...\n\nTitle: Gruwelijke details van treinramp Weesp: 'Lijken zonder hoofd óf ...\nURL: https://www.noordhollandsdagblad.nl/regio/gooi/gruwelijke-details-van-treinramp-weesp-lijken-zonder-hoofd-of-zonder-armen-video/10649452.html\nSnippet: WeespMet 41 doden en 42 gewonden was de treinramp bij Weesp op 13 september 1918 lange tijd - tot Harmelen (1962, 93 doden en 52 gewonden) ...\n\nTitle: Geschiedenis treinongelukken - NOS\nURL: https://nos.nl/nieuwsuur/artikel/365485-geschiedenis-treinongelukken\nSnippet: 1918, 13 september, Weesp Door hevige ... Het is het grootste treinongeluk in de Nederlandse geschiedenis, met 93 doden en 52 gewonden.\n\nTitle: Veel slachtoffers 'vreeselijk verminkt' na ramp met trein die vanaf de ...\nURL: https://www.ad.nl/amersfoort/veel-slachtoffers-vreeselijk-verminkt-na-ramp-met-trein-die-vanaf-de-spoordijk-gleed~ae54bc3a/223557494/\nSnippet: Op 13 september 1918 gleed de trein uit Amersfoort in Weesp van de doorweekte spoordijk af. Er vielen 41 doden en 42 gewonden.\n\nTitle: Dodelijke treinramp Weesp van 1918 herdacht | SpoorPro.nl\nURL: https://www.spoorpro.nl/materieel/2018/09/14/dodelijke-treinramp-weesp-van-1918-herdacht/\nSnippet: Er vielen in totaal 41 doden en 42 gewonden bij de treinramp. Er waren geen slachtoffers onder het treinpersoneel.\n\nTitle: Hoofdstuk 13 - Treinramp 'De Amsterdamse Drosten' door Bert Bolle\nURL: https://www.nicospilt.com/bolle/weesp.htm\nSnippet: Dit verhaal gaat over de grote treinramp bij Weesp die op vrijdag 13 september 1918 plaatsvond. ... gewonden en een overledene, het tweede had dertien gewonden ...\n\nTitle: Treinramp Weesp Archieven - OudWinterswijk\nURL: https://www.oudwinterswijk.nl/diversen/treinramp-weesp/\nSnippet: Woensdag 11 september 1918 ... In totaal zullen er 41 doden en 42 gewonden vallen bij deze grootste treinramp in de Nederlandse geschiedenis tot 1962.\n\nTitle: Nederlands spoor relatief veilig | Trouw\nURL: https://www.trouw.nl/nieuws/nederlands-spoor-relatief-veilig~bfd808e2/\nSnippet: 1918 - Weesp De eerste grote treinramp vond in 1918 plaats bij Weesp. Het ongeluk gebeurde bij de brug over het huidige Amsterdam-Rijnkanaal ...",
+        "called": true,
+        "timeout": false,
+        "runtime": 78.57983779907227,
+        "error": "",
+        "call_id": "80ba6527",
+        "raw_output": {
+          "searchParameters": {
+            "q": "Weesp treinramp 1918 gewonden",
+            "gl": "us",
+            "hl": "en",
+            "type": "search",
+            "num": 10,
+            "engine": "google"
+          },
+          "answerBox": {
+            "snippet": "Met 41 doden en 42 gewonden was dit de grootste treinramp in de Nederlandse geschiedenis tot 1962, toen de treinramp bij Harmelen plaatsvond.",
+            "snippetHighlighted": [
+              "gewonden",
+              "treinramp",
+              "treinramp"
+            ],
+            "title": "Treinramp bij Weesp - Wikipedia",
+            "link": "https://nl.wikipedia.org/wiki/Treinramp_bij_Weesp"
+          },
+          "organic": [
+            {
+              "title": "Honderd jaar na groot treinongeluk Weesp - ProRail",
+              "link": "https://www.prorail.nl/nieuws/honderd-jaar-na-groot-treinongeluk-weesp",
+              "snippet": "Vrijdag 13 september 1918 vond bij Weesp een groot treinongeluk plaats. Met 41 doden was dit één van de grootste treinrampen in de Nederlandse ...",
+              "date": "Sep 14, 2018",
+              "position": 1
+            },
+            {
+              "title": "Weesp train disaster - Wikipedia",
+              "link": "https://en.wikipedia.org/wiki/Weesp_train_disaster",
+              "snippet": "The Weesp train disaster took place on 13 September 1918 near Weesp, Netherlands. With 41 deaths and 42 injuries, it was the largest train disaster in Dutch ...",
+              "attributes": {
+                "Missing": "gewonden | Show results with:gewonden"
+              },
+              "position": 2
+            },
+            {
+              "title": "Gruwelijke details van treinramp Weesp: 'Lijken zonder hoofd óf ...",
+              "link": "https://www.noordhollandsdagblad.nl/regio/gooi/gruwelijke-details-van-treinramp-weesp-lijken-zonder-hoofd-of-zonder-armen-video/10649452.html",
+              "snippet": "WeespMet 41 doden en 42 gewonden was de treinramp bij Weesp op 13 september 1918 lange tijd - tot Harmelen (1962, 93 doden en 52 gewonden) ...",
+              "date": "Sep 13, 2018",
+              "position": 3
+            },
+            {
+              "title": "Geschiedenis treinongelukken - NOS",
+              "link": "https://nos.nl/nieuwsuur/artikel/365485-geschiedenis-treinongelukken",
+              "snippet": "1918, 13 september, Weesp Door hevige ... Het is het grootste treinongeluk in de Nederlandse geschiedenis, met 93 doden en 52 gewonden.",
+              "date": "Dec 10, 2012",
+              "attributes": {
+                "Missing": "treinramp | Show results with:treinramp"
+              },
+              "position": 4
+            },
+            {
+              "title": "Veel slachtoffers 'vreeselijk verminkt' na ramp met trein die vanaf de ...",
+              "link": "https://www.ad.nl/amersfoort/veel-slachtoffers-vreeselijk-verminkt-na-ramp-met-trein-die-vanaf-de-spoordijk-gleed~ae54bc3a/223557494/",
+              "snippet": "Op 13 september 1918 gleed de trein uit Amersfoort in Weesp van de doorweekte spoordijk af. Er vielen 41 doden en 42 gewonden.",
+              "position": 5
+            },
+            {
+              "title": "Dodelijke treinramp Weesp van 1918 herdacht | SpoorPro.nl",
+              "link": "https://www.spoorpro.nl/materieel/2018/09/14/dodelijke-treinramp-weesp-van-1918-herdacht/",
+              "snippet": "Er vielen in totaal 41 doden en 42 gewonden bij de treinramp. Er waren geen slachtoffers onder het treinpersoneel.",
+              "date": "Sep 14, 2018",
+              "position": 6
+            },
+            {
+              "title": "Hoofdstuk 13 - Treinramp 'De Amsterdamse Drosten' door Bert Bolle",
+              "link": "https://www.nicospilt.com/bolle/weesp.htm",
+              "snippet": "Dit verhaal gaat over de grote treinramp bij Weesp die op vrijdag 13 september 1918 plaatsvond. ... gewonden en een overledene, het tweede had dertien gewonden ...",
+              "position": 7
+            },
+            {
+              "title": "Treinramp Weesp Archieven - OudWinterswijk",
+              "link": "https://www.oudwinterswijk.nl/diversen/treinramp-weesp/",
+              "snippet": "Woensdag 11 september 1918 ... In totaal zullen er 41 doden en 42 gewonden vallen bij deze grootste treinramp in de Nederlandse geschiedenis tot 1962.",
+              "position": 8
+            },
+            {
+              "title": "Nederlands spoor relatief veilig | Trouw",
+              "link": "https://www.trouw.nl/nieuws/nederlands-spoor-relatief-veilig~bfd808e2/",
+              "snippet": "1918 - Weesp De eerste grote treinramp vond in 1918 plaats bij Weesp. Het ongeluk gebeurde bij de brug over het huidige Amsterdam-Rijnkanaal ...",
+              "date": "Jul 26, 2013",
+              "position": 9
+            }
+          ],
+          "peopleAlsoAsk": [
+            {
+              "question": "Wat is het ergste treinongeluk in Nederland?",
+              "snippet": "Harmelen, 8 januari 1962: Dit is het ernstigste treinongeval in de Nederlandse geschiedenis, waarbij 93 mensen om het leven kwamen en tientallen gewond raakten. Het ongeluk was het gevolg van dichte mist en menselijk falen.",
+              "title": "Ernstige treinongelukken in Nederland op een rij: het spoor ...",
+              "link": "https://www.treinreiziger.nl/ernstige-treinongelukken-in-nederland-op-een-rij/"
+            },
+            {
+              "question": "Wat was de oorzaak van de grote treinramp van 1918?",
+              "snippet": "Uit een onderzoek van de Interstate Commerce Commission (ICC) bleek dat het ongeluk aan verschillende factoren te wijten was, met name aan ernstige fouten van de bemanning van trein nr. 4 en de machinisten van de verkeerstorens . Zij hadden geen van allen de aanwezigheid van trein nr. 1 op het spoor in de gaten gehouden.",
+              "title": "Grote treinramp van 1918 - Wikipedia",
+              "link": "https://translate.google.com/translate?u=https://en.wikipedia.org/wiki/Great_Train_Wreck_of_1918&hl=nl&sl=en&tl=nl&client=rq"
+            },
+            {
+              "question": "Wie ruimt op na aanrijding trein?",
+              "snippet": "Reiniging Na Ongeval (RNO) is zeer specialistische schoonmaak. Onze RNO-schoonmakers komen in actie als een trein een ongeluk heeft gehad. Denk aan een botsing met een dier, een voetganger, een fietser of auto. Of als iemand helaas heeft besloten zijn leven te beëindigen door voor een trein te springen.",
+              "title": "Reiniging na ongeval | Cleaningservices - Vebego",
+              "link": "https://www.vebego.nl/cleaningservices/schoonmaakdiensten/trein/reiniging-na-ongeval"
+            },
+            {
+              "question": "Hoeveel doden vielen er bij het treinongeluk?",
+              "snippet": "In totaal werden er 24.678 gevallen van spoorwegongevallen gemeld, een stijging van 6,7 procent in 2023 ten opzichte van 2022 (23.139). De spoorwegongevallen veroorzaakten in 2023 3.014 gewonden en 21.803 doden , aldus het NCRB-rapport.",
+              "title": "Meer dan 21.000 doden bij spoorwegongevallen in 2023",
+              "link": "https://translate.google.com/translate?u=https://www.ndtv.com/india-news/over-21-000-deaths-in-railway-related-accidents-in-2023-data-9372155&hl=nl&sl=en&tl=nl&client=rq"
+            }
+          ],
+          "relatedSearches": [
+            {
+              "query": "Ongeval Weesp vandaag"
+            },
+            {
+              "query": "Treinramp Harmelen"
+            },
+            {
+              "query": "Treinramp 1950"
+            },
+            {
+              "query": "Ergste treinongeluk ooit"
+            },
+            {
+              "query": "Treinongeluk jaren 60"
+            },
+            {
+              "query": "Treinramp Nijmegen 1979"
+            },
+            {
+              "query": "Treinongeluk De Vink"
+            },
+            {
+              "query": "Treinongeluk Heeze 1986"
+            }
+          ],
+          "credits": 1
+        },
+        "documents": [
+          {
+            "id": "457430ee-0ce3-4631-a58a-8ea50a21f166",
+            "title": "Honderd jaar na groot treinongeluk Weesp - ProRail",
+            "url": "https://www.prorail.nl/nieuws/honderd-jaar-na-groot-treinongeluk-weesp",
+            "snippet": "Vrijdag 13 september 1918 vond bij Weesp een groot treinongeluk plaats. Met 41 doden was dit één van de grootste treinrampen in de Nederlandse ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "de6a6ff8-3afd-4625-b3e3-612af6e50098",
+            "title": "Weesp train disaster - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Weesp_train_disaster",
+            "snippet": "The Weesp train disaster took place on 13 September 1918 near Weesp, Netherlands. With 41 deaths and 42 injuries, it was the largest train disaster in Dutch ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "b16ca571-694f-4df1-adae-0e8725eb59a2",
+            "title": "Gruwelijke details van treinramp Weesp: 'Lijken zonder hoofd óf ...",
+            "url": "https://www.noordhollandsdagblad.nl/regio/gooi/gruwelijke-details-van-treinramp-weesp-lijken-zonder-hoofd-of-zonder-armen-video/10649452.html",
+            "snippet": "WeespMet 41 doden en 42 gewonden was de treinramp bij Weesp op 13 september 1918 lange tijd - tot Harmelen (1962, 93 doden en 52 gewonden) ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "a62724d8-eaf6-4479-b0e7-5e46d7a0017f",
+            "title": "Geschiedenis treinongelukken - NOS",
+            "url": "https://nos.nl/nieuwsuur/artikel/365485-geschiedenis-treinongelukken",
+            "snippet": "1918, 13 september, Weesp Door hevige ... Het is het grootste treinongeluk in de Nederlandse geschiedenis, met 93 doden en 52 gewonden.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "34e5404a-0e98-4e9f-b581-942615d0cccf",
+            "title": "Veel slachtoffers 'vreeselijk verminkt' na ramp met trein die vanaf de ...",
+            "url": "https://www.ad.nl/amersfoort/veel-slachtoffers-vreeselijk-verminkt-na-ramp-met-trein-die-vanaf-de-spoordijk-gleed~ae54bc3a/223557494/",
+            "snippet": "Op 13 september 1918 gleed de trein uit Amersfoort in Weesp van de doorweekte spoordijk af. Er vielen 41 doden en 42 gewonden.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "4abadb1d-072c-4a2b-ba2e-2d72a55f846c",
+            "title": "Dodelijke treinramp Weesp van 1918 herdacht | SpoorPro.nl",
+            "url": "https://www.spoorpro.nl/materieel/2018/09/14/dodelijke-treinramp-weesp-van-1918-herdacht/",
+            "snippet": "Er vielen in totaal 41 doden en 42 gewonden bij de treinramp. Er waren geen slachtoffers onder het treinpersoneel.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "5d11cb94-f9aa-45fa-a0d8-fb7e3be1b7b2",
+            "title": "Hoofdstuk 13 - Treinramp 'De Amsterdamse Drosten' door Bert Bolle",
+            "url": "https://www.nicospilt.com/bolle/weesp.htm",
+            "snippet": "Dit verhaal gaat over de grote treinramp bij Weesp die op vrijdag 13 september 1918 plaatsvond. ... gewonden en een overledene, het tweede had dertien gewonden ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "5d957fd1-6a49-4085-8787-1260f2438b3e",
+            "title": "Treinramp Weesp Archieven - OudWinterswijk",
+            "url": "https://www.oudwinterswijk.nl/diversen/treinramp-weesp/",
+            "snippet": "Woensdag 11 september 1918 ... In totaal zullen er 41 doden en 42 gewonden vallen bij deze grootste treinramp in de Nederlandse geschiedenis tot 1962.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "bfe275bb-615f-4dcd-b70f-c2b289abe68a",
+            "title": "Nederlands spoor relatief veilig | Trouw",
+            "url": "https://www.trouw.nl/nieuws/nederlands-spoor-relatief-veilig~bfd808e2/",
+            "snippet": "1918 - Weesp De eerste grote treinramp vond in 1918 plaats bij Weesp. Het ongeluk gebeurde bij de brug over het huidige Amsterdam-Rijnkanaal ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          }
+        ],
+        "query": "Weesp treinramp 1918 gewonden"
+      },
+      {
+        "tool_name": "google_search",
+        "output": "Title: Geschiedenis treinongelukken - NOS\nURL: https://nos.nl/nieuwsuur/artikel/365485-geschiedenis-treinongelukken\nSnippet: 1918, 13 september, Weesp Door hevige regenval verzakt de brug over het Merwedekanaal. Een passagierstrein ontspoort en de locomotief botst ...\n\nTitle: Treinramp bij Weesp - Wikipedia\nURL: https://nl.wikipedia.org/wiki/Treinramp_bij_Weesp\nSnippet: Op vrijdag 13 september 1918 vond nabij Weesp een groot spoorwegongeval plaats. Met 41 doden en 42 gewonden was dit de grootste treinramp in de Nederlandse ...\n\nTitle: Honderd jaar na groot treinongeluk Weesp - ProRail\nURL: https://www.prorail.nl/nieuws/honderd-jaar-na-groot-treinongeluk-weesp\nSnippet: Vrijdag 13 september 1918 vond bij Weesp een groot treinongeluk plaats. Met 41 doden was dit één van de grootste treinrampen in de Nederlandse ...\n\nTitle: Spoorwegongeluk Weesp 1918 - Langs de rails\nURL: https://www.nicospilt.com/Weesp1918.htm\nSnippet: Op vrijdag 13 september 1918 vond bij de brug over het Merwedekanaal (later Amsterdam-Rijnkanaal genoemd) een spoorwegongeval plaats van voor Nederland tot dan ...\n\nTitle: [PDF] Kramp na de ramp - Slachtofferhulp Nederland\nURL: https://www.slachtofferhulp.nl/globalassets/media/professionals/publicaties-pdf/manifest-kramp-na-de-ramp---slachtofferhulp-nederland.pdf\nSnippet: Treinramp Weesp. Met 41 doden en 42 gewonden was dit een van de groot- ste treinrampen in de Nederlandse geschiedenis. De snel- trein 102 van Amersfoort naar ...\n\nTitle: Een venster op verdriet - de lage landen\nURL: https://www.de-lage-landen.com/article/een-venster-op-verdriet/\nSnippet: Er waren 41 doden te betreuren, nog eens 42 mensen raakten gewond. Eerste hulp werd verleend door artsen, militairen en vier nonnen – hulp ...\n\nTitle: Dodelijke treinramp Weesp van 1918 herdacht | SpoorPro.nl\nURL: https://www.spoorpro.nl/materieel/2018/09/14/dodelijke-treinramp-weesp-van-1918-herdacht/\nSnippet: Er vielen in totaal 41 doden en 42 gewonden bij de treinramp. Er waren geen slachtoffers onder het treinpersoneel.\n\nTitle: Weesp 1918 - TIS3\nURL: https://tis3.nl/incident/b69e9e48-e0f3-4104-a4e5-12e439c71498\nSnippet: Bij Weesp ontspoorde een sneltrein omdat de spoordijk het begaf. De trein stortte van het talud, waarbij 41 passagiers om het leven kwamen.\n\nTitle: vorige - Vandaag in het Verleden - mobiel\nURL: https://www.vandaaginhetverleden.nl/index.php?actie=vorige&zoekdag=13&zoekmaand=9\nSnippet: 13 september 1918 - In de buurt van Weesp zakt de spoordijk bij de Merwedebrug in. Een sneltrein stort naar beneden. Er vallen 41 doden en 42 ...\n\nTitle: Lijst van ernstige spoorwegongevallen in Nederland - Wikipedia\nURL: https://nl.wikipedia.org/wiki/Lijst_van_ernstige_spoorwegongevallen_in_Nederland\nSnippet: In dit chronologisch overzicht van ernstige spoorwegongevallen in Nederland is een zo compleet mogelijk overzicht gegeven van ernstige spoorwegongevallen in ...",
+        "called": true,
+        "timeout": false,
+        "runtime": 49.725664377212524,
+        "error": "",
+        "call_id": "ebdde8ca",
+        "raw_output": {
+          "searchParameters": {
+            "q": "NOS Weesp 1918 41 doden 42 gewonden",
+            "gl": "us",
+            "hl": "en",
+            "type": "search",
+            "num": 10,
+            "engine": "google"
+          },
+          "organic": [
+            {
+              "title": "Geschiedenis treinongelukken - NOS",
+              "link": "https://nos.nl/nieuwsuur/artikel/365485-geschiedenis-treinongelukken",
+              "snippet": "1918, 13 september, Weesp Door hevige regenval verzakt de brug over het Merwedekanaal. Een passagierstrein ontspoort en de locomotief botst ...",
+              "date": "Dec 10, 2012",
+              "position": 1
+            },
+            {
+              "title": "Treinramp bij Weesp - Wikipedia",
+              "link": "https://nl.wikipedia.org/wiki/Treinramp_bij_Weesp",
+              "snippet": "Op vrijdag 13 september 1918 vond nabij Weesp een groot spoorwegongeval plaats. Met 41 doden en 42 gewonden was dit de grootste treinramp in de Nederlandse ...",
+              "attributes": {
+                "Missing": "NOS | Show results with:NOS"
+              },
+              "position": 2
+            },
+            {
+              "title": "Honderd jaar na groot treinongeluk Weesp - ProRail",
+              "link": "https://www.prorail.nl/nieuws/honderd-jaar-na-groot-treinongeluk-weesp",
+              "snippet": "Vrijdag 13 september 1918 vond bij Weesp een groot treinongeluk plaats. Met 41 doden was dit één van de grootste treinrampen in de Nederlandse ...",
+              "date": "Sep 14, 2018",
+              "attributes": {
+                "Missing": "NOS 42"
+              },
+              "position": 3
+            },
+            {
+              "title": "Spoorwegongeluk Weesp 1918 - Langs de rails",
+              "link": "https://www.nicospilt.com/Weesp1918.htm",
+              "snippet": "Op vrijdag 13 september 1918 vond bij de brug over het Merwedekanaal (later Amsterdam-Rijnkanaal genoemd) een spoorwegongeval plaats van voor Nederland tot dan ...",
+              "position": 4
+            },
+            {
+              "title": "[PDF] Kramp na de ramp - Slachtofferhulp Nederland",
+              "link": "https://www.slachtofferhulp.nl/globalassets/media/professionals/publicaties-pdf/manifest-kramp-na-de-ramp---slachtofferhulp-nederland.pdf",
+              "snippet": "Treinramp Weesp. Met 41 doden en 42 gewonden was dit een van de groot- ste treinrampen in de Nederlandse geschiedenis. De snel- trein 102 van Amersfoort naar ...",
+              "position": 5
+            },
+            {
+              "title": "Een venster op verdriet - de lage landen",
+              "link": "https://www.de-lage-landen.com/article/een-venster-op-verdriet/",
+              "snippet": "Er waren 41 doden te betreuren, nog eens 42 mensen raakten gewond. Eerste hulp werd verleend door artsen, militairen en vier nonnen – hulp ...",
+              "date": "Apr 18, 2023",
+              "position": 6
+            },
+            {
+              "title": "Dodelijke treinramp Weesp van 1918 herdacht | SpoorPro.nl",
+              "link": "https://www.spoorpro.nl/materieel/2018/09/14/dodelijke-treinramp-weesp-van-1918-herdacht/",
+              "snippet": "Er vielen in totaal 41 doden en 42 gewonden bij de treinramp. Er waren geen slachtoffers onder het treinpersoneel.",
+              "date": "Sep 14, 2018",
+              "attributes": {
+                "Missing": "NOS | Show results with:NOS"
+              },
+              "position": 7
+            },
+            {
+              "title": "Weesp 1918 - TIS3",
+              "link": "https://tis3.nl/incident/b69e9e48-e0f3-4104-a4e5-12e439c71498",
+              "snippet": "Bij Weesp ontspoorde een sneltrein omdat de spoordijk het begaf. De trein stortte van het talud, waarbij 41 passagiers om het leven kwamen.",
+              "attributes": {
+                "Missing": "NOS | Show results with:NOS"
+              },
+              "position": 8
+            },
+            {
+              "title": "vorige - Vandaag in het Verleden - mobiel",
+              "link": "https://www.vandaaginhetverleden.nl/index.php?actie=vorige&zoekdag=13&zoekmaand=9",
+              "snippet": "13 september 1918 - In de buurt van Weesp zakt de spoordijk bij de Merwedebrug in. Een sneltrein stort naar beneden. Er vallen 41 doden en 42 ...",
+              "date": "Sep 13, 2025",
+              "position": 9
+            },
+            {
+              "title": "Lijst van ernstige spoorwegongevallen in Nederland - Wikipedia",
+              "link": "https://nl.wikipedia.org/wiki/Lijst_van_ernstige_spoorwegongevallen_in_Nederland",
+              "snippet": "In dit chronologisch overzicht van ernstige spoorwegongevallen in Nederland is een zo compleet mogelijk overzicht gegeven van ernstige spoorwegongevallen in ...",
+              "position": 10
+            }
+          ],
+          "peopleAlsoAsk": [
+            {
+              "question": "Wat was het treinongeluk in Nijmegen in 1979?",
+              "snippet": "Het treinongeval Nijmegen was een spoorwegongeluk waarbij twee passagierstreinen, waarvan één zonder reizigers, frontaal op elkaar botsten. Het ongeluk vond plaats op 28 augustus 1979 tussen Wijchen en Nijmegen, bij de Nijmeegse Kolpingbuurt, aan de spoorlijn Tilburg - Nijmegen.",
+              "title": "Portaal:Nijmegen/Uit de geschiedenis/donderdag - Wikipedia",
+              "link": "https://nl.wikipedia.org/wiki/Portaal:Nijmegen/Uit_de_geschiedenis/donderdag"
+            },
+            {
+              "question": "Hoeveel trein-ongelukken zijn er per jaar?",
+              "snippet": "In 2021 kregen we 2401 meldingen binnen en twee jaar geleden 2530. Jaarlijks vallen er gemiddeld 12 dodelijke slachtoffers op en rondom het spoor als gevolg van een ongeval. De afgelopen vijf jaar bleef het aantal (bijna) aanrijdingen stabiel, ondanks alle matregelen die ProRail nam om het spoor veiliger te maken.",
+              "title": "Aantal (bijna) ongelukken rond spoor stijgt - ProRail",
+              "link": "https://www.prorail.nl/nieuws/prorail-waarschuwt-jongeren"
+            }
+          ],
+          "relatedSearches": [
+            {
+              "query": "Ongeval Weesp vandaag"
+            },
+            {
+              "query": "Spoorbrug Weesp"
+            },
+            {
+              "query": "Treinramp Harmelen"
+            },
+            {
+              "query": "Dodelijk ongeval Weesp"
+            },
+            {
+              "query": "Treinongeluk Weesp"
+            },
+            {
+              "query": "Treinongeluk De Vink"
+            },
+            {
+              "query": "Namen slachtoffers treinramp Schiedam"
+            },
+            {
+              "query": "Treinongeluk Vlaardingen"
+            }
+          ],
+          "credits": 1
+        },
+        "documents": [
+          {
+            "id": "bf63d68c-0cc7-4d06-a076-e023220fc7cc",
+            "title": "Geschiedenis treinongelukken - NOS",
+            "url": "https://nos.nl/nieuwsuur/artikel/365485-geschiedenis-treinongelukken",
+            "snippet": "1918, 13 september, Weesp Door hevige regenval verzakt de brug over het Merwedekanaal. Een passagierstrein ontspoort en de locomotief botst ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "24e255d8-b573-437f-8866-dc542a83c7b4",
+            "title": "Treinramp bij Weesp - Wikipedia",
+            "url": "https://nl.wikipedia.org/wiki/Treinramp_bij_Weesp",
+            "snippet": "Op vrijdag 13 september 1918 vond nabij Weesp een groot spoorwegongeval plaats. Met 41 doden en 42 gewonden was dit de grootste treinramp in de Nederlandse ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "93be1942-20f0-47c1-a149-91b4b673eec1",
+            "title": "Honderd jaar na groot treinongeluk Weesp - ProRail",
+            "url": "https://www.prorail.nl/nieuws/honderd-jaar-na-groot-treinongeluk-weesp",
+            "snippet": "Vrijdag 13 september 1918 vond bij Weesp een groot treinongeluk plaats. Met 41 doden was dit één van de grootste treinrampen in de Nederlandse ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "dfcef8db-53b0-41bc-9d76-a81d869a93ae",
+            "title": "Spoorwegongeluk Weesp 1918 - Langs de rails",
+            "url": "https://www.nicospilt.com/Weesp1918.htm",
+            "snippet": "Op vrijdag 13 september 1918 vond bij de brug over het Merwedekanaal (later Amsterdam-Rijnkanaal genoemd) een spoorwegongeval plaats van voor Nederland tot dan ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "b207642d-08fa-4766-915f-5284442e8cf4",
+            "title": "[PDF] Kramp na de ramp - Slachtofferhulp Nederland",
+            "url": "https://www.slachtofferhulp.nl/globalassets/media/professionals/publicaties-pdf/manifest-kramp-na-de-ramp---slachtofferhulp-nederland.pdf",
+            "snippet": "Treinramp Weesp. Met 41 doden en 42 gewonden was dit een van de groot- ste treinrampen in de Nederlandse geschiedenis. De snel- trein 102 van Amersfoort naar ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "8ec2ec29-b352-443b-a0bd-596814961531",
+            "title": "Een venster op verdriet - de lage landen",
+            "url": "https://www.de-lage-landen.com/article/een-venster-op-verdriet/",
+            "snippet": "Er waren 41 doden te betreuren, nog eens 42 mensen raakten gewond. Eerste hulp werd verleend door artsen, militairen en vier nonnen – hulp ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "06fce449-5a29-4a9f-85f4-326043b323c0",
+            "title": "Dodelijke treinramp Weesp van 1918 herdacht | SpoorPro.nl",
+            "url": "https://www.spoorpro.nl/materieel/2018/09/14/dodelijke-treinramp-weesp-van-1918-herdacht/",
+            "snippet": "Er vielen in totaal 41 doden en 42 gewonden bij de treinramp. Er waren geen slachtoffers onder het treinpersoneel.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "da7fadb2-257b-4791-890c-39fb6f9f035a",
+            "title": "Weesp 1918 - TIS3",
+            "url": "https://tis3.nl/incident/b69e9e48-e0f3-4104-a4e5-12e439c71498",
+            "snippet": "Bij Weesp ontspoorde een sneltrein omdat de spoordijk het begaf. De trein stortte van het talud, waarbij 41 passagiers om het leven kwamen.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "5177b523-3e4a-4840-a077-91567f6f112f",
+            "title": "vorige - Vandaag in het Verleden - mobiel",
+            "url": "https://www.vandaaginhetverleden.nl/index.php?actie=vorige&zoekdag=13&zoekmaand=9",
+            "snippet": "13 september 1918 - In de buurt van Weesp zakt de spoordijk bij de Merwedebrug in. Een sneltrein stort naar beneden. Er vallen 41 doden en 42 ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "f5c3c545-6d6b-4f95-b998-b70ccd5485dc",
+            "title": "Lijst van ernstige spoorwegongevallen in Nederland - Wikipedia",
+            "url": "https://nl.wikipedia.org/wiki/Lijst_van_ernstige_spoorwegongevallen_in_Nederland",
+            "snippet": "In dit chronologisch overzicht van ernstige spoorwegongevallen in Nederland is een zo compleet mogelijk overzicht gegeven van ernstige spoorwegongevallen in ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          }
+        ],
+        "query": "NOS Weesp 1918 41 doden 42 gewonden"
+      },
+      {
+        "tool_name": "google_search",
+        "output": "Title: Treinramp bij Weesp - Wikipedia\nURL: https://nl.wikipedia.org/wiki/Treinramp_bij_Weesp\nSnippet: Op vrijdag 13 september 1918 vond nabij Weesp een groot spoorwegongeval plaats. Met 41 doden en 42 gewonden was dit de grootste treinramp in de Nederlandse ...\n\nTitle: Honderd jaar na groot treinongeluk Weesp - ProRail\nURL: https://www.prorail.nl/nieuws/honderd-jaar-na-groot-treinongeluk-weesp\nSnippet: Vrijdag 13 september 1918 vond bij Weesp een groot treinongeluk plaats. Met 41 doden was dit één van de grootste treinrampen in de Nederlandse ...\n\nTitle: Weesp train disaster - Wikipedia\nURL: https://en.wikipedia.org/wiki/Weesp_train_disaster\nSnippet: The Weesp train disaster took place on 13 September 1918 near Weesp, Netherlands. With 41 deaths and 42 injuries, it was the largest train disaster in Dutch ...\n\nTitle: Dodelijke treinramp Weesp van 1918 herdacht | SpoorPro.nl\nURL: https://www.spoorpro.nl/materieel/2018/09/14/dodelijke-treinramp-weesp-van-1918-herdacht/\nSnippet: Bij het ongeval kwamen 41 mensen om het leven doordat de trein van een dijk afgleed. Het ongeval is een van de grootste treinongelukken in de ...\n\nTitle: Weesp train disaster , Gooise Meren Podcast - Loquis\nURL: https://www.loquis.com/en/loquis/2023998/Weesp+train+disaster\nSnippet: It took place on 13 September 1918 near Weesp in the Netherlands. With 41 deaths and 42 injured, it was the largest train disaster in Dutch railway history ...\n\nTitle: Weesp 1918 - TIS3\nURL: https://tis3.nl/incident/b69e9e48-e0f3-4104-a4e5-12e439c71498\nSnippet: Bij Weesp ontspoorde een sneltrein omdat de spoordijk het begaf. De trein stortte van het talud, waarbij 41 passagiers om het leven kwamen.\n\nTitle: Spoorweg Weesp (jaartal: 1910 tot 1920) - Foto's SERC\nURL: http://fotos.serc.nl/noord-holland/weesp/weesp-53875/\nSnippet: Op vrijdag 13 september 1918 vond nabij Weesp een groot spoorwegongeval plaats. Met 41 doden en 42 gewonden was dit de grootste treinramp in ...\n\nTitle: Rond half elf in de ochtend reed de trein de helling op naar de brug ...\nURL: https://www.vergetenverleden.nl/trweesp.html\nSnippet: Op vrijdag 13 september 1918 vond bij Weesp de tweede grootste treinramp plaats uit de Nederlandse geschiedenis. ... In totaal verloren 41 mensen het leven bij ...\n\nTitle: Mijn boekenkast - Nico Spilt\nURL: https://www.nicospilt.com/boeken1.htm\nSnippet: ... Weesp in vroeger tijden · Weesp, spoorwegongeluk 1918 · Westervoort (spoorbrug) · Winschoten · Winterswijk • Transit Oost · Woerden · Woerden, ongelukken\n\nTitle: [PDF] 2018 - Buun Venlo\nURL: https://www.buunvenlo.nl/wp-content/uploads/2020/05/Buun-2018-compressed.pdf\nSnippet: Joep werkte begin jaren negentig in Hilversum, zijn vrouw in Weesp. Ze woonden samen in Laren en daarna in Weesp, maar allebei hun ouders komen uit Venlo ...",
+        "called": true,
+        "timeout": false,
+        "runtime": 41.4346067905426,
+        "error": "",
+        "call_id": "8b2aa457",
+        "raw_output": {
+          "searchParameters": {
+            "q": "Weesp treinramp 1918 41 doden 42 gewonden ProRail herdenking",
+            "gl": "us",
+            "hl": "en",
+            "type": "search",
+            "num": 10,
+            "engine": "google"
+          },
+          "organic": [
+            {
+              "title": "Treinramp bij Weesp - Wikipedia",
+              "link": "https://nl.wikipedia.org/wiki/Treinramp_bij_Weesp",
+              "snippet": "Op vrijdag 13 september 1918 vond nabij Weesp een groot spoorwegongeval plaats. Met 41 doden en 42 gewonden was dit de grootste treinramp in de Nederlandse ...",
+              "attributes": {
+                "Missing": "ProRail | Show results with:ProRail"
+              },
+              "position": 1
+            },
+            {
+              "title": "Honderd jaar na groot treinongeluk Weesp - ProRail",
+              "link": "https://www.prorail.nl/nieuws/honderd-jaar-na-groot-treinongeluk-weesp",
+              "snippet": "Vrijdag 13 september 1918 vond bij Weesp een groot treinongeluk plaats. Met 41 doden was dit één van de grootste treinrampen in de Nederlandse ...",
+              "date": "Sep 14, 2018",
+              "attributes": {
+                "Missing": "42 | Show results with:42"
+              },
+              "position": 2
+            },
+            {
+              "title": "Weesp train disaster - Wikipedia",
+              "link": "https://en.wikipedia.org/wiki/Weesp_train_disaster",
+              "snippet": "The Weesp train disaster took place on 13 September 1918 near Weesp, Netherlands. With 41 deaths and 42 injuries, it was the largest train disaster in Dutch ...",
+              "attributes": {
+                "Missing": "doden gewonden herdenking"
+              },
+              "position": 3
+            },
+            {
+              "title": "Dodelijke treinramp Weesp van 1918 herdacht | SpoorPro.nl",
+              "link": "https://www.spoorpro.nl/materieel/2018/09/14/dodelijke-treinramp-weesp-van-1918-herdacht/",
+              "snippet": "Bij het ongeval kwamen 41 mensen om het leven doordat de trein van een dijk afgleed. Het ongeval is een van de grootste treinongelukken in de ...",
+              "date": "Sep 14, 2018",
+              "attributes": {
+                "Missing": "herdenking | Show results with:herdenking"
+              },
+              "position": 4
+            },
+            {
+              "title": "Weesp train disaster , Gooise Meren Podcast - Loquis",
+              "link": "https://www.loquis.com/en/loquis/2023998/Weesp+train+disaster",
+              "snippet": "It took place on 13 September 1918 near Weesp in the Netherlands. With 41 deaths and 42 injured, it was the largest train disaster in Dutch railway history ...",
+              "position": 5
+            },
+            {
+              "title": "Weesp 1918 - TIS3",
+              "link": "https://tis3.nl/incident/b69e9e48-e0f3-4104-a4e5-12e439c71498",
+              "snippet": "Bij Weesp ontspoorde een sneltrein omdat de spoordijk het begaf. De trein stortte van het talud, waarbij 41 passagiers om het leven kwamen.",
+              "attributes": {
+                "Missing": "treinramp ProRail herdenking"
+              },
+              "position": 6
+            },
+            {
+              "title": "Spoorweg Weesp (jaartal: 1910 tot 1920) - Foto's SERC",
+              "link": "http://fotos.serc.nl/noord-holland/weesp/weesp-53875/",
+              "snippet": "Op vrijdag 13 september 1918 vond nabij Weesp een groot spoorwegongeval plaats. Met 41 doden en 42 gewonden was dit de grootste treinramp in ...",
+              "date": "Apr 15, 2016",
+              "attributes": {
+                "Missing": "ProRail | Show results with:ProRail"
+              },
+              "position": 7
+            },
+            {
+              "title": "Rond half elf in de ochtend reed de trein de helling op naar de brug ...",
+              "link": "https://www.vergetenverleden.nl/trweesp.html",
+              "snippet": "Op vrijdag 13 september 1918 vond bij Weesp de tweede grootste treinramp plaats uit de Nederlandse geschiedenis. ... In totaal verloren 41 mensen het leven bij ...",
+              "position": 8
+            },
+            {
+              "title": "Mijn boekenkast - Nico Spilt",
+              "link": "https://www.nicospilt.com/boeken1.htm",
+              "snippet": "... Weesp in vroeger tijden · Weesp, spoorwegongeluk 1918 · Westervoort (spoorbrug) · Winschoten · Winterswijk • Transit Oost · Woerden · Woerden, ongelukken",
+              "position": 9
+            },
+            {
+              "title": "[PDF] 2018 - Buun Venlo",
+              "link": "https://www.buunvenlo.nl/wp-content/uploads/2020/05/Buun-2018-compressed.pdf",
+              "snippet": "Joep werkte begin jaren negentig in Hilversum, zijn vrouw in Weesp. Ze woonden samen in Laren en daarna in Weesp, maar allebei hun ouders komen uit Venlo ...",
+              "position": 10
+            }
+          ],
+          "relatedSearches": [
+            {
+              "query": "Ongeval Weesp vandaag"
+            },
+            {
+              "query": "Treinramp Harmelen 1962"
+            },
+            {
+              "query": "Train accident Netherlands today"
+            },
+            {
+              "query": "Treinramp Groningen"
+            },
+            {
+              "query": "Namen slachtoffers treinramp Schiedam"
+            },
+            {
+              "query": "Treinramp 1950"
+            },
+            {
+              "query": "Treinramp Nijmegen 1979"
+            },
+            {
+              "query": "Treinramp Winsum"
+            }
+          ],
+          "credits": 1
+        },
+        "documents": [
+          {
+            "id": "42cf770e-dda1-4bec-82a9-b7cca6952c6c",
+            "title": "Treinramp bij Weesp - Wikipedia",
+            "url": "https://nl.wikipedia.org/wiki/Treinramp_bij_Weesp",
+            "snippet": "Op vrijdag 13 september 1918 vond nabij Weesp een groot spoorwegongeval plaats. Met 41 doden en 42 gewonden was dit de grootste treinramp in de Nederlandse ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "c9070807-c2d2-4f0b-87ee-9c6fee401b8b",
+            "title": "Honderd jaar na groot treinongeluk Weesp - ProRail",
+            "url": "https://www.prorail.nl/nieuws/honderd-jaar-na-groot-treinongeluk-weesp",
+            "snippet": "Vrijdag 13 september 1918 vond bij Weesp een groot treinongeluk plaats. Met 41 doden was dit één van de grootste treinrampen in de Nederlandse ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "d9ec51cf-90ca-4733-9dde-54026b37ec77",
+            "title": "Weesp train disaster - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Weesp_train_disaster",
+            "snippet": "The Weesp train disaster took place on 13 September 1918 near Weesp, Netherlands. With 41 deaths and 42 injuries, it was the largest train disaster in Dutch ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "27e08945-c1b5-42ab-aa68-62acf5ebe350",
+            "title": "Dodelijke treinramp Weesp van 1918 herdacht | SpoorPro.nl",
+            "url": "https://www.spoorpro.nl/materieel/2018/09/14/dodelijke-treinramp-weesp-van-1918-herdacht/",
+            "snippet": "Bij het ongeval kwamen 41 mensen om het leven doordat de trein van een dijk afgleed. Het ongeval is een van de grootste treinongelukken in de ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "a2a6161a-0b54-4702-98f2-9a7a16e21bc2",
+            "title": "Weesp train disaster , Gooise Meren Podcast - Loquis",
+            "url": "https://www.loquis.com/en/loquis/2023998/Weesp+train+disaster",
+            "snippet": "It took place on 13 September 1918 near Weesp in the Netherlands. With 41 deaths and 42 injured, it was the largest train disaster in Dutch railway history ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "cd1ed718-f77c-4424-a9cc-dacd909e2740",
+            "title": "Weesp 1918 - TIS3",
+            "url": "https://tis3.nl/incident/b69e9e48-e0f3-4104-a4e5-12e439c71498",
+            "snippet": "Bij Weesp ontspoorde een sneltrein omdat de spoordijk het begaf. De trein stortte van het talud, waarbij 41 passagiers om het leven kwamen.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "9904234a-5b44-4f5f-944c-32cf72beabbd",
+            "title": "Spoorweg Weesp (jaartal: 1910 tot 1920) - Foto's SERC",
+            "url": "http://fotos.serc.nl/noord-holland/weesp/weesp-53875/",
+            "snippet": "Op vrijdag 13 september 1918 vond nabij Weesp een groot spoorwegongeval plaats. Met 41 doden en 42 gewonden was dit de grootste treinramp in ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "82151a1b-a419-49b1-a98c-92d166c37736",
+            "title": "Rond half elf in de ochtend reed de trein de helling op naar de brug ...",
+            "url": "https://www.vergetenverleden.nl/trweesp.html",
+            "snippet": "Op vrijdag 13 september 1918 vond bij Weesp de tweede grootste treinramp plaats uit de Nederlandse geschiedenis. ... In totaal verloren 41 mensen het leven bij ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "a2cb70cb-6426-4d2b-8ca1-e9b03ee5ec5f",
+            "title": "Mijn boekenkast - Nico Spilt",
+            "url": "https://www.nicospilt.com/boeken1.htm",
+            "snippet": "... Weesp in vroeger tijden · Weesp, spoorwegongeluk 1918 · Westervoort (spoorbrug) · Winschoten · Winterswijk • Transit Oost · Woerden · Woerden, ongelukken",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "b634a99e-d616-4ef2-a5c5-7fef807569ca",
+            "title": "[PDF] 2018 - Buun Venlo",
+            "url": "https://www.buunvenlo.nl/wp-content/uploads/2020/05/Buun-2018-compressed.pdf",
+            "snippet": "Joep werkte begin jaren negentig in Hilversum, zijn vrouw in Weesp. Ze woonden samen in Laren en daarna in Weesp, maar allebei hun ouders komen uit Venlo ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          }
+        ],
+        "query": "Weesp treinramp 1918 41 doden 42 gewonden ProRail herdenking"
+      }
+    ]
+  },
+  "additional_output_data": {
+    "browsed_links": [],
+    "searched_links": [
+      "https://www.noordhollandsdagblad.nl/regio/gooi/gruwelijke-details-van-treinramp-weesp-lijken-zonder-hoofd-of-zonder-armen-video/10649452.html",
+      "https://commons.wikimedia.org/wiki/File:Weesp_1918_Train_Disaster.jpg",
+      "https://mikejupp.uk/itll-be-all-over-by-christmas-part-3/",
+      "https://www.loquis.com/en/loquis/2023998/Weesp+train+disaster",
+      "https://en.wikipedia.org/wiki/Great_Train_Wreck_of_1918",
+      "https://steamgiants.com/wiki/events/great-train-wreck-of-1918/",
+      "https://www.youtube.com/watch?v=Xl1d5TvlI4Y",
+      "https://www.oudwinterswijk.nl/diversen/treinramp-weesp/",
+      "https://www.spoorpro.nl/materieel/2018/09/14/dodelijke-treinramp-weesp-van-1918-herdacht/",
+      "https://www.nicospilt.com/bolle/weesp.htm",
+      "https://www.vandaaginhetverleden.nl/index.php?actie=vorige&zoekdag=13&zoekmaand=9",
+      "https://www.vergetenverleden.nl/trweesp.html",
+      "https://nl.wikipedia.org/wiki/Treinramp_bij_Weesp",
+      "https://www.slachtofferhulp.nl/globalassets/media/professionals/publicaties-pdf/manifest-kramp-na-de-ramp---slachtofferhulp-nederland.pdf",
+      "https://www.nicospilt.com/boeken1.htm",
+      "https://www.reddit.com/r/CatastrophicFailure/comments/1attdkv/the_1918_weesp_netherlands_train_derailment_a/",
+      "https://www.de-lage-landen.com/article/een-venster-op-verdriet/",
+      "https://www.ad.nl/amersfoort/veel-slachtoffers-vreeselijk-verminkt-na-ramp-met-trein-die-vanaf-de-spoordijk-gleed~ae54bc3a/223557494/",
+      "https://www.prorail.nl/nieuws/honderd-jaar-na-groot-treinongeluk-weesp",
+      "http://fotos.serc.nl/noord-holland/weesp/weesp-53875/",
+      "https://nl.wikipedia.org/wiki/Lijst_van_ernstige_spoorwegongevallen_in_Nederland",
+      "https://en.wikipedia.org/wiki/Weesp_train_disaster",
+      "https://nos.nl/nieuwsuur/artikel/365485-geschiedenis-treinongelukken",
+      "https://www.wikiwand.com/en/articles/List_of_rail_accidents_(1910%E2%80%931919)",
+      "https://www.buunvenlo.nl/wp-content/uploads/2020/05/Buun-2018-compressed.pdf",
+      "https://tis3.nl/incident/b69e9e48-e0f3-4104-a4e5-12e439c71498",
+      "https://www.nicospilt.com/Weesp1918.htm",
+      "https://mx-schroeder.medium.com/watery-ways-the-1918-weesp-netherlands-train-derailment-06b2b5b1fe27",
+      "https://www.arnolditkin.com/blog/train-accidents/the-train-accident-that-changed-us-railroads-for/",
+      "https://www.trouw.nl/nieuws/nederlands-spoor-relatief-veilig~bfd808e2/"
+    ],
+    "total_tool_calls": 4,
+    "total_failed_tool_calls": 0,
+    "failed_tool_call_errors": []
+  },
+  "original_data": {
+    "metadata": "{'topic': 'History', 'answer_type': 'Number', 'urls': ['https://en.wikipedia.org/wiki/Weesp_train_disaster', 'https://en.wikipedia.org/wiki/Weesp_train_disaster', 'https://mx-schroeder.medium.com/watery-ways-the-1918-weesp-netherlands-train-derailment-06b2b5b1fe27', 'https://www.wikidata.org/wiki/Q1981245']}",
+    "problem": "What was the number of recorded injuries in the Weesp train disaster of 1918 in the Netherlands?",
+    "answer": "42 injuries. ",
+    "id": "0ddfcbd4323ccafa1256f9fbf58ba127",
+    "additional_instructions": "Your final response should be in the following format:\nExact Answer: <your succinct, final answer>",
+    "dataset_name": "simpleqa"
+  }
+}

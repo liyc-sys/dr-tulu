@@ -1,0 +1,617 @@
+{
+  "example_id": "0f227e46e2f2dfc7c50c97a84e61a14c",
+  "problem": "In a 1988 paper, which author defined Mammalia phylogenetically as the crown group of mammals—the clade consisting of the most recent common ancestor of living monotremes and therian mammals?",
+  "final_response": "Timothy Rowe",
+  "full_traces": {
+    "generated_text": "<think>Goal: Identify the author of a 1988 paper that defined Mammalia phylogenetically as the crown group consisting of the most recent common ancestor of living monotremes and therian mammals. Likely candidate: John R. Wible, known for phylogenetic definitions; need citation from a 1988 paper (possibly \"Definition of Mammalia phylogenetically\"). Plan: \n1) Use Google search with precise terms (1988, Mammalia, crown group, monotremes, therian). \n2) Open the relevant page (likely PhilTrans or another journal) and confirm the exact definition and author. \n3) If needed, search Semantic Scholar snippets for the same definition phrasing. \n4) Cross-check with another authoritative source (e.g., Wible's other works citing the definition).\n\nFirst query: google_search for \"1988 Mammalia phylogenetically crown group most recent common ancestor monotremes therian\".</think>\n<call_tool name=\"google_search\" num=\"5\" gl=\"us\" hl=\"en\">1988 Mammalia phylogenetically crown group most recent common ancestor monotremes therian</call_tool><tool_output><snippet id=47251771-0>\nTitle: Mammal - Wikipedia\nURL: https://en.wikipedia.org/wiki/Mammal\nSnippet: In an influential 1988 paper, Timothy Rowe defined Mammalia phylogenetically as the crown group ... the last common ancestor of Sinoconodon and living mammals ...\n</snippet>\n<snippet id=47251771-1>\nTitle: The origin and early evolution of metatherian mammals\nURL: https://pmc.ncbi.nlm.nih.gov/articles/PMC4284630/\nSnippet: Theria is a clade of boreosphenidan mammals that is defined as the most recent common ancestor of extant marsupials and placentals and all of its descendants.\n</snippet>\n<snippet id=47251771-2>\nTitle: Theria - an overview | ScienceDirect Topics\nURL: https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/theria\nSnippet: Mammalia. Mammalia is defined as the most recent common ancestor of Monotremata and Theria (marsupials plus placentals), and all of that ancestor's descendants.\n</snippet>\n<snippet id=47251771-3>\nTitle: (PDF) Definition, diagnosis, and origin of Mammalia - ResearchGate\nURL: https://www.researchgate.net/publication/241730711_Definition_diagnosis_and_origin_of_Mammalia\nSnippet: Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria.\n</snippet>\n<snippet id=47251771-4>\nTitle: [PDF] Author(s): Timothy Rowe - University of Idaho\nURL: https://webpages.uidaho.edu/~jacks/Rowe.1988.pdf\nSnippet: ABSTRACT–Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria. To diagnose ...\n</snippet>\n<snippet id=47251771-5>\nTitle: Points of View\nURL: https://academic.oup.com/sysbio/article-pdf/45/4/559/19501815/45-4-559.pdf\nSnippet: tia\" as the clade stemming from the most recent common ancestor of the crown group and Tribosphenomys. Linking the name \"Rodentia\" to some taxon other than.\n</snippet>\n<snippet id=47251771-6>\nTitle: On the phylogenetic position of monotremes (Mammalia ... - Gale\nURL: https://go.gale.com/ps/i.do?id=GALE%7CA385802543&sid=googleScholar&v=2.1&it=r&linkaccess=abs&issn=00310301&p=AONE&sw=w\nSnippet: In the course of subsequent evolution, monotremes acquired the mammalian middle ear with three auditory ossicles independently of therian mammals and ...\n</snippet>\n<snippet id=47251771-7>\nTitle: Description of a Cranial Endocast from the Fossil Mammal <i ...\nURL: https://anatomypubs.onlinelibrary.wiley.com/doi/pdf/10.1002/ar.20551\nSnippet: Thus, in this study, Mammalia, Monotremata, and Theria are all treated as crown groups (following. Rowe, 1988), that is, taxa that comprise the ...\n</snippet>\n<snippet id=47251771-8>\nTitle: Theriiformes - Wikipedia\nURL: https://en.wikipedia.org/wiki/Theriiformes\nSnippet: The term was coined by Timothy B. Rowe in his doctoral dissertation, and is defined as the clade formed by the most recent common ancestor of multituberculates ...\n</snippet>\n<snippet id=47251771-9>\nTitle: Reconciling Phylogenetic Incongruence Among Anatomical Regions\nURL: https://pmc.ncbi.nlm.nih.gov/articles/PMC7381353/\nSnippet: The mammalian crown group includes monotremes and therians (marsupials and placentals) and all extinct descendants of their most recent ...\n</snippet></tool_output> \n\n<think>We have initial evidence from Google results suggesting the 1988 definition is by Timothy Rowe, including a direct PDF of \"Author(s): Timothy Rowe\" and a Wikipedia note. To be certain and meet the process requirements, I will:\n- Search specifically for the paper title to find the journal and confirm the author line.\n- Open the PDF to verify the abstract text matching the definition.\n- Cross-check with another source (e.g., an article citing \"Rowe (1988)\" with the same definition).\n- Optionally, search for Wible's works that reference \"Rowe 1988\" to triangulate.\n\nNext query: google_search for the exact title and journal.</think>\n<call_tool name=\"google_search\" num=\"5\" gl=\"us\" hl=\"en\">\"Definition of Mammalia phylogenetically\" 1988 Proceedings of the Royal Society of London. Series B biological sciences</call_tool><tool_output>No results found for the query.</tool_output> \n\nI need to confirm the author and year precisely. Prior results already suggest Timothy Rowe (1988) with the exact definition text. To strengthen evidence, I will open the PDF from the University of Idaho page to verify the author and abstract language, then find a secondary source (e.g., an article that explicitly states \"following Rowe, 1988\") to corroborate. Next, I will search for that secondary citation.</think>\n<call_tool name=\"browse_webpage\">https://webpages.uidaho.edu/~jacks/Rowe.1988.pdf</call_tool><tool_output>**Error:** Forbidden  \n\n**403**: Forbidden ID: `pdx1::4jksk-1763091390744-523611708df7`</tool_output> \n\nThe direct PDF browse was blocked. I will rely on the Google snippet that already quotes the abstract line from the PDF (\"ABSTRACT–Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria\") and search for other sources explicitly attributing the definition to \"Rowe, 1988.\" I will look for scholarly articles or reviews that cite the 1988 paper and quote or paraphrase the definition. Next query: google_search for \"Rowe 1988 Definition of Mammalia phylogenetically Proceedings of the Royal Society B\".</think>\n<call_tool name=\"google_search\" num=\"5\" gl=\"us\" hl=\"en\">Rowe 1988 Definition of Mammalia phylogenetically Proceedings of the Royal Society B</call_tool><tool_output><snippet id=8fb5e2e0-0>\nTitle: Definition, diagnosis, and origin of Mammalia - Taylor & Francis Online\nURL: https://www.tandfonline.com/doi/abs/10.1080/02724634.1988.10011708\nSnippet: Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria.\n</snippet>\n<snippet id=8fb5e2e0-1>\nTitle: [PDF] Definition, Diagnosis, and Origin of Mammalia - stevenpoe.net\nURL: http://www.stevenpoe.net/uploads/3/7/3/4/37343605/4523202.pdf\nSnippet: In the phy- logenetic system, ancestry is the only criterion that is both necessary and sufficient for taxon membership and therefore provides the only means of ...\n</snippet>\n<snippet id=8fb5e2e0-2>\nTitle: (PDF) Definition, diagnosis, and origin of Mammalia - ResearchGate\nURL: https://www.researchgate.net/publication/241730711_Definition_diagnosis_and_origin_of_Mammalia\nSnippet: Mammalia, defined by Rowe as comprising the most recent common ancestor of living monotremes, marsupials, and placentals, was distinguished from ...\n</snippet>\n<snippet id=8fb5e2e0-3>\nTitle: [PDF] Definition, Diagnosis, and Origin of Mammalia\nURL: https://www.geo.utexas.edu/faculty/rowe/Publications/pdf/010%20Rowe%201988.pdf\nSnippet: Author(s): Timothy Rowe. Source: Journal of Vertebrate Paleontology, Vol. 8, No. 3 (Sep. 23, 1988), pp. 241-264. Published by: The Society of Vertebrate ...\n</snippet>\n<snippet id=8fb5e2e0-4>\nTitle: Definition, diagnosis, and origin of Mammalia - SciSpace\nURL: https://scispace.com/papers/definition-diagnosis-and-origin-of-mammalia-sn1l5lyqz2\nSnippet: Abstract: Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria. To diagnose ...\n</snippet>\n<snippet id=8fb5e2e0-5>\nTitle: ‪Timothy Rowe‬ - ‪Google Scholar‬\nURL: https://scholar.google.com/citations?user=VdaoiPkAAAAJ&hl=en\nSnippet: Definition, diagnosis, and origin of Mammalia. T Rowe. Journal of vertebrate Paleontology 8 (3), 241-264, 1988. 681, 1988 ; The importance of fossils in ...\n</snippet>\n<snippet id=8fb5e2e0-6>\nTitle: ‪Timothy Rowe‬ - ‪Google Scholar‬\nURL: https://scholar.google.fr/citations?user=VdaoiPkAAAAJ&hl=fr\nSnippet: Definition, diagnosis, and origin of Mammalia. T Rowe. Journal of vertebrate Paleontology 8 (3), 241-264, 1988. 678, 1988 ; The importance of fossils in ...\n</snippet>\n<snippet id=8fb5e2e0-7>\nTitle: [PDF] In quest for a phylogeny of Mesozoic mammals\nURL: https://www.app.pan.pl/archive/published/app47/app47-001.pdf\nSnippet: We propose a phylogeny of all major groups of Mesozoic mammals based on phylogenetic analyses of 46 taxa and 275 osteological and dental characters, ...\n</snippet>\n<snippet id=8fb5e2e0-8>\nTitle: Mammal - Wikipedia\nURL: https://en.wikipedia.org/wiki/Mammal\nSnippet: In an influential 1988 paper, Timothy Rowe defined Mammalia phylogenetically as the crown group of mammals, the clade consisting of the most recent common ...\n</snippet>\n<snippet id=8fb5e2e0-9>\nTitle: The origin and early evolution of metatherian mammals\nURL: https://pmc.ncbi.nlm.nih.gov/articles/PMC4284630/\nSnippet: Here, we follow the crown-group definition of Mammalia, which circumscribes the clade as the most recent common ancestor of living monotremes, marsupials, and ...\n</snippet></tool_output> \n\nWe need the author of a 1988 paper that defined Mammalia phylogenetically as the crown group (most recent common ancestor of living monotremes and therians). Initial Google search indicates Timothy Rowe, with a direct PDF snippet showing the abstract definition and a Wikipedia confirmation. A follow-up search for the Proceedings of the Royal Society B did not yield the paper (suggesting the correct venue might be the Journal of Vertebrate Paleontology). Browsing the PDF was blocked, but multiple independent sources (T&F page, UT Austin PDF mirror, Google Scholar, Wikipedia, and secondary papers citing \"following Rowe, 1988\") consistently attribute the definition to Timothy (John) Rowe in 1988. The author's full name is John A. Wible, but the collaborator and author of the definition is Timothy Rowe. Evidence is sufficient to answer succinctly.\n\nI will provide a short-form answer with the author's name.</think>\n<answer>\\boxed{Timothy Rowe}</answer>",
+    "total_tokens": 4424,
+    "tool_call_count": 4,
+    "stopped_reason": "natural",
+    "tool_calls": [
+      {
+        "tool_name": "google_search",
+        "output": "Title: Mammal - Wikipedia\nURL: https://en.wikipedia.org/wiki/Mammal\nSnippet: In an influential 1988 paper, Timothy Rowe defined Mammalia phylogenetically as the crown group ... the last common ancestor of Sinoconodon and living mammals ...\n\nTitle: The origin and early evolution of metatherian mammals\nURL: https://pmc.ncbi.nlm.nih.gov/articles/PMC4284630/\nSnippet: Theria is a clade of boreosphenidan mammals that is defined as the most recent common ancestor of extant marsupials and placentals and all of its descendants.\n\nTitle: Theria - an overview | ScienceDirect Topics\nURL: https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/theria\nSnippet: Mammalia. Mammalia is defined as the most recent common ancestor of Monotremata and Theria (marsupials plus placentals), and all of that ancestor's descendants.\n\nTitle: (PDF) Definition, diagnosis, and origin of Mammalia - ResearchGate\nURL: https://www.researchgate.net/publication/241730711_Definition_diagnosis_and_origin_of_Mammalia\nSnippet: Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria.\n\nTitle: [PDF] Author(s): Timothy Rowe - University of Idaho\nURL: https://webpages.uidaho.edu/~jacks/Rowe.1988.pdf\nSnippet: ABSTRACT–Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria. To diagnose ...\n\nTitle: Points of View\nURL: https://academic.oup.com/sysbio/article-pdf/45/4/559/19501815/45-4-559.pdf\nSnippet: tia\" as the clade stemming from the most recent common ancestor of the crown group and Tribosphenomys. Linking the name \"Rodentia\" to some taxon other than.\n\nTitle: On the phylogenetic position of monotremes (Mammalia ... - Gale\nURL: https://go.gale.com/ps/i.do?id=GALE%7CA385802543&sid=googleScholar&v=2.1&it=r&linkaccess=abs&issn=00310301&p=AONE&sw=w\nSnippet: In the course of subsequent evolution, monotremes acquired the mammalian middle ear with three auditory ossicles independently of therian mammals and ...\n\nTitle: Description of a Cranial Endocast from the Fossil Mammal <i ...\nURL: https://anatomypubs.onlinelibrary.wiley.com/doi/pdf/10.1002/ar.20551\nSnippet: Thus, in this study, Mammalia, Monotremata, and Theria are all treated as crown groups (following. Rowe, 1988), that is, taxa that comprise the ...\n\nTitle: Theriiformes - Wikipedia\nURL: https://en.wikipedia.org/wiki/Theriiformes\nSnippet: The term was coined by Timothy B. Rowe in his doctoral dissertation, and is defined as the clade formed by the most recent common ancestor of multituberculates ...\n\nTitle: Reconciling Phylogenetic Incongruence Among Anatomical Regions\nURL: https://pmc.ncbi.nlm.nih.gov/articles/PMC7381353/\nSnippet: The mammalian crown group includes monotremes and therians (marsupials and placentals) and all extinct descendants of their most recent ...",
+        "called": true,
+        "timeout": false,
+        "runtime": 11.715453624725342,
+        "error": "",
+        "call_id": "47251771",
+        "raw_output": {
+          "searchParameters": {
+            "q": "1988 Mammalia phylogenetically crown group most recent common ancestor monotremes therian",
+            "gl": "us",
+            "hl": "en",
+            "type": "search",
+            "num": 10,
+            "engine": "google"
+          },
+          "organic": [
+            {
+              "title": "Mammal - Wikipedia",
+              "link": "https://en.wikipedia.org/wiki/Mammal",
+              "snippet": "In an influential 1988 paper, Timothy Rowe defined Mammalia phylogenetically as the crown group ... the last common ancestor of Sinoconodon and living mammals ...",
+              "sitelinks": [
+                {
+                  "title": "Mammal classification",
+                  "link": "https://en.wikipedia.org/wiki/Mammal_classification"
+                },
+                {
+                  "title": "Evolution of mammals",
+                  "link": "https://en.wikipedia.org/wiki/Evolution_of_mammals"
+                },
+                {
+                  "title": "List of mammal genera",
+                  "link": "https://en.wikipedia.org/wiki/List_of_mammal_genera"
+                },
+                {
+                  "title": "Bat",
+                  "link": "https://en.wikipedia.org/wiki/Bat"
+                }
+              ],
+              "position": 1
+            },
+            {
+              "title": "The origin and early evolution of metatherian mammals",
+              "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4284630/",
+              "snippet": "Theria is a clade of boreosphenidan mammals that is defined as the most recent common ancestor of extant marsupials and placentals and all of its descendants.",
+              "position": 2
+            },
+            {
+              "title": "Theria - an overview | ScienceDirect Topics",
+              "link": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/theria",
+              "snippet": "Mammalia. Mammalia is defined as the most recent common ancestor of Monotremata and Theria (marsupials plus placentals), and all of that ancestor's descendants.",
+              "position": 3
+            },
+            {
+              "title": "(PDF) Definition, diagnosis, and origin of Mammalia - ResearchGate",
+              "link": "https://www.researchgate.net/publication/241730711_Definition_diagnosis_and_origin_of_Mammalia",
+              "snippet": "Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria.",
+              "date": "6 days ago",
+              "position": 4
+            },
+            {
+              "title": "[PDF] Author(s): Timothy Rowe - University of Idaho",
+              "link": "https://webpages.uidaho.edu/~jacks/Rowe.1988.pdf",
+              "snippet": "ABSTRACT–Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria. To diagnose ...",
+              "position": 5
+            },
+            {
+              "title": "Points of View",
+              "link": "https://academic.oup.com/sysbio/article-pdf/45/4/559/19501815/45-4-559.pdf",
+              "snippet": "tia\" as the clade stemming from the most recent common ancestor of the crown group and Tribosphenomys. Linking the name \"Rodentia\" to some taxon other than.",
+              "position": 6
+            },
+            {
+              "title": "On the phylogenetic position of monotremes (Mammalia ... - Gale",
+              "link": "https://go.gale.com/ps/i.do?id=GALE%7CA385802543&sid=googleScholar&v=2.1&it=r&linkaccess=abs&issn=00310301&p=AONE&sw=w",
+              "snippet": "In the course of subsequent evolution, monotremes acquired the mammalian middle ear with three auditory ossicles independently of therian mammals and ...",
+              "position": 7
+            },
+            {
+              "title": "Description of a Cranial Endocast from the Fossil Mammal <i ...",
+              "link": "https://anatomypubs.onlinelibrary.wiley.com/doi/pdf/10.1002/ar.20551",
+              "snippet": "Thus, in this study, Mammalia, Monotremata, and Theria are all treated as crown groups (following. Rowe, 1988), that is, taxa that comprise the ...",
+              "date": "May 15, 2007",
+              "position": 8
+            },
+            {
+              "title": "Theriiformes - Wikipedia",
+              "link": "https://en.wikipedia.org/wiki/Theriiformes",
+              "snippet": "The term was coined by Timothy B. Rowe in his doctoral dissertation, and is defined as the clade formed by the most recent common ancestor of multituberculates ...",
+              "attributes": {
+                "Missing": "phylogenetically | Show results with:phylogenetically"
+              },
+              "position": 9
+            },
+            {
+              "title": "Reconciling Phylogenetic Incongruence Among Anatomical Regions",
+              "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7381353/",
+              "snippet": "The mammalian crown group includes monotremes and therians (marsupials and placentals) and all extinct descendants of their most recent ...",
+              "date": "Jul 8, 2020",
+              "position": 10
+            }
+          ],
+          "peopleAlsoAsk": [
+            {
+              "question": "When did monotremes diverge from therians?",
+              "snippet": "On the basis of our data sets, the time of divergence between Monotremata and Theria was estimated at 231–217 MYA and between Marsupialia and Eutheria at 193–186 MYA.",
+              "title": "Platypus Is in Its Place: Nuclear Genes and Indels Confirm the Sister ...",
+              "link": "https://academic.oup.com/mbe/article/23/3/587/1110306"
+            },
+            {
+              "question": "What is the most recent ancestor of mammals?",
+              "snippet": "Final Answer: The most recent ancestor of existing mammals is Therapsid.",
+              "title": "Which amongst the following is the most recent ancestor of existing ma",
+              "link": "https://www.doubtnut.com/qna/642929744"
+            },
+            {
+              "question": "Did the prototherian monotremes and therian marsupials and eutherians mammals groups diverge from each other before the Cretaceous period?",
+              "snippet": "The mammalian timetree indicates that monotremes diverged from the- rians in the late Triassic, ~220 million years ago (Ma), and that marsupials and eutherians diverged ~176 Ma, between the early and middle Jurassic.",
+              "title": "Mammals (Mammalia)",
+              "link": "http://timetree.igem.temple.edu/public/data/pdf/Madsen2009Chap68.pdf"
+            },
+            {
+              "question": "What is the common ancestor of Theria?",
+              "snippet": "Mammalia. Mammalia is defined as the most recent common ancestor of Monotremata and Theria (marsupials plus placentals), and all of that ancestor's descendants. Mammalia is diagnosed by a large number of anatomical and physiological features, including the presence of mammary glands and a unique jaw joint.",
+              "title": "Theria - an overview | ScienceDirect Topics",
+              "link": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/theria"
+            }
+          ],
+          "relatedSearches": [
+            {
+              "query": "Bats"
+            },
+            {
+              "query": "What are mammals for class 5"
+            },
+            {
+              "query": "20 characteristics of mammals"
+            },
+            {
+              "query": "10 characteristics of mammals"
+            },
+            {
+              "query": "What are mammals for class 3"
+            },
+            {
+              "query": "What are mammals for class 1"
+            },
+            {
+              "query": "What are mammals for class 2"
+            },
+            {
+              "query": "5 characteristics of mammals"
+            },
+            {
+              "query": "Where do mammals live"
+            }
+          ],
+          "credits": 1
+        },
+        "documents": [
+          {
+            "id": "a4c35805-96d2-4cb8-ae14-bed14bea6e13",
+            "title": "Mammal - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Mammal",
+            "snippet": "In an influential 1988 paper, Timothy Rowe defined Mammalia phylogenetically as the crown group ... the last common ancestor of Sinoconodon and living mammals ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "ec0cfbbc-4d67-4a8d-936f-c9db9541ae9c",
+            "title": "The origin and early evolution of metatherian mammals",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4284630/",
+            "snippet": "Theria is a clade of boreosphenidan mammals that is defined as the most recent common ancestor of extant marsupials and placentals and all of its descendants.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "8a87c0a4-3e38-482c-a97d-4642a41e1e9e",
+            "title": "Theria - an overview | ScienceDirect Topics",
+            "url": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/theria",
+            "snippet": "Mammalia. Mammalia is defined as the most recent common ancestor of Monotremata and Theria (marsupials plus placentals), and all of that ancestor's descendants.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "a4b296b9-64fd-47d6-be2c-ccecf648bd00",
+            "title": "(PDF) Definition, diagnosis, and origin of Mammalia - ResearchGate",
+            "url": "https://www.researchgate.net/publication/241730711_Definition_diagnosis_and_origin_of_Mammalia",
+            "snippet": "Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "b3335e4b-c8e0-409e-8876-265e33531973",
+            "title": "[PDF] Author(s): Timothy Rowe - University of Idaho",
+            "url": "https://webpages.uidaho.edu/~jacks/Rowe.1988.pdf",
+            "snippet": "ABSTRACT–Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria. To diagnose ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "8dc8d85f-f30f-412a-a0e9-a5b6ef359b25",
+            "title": "Points of View",
+            "url": "https://academic.oup.com/sysbio/article-pdf/45/4/559/19501815/45-4-559.pdf",
+            "snippet": "tia\" as the clade stemming from the most recent common ancestor of the crown group and Tribosphenomys. Linking the name \"Rodentia\" to some taxon other than.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "84043f64-7506-400f-85c8-de79de6f02e0",
+            "title": "On the phylogenetic position of monotremes (Mammalia ... - Gale",
+            "url": "https://go.gale.com/ps/i.do?id=GALE%7CA385802543&sid=googleScholar&v=2.1&it=r&linkaccess=abs&issn=00310301&p=AONE&sw=w",
+            "snippet": "In the course of subsequent evolution, monotremes acquired the mammalian middle ear with three auditory ossicles independently of therian mammals and ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "2ea4fe75-20a1-4ba5-9aa8-f8a36b34a712",
+            "title": "Description of a Cranial Endocast from the Fossil Mammal <i ...",
+            "url": "https://anatomypubs.onlinelibrary.wiley.com/doi/pdf/10.1002/ar.20551",
+            "snippet": "Thus, in this study, Mammalia, Monotremata, and Theria are all treated as crown groups (following. Rowe, 1988), that is, taxa that comprise the ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "952c9bfb-f9c0-48db-9273-76d42d2eeeff",
+            "title": "Theriiformes - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Theriiformes",
+            "snippet": "The term was coined by Timothy B. Rowe in his doctoral dissertation, and is defined as the clade formed by the most recent common ancestor of multituberculates ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "f90dc407-6884-4272-90aa-e61036af2a78",
+            "title": "Reconciling Phylogenetic Incongruence Among Anatomical Regions",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7381353/",
+            "snippet": "The mammalian crown group includes monotremes and therians (marsupials and placentals) and all extinct descendants of their most recent ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          }
+        ],
+        "query": "1988 Mammalia phylogenetically crown group most recent common ancestor monotremes therian"
+      },
+      {
+        "tool_name": "google_search",
+        "output": "",
+        "called": true,
+        "timeout": false,
+        "runtime": 78.4931435585022,
+        "error": "No results found for the query.",
+        "call_id": "b0a23aa7",
+        "raw_output": {
+          "searchParameters": {
+            "q": "\"Definition of Mammalia phylogenetically\" 1988 Proceedings of the Royal Society of London. Series B biological sciences",
+            "gl": "us",
+            "hl": "en",
+            "type": "search",
+            "num": 10,
+            "engine": "google"
+          },
+          "organic": [],
+          "credits": 1
+        },
+        "documents": [],
+        "query": null
+      },
+      {
+        "tool_name": "browse_webpage",
+        "output": "**Error:** Forbidden  \n\n**403**: Forbidden ID: `pdx1::4jksk-1763091390744-523611708df7`",
+        "called": true,
+        "timeout": false,
+        "runtime": 17.247506141662598,
+        "error": "",
+        "call_id": "72f0886f",
+        "raw_output": {
+          "tool_outputs": [
+            {
+              "tool_name": "browse_webpage",
+              "output": "Title: 403: Forbidden\nURL: https://webpages.uidaho.edu/~jacks/Rowe.1988.pdf\nSnippet: **Error:**Forbidden\n\n**403**: Forbidden ID: `pdx1::4jksk-1763091390744-523611708df7`",
+              "called": true,
+              "timeout": false,
+              "runtime": 12.327937602996826,
+              "error": "",
+              "call_id": "449392ef",
+              "raw_output": null,
+              "documents": [
+                {
+                  "id": "bc09f897-3ce4-4cc3-a774-03de9364b7c5",
+                  "title": "403: Forbidden",
+                  "url": "https://webpages.uidaho.edu/~jacks/Rowe.1988.pdf",
+                  "snippet": "",
+                  "text": "**Error:**Forbidden\n\n**403**: Forbidden ID: `pdx1::4jksk-1763091390744-523611708df7`",
+                  "summary": null,
+                  "score": null,
+                  "error": null
+                }
+              ],
+              "query": null
+            },
+            {
+              "tool_name": "WebPageReaderAgentV2",
+              "output": "**Error:** Forbidden  \n\n**403**: Forbidden ID: `pdx1::4jksk-1763091390744-523611708df7`",
+              "called": true,
+              "timeout": false,
+              "runtime": 4.919457912445068,
+              "error": "",
+              "call_id": "dc5731d7",
+              "raw_output": {
+                "generated_text": "<think>\nOkay, the user is asking about the name of the male victim in the 2012 Delhi gang rape and murder case, commonly known as the Nirbhaya case. They provided a webpage that's just a 403 Forbidden error, which isn't helpful. So, the main task here is to clean the raw webpage text they provided.\n\nLooking at the scraped content, the title is \"403: Forbidden\" and the URL is from a university server. The full text is an error message with some technical details. The user wants me to remove unnecessary info and keep the main content. But in this case, the main content is just the error message. \n\nWait, the user might have expected the webpage to have the answer, but it's a forbidden error. So, the actual content isn't there. The user might be confused because they thought the webpage would have the answer, but it's not accessible. \n\nI need to clean the text by removing the error details. The original text has \"Error: Forbidden\" and some ID info. The cleaned version should just state the error. But the user's instruction is to remove unnecessary info and keep the main content. Since the main content here is the error message, I should present that. \n\nBut maybe the user made a mistake in scraping the wrong URL. However, the task is to process the given text. So, the answer is that the webpage is forbidden, and there's no content to extract. The user might need to check the URL again. \n\nBut the user's question is about the Nirbhaya case. The actual answer is that the male victim's name was Akshay Kumar, but the case is more famously known for the female victim, Nirbhaya. However, the user is specifically asking for the male victim's name. Wait, in the Nirbhaya case, there were multiple victims. The primary victim was a female, but there was also a male victim, a 20-year-old man named Akshay Kumar. However, I need to confirm this. \n\nBut the user's provided webpage doesn't have this information. The webpage is just an error. So, the answer to the user's question isn't in the provided text. However, the user's instruction is to clean the webpage text, not to answer the question. \n\nSo, the correct approach is to clean the given text, which is the 403 error. The cleaned text would be \"Error: Forbidden\" and the URL. But the user wants the main content. Since the main content is the error message, the cleaned text would be that. \n\nBut the user might have intended to provide a different webpage, but due to a mistake, it's a forbidden error. So, the answer to the original question is that the male victim's name was Akshay Kumar, but the provided webpage doesn't contain that information. However, the user's request is to clean the given text, not to answer the question. \n\nTherefore, the cleaned webpage text is just the error message. The user might need to be informed that the webpage is inaccessible, but according to the instructions, I should just clean the text as per their request.\n</think>\n\nCleaned webpage text:  \n**Error:** Forbidden  \n\n**403**: Forbidden ID: `pdx1::4jksk-1763091390744-523611708df7`",
+                "total_tokens": 909,
+                "tool_call_count": 0,
+                "stopped_reason": "natural",
+                "tool_calls": []
+              }
+            }
+          ],
+          "failed_at": null,
+          "expected_tool_calls": 2,
+          "total_tool_calls": 2,
+          "total_failed_tool_calls": 0
+        }
+      },
+      {
+        "tool_name": "google_search",
+        "output": "Title: Definition, diagnosis, and origin of Mammalia - Taylor & Francis Online\nURL: https://www.tandfonline.com/doi/abs/10.1080/02724634.1988.10011708\nSnippet: Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria.\n\nTitle: [PDF] Definition, Diagnosis, and Origin of Mammalia - stevenpoe.net\nURL: http://www.stevenpoe.net/uploads/3/7/3/4/37343605/4523202.pdf\nSnippet: In the phy- logenetic system, ancestry is the only criterion that is both necessary and sufficient for taxon membership and therefore provides the only means of ...\n\nTitle: (PDF) Definition, diagnosis, and origin of Mammalia - ResearchGate\nURL: https://www.researchgate.net/publication/241730711_Definition_diagnosis_and_origin_of_Mammalia\nSnippet: Mammalia, defined by Rowe as comprising the most recent common ancestor of living monotremes, marsupials, and placentals, was distinguished from ...\n\nTitle: [PDF] Definition, Diagnosis, and Origin of Mammalia\nURL: https://www.geo.utexas.edu/faculty/rowe/Publications/pdf/010%20Rowe%201988.pdf\nSnippet: Author(s): Timothy Rowe. Source: Journal of Vertebrate Paleontology, Vol. 8, No. 3 (Sep. 23, 1988), pp. 241-264. Published by: The Society of Vertebrate ...\n\nTitle: Definition, diagnosis, and origin of Mammalia - SciSpace\nURL: https://scispace.com/papers/definition-diagnosis-and-origin-of-mammalia-sn1l5lyqz2\nSnippet: Abstract: Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria. To diagnose ...\n\nTitle: ‪Timothy Rowe‬ - ‪Google Scholar‬\nURL: https://scholar.google.com/citations?user=VdaoiPkAAAAJ&hl=en\nSnippet: Definition, diagnosis, and origin of Mammalia. T Rowe. Journal of vertebrate Paleontology 8 (3), 241-264, 1988. 681, 1988 ; The importance of fossils in ...\n\nTitle: ‪Timothy Rowe‬ - ‪Google Scholar‬\nURL: https://scholar.google.fr/citations?user=VdaoiPkAAAAJ&hl=fr\nSnippet: Definition, diagnosis, and origin of Mammalia. T Rowe. Journal of vertebrate Paleontology 8 (3), 241-264, 1988. 678, 1988 ; The importance of fossils in ...\n\nTitle: [PDF] In quest for a phylogeny of Mesozoic mammals\nURL: https://www.app.pan.pl/archive/published/app47/app47-001.pdf\nSnippet: We propose a phylogeny of all major groups of Mesozoic mammals based on phylogenetic analyses of 46 taxa and 275 osteological and dental characters, ...\n\nTitle: Mammal - Wikipedia\nURL: https://en.wikipedia.org/wiki/Mammal\nSnippet: In an influential 1988 paper, Timothy Rowe defined Mammalia phylogenetically as the crown group of mammals, the clade consisting of the most recent common ...\n\nTitle: The origin and early evolution of metatherian mammals\nURL: https://pmc.ncbi.nlm.nih.gov/articles/PMC4284630/\nSnippet: Here, we follow the crown-group definition of Mammalia, which circumscribes the clade as the most recent common ancestor of living monotremes, marsupials, and ...",
+        "called": true,
+        "timeout": false,
+        "runtime": 70.67244267463684,
+        "error": "",
+        "call_id": "8fb5e2e0",
+        "raw_output": {
+          "searchParameters": {
+            "q": "Rowe 1988 Definition of Mammalia phylogenetically Proceedings of the Royal Society B",
+            "gl": "us",
+            "hl": "en",
+            "type": "search",
+            "num": 10,
+            "engine": "google"
+          },
+          "organic": [
+            {
+              "title": "Definition, diagnosis, and origin of Mammalia - Taylor & Francis Online",
+              "link": "https://www.tandfonline.com/doi/abs/10.1080/02724634.1988.10011708",
+              "snippet": "Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria.",
+              "position": 1
+            },
+            {
+              "title": "[PDF] Definition, Diagnosis, and Origin of Mammalia - stevenpoe.net",
+              "link": "http://www.stevenpoe.net/uploads/3/7/3/4/37343605/4523202.pdf",
+              "snippet": "In the phy- logenetic system, ancestry is the only criterion that is both necessary and sufficient for taxon membership and therefore provides the only means of ...",
+              "position": 2
+            },
+            {
+              "title": "(PDF) Definition, diagnosis, and origin of Mammalia - ResearchGate",
+              "link": "https://www.researchgate.net/publication/241730711_Definition_diagnosis_and_origin_of_Mammalia",
+              "snippet": "Mammalia, defined by Rowe as comprising the most recent common ancestor of living monotremes, marsupials, and placentals, was distinguished from ...",
+              "date": "6 days ago",
+              "position": 3
+            },
+            {
+              "title": "[PDF] Definition, Diagnosis, and Origin of Mammalia",
+              "link": "https://www.geo.utexas.edu/faculty/rowe/Publications/pdf/010%20Rowe%201988.pdf",
+              "snippet": "Author(s): Timothy Rowe. Source: Journal of Vertebrate Paleontology, Vol. 8, No. 3 (Sep. 23, 1988), pp. 241-264. Published by: The Society of Vertebrate ...",
+              "position": 4
+            },
+            {
+              "title": "Definition, diagnosis, and origin of Mammalia - SciSpace",
+              "link": "https://scispace.com/papers/definition-diagnosis-and-origin-of-mammalia-sn1l5lyqz2",
+              "snippet": "Abstract: Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria. To diagnose ...",
+              "position": 5
+            },
+            {
+              "title": "‪Timothy Rowe‬ - ‪Google Scholar‬",
+              "link": "https://scholar.google.com/citations?user=VdaoiPkAAAAJ&hl=en",
+              "snippet": "Definition, diagnosis, and origin of Mammalia. T Rowe. Journal of vertebrate Paleontology 8 (3), 241-264, 1988. 681, 1988 ; The importance of fossils in ...",
+              "position": 6
+            },
+            {
+              "title": "‪Timothy Rowe‬ - ‪Google Scholar‬",
+              "link": "https://scholar.google.fr/citations?user=VdaoiPkAAAAJ&hl=fr",
+              "snippet": "Definition, diagnosis, and origin of Mammalia. T Rowe. Journal of vertebrate Paleontology 8 (3), 241-264, 1988. 678, 1988 ; The importance of fossils in ...",
+              "position": 7
+            },
+            {
+              "title": "[PDF] In quest for a phylogeny of Mesozoic mammals",
+              "link": "https://www.app.pan.pl/archive/published/app47/app47-001.pdf",
+              "snippet": "We propose a phylogeny of all major groups of Mesozoic mammals based on phylogenetic analyses of 46 taxa and 275 osteological and dental characters, ...",
+              "position": 8
+            },
+            {
+              "title": "Mammal - Wikipedia",
+              "link": "https://en.wikipedia.org/wiki/Mammal",
+              "snippet": "In an influential 1988 paper, Timothy Rowe defined Mammalia phylogenetically as the crown group of mammals, the clade consisting of the most recent common ...",
+              "sitelinks": [
+                {
+                  "title": "Mammal classification",
+                  "link": "https://en.wikipedia.org/wiki/Mammal_classification"
+                },
+                {
+                  "title": "Evolution of mammals",
+                  "link": "https://en.wikipedia.org/wiki/Evolution_of_mammals"
+                },
+                {
+                  "title": "List of mammal genera",
+                  "link": "https://en.wikipedia.org/wiki/List_of_mammal_genera"
+                },
+                {
+                  "title": "Bat",
+                  "link": "https://en.wikipedia.org/wiki/Bat"
+                }
+              ],
+              "position": 9
+            },
+            {
+              "title": "The origin and early evolution of metatherian mammals",
+              "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4284630/",
+              "snippet": "Here, we follow the crown-group definition of Mammalia, which circumscribes the clade as the most recent common ancestor of living monotremes, marsupials, and ...",
+              "position": 10
+            }
+          ],
+          "peopleAlsoAsk": [
+            {
+              "question": "What are the 4 superorders of placental mammals?",
+              "snippet": "At the interordinal level, molecular data consistently resolve extant placental groups into four 'superorders': Afrotheria, Xenarthra, Laurasiatheria and Euarchontoglires (the latter two comprising Boreoeutheria).",
+              "title": "A higher-level MRP supertree of placental mammals - PMC",
+              "link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1654192/"
+            },
+            {
+              "question": "What is the mammalian supertree?",
+              "snippet": "The mammalian supertree is a comprehensive phylogenetic tree that includes all known species of mammals.",
+              "title": "What is the mammalian supertree? | CK-12 Foundation",
+              "link": "https://www.ck12.org/flexi/biology/mammal-evolution/what-is-the-mammalian-supertree/"
+            },
+            {
+              "question": "What are the 5 differences between mammals and non-mammals?",
+              "snippet": "Some animals don't stay with their young at all, and the young are on their own. 5. The characteristics that make a mammal a mammal include pres- ence of hair or fur, warm-blooded, young born alive, mammary glands and complex brain. 5) it has a larger and more complex brain than any of the other animal groups.",
+              "title": "What Makes a Mammal a Mammal? | Illinois Department of Natural ...",
+              "link": "https://dnr.illinois.gov/content/dam/soi/en/web/dnr/education/documents/wmmammalmammal.pdf"
+            }
+          ],
+          "credits": 1
+        },
+        "documents": [
+          {
+            "id": "8e37d87e-67b0-4791-8dce-115e2c3f2d12",
+            "title": "Definition, diagnosis, and origin of Mammalia - Taylor & Francis Online",
+            "url": "https://www.tandfonline.com/doi/abs/10.1080/02724634.1988.10011708",
+            "snippet": "Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria.",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "63cf47b8-c451-4226-a96f-59d046b22d8d",
+            "title": "[PDF] Definition, Diagnosis, and Origin of Mammalia - stevenpoe.net",
+            "url": "http://www.stevenpoe.net/uploads/3/7/3/4/37343605/4523202.pdf",
+            "snippet": "In the phy- logenetic system, ancestry is the only criterion that is both necessary and sufficient for taxon membership and therefore provides the only means of ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "3ab341b3-dd7e-444a-9507-0f1caaf80496",
+            "title": "(PDF) Definition, diagnosis, and origin of Mammalia - ResearchGate",
+            "url": "https://www.researchgate.net/publication/241730711_Definition_diagnosis_and_origin_of_Mammalia",
+            "snippet": "Mammalia, defined by Rowe as comprising the most recent common ancestor of living monotremes, marsupials, and placentals, was distinguished from ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "b13387d4-9eac-4f05-b906-c7651d8b6b7a",
+            "title": "[PDF] Definition, Diagnosis, and Origin of Mammalia",
+            "url": "https://www.geo.utexas.edu/faculty/rowe/Publications/pdf/010%20Rowe%201988.pdf",
+            "snippet": "Author(s): Timothy Rowe. Source: Journal of Vertebrate Paleontology, Vol. 8, No. 3 (Sep. 23, 1988), pp. 241-264. Published by: The Society of Vertebrate ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "d1f55a19-35ba-4702-9595-04e03c9fa89c",
+            "title": "Definition, diagnosis, and origin of Mammalia - SciSpace",
+            "url": "https://scispace.com/papers/definition-diagnosis-and-origin-of-mammalia-sn1l5lyqz2",
+            "snippet": "Abstract: Mammalia is defined by its ancestry as the taxon originating with the most recent common ancestor of extant Monotremata and Theria. To diagnose ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "34adabdb-5fd6-4029-b761-06f3a80d586b",
+            "title": "‪Timothy Rowe‬ - ‪Google Scholar‬",
+            "url": "https://scholar.google.com/citations?user=VdaoiPkAAAAJ&hl=en",
+            "snippet": "Definition, diagnosis, and origin of Mammalia. T Rowe. Journal of vertebrate Paleontology 8 (3), 241-264, 1988. 681, 1988 ; The importance of fossils in ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "957763f6-f0b5-4084-a85a-fbdc6c7dd3ed",
+            "title": "‪Timothy Rowe‬ - ‪Google Scholar‬",
+            "url": "https://scholar.google.fr/citations?user=VdaoiPkAAAAJ&hl=fr",
+            "snippet": "Definition, diagnosis, and origin of Mammalia. T Rowe. Journal of vertebrate Paleontology 8 (3), 241-264, 1988. 678, 1988 ; The importance of fossils in ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "3a0cebf5-6998-4409-8e97-6f7e38a92b73",
+            "title": "[PDF] In quest for a phylogeny of Mesozoic mammals",
+            "url": "https://www.app.pan.pl/archive/published/app47/app47-001.pdf",
+            "snippet": "We propose a phylogeny of all major groups of Mesozoic mammals based on phylogenetic analyses of 46 taxa and 275 osteological and dental characters, ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "1b56e0e4-b091-464b-afbb-1ea77a924360",
+            "title": "Mammal - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Mammal",
+            "snippet": "In an influential 1988 paper, Timothy Rowe defined Mammalia phylogenetically as the crown group of mammals, the clade consisting of the most recent common ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          },
+          {
+            "id": "0c1f99d7-fc09-4f39-bc93-8af98e7e6c64",
+            "title": "The origin and early evolution of metatherian mammals",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4284630/",
+            "snippet": "Here, we follow the crown-group definition of Mammalia, which circumscribes the clade as the most recent common ancestor of living monotremes, marsupials, and ...",
+            "text": null,
+            "summary": null,
+            "score": null,
+            "error": null
+          }
+        ],
+        "query": "Rowe 1988 Definition of Mammalia phylogenetically Proceedings of the Royal Society B"
+      }
+    ]
+  },
+  "additional_output_data": {
+    "browsed_links": [
+      "https://webpages.uidaho.edu/~jacks/Rowe.1988.pdf"
+    ],
+    "searched_links": [
+      "https://en.wikipedia.org/wiki/Theriiformes",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4284630/",
+      "https://en.wikipedia.org/wiki/Mammal",
+      "https://webpages.uidaho.edu/~jacks/Rowe.1988.pdf",
+      "https://www.geo.utexas.edu/faculty/rowe/Publications/pdf/010%20Rowe%201988.pdf",
+      "https://www.tandfonline.com/doi/abs/10.1080/02724634.1988.10011708",
+      "https://academic.oup.com/sysbio/article-pdf/45/4/559/19501815/45-4-559.pdf",
+      "https://scholar.google.com/citations?user=VdaoiPkAAAAJ&hl=en",
+      "https://go.gale.com/ps/i.do?id=GALE%7CA385802543&sid=googleScholar&v=2.1&it=r&linkaccess=abs&issn=00310301&p=AONE&sw=w",
+      "https://www.app.pan.pl/archive/published/app47/app47-001.pdf",
+      "https://scispace.com/papers/definition-diagnosis-and-origin-of-mammalia-sn1l5lyqz2",
+      "https://www.researchgate.net/publication/241730711_Definition_diagnosis_and_origin_of_Mammalia",
+      "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/theria",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7381353/",
+      "https://scholar.google.fr/citations?user=VdaoiPkAAAAJ&hl=fr",
+      "http://www.stevenpoe.net/uploads/3/7/3/4/37343605/4523202.pdf",
+      "https://anatomypubs.onlinelibrary.wiley.com/doi/pdf/10.1002/ar.20551"
+    ],
+    "total_tool_calls": 4,
+    "total_failed_tool_calls": 1,
+    "failed_tool_call_errors": [
+      "No results found for the query."
+    ]
+  },
+  "original_data": {
+    "metadata": "{'topic': 'Science and technology', 'answer_type': 'Person', 'urls': ['https://en.wikipedia.org/wiki/Mammal', 'https://en.wikipedia.org/wiki/Mammal', 'https://academic.oup.com/sysbio/article/57/1/173/1701303?login=false', 'https://samplecontents.library.ph/wikipedia/wp/m/Mammal.htm']}",
+    "problem": "In a 1988 paper, which author defined Mammalia phylogenetically as the crown group of mammals—the clade consisting of the most recent common ancestor of living monotremes and therian mammals?",
+    "answer": "Timothy Rowe",
+    "id": "0f227e46e2f2dfc7c50c97a84e61a14c",
+    "additional_instructions": "Your final response should be in the following format:\nExact Answer: <your succinct, final answer>",
+    "dataset_name": "simpleqa"
+  }
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "dataset_name": "SQAv2",
+    "example_title": "is there a vad system designed with weighted finit...",
+    "json_file_name": "examples/be47bf75025fac515a5bae9df40670e8.json"
+  },
+  {
+    "dataset_name": "SQAv2",
+    "example_title": "Are there any related research that evaluates the ...",
+    "json_file_name": "examples/7799644984174810b831b21b8c3706a3.json"
+  },
+  {
+    "dataset_name": "SQAv2",
+    "example_title": "Tell me about the DepthCrafter model",
+    "json_file_name": "examples/9f1868cf4046baa67bb6719040985dbb.json"
+  },
+  {
+    "dataset_name": "SQAv2",
+    "example_title": "What are Flow Matching Models?",
+    "json_file_name": "examples/7dac50a3b915047e7a84450e18453349.json"
+  },
+  {
+    "dataset_name": "SQAv2",
+    "example_title": "reversible data hiding vector quantization",
+    "json_file_name": "examples/23ad2f41df90e5f75d2853e455568669.json"
+  },
+  {
+    "dataset_name": "Healthbench",
+    "example_title": "Can you answer the question from a patient about a...",
+    "json_file_name": "examples/03fc73ea51ec1d747742c12cf5aff12d.json"
+  },
+  {
+    "dataset_name": "Healthbench",
+    "example_title": "Here is a conversation between a patient and a phy...",
+    "json_file_name": "examples/17cc03921f3bffd72ad75919df4e2aea.json"
+  },
+  {
+    "dataset_name": "Healthbench",
+    "example_title": "Can you answer the question from a patient about a...",
+    "json_file_name": "examples/d8f1adaf936ac36290635300f589a2e8.json"
+  },
+  {
+    "dataset_name": "Healthbench",
+    "example_title": "Can you answer the question from a patient about a...",
+    "json_file_name": "examples/38e8bf31b25ed2afe924eac4aa329e71.json"
+  },
+  {
+    "dataset_name": "Healthbench",
+    "example_title": "Can you answer the question from a patient about a...",
+    "json_file_name": "examples/397b7c5ec76ba4a2ea024f71f04a4644.json"
+  },
+  {
+    "dataset_name": "DeepResearchBench",
+    "example_title": "For a research project titled 'Analysis and Study ...",
+    "json_file_name": "examples/3d7dfd15f0d7bd8ef0cde824f2b8d887.json"
+  },
+  {
+    "dataset_name": "DeepResearchBench",
+    "example_title": "Which Obsidian plugins can effectively replicate N...",
+    "json_file_name": "examples/e461bc7fd2eb0bfdecf79fe2bf67a345.json"
+  },
+  {
+    "dataset_name": "DeepResearchBench",
+    "example_title": "From 2020 to 2050, how many elderly people will th...",
+    "json_file_name": "examples/8c2533ff902303e7a2ea54d81909ddc5.json"
+  },
+  {
+    "dataset_name": "DeepResearchBench",
+    "example_title": "Acting as an expert in K-12 education research and...",
+    "json_file_name": "examples/a4447d7ec051af5a403b7fa510e0d616.json"
+  },
+  {
+    "dataset_name": "DeepResearchBench",
+    "example_title": "Write a paper on Middle Eastern and North African ...",
+    "json_file_name": "examples/c4d0c31e648ae0cf07958b56e77ed9ac.json"
+  },
+  {
+    "dataset_name": "SimpleQA",
+    "example_title": "What year was the municipality of Cómbita, Boyacá,...",
+    "json_file_name": "examples/c5daef0f166d853d09e877287983bdf9.json"
+  },
+  {
+    "dataset_name": "SimpleQA",
+    "example_title": "What was the number of recorded injuries in the We...",
+    "json_file_name": "examples/0ddfcbd4323ccafa1256f9fbf58ba127.json"
+  },
+  {
+    "dataset_name": "SimpleQA",
+    "example_title": "Which village in Ontario was first settled in 1824...",
+    "json_file_name": "examples/73e9f78dc2235a0e343cf3e5fc218a94.json"
+  },
+  {
+    "dataset_name": "SimpleQA",
+    "example_title": "What month, day, and year did Ciara perform in Tam...",
+    "json_file_name": "examples/7180a003a9b13b759b49dfa310a110b3.json"
+  },
+  {
+    "dataset_name": "SimpleQA",
+    "example_title": "In a 1988 paper, which author defined Mammalia phy...",
+    "json_file_name": "examples/0f227e46e2f2dfc7c50c97a84e61a14c.json"
+  }
+]
