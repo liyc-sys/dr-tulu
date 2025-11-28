@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import {
   ArrowRightIcon,
   SendHorizontal,
@@ -16,6 +16,9 @@ import {
   Github,
   BookOpen,
   Database,
+  Wifi,
+  WifiOff,
+  Loader2,
 } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -60,6 +63,7 @@ import {
   PageHeaderHeading,
 } from "@/app/components/page-header";
 import { cn } from "@/lib/utils";
+import { useChat, TraceItem, ToolCallData, DocumentData } from "@/lib/sse";
 
 const TITLE =
   "DR Tulu: Reinforcement Learning with Evolving Rubrics for Deep Research";
@@ -1174,6 +1178,550 @@ const ChatInterface = ({
   );
 };
 
+// Live streaming trace item component for sidebar
+// Returns an array of elements (tool call + tool output as separate cards)
+const LiveTraceItem = ({
+  item,
+  index,
+}: {
+  item: TraceItem;
+  index: number;
+}) => {
+  const [isThinkingOpen, setIsThinkingOpen] = useState(false);
+  const [isToolOutputOpen, setIsToolOutputOpen] = useState(false);
+
+  if (item.type === "thinking") {
+    const contentWithoutThinkTags = item.content
+      .replace(/<\/?think>/g, "")
+      .trim();
+    const contentTrimmed = isThinkingOpen
+      ? contentWithoutThinkTags
+      : contentWithoutThinkTags.split(" ").slice(0, 30).join(" ") +
+        (contentWithoutThinkTags.split(" ").length > 30 ? "..." : "");
+
+    return (
+      <div className="bg-green-50 rounded-md border border-green-200 overflow-hidden hover:shadow-md hover:border-green-300 hover:bg-green-100">
+        <Collapsible open={isThinkingOpen} onOpenChange={setIsThinkingOpen}>
+          <CollapsibleTrigger className="flex items-center justify-between p-4 w-full hover:bg-muted/50 transition-colors duration-200">
+            <span className="text-xs font-semibold text-green-700 flex items-center gap-2">
+              Thinking
+              {!item.isComplete && (
+                <Loader2 className="h-3 w-3 animate-spin" />
+              )}
+            </span>
+            <div className="transform transition-all duration-300 ease-in-out">
+              {isThinkingOpen ? (
+                <ArrowUpFromLine className="h-3.5 w-3.5 text-muted-foreground" />
+              ) : (
+                <ArrowDownFromLine className="h-3.5 w-3.5 text-muted-foreground" />
+              )}
+            </div>
+          </CollapsibleTrigger>
+          <div className="px-4 pb-4 pt-1">
+            <p
+              className={cn(
+                "text-xs whitespace-pre-wrap font-mono leading-relaxed break-words",
+                isThinkingOpen ? "" : "text-muted-foreground"
+              )}
+            >
+              {contentTrimmed || "Processing..."}
+            </p>
+          </div>
+        </Collapsible>
+      </div>
+    );
+  }
+
+  if (item.type === "tool_call") {
+    const { tool_name, call_id, documents, output, query, params } = item.data;
+    return (
+      <>
+        {/* Tool Call Card - matches static demo style */}
+        <div className="bg-blue-50 p-4 rounded-md border border-blue-200 transition-all duration-200 hover:shadow-md hover:border-blue-300 hover:bg-blue-100">
+          <div className="flex items-start justify-between gap-2 mb-2 min-w-0">
+            <div className="flex-1 min-w-0">
+              <span className="text-xs font-semibold text-blue-700">
+                Tool Call: {tool_name}
+              </span>
+              {/* Display params as key-value pairs like static demo */}
+              {params && Object.keys(params).length > 0 && (
+                <div className="mt-1 space-y-0.5">
+                  {Object.entries(params).map(([key, value]) => (
+                    <div
+                      key={key}
+                      className="text-xs font-mono text-muted-foreground break-words min-w-0"
+                    >
+                      <span className="">{key}:</span> {String(value)}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+          {/* Display query as main content like static demo */}
+          {query && (
+            <div className="max-h-48 overflow-y-auto overflow-x-hidden min-w-0 font-mono text-xs">
+              <p style={{ wordBreak: "break-word", overflowWrap: "anywhere" }}>
+                {query}
+              </p>
+            </div>
+          )}
+        </div>
+
+        {/* Tool Output Card - separate card like static demo */}
+        {output && (
+          <div className="bg-background rounded-md overflow-hidden border hover:shadow-md">
+            <Collapsible open={isToolOutputOpen} onOpenChange={setIsToolOutputOpen}>
+              <CollapsibleTrigger className="flex items-center justify-between p-4 w-full hover:bg-muted/50 transition-colors duration-200">
+                <span className="text-xs font-semibold">Tool Output</span>
+                <div className="transform transition-all duration-300 ease-in-out">
+                  {isToolOutputOpen ? (
+                    <ArrowUpFromLine className="h-3.5 w-3.5 text-muted-foreground" />
+                  ) : (
+                    <ArrowDownFromLine className="h-3.5 w-3.5 text-muted-foreground" />
+                  )}
+                </div>
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <div className="px-4 pb-4 pt-1">
+                  <div className="max-h-48 overflow-y-auto overflow-x-hidden min-w-0">
+                    <p
+                      className="text-xs whitespace-pre-wrap font-mono leading-relaxed text-muted-foreground break-words min-w-0 max-w-full"
+                      style={{ wordBreak: "break-word", overflowWrap: "anywhere" }}
+                    >
+                      {output}
+                    </p>
+                  </div>
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+          </div>
+        )}
+      </>
+    );
+  }
+
+  if (item.type === "answer") {
+    return null; // Don't show answer in traces - it's shown in chat
+  }
+
+  return null;
+};
+
+// Live Chat Interface Component
+const LiveChatInterface = ({
+  isPanelOpen,
+  onPanelToggle,
+}: {
+  isPanelOpen: boolean;
+  onPanelToggle: () => void;
+}) => {
+  const [input, setInput] = useState("");
+  const [currentQuery, setCurrentQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const panelRef = useRef<any>(null);
+
+  const {
+    isConnected,
+    isLoading,
+    error,
+    thinkingContent,
+    answerContent,
+    traceItems,
+    metadata,
+    sendQuery,
+    cancel,
+  } = useChat();
+
+  // Handle panel collapse/expand
+  useEffect(() => {
+    if (panelRef.current) {
+      if (isPanelOpen) {
+        panelRef.current.expand();
+      } else {
+        panelRef.current.collapse();
+      }
+    }
+  }, [isPanelOpen]);
+
+  // Auto-scroll when content updates
+  useEffect(() => {
+    if (scrollAreaRef.current && (isLoading || answerContent)) {
+      const scrollContainer = scrollAreaRef.current.querySelector(
+        "[data-radix-scroll-area-viewport]"
+      );
+      if (scrollContainer) {
+        scrollContainer.scrollTop = scrollContainer.scrollHeight;
+      }
+    }
+  }, [answerContent, isLoading]);
+
+  const handleSubmit = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      if (!input.trim() || isLoading) return;
+
+      setCurrentQuery(input.trim());
+      sendQuery(input.trim());
+      setInput("");
+    },
+    [input, isLoading, sendQuery]
+  );
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSubmit(e);
+    }
+  };
+
+  // Extract documents from tool calls for side panel
+  const allDocuments: Document[] = traceItems
+    .filter((item): item is { type: "tool_call"; data: ToolCallData } => item.type === "tool_call")
+    .flatMap((item) =>
+      (item.data.documents || []).map((doc) => ({
+        id: doc.id,
+        title: doc.title,
+        url: doc.url,
+        snippet: doc.snippet,
+        tool_call_id: item.data.call_id || "",
+        tool_name: item.data.tool_name,
+      }))
+    );
+
+  // Build sources for citation tooltips (convert Document[] to Source[])
+  const sources: Source[] = allDocuments.map((doc) => ({
+    id: doc.id,
+    title: doc.title,
+    url: doc.url,
+    snippet: doc.snippet,
+  }));
+
+  // Filter documents based on search query
+  const filteredDocuments = allDocuments.filter((doc) => {
+    if (!searchQuery) return true;
+    const query = searchQuery.toLowerCase();
+    return (
+      doc.title.toLowerCase().includes(query) ||
+      doc.snippet.toLowerCase().includes(query) ||
+      doc.url.toLowerCase().includes(query)
+    );
+  });
+
+  // Count tool calls
+  const toolCallCount = traceItems.filter((item) => item.type === "tool_call").length;
+
+  // Check if we have content to show
+  const hasContent = currentQuery || isLoading || answerContent;
+
+  return (
+    <ResizablePanelGroup direction="horizontal" className="h-[600px]">
+      <ResizablePanel defaultSize={65} minSize={30}>
+        <div className="flex flex-col h-[600px]">
+          <ScrollArea ref={scrollAreaRef} className="flex-1 p-4 pl-8">
+            <div className="space-y-4">
+              {!hasContent ? (
+                <div className="flex flex-col items-center justify-center h-full py-16 text-center">
+                  <div className="text-muted-foreground mb-4">
+                    {isConnected ? (
+                      <>
+                        <Wifi className="h-8 w-8 mx-auto mb-2 text-green-500" />
+                        <p>Connected to server. Ask a question to start researching!</p>
+                      </>
+                    ) : (
+                      <>
+                        <WifiOff className="h-8 w-8 mx-auto mb-2 text-red-500" />
+                        <p>Connecting to server...</p>
+                      </>
+                    )}
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {/* User Message */}
+                  {currentQuery && (
+                    <div className="flex gap-3 justify-end">
+                      <div className="flex flex-col gap-2 max-w-[80%]">
+                        <div className="rounded-lg px-4 py-3 bg-primary text-primary-foreground">
+                          <div className="text-sm whitespace-pre-wrap leading-relaxed">
+                            {currentQuery}
+                          </div>
+                        </div>
+                      </div>
+                      <Avatar className="h-8 w-8">
+                        <AvatarFallback>U</AvatarFallback>
+                      </Avatar>
+                    </div>
+                  )}
+
+                  {/* Assistant Response */}
+                  {(isLoading || answerContent) && (
+                    <div className="flex gap-3 justify-start">
+                      <Avatar className="h-8 w-8">
+                        <AvatarImage
+                          src={`${BASE_PATH}/images/logo.png`}
+                          alt="DR Tulu"
+                        />
+                        <AvatarFallback className="bg-primary text-primary-foreground">
+                          DT
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="flex flex-col gap-2 max-w-[80%]">
+                        {answerContent ? (
+                          <>
+                            <i className="text-xs text-muted-foreground">
+                              Answer based on cited docs in the sidebar
+                            </i>
+                            <div className="rounded-lg px-4 py-3 bg-muted">
+                              <div className="text-sm whitespace-pre-wrap leading-relaxed">
+                                {sources.length > 0
+                                  ? parseCitationsWithTooltips(answerContent, sources)
+                                  : answerContent}
+                              </div>
+                            </div>
+                          </>
+                        ) : (
+                          <div className="rounded-lg px-4 py-3 bg-muted">
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <Loader2 className="h-4 w-4 animate-spin" />
+                              <span>Researching...</span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Error */}
+                  {error && (
+                    <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-md text-sm">
+                      Error: {error}
+                    </div>
+                  )}
+
+                  {/* Metadata */}
+                  {metadata && (
+                    <div className="text-xs text-muted-foreground border-t pt-4">
+                      <span>Tool calls: {metadata.total_tool_calls}</span>
+                      {metadata.failed_tool_calls > 0 && (
+                        <span className="ml-4 text-amber-600">
+                          Failed: {metadata.failed_tool_calls}
+                        </span>
+                      )}
+                      {metadata.searched_links.length > 0 && (
+                        <span className="ml-4">
+                          Searched: {metadata.searched_links.length} links
+                        </span>
+                      )}
+                      {metadata.browsed_links.length > 0 && (
+                        <span className="ml-4">
+                          Browsed: {metadata.browsed_links.length} pages
+                        </span>
+                      )}
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          </ScrollArea>
+
+          <form onSubmit={handleSubmit} className="p-4 pl-8 border-t bg-muted/10">
+            <div className="relative">
+              <Textarea
+                ref={textareaRef}
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder={
+                  isConnected
+                    ? "Ask a research question..."
+                    : "Connecting to server..."
+                }
+                className={cn(
+                  "min-h-[80px] max-h-[200px] resize-none pr-12",
+                  !isConnected && "opacity-50"
+                )}
+                disabled={!isConnected || isLoading}
+              />
+              <Button
+                type="submit"
+                size="icon"
+                variant="ghost"
+                disabled={!isConnected || isLoading || !input.trim()}
+                className="absolute bottom-2 right-2 h-8 w-8 rounded-lg hover:bg-muted"
+              >
+                {isLoading ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <SendHorizontal className="h-4 w-4" />
+                )}
+              </Button>
+            </div>
+            <div className="flex items-center pl-2 mt-2 gap-4">
+              <div className="flex items-center gap-1.5">
+                {isConnected ? (
+                  <Wifi className="h-3 w-3 text-green-500" />
+                ) : (
+                  <WifiOff className="h-3 w-3 text-red-500" />
+                )}
+                <span className="text-xs text-muted-foreground">
+                  {isConnected ? "Connected" : "Disconnected"}
+                </span>
+              </div>
+              <p className="text-xs text-muted-foreground/60">
+                Press Enter to send, Shift+Enter for new line
+              </p>
+            </div>
+          </form>
+        </div>
+      </ResizablePanel>
+
+      {/* Side Panel with Tabs (like static demo) */}
+      {hasContent && (
+        <>
+          <ResizableHandle withHandle className="w-0" />
+          <ResizablePanel
+            ref={panelRef}
+            defaultSize={35}
+            minSize={20}
+            maxSize={60}
+            collapsible
+            collapsedSize={0}
+            className="h-[600px]"
+          >
+            <div className="bg-muted/20 flex flex-col h-full overflow-hidden border-l">
+              <Tabs defaultValue="traces" className="flex flex-col h-full">
+                <div className="p-4 border-b bg-background">
+                  <TabsList className="grid w-full grid-cols-2 transition-all">
+                    <TabsTrigger
+                      value="documents"
+                      className="transition-all duration-300 data-[state=active]:scale-[1.02]"
+                    >
+                      Cited Docs
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="traces"
+                      className="transition-all duration-300 data-[state=active]:scale-[1.02]"
+                    >
+                      Full Traces
+                    </TabsTrigger>
+                  </TabsList>
+                </div>
+
+                {/* Traces Tab */}
+                <TabsContent
+                  value="traces"
+                  className="flex-1 overflow-hidden mt-0 data-[state=active]:animate-in data-[state=inactive]:animate-out data-[state=inactive]:fade-out-0 data-[state=active]:fade-in-0 duration-300"
+                >
+                  <div className="p-4 border-b bg-background">
+                    <div className="flex gap-4 text-xs text-muted-foreground">
+                      <span>Tool Calls: {toolCallCount}</span>
+                      {isLoading && (
+                        <span className="flex items-center gap-1">
+                          <Loader2 className="h-3 w-3 animate-spin" />
+                          Processing...
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <ScrollArea className="h-[calc(100%-3rem)] p-4">
+                    <div className="space-y-3">
+                      {traceItems.length === 0 && isLoading ? (
+                        <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                          <Loader2 className="h-4 w-4 animate-spin" />
+                          <span>Starting research...</span>
+                        </div>
+                      ) : (
+                        traceItems.map((item, index) => (
+                          <LiveTraceItem key={index} item={item} index={index} />
+                        ))
+                      )}
+                    </div>
+                  </ScrollArea>
+                </TabsContent>
+
+                {/* Documents Tab */}
+                <TabsContent value="documents" className="flex-1 overflow-hidden mt-0">
+                  <div className="p-4 border-b bg-background">
+                    <div className="relative flex items-center">
+                      <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                      <Input
+                        placeholder="Search documents..."
+                        value={searchQuery}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                          setSearchQuery(e.target.value)
+                        }
+                        className="pl-8 pr-32 h-9 text-xs"
+                      />
+                      <div className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground pointer-events-none">
+                        {searchQuery ? (
+                          <span>
+                            Showing {filteredDocuments.length} of {allDocuments.length}{" "}
+                            result{allDocuments.length !== 1 ? "s" : ""}
+                          </span>
+                        ) : (
+                          <span>{allDocuments.length} retrieved</span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  <ScrollArea className="h-[calc(100%-5rem)] p-4">
+                    <div className="space-y-4">
+                      {filteredDocuments.length > 0 ? (
+                        filteredDocuments.map((doc, index) => (
+                          <div
+                            key={`${doc.tool_call_id}-${doc.id}`}
+                            className="bg-background p-4 rounded-md border transition-all duration-200 hover:shadow-md hover:border-primary/30 hover:bg-muted/30 cursor-pointer"
+                          >
+                            <div className="flex items-start justify-between gap-2 mb-2">
+                              <h4 className="font-semibold text-sm flex-1">
+                                {doc.title}
+                              </h4>
+                              <span className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded">
+                                #{index + 1}
+                              </span>
+                            </div>
+                            <p className="text-xs text-muted-foreground mb-2">
+                              {doc.snippet}
+                            </p>
+                            <div className="flex items-center justify-between gap-2">
+                              <span className="text-xs text-muted-foreground">
+                                {doc.tool_name}
+                              </span>
+                              <a
+                                href={doc.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-xs text-blue-500 hover:text-blue-700 inline-flex items-center gap-1"
+                              >
+                                View <ExternalLink className="h-3 w-3" />
+                              </a>
+                            </div>
+                          </div>
+                        ))
+                      ) : allDocuments.length === 0 ? (
+                        <div className="text-center text-sm text-muted-foreground py-8">
+                          {isLoading ? "Searching for documents..." : "No documents retrieved yet"}
+                        </div>
+                      ) : (
+                        <div className="text-center text-sm text-muted-foreground py-8">
+                          No documents found matching &quot;{searchQuery}&quot;
+                        </div>
+                      )}
+                    </div>
+                  </ScrollArea>
+                </TabsContent>
+              </Tabs>
+            </div>
+          </ResizablePanel>
+        </>
+      )}
+    </ResizablePanelGroup>
+  );
+};
+
 const AuthorsSection = () => (
   <section id="authors-section" className="mt-16 py-12 bg-muted/10">
     <div className="container px-16">
@@ -1298,7 +1846,10 @@ const MobileView = () => (
   </div>
 );
 
+type ChatMode = "examples" | "live";
+
 export default function Home() {
+  const [chatMode, setChatMode] = useState<ChatMode>("examples");
   const [selectedExample, setSelectedExample] = useState<string>("");
   const [isPanelOpen, setIsPanelOpen] = useState<boolean>(true);
   const [isMobile, setIsMobile] = useState<boolean>(false);
@@ -1356,66 +1907,71 @@ export default function Home() {
                 DR Tulu for Deep Research
               </h2>
               <div className="flex items-center gap-3">
-                <label className="text-sm font-medium">
-                  See more randomly sampled examples:
-                </label>
-                <Select
-                  value={selectedExample}
-                  onValueChange={setSelectedExample}
-                  disabled={isLoadingList || examplesList.length === 0}
-                >
-                  <SelectTrigger className="w-96">
-                    <SelectValue placeholder="Choose an example" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {Object.entries(groupedExamples).map(
-                      ([datasetName, examples]) => (
-                        <React.Fragment key={datasetName}>
-                          <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground">
-                            {datasetName}
-                          </div>
-                          {examples.map((example) => (
-                            <SelectItem
-                              key={example.json_file_name}
-                              value={example.json_file_name}
-                              className="pl-6"
-                            >
-                              {example.example_title.slice(0, 60)}
-                              {example.example_title.length > 60 ? "..." : ""}
-                            </SelectItem>
-                          ))}
-                        </React.Fragment>
-                      )
-                    )}
-                  </SelectContent>
-                </Select>
-                {/* <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={() => setIsPanelOpen(!isPanelOpen)}
-                        className="h-8 w-8 transition-all hover:bg-muted"
-                      >
-                        {isPanelOpen ? (
-                          <PanelLeftClose className="h-4 w-4 transition-transform duration-200" />
-                        ) : (
-                          <PanelLeftOpen className="h-4 w-4 transition-transform duration-200" />
+                {/* Mode Toggle */}
+                <Tabs value={chatMode} onValueChange={(v) => setChatMode(v as ChatMode)}>
+                  <TabsList className="h-9">
+                    <TabsTrigger value="examples" className="text-xs px-3">
+                      Examples
+                    </TabsTrigger>
+                    <TabsTrigger value="live" className="text-xs px-3">
+                      Live Chat
+                    </TabsTrigger>
+                  </TabsList>
+                </Tabs>
+
+                {/* Example selector (only show in examples mode) */}
+                {chatMode === "examples" && (
+                  <>
+                    <Separator orientation="vertical" className="h-6" />
+                    <label className="text-sm font-medium">
+                      See more randomly sampled examples:
+                    </label>
+                    <Select
+                      value={selectedExample}
+                      onValueChange={setSelectedExample}
+                      disabled={isLoadingList || examplesList.length === 0}
+                    >
+                      <SelectTrigger className="w-96">
+                        <SelectValue placeholder="Choose an example" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {Object.entries(groupedExamples).map(
+                          ([datasetName, examples]) => (
+                            <React.Fragment key={datasetName}>
+                              <div className="px-2 py-1.5 text-sm font-semibold text-muted-foreground">
+                                {datasetName}
+                              </div>
+                              {examples.map((example) => (
+                                <SelectItem
+                                  key={example.json_file_name}
+                                  value={example.json_file_name}
+                                  className="pl-6"
+                                >
+                                  {example.example_title.slice(0, 60)}
+                                  {example.example_title.length > 60 ? "..." : ""}
+                                </SelectItem>
+                              ))}
+                            </React.Fragment>
+                          )
                         )}
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent side="bottom">
-                      {isPanelOpen ? "Hide side panel" : "Show side panel"}
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider> */}
+                      </SelectContent>
+                    </Select>
+                  </>
+                )}
               </div>
             </div>
             <Separator className="mt-2" />
-            {selectedExample && (
+            
+            {/* Conditional rendering based on mode */}
+            {chatMode === "examples" && selectedExample && (
               <ChatInterface
                 selectedExample={selectedExample}
+                isPanelOpen={isPanelOpen}
+                onPanelToggle={() => setIsPanelOpen(!isPanelOpen)}
+              />
+            )}
+            {chatMode === "live" && (
+              <LiveChatInterface
                 isPanelOpen={isPanelOpen}
                 onPanelToggle={() => setIsPanelOpen(!isPanelOpen)}
               />
