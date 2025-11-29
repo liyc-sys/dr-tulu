@@ -1,5 +1,6 @@
 model_name=rl-research/DR-Tulu-SFT-8B
 dataset_list="rl-research/dr-tulu-rl-data 1.0"
+exp_name="1128_dr-tulu-jina_${RANDOM}"
 # if you want to add the rar data, convert it to our format and then add to the dataset list, e.g.:
 # dataset_list="rl-research/dr-tulu-rl-data 1.0 rl-rag/RaR-Medicine-20k-o3-mini-converted 3000 rl-rag/RaR-Science-20k-o3-mini-converted 1000"
 
