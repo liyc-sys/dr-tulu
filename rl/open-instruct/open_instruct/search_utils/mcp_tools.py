@@ -10,7 +10,7 @@ import httpx
 import httpcore
 
 try:
-    from dr_agent.tool_interface.mcp_tools import MassiveServeSearchTool, SemanticScholarSnippetSearchTool, SerperSearchTool, Crawl4AIBrowseTool, SerperBrowseTool
+    from dr_agent.tool_interface.mcp_tools import MassiveServeSearchTool, SemanticScholarSnippetSearchTool, SerperSearchTool, Crawl4AIBrowseTool, SerperBrowseTool, JinaBrowseTool
 except ImportError as e:
     print(f"Failed to import dr_agent. Please install it:\n{e}")
     raise e
@@ -22,8 +22,7 @@ MCP_TOOL_REGISTRY = {
     "snippet_search": SemanticScholarSnippetSearchTool,
     "google_search": SerperSearchTool,
     "massive_serve": MassiveServeSearchTool,
-    "browse_webpage": Crawl4AIBrowseTool,
-    # "browse_webpage": SerperBrowseTool
+    "browse_webpage": JinaBrowseTool,  # Use Jina for browsing (alternatives: Crawl4AIBrowseTool, SerperBrowseTool)
 }
 
 def truncate_at_second_last_stop(text: str, stops: list[str]) -> str:
@@ -113,8 +112,8 @@ class MCPTool(Tool):
                 filtered_kwargs["use_localized_snippets"] = use_localized_snippets
             if "context_chars" in valid_params:
                 filtered_kwargs["context_chars"] = context_chars
-            # special case for crawl4ai
-            if mcp_tool_name == "browse_webpage":
+            # special case for crawl4ai (only applies when browse_webpage uses Crawl4AIBrowseTool)
+            if mcp_tool_name == "browse_webpage" and mcp_tool_cls == Crawl4AIBrowseTool:
                 filtered_kwargs["use_docker_version"] = True
                 filtered_kwargs["use_ai2_config"] = True
             # basically, we want to defer as much as possible to the mcp tool.
