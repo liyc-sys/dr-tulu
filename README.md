@@ -139,16 +139,11 @@ DR Tulu is provided by The Allen Institute for Artificial Intelligence (Ai2). Th
 If you find our work useful, please cite:
 
 ```bibtex
-@misc{shao2025drtulu,
-  title        = {DR Tulu: Reinforcement Learning with Evolving Rubrics for Deep Research},
-  author       = {Shao, Rulin and Asai, Akari and Shen, Shannon Zejiang and Ivison, Hamish
-                  and Kishore, Varsha and Zhuo, Jingming and Zhao, Xinran and Park, Molly
-                  and Finlayson, Samuel and Sontag, David and Murray, Tyler and Min, Sewon
-                  and Dasigi, Pradeep and Soldaini, Luca and Brahman, Faeze and Yih, Wen-tau
-                  and Wu, Tongshuang and Zettlemoyer, Luke and Kim, Yoon
-                  and Hajishirzi, Hannaneh and Koh, Pang Wei},
-  year         = {2025},
-  note         = {arXiv preprint arXiv:2511.19399},
+@article{shao2025dr,
+  title={DR Tulu: Reinforcement Learning with Evolving Rubrics for Deep Research},
+  author={Shao, Rulin and Asai, Akari and Shen, Shannon Zejiang and Ivison, Hamish and Kishore, Varsha and Zhuo, Jingming and Zhao, Xinran and Park, Molly and Finlayson, Samuel G and Sontag, David and others},
+  journal={arXiv preprint arXiv:2511.19399},
+  year={2025}
 }
 ```
 If you have any questions, you can contact [Rulin Shao](https://rulinshao.github.io/), [Akari Asai](https://akariasai.github.io/), [Shannon Shen](https://www.szj.io/), and [Hamish Ivison](https://ivison.id.au/) or open a github issue. 
