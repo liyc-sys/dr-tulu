@@ -67,7 +67,7 @@ import torch.utils
 import torch.utils.data
 from datasets import Dataset
 from huggingface_hub import HfApi
-from peft import PeftModel, get_peft_model_state_dict
+from peft import LoraConfig, PeftModel, TaskType, get_peft_model, get_peft_model_state_dict
 from ray.util.placement_group import PlacementGroup, placement_group
 from ray.util.queue import Queue as RayQueue
 from ray.util.scheduling_strategies import PlacementGroupSchedulingStrategy
@@ -675,6 +675,40 @@ class PolicyTrainerRayProcess(RayProcess):
         self.policy_vocab_size = self.policy.config.vocab_size
         disable_dropout_in_model(self.policy)
         self.policy.gradient_checkpointing_enable()
+        
+        # Apply PEFT (LoRA/DoRA) if enabled
+        if model_config.use_peft:
+            from peft import prepare_model_for_kbit_training
+            if model_config.load_in_4bit or model_config.load_in_8bit:
+                self.policy = prepare_model_for_kbit_training(self.policy, use_gradient_checkpointing=True)
+            
+            # Determine target modules if not specified
+            target_modules = model_config.lora_target_modules
+            if target_modules is None:
+                # Default target modules for common architectures
+                if hasattr(self.policy.config, "hidden_size"):
+                    # Try to infer from model architecture
+                    if "llama" in model_config.model_name_or_path.lower() or "tulu" in model_config.model_name_or_path.lower():
+                        target_modules = ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+                    elif "mistral" in model_config.model_name_or_path.lower():
+                        target_modules = ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+                    else:
+                        # Generic fallback - try common attention and MLP layer names
+                        target_modules = ["q_proj", "k_proj", "v_proj", "o_proj"]
+            
+            peft_config = LoraConfig(
+                task_type=TaskType.CAUSAL_LM,
+                inference_mode=False,
+                r=model_config.lora_r,
+                lora_alpha=model_config.lora_alpha,
+                lora_dropout=model_config.lora_dropout,
+                target_modules=target_modules,
+                modules_to_save=model_config.lora_modules_to_save,
+                use_dora=model_config.use_dora,
+            )
+            self.policy = get_peft_model(self.policy, peft_config)
+            if self.rank == 0:
+                self.policy.print_trainable_parameters()
         # from deepspeed.ops.adam import DeepSpeedCPUAdam, FusedAdam
         # AdamOptimizer = DeepSpeedCPUAdam if self.adam_offload else FusedAdam
         # AdamOptimizer = FusedAdam
@@ -773,6 +807,30 @@ class PolicyTrainerRayProcess(RayProcess):
             use_cache=False,
         )
         disable_dropout_in_model(self.ref_policy)
+        
+        # Apply PEFT to reference policy if enabled (for consistency, but in eval mode)
+        if model_config.use_peft:
+            target_modules = model_config.lora_target_modules
+            if target_modules is None:
+                if "llama" in model_config.model_name_or_path.lower() or "tulu" in model_config.model_name_or_path.lower():
+                    target_modules = ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+                elif "mistral" in model_config.model_name_or_path.lower():
+                    target_modules = ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+                else:
+                    target_modules = ["q_proj", "k_proj", "v_proj", "o_proj"]
+            
+            peft_config = LoraConfig(
+                task_type=TaskType.CAUSAL_LM,
+                inference_mode=True,  # Reference model is only used for inference
+                r=model_config.lora_r,
+                lora_alpha=model_config.lora_alpha,
+                lora_dropout=model_config.lora_dropout,
+                target_modules=target_modules,
+                modules_to_save=model_config.lora_modules_to_save,
+                use_dora=model_config.use_dora,
+            )
+            self.ref_policy = get_peft_model(self.ref_policy, peft_config)
+        
         self.ref_policy, *_ = deepspeed.initialize(model=self.ref_policy, config=ds_config)
         self.ref_policy.eval()
 

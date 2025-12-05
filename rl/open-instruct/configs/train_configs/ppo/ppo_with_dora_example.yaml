@@ -1,0 +1,69 @@
+# Example configuration for PPO/GRPO training with DoRA (Weight-Decomposed Low-Rank Adaptation)
+# DoRA reduces computational resources by only training a small subset of parameters
+# while maintaining similar or better performance compared to full fine-tuning
+
+# Model configuration
+model_name_or_path: meta-llama/Llama-2-7b-hf
+model_revision: main
+use_flash_attn: true
+gradient_checkpointing: true
+
+# PEFT/DoRA configuration
+use_peft: true  # Enable PEFT (Parameter-Efficient Fine-Tuning)
+use_dora: true  # Use DoRA instead of standard LoRA for better performance with fewer parameters
+lora_r: 16  # Rank of LoRA matrices (lower = fewer parameters, but may reduce capacity)
+lora_alpha: 32  # LoRA alpha scaling parameter (typically 2x lora_r)
+lora_dropout: 0.05  # Dropout rate for LoRA layers
+# lora_target_modules: ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]  # Optional: specify target modules
+# If not specified, will auto-detect based on model architecture
+
+# Optional: Quantization (further reduces memory)
+# load_in_4bit: true  # Use 4-bit quantization (requires bitsandbytes)
+# load_in_8bit: true  # Use 8-bit quantization (requires bitsandbytes)
+
+# Tokenizer configuration
+tokenizer_name: meta-llama/Llama-2-7b-hf
+use_slow_tokenizer: false
+
+# Dataset configuration
+dataset_mixer_list: ["your-dataset-name 1.0"]
+dataset_mixer_list_splits: ["train"]
+dataset_mixer_eval_list: ["your-eval-dataset-name"]
+dataset_mixer_eval_list_splits: ["test"]
+
+# Training hyperparameters
+max_token_length: 2048
+max_prompt_token_length: 1024
+response_length: 512
+learning_rate: 2e-5  # Can use higher learning rate with DoRA
+lr_scheduler_type: linear
+warmup_ratio: 0.1
+beta: 0.05  # KL penalty coefficient for PPO
+cliprange: 0.2
+num_epochs: 4
+num_mini_batches: 1
+local_mini_batch_size: 64
+per_device_train_batch_size: 1
+local_rollout_batch_size: 64
+total_episodes: 100000
+
+# DeepSpeed configuration
+# Note: With DoRA, Stage 0 is often sufficient and faster for single GPU
+# Stage 3 is recommended for multi-GPU training or when memory is tight
+deepspeed_stage: 0  # Stage 0 for single GPU (fastest), Stage 3 for multi-GPU
+# With DoRA + Stage 0, 7B models can run on single A100 80GB with ~24-34GB memory usage
+# Stage 3 is only needed for multi-GPU or very tight memory constraints
+
+# Output and tracking
+output_dir: output/ppo_dora_7b
+with_tracking: true
+wandb_project_name: rl-training
+save_freq: 1000
+
+# Notes on resource requirements:
+# - Without DoRA: 7B model typically needs 2-4 GPUs (A100 40GB) or 1 GPU (A100 80GB)
+# - With DoRA: 7B model can run on 1 GPU (RTX 3090 24GB) or even smaller GPUs
+# - Memory savings: ~70-80% reduction in trainable parameters
+# - Training speed: Similar or faster due to fewer parameters to update
+# - Performance: DoRA typically matches or exceeds full fine-tuning performance
+

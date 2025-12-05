@@ -79,6 +79,8 @@ class ModelConfig:
     """Model layers to unfreeze & train"""
     lora_task_type: str = "CAUSAL_LM"
     """The task_type to pass for LoRA (use SEQ_CLS for reward modeling)"""
+    use_dora: bool = False
+    """Whether to use DoRA (Weight-Decomposed Low-Rank Adaptation) instead of standard LoRA."""
 
     # quantization args
     load_in_8bit: bool = False

@@ -1,0 +1,61 @@
+# Example configuration for GRPO training with DoRA (Weight-Decomposed Low-Rank Adaptation)
+# GRPO (Group Relative Policy Optimization) is a variant that uses group rewards
+# DoRA reduces computational resources significantly while maintaining performance
+
+# Model configuration
+model_name_or_path: meta-llama/Llama-2-7b-hf
+model_revision: main
+use_flash_attn: true
+gradient_checkpointing: true
+
+# PEFT/DoRA configuration
+use_peft: true  # Enable PEFT
+use_dora: true  # Use DoRA for better parameter efficiency
+lora_r: 16  # Rank (lower = fewer parameters)
+lora_alpha: 32  # Alpha scaling
+lora_dropout: 0.05
+# lora_target_modules will be auto-detected if not specified
+
+# Tokenizer configuration
+tokenizer_name: meta-llama/Llama-2-7b-hf
+use_slow_tokenizer: false
+
+# Dataset configuration
+dataset_mixer_list: ["your-dataset-name 1.0"]
+dataset_mixer_list_splits: ["train"]
+dataset_mixer_eval_list: ["your-eval-dataset-name"]
+dataset_mixer_eval_list_splits: ["test"]
+
+# GRPO-specific hyperparameters
+number_samples_per_prompt: 8  # Number of samples per prompt for group rewards
+max_token_length: 2048
+max_prompt_token_length: 1024
+response_length: 512
+learning_rate: 2e-5
+lr_scheduler_type: linear
+warmup_ratio: 0.1
+beta: 0.05  # KL penalty
+cliprange: 0.2
+kl_estimator: kl3  # GRPO uses kl3 or kl4
+num_epochs: 4
+num_mini_batches: 1
+local_mini_batch_size: 64
+per_device_train_batch_size: 1
+local_rollout_batch_size: 64
+total_episodes: 100000
+
+# DeepSpeed configuration
+# Stage 0 for single GPU (fastest), Stage 3 for multi-GPU
+deepspeed_stage: 0  # Change to 3 if using multiple GPUs
+
+# Output and tracking
+output_dir: output/grpo_dora_7b
+with_tracking: true
+wandb_project_name: rl-training
+save_freq: 1000
+
+# Resource requirements with DoRA:
+# - 7B model: 1 GPU (RTX 3090 24GB) or 1 GPU (A100 40GB)
+# - 13B model: 1-2 GPUs (A100 40GB) or 1 GPU (A100 80GB)
+# - 70B model: 4-8 GPUs (A100 40GB) with DeepSpeed Stage 3
+
