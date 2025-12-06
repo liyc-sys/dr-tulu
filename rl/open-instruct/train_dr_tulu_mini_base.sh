@@ -1,3 +1,8 @@
+# 添加的API转发设置
+export OPENAI_API_KEY="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"
+export OPENAI_API_BASE="https://openrouter.ai/api/v1"
+
+
 model_path=Qwen/Qwen3-0.6B
 dataset_list="rl-research/dr-tulu-rl-data 1.0"
 exp_name="dr-tulu-mini-base"

@@ -1,12 +1,23 @@
+# 添加的API转发设置
+export http_proxy="http://httpproxy.glm.ai:8888"
+export https_proxy="http://httpproxy.glm.ai:8888"
+export no_proxy="127.0.0.1,localhost,platform.glm.ai"
+
+export OPENAI_API_KEY="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"
+export OPENAI_API_BASE="https://openrouter.ai/api/v1"
+
+log_file="train_${exp_name}_$(date +%Y%m%d_%H%M%S).log"
+
 model_name=rl-research/DR-Tulu-SFT-8B
 dataset_list="rl-research/dr-tulu-rl-data 1.0"
+
 # if you want to add the rar data, convert it to our format and then add to the dataset list, e.g.:
 # dataset_list="rl-research/dr-tulu-rl-data 1.0 rl-rag/RaR-Medicine-20k-o3-mini-converted 3000 rl-rag/RaR-Science-20k-o3-mini-converted 1000"
 
 # set env vars
 # you need all these apis by default.
-export WANDB_API_KEY=xxx
-export OPENAI_API_KEY=xxx
+export WANDB_API_KEY=66b0b8398e5e095610d55373d3f5eff647e58405
+
 # if using the docker container and crawl4ai, you can use this path.
 # Otherwise, you need to set the path to the blocklist file.
 # not used for jina.
