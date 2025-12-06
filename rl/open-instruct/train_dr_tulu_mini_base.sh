@@ -1,6 +1,11 @@
 model_path=Qwen/Qwen3-0.6B
 dataset_list="rl-research/dr-tulu-rl-data 1.0"
 exp_name="dr-tulu-mini-base"
+log_file="train_${exp_name}_$(date +%Y%m%d_%H%M%S).log"
+
+echo "日志文件将保存到: ${log_file}"
+echo "开始训练..."
+
 # if you want to add the rar data, convert it to our format and then add to the dataset list, e.g.:
 # dataset_list="rl-research/dr-tulu-rl-data 1.0 rl-rag/RaR-Medicine-20k-o3-mini-converted 3000 rl-rag/RaR-Science-20k-o3-mini-converted 1000"
 
@@ -12,7 +17,8 @@ export RUBRIC_JUDGE_MODEL=gpt-4.1-mini
 export MCP_CACHE_DIR=.cache-${RANDOM}
 export MCP_TRANSPORT_PORT=8003
 
-uv run --extra compile python open_instruct/grpo_fast.py \
+{
+    uv run --extra compile python open_instruct/grpo_fast.py \
         --exp_name ${exp_name} \
         --wandb_project_name rl-rag \
         --beta 0.001 \
@@ -65,3 +71,4 @@ uv run --extra compile python open_instruct/grpo_fast.py \
         --system_prompt_file open_instruct/search_utils/system_prompts/unified_tool_calling_v20250907.yaml  \
         --mcp_tool_names 'snippet_search,google_search,browse_webpage' \
         --mcp_server_command "uv run python -m dr_agent.mcp_backend.main --transport http --port 8003 --host 0.0.0.0 --path /mcp"
+} 2>&1 | tee "${log_file}"
