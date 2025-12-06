@@ -1929,7 +1929,10 @@ def main(args: Args, tc: TokenizerConfig, model_config: ModelConfig, reward_fn: 
         ray_temp_dir = os.path.join("/tmp", f"ray-{os.getpid()}")
         ray.init(dashboard_host="0.0.0.0", _temp_dir=ray_temp_dir)  # enable debugging from a different machine (e.g., phobos)
     pg = None
-    bundles = [{"GPU": actor_num_gpus, "CPU": actor_num_gpus * 10} for actor_num_gpus in args.num_learners_per_node]
+    # 10太大了，最多用28个，改成3
+    bundles = [{"GPU": actor_num_gpus, "CPU": actor_num_gpus * 3} for actor_num_gpus in args.num_learners_per_node]
+
+    # bundles = [{"GPU": actor_num_gpus, "CPU": actor_num_gpus * 10} for actor_num_gpus in args.num_learners_per_node]
     pg = placement_group(bundles, strategy="STRICT_SPREAD")
     ray.get(pg.ready())
     inits = []

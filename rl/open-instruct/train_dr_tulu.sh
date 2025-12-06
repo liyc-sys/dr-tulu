@@ -6,6 +6,7 @@ export no_proxy="127.0.0.1,localhost,platform.glm.ai,::1,$no_proxy"
 export OPENAI_API_KEY="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"
 export OPENAI_API_BASE="https://openrouter.ai/api/v1"
 
+# 注意
 # Configuration: GPU setup
 # For single GPU: export NUM_GPUS=1 or NUM_GPUS=single before running
 # For multi GPU: export NUM_GPUS=8 (or any number) before running
@@ -29,6 +30,9 @@ model_path=rl-research/DR-Tulu-SFT-8B
 dataset_list="rl-research/dr-tulu-rl-data 1.0"
 exp_name="dr-tulu"
 log_file="train_${exp_name}_$(date +%Y%m%d_%H%M%S).log"
+
+echo "日志文件将保存到: ${log_file}"
+echo "开始训练..."
 
 # if you want to add the rar data, convert it to our format and then add to the dataset list, e.g.:
 # dataset_list="rl-research/dr-tulu-rl-data 1.0 rl-rag/RaR-Medicine-20k-o3-mini-converted 3000 rl-rag/RaR-Science-20k-o3-mini-converted 1000"
@@ -111,8 +115,8 @@ uv run --extra compile python open_instruct/grpo_fast.py \
         --mcp_parser_name v20250824 \
         --system_prompt_file open_instruct/search_utils/system_prompts/unified_tool_calling_v20250907.yaml  \
         --mcp_tool_names 'snippet_search,google_search,browse_webpage' \
-        --mcp_server_command "'python -m dr_agent.mcp_backend.main --transport http --port 8003 --host 0.0.0.0 --path /mcp'" \
-        ${ADDITIONAL_ARGS}
+        --mcp_server_command "uv run python -m dr_agent.mcp_backend.main --transport http --port 8003 --host 0.0.0.0 --path /mcp" \
+        ${ADDITIONAL_ARGS} 2>&1 | tee ${log_file}
 
 # For people at Ai2, here is the exact command we used:
 #############
