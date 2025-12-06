@@ -1,15 +1,34 @@
 # 添加的API转发设置
 export http_proxy="http://httpproxy.glm.ai:8888"
 export https_proxy="http://httpproxy.glm.ai:8888"
-export no_proxy="127.0.0.1,localhost,platform.glm.ai"
+export no_proxy="127.0.0.1,localhost,platform.glm.ai,::1,$no_proxy"
 
 export OPENAI_API_KEY="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"
 export OPENAI_API_BASE="https://openrouter.ai/api/v1"
 
-log_file="train_${exp_name}_$(date +%Y%m%d_%H%M%S).log"
+# Configuration: GPU setup
+# For single GPU: export NUM_GPUS=1 or NUM_GPUS=single before running
+# For multi GPU: export NUM_GPUS=8 (or any number) before running
+# Default: 8 GPUs (multi-GPU mode)
+NUM_GPUS=${NUM_GPUS:-8}  # Default to 8 GPUs, can be overridden by environment variable
+SINGLE_GPU_MODE=false
+if [ "$NUM_GPUS" == "1" ] || [ "$NUM_GPUS" == "single" ]; then
+    SINGLE_GPU_MODE=true
+    NUM_LEARNERS=1
+    VLLM_ENGINES=1
+    VLLM_GPU_MEMORY_UTIL=0.3
+    VLLM_SYNC_BACKEND="gloo"
+else
+    NUM_LEARNERS=$NUM_GPUS
+    VLLM_ENGINES=$NUM_GPUS
+    VLLM_GPU_MEMORY_UTIL=""
+    VLLM_SYNC_BACKEND=""
+fi
 
-model_name=rl-research/DR-Tulu-SFT-8B
+model_path=rl-research/DR-Tulu-SFT-8B
 dataset_list="rl-research/dr-tulu-rl-data 1.0"
+exp_name="dr-tulu"
+log_file="train_${exp_name}_$(date +%Y%m%d_%H%M%S).log"
 
 # if you want to add the rar data, convert it to our format and then add to the dataset list, e.g.:
 # dataset_list="rl-research/dr-tulu-rl-data 1.0 rl-rag/RaR-Medicine-20k-o3-mini-converted 3000 rl-rag/RaR-Science-20k-o3-mini-converted 1000"
@@ -30,8 +49,15 @@ export MCP_TRANSPORT_PORT=8003
 
 # setup a ray cluster, with 2 nodes and 8 GPUs per node.
 # in ai2, we use the following script:
-source configs/beaker_configs/ray_node_setup.sh
+# source configs/beaker_configs/ray_node_setup.sh
+# Commented out for single-node execution (Ray will be auto-initialized by the Python code)
+# For multi-node setup, uncomment the above line and ensure BEAKER environment variables are set
 
+# Build additional arguments based on GPU configuration
+ADDITIONAL_ARGS=""
+if [ "$SINGLE_GPU_MODE" == "true" ]; then
+    ADDITIONAL_ARGS="--single_gpu_mode True --vllm_gpu_memory_utilization ${VLLM_GPU_MEMORY_UTIL} --vllm_sync_backend ${VLLM_SYNC_BACKEND}"
+fi
 
 uv run --extra compile python open_instruct/grpo_fast.py \
         --exp_name ${exp_name} \
@@ -66,8 +92,8 @@ uv run --extra compile python open_instruct/grpo_fast.py \
         --sft_messages_key messages \
         --total_episodes 10000000 \
         --deepspeed_stage 3 \
-        --num_learners_per_node 8 \
-        --vllm_num_engines 8 \
+        --num_learners_per_node ${NUM_LEARNERS} \
+        --vllm_num_engines ${VLLM_ENGINES} \
         --vllm_tensor_parallel_size 1 \
         --lr_scheduler_type constant \
         --apply_verifiable_reward true \
@@ -85,7 +111,8 @@ uv run --extra compile python open_instruct/grpo_fast.py \
         --mcp_parser_name v20250824 \
         --system_prompt_file open_instruct/search_utils/system_prompts/unified_tool_calling_v20250907.yaml  \
         --mcp_tool_names 'snippet_search,google_search,browse_webpage' \
-        --mcp_server_command "'python -m dr_agent.mcp_backend.main --transport http --port 8003 --host 0.0.0.0 --path /mcp'"
+        --mcp_server_command "'python -m dr_agent.mcp_backend.main --transport http --port 8003 --host 0.0.0.0 --path /mcp'" \
+        ${ADDITIONAL_ARGS}
 
 # For people at Ai2, here is the exact command we used:
 #############
