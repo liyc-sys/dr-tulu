@@ -17,7 +17,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Global cache control
-_cache_enabled = True
+# 注意这里
+_cache_enabled = False
 
 
 def set_cache_enabled(enabled: bool) -> None:
