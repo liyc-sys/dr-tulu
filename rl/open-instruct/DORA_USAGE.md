@@ -17,6 +17,11 @@ DoRA是LoRA的一种改进版本，通过将权重分解为"幅度"和"方向"�
    - 在 `from_pretrained` 方法中添加了DoRA支持
    - 对policy和ref_policy模型应用PEFT/DoRA
 
+4. **GRPO Fast训练代码** (`open_instruct/grpo_fast.py`)
+   - 在 `from_pretrained` 方法中添加了DoRA支持
+   - 对policy和ref_policy模型应用PEFT/DoRA
+   - 支持与grpo_vllm_thread_ray_gtrl.py相同的PEFT配置
+
 ## 使用方法
 
 ### 1. 在配置文件中启用DoRA
@@ -37,8 +42,23 @@ lora_dropout: 0.05  # Dropout率
 
 ### 2. 命令行参数
 
+对于 `ppo_vllm_thread_ray_gtrl.py` 或 `grpo_vllm_thread_ray_gtrl.py`：
+
 ```bash
 python open_instruct/ppo_vllm_thread_ray_gtrl.py \
+    --model_name_or_path meta-llama/Llama-2-7b-hf \
+    --use_peft \
+    --use_dora \
+    --lora_r 16 \
+    --lora_alpha 32 \
+    --lora_dropout 0.05 \
+    # ... 其他参数
+```
+
+对于 `grpo_fast.py`（推荐用于生产环境）：
+
+```bash
+python open_instruct/grpo_fast.py \
     --model_name_or_path meta-llama/Llama-2-7b-hf \
     --use_peft \
     --use_dora \
@@ -79,11 +99,37 @@ load_in_4bit: true  # 或 load_in_8bit: true
 - **模型性能**: DoRA通常能达到或超过全参数微调的性能
 - **内存使用**: 显著减少，特别是在使用DeepSpeed Stage 3时
 
-## 示例配置文件
+## 示例配置文件和脚本
 
 参考以下示例配置文件：
 - `configs/train_configs/ppo/ppo_with_dora_example.yaml`
 - `configs/train_configs/grpo/grpo_with_dora_example.yaml`
+
+参考以下示例训练脚本：
+- `train_dr_tulu_with_dora.sh` - 使用 DoRA 训练 DR-Tulu 的完整示例
+
+### 使用 DoRA 训练脚本
+
+```bash
+# 使用 DoRA 训练（默认 8 GPU）
+bash train_dr_tulu_with_dora.sh
+
+# 使用 DoRA 训练（单 GPU 模式）
+NUM_GPUS=1 bash train_dr_tulu_with_dora.sh
+
+# 使用 DoRA 训练（自定义 GPU 数量）
+NUM_GPUS=4 bash train_dr_tulu_with_dora.sh
+```
+
+### 快速对比：全参数训练 vs DoRA
+
+| 特性 | 全参数训练 (`train_dr_tulu.sh`) | DoRA 训练 (`train_dr_tulu_with_dora.sh`) |
+|------|--------------------------------|------------------------------------------|
+| 训练参数量 | 100% | 0.1-1% |
+| GPU 内存需求 | 高 | 显著降低（约 70-80%） |
+| 训练速度 | 基准 | 相似或更快 |
+| 模型性能 | 基准 | 通常相当或更好 |
+| 保存的权重 | 完整模型 | Adapter 权重（需合并到基础模型） |
 
 ## 注意事项
 
