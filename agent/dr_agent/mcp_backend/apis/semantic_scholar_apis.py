@@ -81,6 +81,17 @@ def _make_request_with_retry(
     free_url = url.replace(S2_GRAPH_API_URL_PAID, S2_GRAPH_API_URL_FREE)
     free_url = free_url.replace(S2_RECOMMENDATIONS_API_URL_PAID, S2_RECOMMENDATIONS_API_URL_FREE)
     
+    # 获取代理设置（从环境变量）
+    # requests 会自动从 http_proxy/https_proxy 环境变量读取
+    # 但为了确保正确，我们显式设置
+    proxies = None
+    if os.getenv('http_proxy') or os.getenv('https_proxy'):
+        proxies = {
+            'http': os.getenv('http_proxy'),
+            'https': os.getenv('https_proxy'),
+        }
+        print(f"🌐 使用代理: {proxies}")
+    
     def _is_valid_response(response_json: dict) -> bool:
         """检查响应是否有效（不是错误消息）"""
         # 如果响应只包含 'message' 字段，通常是错误
@@ -102,6 +113,7 @@ def _make_request_with_retry(
                     json=json_data,
                     headers=None,  # 不带 API key
                     timeout=timeout,
+                    proxies=proxies,  # 使用代理
                 )
             else:
                 res = requests.get(
@@ -109,6 +121,7 @@ def _make_request_with_retry(
                     params=params,
                     headers=None,  # 不带 API key
                     timeout=timeout,
+                    proxies=proxies,  # 使用代理
                 )
             
             res.raise_for_status()
@@ -138,6 +151,7 @@ def _make_request_with_retry(
                 json=json_data,
                 headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
                 timeout=timeout,
+                proxies=proxies,  # 使用代理
             )
         else:
             res = requests.get(
@@ -145,6 +159,7 @@ def _make_request_with_retry(
                 params=params,
                 headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
                 timeout=timeout,
+                proxies=proxies,  # 使用代理
             )
         
         res.raise_for_status()
