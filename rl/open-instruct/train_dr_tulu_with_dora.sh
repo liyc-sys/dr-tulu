@@ -8,10 +8,14 @@ export OPENAI_API_BASE="https://openrouter.ai/api/v1"
 
 # 注意
 # Configuration: GPU setup
-# For single GPU: export NUM_GPUS=1 or NUM_GPUS=single before running
-# For multi GPU: export NUM_GPUS=8 (or any number) before running
-# Default: 8 GPUs (multi-GPU mode)
-NUM_GPUS=${NUM_GPUS:-8}  # Default to 8 GPUs, can be overridden by environment variable
+# 可用环境变量：
+#   NUM_GPUS            覆盖总体 GPU 规模提示（默认 4）
+#   NUM_LEARNERS        learner 进程数量（默认 4）
+#   VLLM_ENGINES        vLLM 引擎数量（默认 4）
+#   单卡调试：export NUM_GPUS=1 或 NUM_GPUS=single
+NUM_GPUS=${NUM_GPUS:-4}                # 默认用 4（适配 8 卡机器：4 learner + 4 vLLM）
+NUM_LEARNERS=${NUM_LEARNERS:-4}        # learner 数；与 NUM_GPUS 解耦，便于控制总需求
+VLLM_ENGINES=${VLLM_ENGINES:-4}        # vLLM 引擎数；与 learner 分开控制
 SINGLE_GPU_MODE=false
 if [ "$NUM_GPUS" == "1" ] || [ "$NUM_GPUS" == "single" ]; then
     SINGLE_GPU_MODE=true
@@ -20,8 +24,6 @@ if [ "$NUM_GPUS" == "1" ] || [ "$NUM_GPUS" == "single" ]; then
     VLLM_GPU_MEMORY_UTIL=0.3
     VLLM_SYNC_BACKEND="gloo"
 else
-    NUM_LEARNERS=$NUM_GPUS
-    VLLM_ENGINES=$NUM_GPUS
     VLLM_GPU_MEMORY_UTIL=""
     VLLM_SYNC_BACKEND=""
 fi
