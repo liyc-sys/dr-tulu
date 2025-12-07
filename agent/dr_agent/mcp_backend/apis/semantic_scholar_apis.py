@@ -2,6 +2,7 @@ import os
 import warnings
 from pathlib import Path
 from typing import Generic, List, Optional, TypeVar, Union
+import time
 
 import requests
 from dotenv import load_dotenv
@@ -21,8 +22,20 @@ S2_API_KEY = os.getenv("S2_API_KEY")
 TIMEOUT = int(os.getenv("API_TIMEOUT", 10))
 S2_SEARCH_LIMIT = 100
 
-S2_GRAPH_API_URL = "https://api.semanticscholar.org/graph/v1"
-S2_RECOMMENDATIONS_API_URL = "https://api.semanticscholar.org/recommendations/v1"
+# 免费调用使用官方地址
+S2_GRAPH_API_URL_FREE = "https://api.semanticscholar.org/graph/v1"
+S2_RECOMMENDATIONS_API_URL_FREE = "https://api.semanticscholar.org/recommendations/v1"
+
+# 付费调用使用代理地址
+S2_GRAPH_API_URL_PAID = "https://lifuai.com/api/v1/graph/v1"
+S2_RECOMMENDATIONS_API_URL_PAID = "https://lifuai.com/api/v1/recommendations/v1"
+
+# 默认使用付费地址（向后兼容）
+S2_GRAPH_API_URL = S2_GRAPH_API_URL_PAID
+S2_RECOMMENDATIONS_API_URL = S2_RECOMMENDATIONS_API_URL_PAID
+
+# 免费调用重试次数
+FREE_RETRY_ATTEMPTS = 3
 
 # authors.authorId,authors.paperCount,authors.citationCount
 S2_PAPER_SEARCH_FIELDS = "paperId,corpusId,url,title,abstract,authors,authors.name,year,venue,citationCount,openAccessPdf,externalIds,isOpenAccess"
@@ -53,6 +66,78 @@ class PaperSnippetApiResponse(BaseModel, Generic[T]):
 # This is a subset of the supported query parameters for the Semantic Scholar API.
 # We include the most important ones and remove some for clarity. (e.g., there are year and
 # publicationDateOrYear, which can be confusing to the model).
+def _make_request_with_retry(
+    url: str,
+    params: dict,
+    timeout: int,
+    method: str = "GET",
+    json_data: dict = None,
+) -> dict:
+    """
+    先尝试免费调用（访问官方地址，不带 API key），重试 3 次。
+    如果都失败，再使用付费调用（访问代理地址，带 API key）。
+    """
+    # 将付费地址的 URL 替换为免费地址
+    free_url = url.replace(S2_GRAPH_API_URL_PAID, S2_GRAPH_API_URL_FREE)
+    free_url = free_url.replace(S2_RECOMMENDATIONS_API_URL_PAID, S2_RECOMMENDATIONS_API_URL_FREE)
+    
+    # 先尝试免费调用（使用官方地址）
+    for attempt in range(FREE_RETRY_ATTEMPTS):
+        try:
+            if method.upper() == "POST":
+                res = requests.post(
+                    free_url,  # 使用免费地址
+                    params=params,
+                    json=json_data,
+                    headers=None,  # 不带 API key
+                    timeout=timeout,
+                )
+            else:
+                res = requests.get(
+                    free_url,  # 使用免费地址
+                    params=params,
+                    headers=None,  # 不带 API key
+                    timeout=timeout,
+                )
+            
+            res.raise_for_status()
+            print(f"✓ 免费调用成功 (尝试 {attempt + 1}/{FREE_RETRY_ATTEMPTS}) - 地址: {free_url}")
+            return res.json()
+        
+        except Exception as e:
+            print(f"✗ 免费调用失败 (尝试 {attempt + 1}/{FREE_RETRY_ATTEMPTS}): {str(e)}")
+            if attempt < FREE_RETRY_ATTEMPTS - 1:
+                time.sleep(1)  # 重试前等待 1 秒
+            continue
+    
+    # 所有免费调用都失败，使用付费调用（使用代理地址）
+    print(f"所有免费调用失败，切换到付费调用 - 地址: {url}")
+    try:
+        if method.upper() == "POST":
+            res = requests.post(
+                url,  # 使用付费地址（原 URL）
+                params=params,
+                json=json_data,
+                headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
+                timeout=timeout,
+            )
+        else:
+            res = requests.get(
+                url,  # 使用付费地址（原 URL）
+                params=params,
+                headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
+                timeout=timeout,
+            )
+        
+        res.raise_for_status()
+        print("✓ 付费调用成功")
+        return res.json()
+    
+    except Exception as e:
+        print(f"✗ 付费调用也失败: {str(e)}")
+        raise
+
+
 class SemanticScholarSearchQueryParams(BaseModel):
     query: str = Field(
         ...,
@@ -106,21 +191,17 @@ def search_semantic_scholar_keywords(
     timeout: int = TIMEOUT,
 ) -> ApiResponse[SemanticScholarPaperData]:
 
-    res = requests.get(
-        f"{S2_GRAPH_API_URL}/paper/search",
+    results = _make_request_with_retry(
+        url=f"{S2_GRAPH_API_URL}/paper/search",
         params={
             "offset": offset,
             "limit": limit,
             "fields": fields,
             **query_params.model_dump(exclude_none=True),
         },
-        headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
         timeout=timeout,
+        method="GET",
     )
-
-    res.raise_for_status()
-
-    results = res.json()
 
     # For each paper, if we know their external arxiv ids, we can construct the open access pdf link
     # if it is not already provided.
@@ -187,17 +268,16 @@ def search_semantic_scholar_snippets(
     ):
         params["paperIds"] = ",".join(query_params.paperIds)
 
-    res = requests.get(
-        f"{S2_GRAPH_API_URL}/snippet/search",
+    results = _make_request_with_retry(
+        url=f"{S2_GRAPH_API_URL}/snippet/search",
         params={
             # "offset": offset,
             "limit": limit,
             **params,
         },
-        headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
         timeout=timeout,
+        method="GET",
     )
-    results = res.json()
     return results
 
 
@@ -208,19 +288,15 @@ def search_semantic_scholar_bulk_api(
     timeout: int = TIMEOUT,
 ) -> ApiResponse[SemanticScholarPaperData]:
 
-    res = requests.get(
-        f"{S2_GRAPH_API_URL}/paper/search/bulk",
+    results = _make_request_with_retry(
+        url=f"{S2_GRAPH_API_URL}/paper/search/bulk",
         params={
             "fields": fields,
             **query_params.model_dump(exclude_none=True),
         },
-        headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
         timeout=timeout,
+        method="GET",
     )
-
-    res.raise_for_status()
-
-    results = res.json()
 
     # For each paper, if we know their external arxiv ids, we can construct the open access pdf link
     # if it is not already provided.
@@ -248,17 +324,14 @@ def download_paper_details(
     fields: str = S2_PAPER_SEARCH_FIELDS,
     timeout: int = TIMEOUT,
 ):
-    res = requests.get(
-        f"{S2_GRAPH_API_URL}/paper/{paper_id}",
+    results = _make_request_with_retry(
+        url=f"{S2_GRAPH_API_URL}/paper/{paper_id}",
         params={
             "fields": fields,
         },
-        headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
         timeout=timeout,
+        method="GET",
     )
-
-    res.raise_for_status()
-    results = res.json()
     return results
 
 
@@ -270,17 +343,16 @@ def download_paper_references(
     fields: str = S2_PAPER_REFERENCE_FIELDS,
     timeout: int = TIMEOUT,
 ):
-    res = requests.get(
-        f"{S2_GRAPH_API_URL}/paper/{paper_id}/references",
+    results = _make_request_with_retry(
+        url=f"{S2_GRAPH_API_URL}/paper/{paper_id}/references",
         params={
             "offset": offset,
             "limit": limit,
             "fields": fields,
         },
-        headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
         timeout=timeout,
+        method="GET",
     )
-    results = res.json()
     return results
 
 
@@ -292,17 +364,16 @@ def download_paper_citations(
     fields: str = S2_PAPER_CITATION_FIELDS,
     timeout: int = TIMEOUT,
 ):
-    res = requests.get(
-        f"{S2_GRAPH_API_URL}/paper/{paper_id}/citations",
+    results = _make_request_with_retry(
+        url=f"{S2_GRAPH_API_URL}/paper/{paper_id}/citations",
         params={
             "offset": offset,
             "limit": limit,
             "fields": fields,
         },
-        headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
         timeout=timeout,
+        method="GET",
     )
-    results = res.json()
     return results
 
 
@@ -312,14 +383,13 @@ def download_paper_details_batch(
     fields: str = S2_PAPER_SEARCH_FIELDS,
     timeout: int = TIMEOUT,
 ):
-    res = requests.post(
-        f"{S2_GRAPH_API_URL}/paper/batch",
+    results = _make_request_with_retry(
+        url=f"{S2_GRAPH_API_URL}/paper/batch",
         params={"fields": fields},
-        json={"ids": paper_ids},
-        headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
         timeout=timeout,
+        method="POST",
+        json_data={"ids": paper_ids},
     )
-    results = res.json()
     return results
 
 

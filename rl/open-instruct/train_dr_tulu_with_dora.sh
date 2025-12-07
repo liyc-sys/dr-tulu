@@ -26,7 +26,7 @@ else
     VLLM_SYNC_BACKEND=""
 fi
 
-model_path=rl-research/DR-Tulu-SFT-8B
+model_path=/workspace/math_science_data/lyc/models/DR-Tulu-SFT-8B
 dataset_list="rl-research/dr-tulu-rl-data 1.0"
 exp_name="dr-tulu-dora"
 log_file="train_${exp_name}_$(date +%Y%m%d_%H%M%S).log"
