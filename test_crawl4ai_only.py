@@ -111,17 +111,28 @@ async def test_crawl4ai_direct_url():
             print(f"❌ 错误: {result.error}")
             return False
         else:
-            print(f"✅ 成功获取网页内容")
+            # 检查文档中是否有错误
+            has_error = False
             for i, doc in enumerate(result.documents, 1):
                 print(f"\n   页面 {i}:")
                 print(f"   URL: {doc.url}")
-                if doc.text:
-                    print(f"   内容长度: {len(doc.text)} 字符")
+                if doc.error:
+                    print(f"   ❌ 错误: {doc.error}")
+                    has_error = True
+                elif doc.text:
+                    print(f"   ✅ 内容长度: {len(doc.text)} 字符")
                     print(f"   内容预览: {doc.text[:200]}...")
                     print(f"   内容结尾: ...{doc.text[-100:]}")
-                if doc.error:
-                    print(f"   错误: {doc.error}")
-            return True
+                else:
+                    print(f"   ⚠️  无内容")
+                    has_error = True
+            
+            if has_error:
+                print("\n❌ 文档获取失败")
+                return False
+            else:
+                print("\n✅ 所有文档获取成功")
+                return True
             
     except Exception as e:
         print(f"❌ 测试失败: {e}")
@@ -191,16 +202,30 @@ async def test_crawl4ai_multiple_urls():
             print(f"❌ 错误: {result.error}")
             return False
         else:
-            print(f"✅ 成功获取 {len(result.documents)} 个网页内容")
+            # 检查每个文档是否成功
+            success_count = 0
+            error_count = 0
+            
             for i, doc in enumerate(result.documents, 1):
                 print(f"\n   页面 {i}:")
                 print(f"   URL: {doc.url}")
-                if doc.text:
-                    print(f"   内容长度: {len(doc.text)} 字符")
-                    print(f"   内容预览: {doc.text[:150]}...")
                 if doc.error:
-                    print(f"   错误: {doc.error}")
-            return True
+                    print(f"   ❌ 错误: {doc.error}")
+                    error_count += 1
+                elif doc.text:
+                    print(f"   ✅ 内容长度: {len(doc.text)} 字符")
+                    print(f"   内容预览: {doc.text[:150]}...")
+                    success_count += 1
+                else:
+                    print(f"   ⚠️  无内容")
+                    error_count += 1
+            
+            if error_count > 0:
+                print(f"\n⚠️  部分文档失败: {success_count} 成功, {error_count} 失败")
+                return False
+            else:
+                print(f"\n✅ 所有 {success_count} 个文档获取成功")
+                return True
             
     except Exception as e:
         print(f"❌ 测试失败: {e}")
@@ -237,16 +262,27 @@ async def test_crawl4ai_with_local_config():
             print(f"❌ 错误: {result.error}")
             return False
         else:
-            print(f"✅ 成功获取网页内容")
+            # 检查文档中是否有错误
+            has_error = False
             for i, doc in enumerate(result.documents, 1):
                 print(f"\n   页面 {i}:")
                 print(f"   URL: {doc.url}")
-                if doc.text:
-                    print(f"   内容长度: {len(doc.text)} 字符")
-                    print(f"   内容预览: {doc.text[:200]}...")
                 if doc.error:
-                    print(f"   错误: {doc.error}")
-            return True
+                    print(f"   ❌ 错误: {doc.error}")
+                    has_error = True
+                elif doc.text:
+                    print(f"   ✅ 内容长度: {len(doc.text)} 字符")
+                    print(f"   内容预览: {doc.text[:200]}...")
+                else:
+                    print(f"   ⚠️  无内容")
+                    has_error = True
+            
+            if has_error:
+                print("\n❌ 文档获取失败")
+                return False
+            else:
+                print("\n✅ 文档获取成功")
+                return True
             
     except Exception as e:
         print(f"❌ 测试失败: {e}")
