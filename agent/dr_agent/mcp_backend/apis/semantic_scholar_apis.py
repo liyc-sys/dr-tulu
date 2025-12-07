@@ -81,6 +81,17 @@ def _make_request_with_retry(
     free_url = url.replace(S2_GRAPH_API_URL_PAID, S2_GRAPH_API_URL_FREE)
     free_url = free_url.replace(S2_RECOMMENDATIONS_API_URL_PAID, S2_RECOMMENDATIONS_API_URL_FREE)
     
+    def _is_valid_response(response_json: dict) -> bool:
+        """检查响应是否有效（不是错误消息）"""
+        # 如果响应只包含 'message' 字段，通常是错误
+        if 'message' in response_json and len(response_json) == 1:
+            return False
+        # 如果包含 'error' 字段，是错误
+        if 'error' in response_json:
+            return False
+        # 其他情况认为是有效响应
+        return True
+    
     # 先尝试免费调用（使用官方地址）
     for attempt in range(FREE_RETRY_ATTEMPTS):
         try:
@@ -101,8 +112,15 @@ def _make_request_with_retry(
                 )
             
             res.raise_for_status()
+            result = res.json()
+            
+            # 检查响应内容是否有效
+            if not _is_valid_response(result):
+                error_msg = result.get('message', result.get('error', 'Unknown error'))
+                raise Exception(f"API 返回错误: {error_msg}")
+            
             print(f"✓ 免费调用成功 (尝试 {attempt + 1}/{FREE_RETRY_ATTEMPTS}) - 地址: {free_url}")
-            return res.json()
+            return result
         
         except Exception as e:
             print(f"✗ 免费调用失败 (尝试 {attempt + 1}/{FREE_RETRY_ATTEMPTS}): {str(e)}")
@@ -130,8 +148,15 @@ def _make_request_with_retry(
             )
         
         res.raise_for_status()
+        result = res.json()
+        
+        # 检查付费调用的响应是否有效
+        if not _is_valid_response(result):
+            error_msg = result.get('message', result.get('error', 'Unknown error'))
+            raise Exception(f"API 返回错误: {error_msg}")
+        
         print("✓ 付费调用成功")
-        return res.json()
+        return result
     
     except Exception as e:
         print(f"✗ 付费调用也失败: {str(e)}")
