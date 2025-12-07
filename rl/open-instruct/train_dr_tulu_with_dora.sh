@@ -6,6 +6,10 @@ export no_proxy="127.0.0.1,localhost,platform.glm.ai,::1,$no_proxy"
 export OPENAI_API_KEY="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"
 export OPENAI_API_BASE="https://openrouter.ai/api/v1"
 
+# 添加工具API KEY
+export S2_API_KEY=sk-user-F788DB8EABBDAD1858E82734A4E0C1BA
+export SERPER_API_KEY=56e20b0fb1dc8a9d19fb80be90fb346e63294148
+
 # 注意
 # Configuration: GPU setup
 # 可用环境变量：
