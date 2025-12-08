@@ -1183,6 +1183,10 @@ class ModelGroup:
         self.num_cpus_per_actor = 4
         self.models = []
         world_size = sum(self.num_gpus_per_node)
+        print(
+            f"[debug] ModelGroup init: num_gpus_per_node={self.num_gpus_per_node}, "
+            f"num_gpus_per_actor={self.num_gpus_per_actor}, world_size={world_size}"
+        )
         master_policy = ray_process_cls.options(
             num_cpus=self.num_cpus_per_actor,
             num_gpus=self.num_gpus_per_actor,
@@ -1211,7 +1215,11 @@ class ModelGroup:
 
         # Setup worker models
         for rank in range(1, world_size):
-            print(f"{rank=}, {world_size=}, {rank=}, {master_addr=}, {master_port=}")
+            print(
+                f"[debug] launching worker rank={rank}/{world_size-1} "
+                f"bundle_idx={get_bundle_index(rank, self.num_gpus_per_node)} "
+                f"master_addr={master_addr} master_port={master_port}"
+            )
             scheduling_strategy = PlacementGroupSchedulingStrategy(
                 placement_group=self.pg,
                 placement_group_bundle_index=get_bundle_index(rank, self.num_gpus_per_node),
@@ -1984,9 +1992,14 @@ def main(args: Args, tc: TokenizerConfig, model_config: ModelConfig, reward_fn: 
     except:
         ray_temp_dir = os.path.join("/tmp", f"ray-{os.getpid()}")
         ray.init(dashboard_host="0.0.0.0", _temp_dir=ray_temp_dir)  # enable debugging from a different machine (e.g., phobos)
+    print(
+        f"[debug] ray initialized; num_learners_per_node={args.num_learners_per_node}, "
+        f"vllm_num_engines={args.vllm_num_engines}, single_gpu_mode={args.single_gpu_mode}"
+    )
     pg = None
     # 10太大了，最多用28个，改成3
     bundles = [{"GPU": actor_num_gpus, "CPU": actor_num_gpus * 3} for actor_num_gpus in args.num_learners_per_node]
+    print(f"[debug] creating learner placement_group with bundles={bundles}")
 
     # bundles = [{"GPU": actor_num_gpus, "CPU": actor_num_gpus * 10} for actor_num_gpus in args.num_learners_per_node]
     pg = placement_group(bundles, strategy="STRICT_SPREAD")
