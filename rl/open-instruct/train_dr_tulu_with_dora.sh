@@ -55,8 +55,10 @@ if [ "$SINGLE_GPU_MODE" == "true" ]; then
     ADDITIONAL_ARGS="--single_gpu_mode True --vllm_gpu_memory_utilization ${VLLM_GPU_MEMORY_UTIL} --vllm_sync_backend ${VLLM_SYNC_BACKEND}"
 fi
 
+# 注意--vllm_enforce_eager True 禁用了cuda graph
 uv run --extra compile python open_instruct/grpo_fast.py \
         --exp_name ${exp_name} \
+        --vllm_enforce_eager True \
         --wandb_project_name rl-rag \
         --beta 0.001 \
         --num_samples_per_prompt_rollout 8 \
