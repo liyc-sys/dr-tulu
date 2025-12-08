@@ -149,7 +149,8 @@ def _make_request_with_retry(
                 url,  # 使用付费地址（原 URL）
                 params=params,
                 json=json_data,
-                headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
+                # headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
+                headers = {'Authorization': f'Bearer {S2_API_KEY}'},
                 timeout=timeout,
                 proxies=proxies,  # 使用代理
             )
@@ -157,7 +158,8 @@ def _make_request_with_retry(
             res = requests.get(
                 url,  # 使用付费地址（原 URL）
                 params=params,
-                headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
+                # headers={"x-api-key": S2_API_KEY} if S2_API_KEY else None,
+                headers = {'Authorization': f'Bearer {S2_API_KEY}'},
                 timeout=timeout,
                 proxies=proxies,  # 使用代理
             )

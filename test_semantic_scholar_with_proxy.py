@@ -89,6 +89,7 @@ try:
         print(f"✅ 调用成功!")
         data = results.get('data', [])
         print(f"结果数量: {len(data)}")
+        print(data)
         
         if data:
             print("\n前 2 个结果:")

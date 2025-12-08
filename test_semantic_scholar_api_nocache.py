@@ -62,6 +62,7 @@ try:
     )
     
     print(f"\n✓ 调用成功!")
+    print(results)
     print(f"结果数量: {len(results.get('data', []))}")
     
     if results.get('data'):
