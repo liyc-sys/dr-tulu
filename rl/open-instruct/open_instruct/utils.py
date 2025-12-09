@@ -1325,6 +1325,31 @@ class RayProcess:
             level=logging.INFO,
             datefmt="%Y-%m-%d %H:%M:%S",
         )
+        # ========== DEBUG: RayProcess init start ==========
+        import subprocess
+        pid = os.getpid()
+        print(f"[DEBUG][RayProcess.__init__] rank={rank}/{world_size} starting, PID={pid}", flush=True)
+        
+        # 检查 CUDA 设备
+        cuda_visible = os.environ.get("CUDA_VISIBLE_DEVICES", "not set")
+        print(f"[DEBUG][RayProcess.__init__] rank={rank} CUDA_VISIBLE_DEVICES={cuda_visible}", flush=True)
+        
+        # 检查 GPU 可用性
+        try:
+            gpu_count = torch.cuda.device_count()
+            print(f"[DEBUG][RayProcess.__init__] rank={rank} torch.cuda.device_count()={gpu_count}", flush=True)
+            if gpu_count > 0:
+                for i in range(gpu_count):
+                    props = torch.cuda.get_device_properties(i)
+                    mem_total = props.total_memory / 1024**3
+                    mem_reserved = torch.cuda.memory_reserved(i) / 1024**3
+                    mem_allocated = torch.cuda.memory_allocated(i) / 1024**3
+                    print(f"[DEBUG][RayProcess.__init__] rank={rank} GPU[{i}]: {props.name}, "
+                          f"Total={mem_total:.2f}GB, Reserved={mem_reserved:.2f}GB, Allocated={mem_allocated:.2f}GB", flush=True)
+        except Exception as e:
+            print(f"[DEBUG][RayProcess.__init__] rank={rank} GPU check failed: {e}", flush=True)
+        # ========== DEBUG END ==========
+        
         self.world_size = world_size
         self.rank = rank
         self.local_rank = local_rank
@@ -1341,6 +1366,10 @@ class RayProcess:
         random.seed(self.rank)
         np.random.seed(self.rank)
         torch.manual_seed(self.rank)
+        
+        # ========== DEBUG: RayProcess init complete ==========
+        print(f"[DEBUG][RayProcess.__init__] rank={rank}/{world_size} initialized: "
+              f"master_addr={self.master_addr}, master_port={self.master_port}", flush=True)
 
     @staticmethod
     def get_current_node_ip():

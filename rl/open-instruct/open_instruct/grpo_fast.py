@@ -632,9 +632,39 @@ class PolicyTrainerRayProcess(RayProcess):
         self.model_config = model_config
         self.beaker_config = beaker_config
         self.wandb_url = wandb_url
+        
+        # ========== DEBUG: from_pretrained start ==========
+        print(f"[DEBUG][from_pretrained] rank={self.rank}/{self.world_size} starting from_pretrained, PID={os.getpid()}", flush=True)
+        print(f"[DEBUG][from_pretrained] rank={self.rank} CUDA_VISIBLE_DEVICES={os.environ.get('CUDA_VISIBLE_DEVICES', 'not set')}", flush=True)
+        print(f"[DEBUG][from_pretrained] rank={self.rank} MASTER_ADDR={os.environ.get('MASTER_ADDR')}, MASTER_PORT={os.environ.get('MASTER_PORT')}", flush=True)
+        
+        # 检查 GPU 显存状态
+        try:
+            for i in range(torch.cuda.device_count()):
+                mem_free, mem_total = torch.cuda.mem_get_info(i)
+                print(f"[DEBUG][from_pretrained] rank={self.rank} GPU[{i}] mem_free={mem_free/1024**3:.2f}GB, mem_total={mem_total/1024**3:.2f}GB", flush=True)
+        except Exception as e:
+            print(f"[DEBUG][from_pretrained] rank={self.rank} GPU mem check failed: {e}", flush=True)
+        # ========== DEBUG END ==========
+        
         torch.cuda.set_device(self.local_rank)
         self.device = torch.device(self.local_rank)
-        deepspeed.init_distributed()
+        
+        # ========== DEBUG: before deepspeed.init_distributed ==========
+        print(f"[DEBUG][from_pretrained] rank={self.rank} about to call deepspeed.init_distributed()...", flush=True)
+        import time as _time
+        _ds_init_start = _time.time()
+        try:
+            deepspeed.init_distributed()
+            _ds_init_elapsed = _time.time() - _ds_init_start
+            print(f"[DEBUG][from_pretrained] rank={self.rank} deepspeed.init_distributed() SUCCESS in {_ds_init_elapsed:.2f}s", flush=True)
+        except Exception as e:
+            _ds_init_elapsed = _time.time() - _ds_init_start
+            print(f"[DEBUG][from_pretrained] rank={self.rank} deepspeed.init_distributed() FAILED after {_ds_init_elapsed:.2f}s: {e}", flush=True)
+            import traceback
+            traceback.print_exc()
+            raise
+        # ========== DEBUG END ==========
 
         ds_config = get_train_ds_config(
             offload=False,
@@ -1187,6 +1217,24 @@ class ModelGroup:
             f"[debug] ModelGroup init: num_gpus_per_node={self.num_gpus_per_node}, "
             f"num_gpus_per_actor={self.num_gpus_per_actor}, world_size={world_size}"
         )
+        
+        # ========== DEBUG: Check Ray cluster resources ==========
+        print(f"[DEBUG][ModelGroup] Checking Ray cluster resources...", flush=True)
+        try:
+            resources = ray.cluster_resources()
+            available = ray.available_resources()
+            print(f"[DEBUG][ModelGroup] Cluster resources: {resources}", flush=True)
+            print(f"[DEBUG][ModelGroup] Available resources: {available}", flush=True)
+        except Exception as e:
+            print(f"[DEBUG][ModelGroup] Failed to get Ray resources: {e}", flush=True)
+        # ========== DEBUG END ==========
+        
+        # ========== DEBUG: Creating master policy (rank=0) ==========
+        print(f"[DEBUG][ModelGroup] Creating master policy (rank=0)...", flush=True)
+        import time as _time
+        _master_start = _time.time()
+        # ========== DEBUG END ==========
+        
         master_policy = ray_process_cls.options(
             num_cpus=self.num_cpus_per_actor,
             num_gpus=self.num_gpus_per_actor,
@@ -1196,7 +1244,21 @@ class ModelGroup:
         ).remote(world_size, 0, 0, None, None)
 
         self.models.append(master_policy)
-        master_addr, master_port = ray.get(master_policy.get_master_addr_port.remote())
+        
+        # ========== DEBUG: Getting master addr/port ==========
+        print(f"[DEBUG][ModelGroup] Master policy actor created, getting addr/port...", flush=True)
+        try:
+            master_addr, master_port = ray.get(master_policy.get_master_addr_port.remote(), timeout=60)
+            _master_elapsed = _time.time() - _master_start
+            print(f"[DEBUG][ModelGroup] Master policy (rank=0) ready in {_master_elapsed:.2f}s: "
+                  f"addr={master_addr}, port={master_port}", flush=True)
+        except Exception as e:
+            _master_elapsed = _time.time() - _master_start
+            print(f"[DEBUG][ModelGroup] Master policy (rank=0) FAILED after {_master_elapsed:.2f}s: {e}", flush=True)
+            import traceback
+            traceback.print_exc()
+            raise
+        # ========== DEBUG END ==========
 
         def get_bundle_index(rank, num_gpus_per_node):
             """given a rank and a list of num_gpus_per_node, return the index of the bundle that the rank belongs to"""
@@ -1214,6 +1276,7 @@ class ModelGroup:
         assert get_bundle_index(16, [7, 8, 4]) == 2
 
         # Setup worker models
+        print(f"[DEBUG][ModelGroup] Creating {world_size-1} worker policies...", flush=True)
         for rank in range(1, world_size):
             print(
                 f"[debug] launching worker rank={rank}/{world_size-1} "
@@ -1230,6 +1293,7 @@ class ModelGroup:
                 scheduling_strategy=scheduling_strategy,
             ).remote(world_size, rank, 0, master_addr, master_port)
             self.models.append(worker_policy)
+        print(f"[DEBUG][ModelGroup] All {world_size} policy actors created (waiting for from_pretrained calls)", flush=True)
 
 
 def vllm_generate_thread(
@@ -2012,10 +2076,15 @@ def main(args: Args, tc: TokenizerConfig, model_config: ModelConfig, reward_fn: 
         args.single_gpu_mode,
     )
     wandb_url = wandb.run.get_url() if args.with_tracking else None
-    inits.extend(
-        model.from_pretrained.remote(args, model_config, beaker_config, wandb_url, tokenizer)
-        for model in policy_group.models
-    )
+    
+    # ========== DEBUG: Calling from_pretrained on all learners ==========
+    print(f"[DEBUG][main] Calling from_pretrained.remote() on {len(policy_group.models)} learners...", flush=True)
+    for i, model in enumerate(policy_group.models):
+        print(f"[DEBUG][main] Dispatching from_pretrained to learner rank={i}", flush=True)
+        inits.append(model.from_pretrained.remote(args, model_config, beaker_config, wandb_url, tokenizer))
+    print(f"[DEBUG][main] All from_pretrained calls dispatched, waiting for completion...", flush=True)
+    # ========== DEBUG END ==========
+    
     max_len = args.max_prompt_token_length + args.response_length
     tool_objects = {}
     tool_max_conc = args.tool_max_concurrency
@@ -2061,7 +2130,58 @@ def main(args: Args, tc: TokenizerConfig, model_config: ModelConfig, reward_fn: 
         tools=tool_objects,
         max_tool_calls=args.max_tool_calls,
     )
-    resume_training_step = ray.get(inits)[0] + 1
+    
+    # ========== DEBUG: Waiting for all learners to initialize ==========
+    print(f"[DEBUG][main] vLLM engines created, now waiting for all {len(inits)} learners to complete from_pretrained...", flush=True)
+    print(f"[DEBUG][main] This is where the timeout may occur if a learner fails to join the distributed group.", flush=True)
+    
+    import time as _time
+    _wait_start = _time.time()
+    
+    # 使用 ray.wait 逐个检查完成状态，而不是一次性等待全部
+    ready_refs = []
+    pending_refs = list(inits)
+    check_interval = 30  # 每30秒报告一次状态
+    last_report = _wait_start
+    
+    while pending_refs:
+        # 每次检查一下是否有新完成的
+        newly_ready, pending_refs = ray.wait(pending_refs, num_returns=1, timeout=5)
+        ready_refs.extend(newly_ready)
+        
+        current_time = _time.time()
+        elapsed = current_time - _wait_start
+        
+        # 定期报告状态
+        if current_time - last_report >= check_interval:
+            print(f"[DEBUG][main] Progress: {len(ready_refs)}/{len(inits)} learners ready, "
+                  f"elapsed={elapsed:.0f}s, waiting for {len(pending_refs)} more...", flush=True)
+            
+            # 检查每个 pending actor 的状态
+            for i, ref in enumerate(pending_refs):
+                try:
+                    # 尝试非阻塞检查
+                    state = "pending"
+                    print(f"[DEBUG][main] Learner still pending: ref={ref}", flush=True)
+                except Exception as e:
+                    print(f"[DEBUG][main] Error checking learner state: {e}", flush=True)
+            
+            last_report = current_time
+    
+    _wait_elapsed = _time.time() - _wait_start
+    print(f"[DEBUG][main] All {len(ready_refs)} learners completed from_pretrained in {_wait_elapsed:.2f}s", flush=True)
+    
+    # 获取实际结果
+    try:
+        results = ray.get(ready_refs)
+        resume_training_step = results[0] + 1
+    except Exception as e:
+        print(f"[DEBUG][main] ERROR getting learner results: {e}", flush=True)
+        import traceback
+        traceback.print_exc()
+        raise
+    # ========== DEBUG END ==========
+    
     episode = (resume_training_step - 1) * args.num_unique_prompts_rollout * args.num_samples_per_prompt_rollout
     print("======== ✅ all models and vLLM engines initialized =========")
 

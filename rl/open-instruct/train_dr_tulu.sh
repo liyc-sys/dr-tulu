@@ -49,6 +49,18 @@ export RUBRIC_JUDGE_MODEL=gpt-4.1-mini
 export MCP_CACHE_DIR=.cache-${RANDOM}
 export MCP_TRANSPORT_PORT=8003
 
+# ========== DEBUG: 分布式训练调试环境变量 ==========
+export RAY_DEDUP_LOGS=0              # 禁用 Ray 日志去重，显示所有进程的日志
+export NCCL_DEBUG=WARN               # NCCL 调试级别 (INFO 更详细但很多输出)
+export TORCH_DISTRIBUTED_DEBUG=INFO  # PyTorch 分布式调试
+export PYTHONUNBUFFERED=1            # 禁用 Python 输出缓冲，实时显示日志
+
+# 在训练开始前打印 GPU 状态
+echo "========== GPU Status Before Training =========="
+nvidia-smi --query-gpu=index,name,memory.total,memory.free,memory.used --format=csv
+echo "========== End GPU Status =========="
+# ========== DEBUG END ==========
+
 # Build additional arguments based on GPU configuration
 ADDITIONAL_ARGS=""
 if [ "$SINGLE_GPU_MODE" == "true" ]; then
