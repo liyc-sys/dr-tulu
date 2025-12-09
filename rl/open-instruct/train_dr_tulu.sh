@@ -53,6 +53,7 @@ export VLLM_ALLOW_LONG_MAX_MODEL_LEN=1
 export RUBRIC_JUDGE_MODEL=gpt-4.1-mini
 export MCP_CACHE_DIR=.cache-${RANDOM}
 export MCP_TRANSPORT_PORT=8003
+export MCP_TRANSPORT_HOST=127.0.0.1  # 客户端连接地址，不能用0.0.0.0
 
 # ========== DEBUG: 分布式训练调试环境变量 ==========
 export RAY_DEDUP_LOGS=0              # 禁用 Ray 日志去重，显示所有进程的日志
