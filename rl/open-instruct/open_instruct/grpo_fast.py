@@ -1922,7 +1922,8 @@ def main(args: Args, tc: TokenizerConfig, model_config: ModelConfig, reward_fn: 
         args.hf_repo_url = f"https://huggingface.co/{args.hf_repo_id}/tree/{args.hf_repo_revision}"
     if args.with_tracking:
         if args.wandb_entity is None:
-            args.wandb_entity = maybe_use_ai2_wandb_entity()
+            args.wandb_entity = None
+            # args.wandb_entity = maybe_use_ai2_wandb_entity()
     args.tool_use = (args.tools is not None and len(args.tools) > 0)
 
     # ------------------------------------------------------------
