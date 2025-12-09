@@ -2062,8 +2062,10 @@ def main(args: Args, tc: TokenizerConfig, model_config: ModelConfig, reward_fn: 
         f"vllm_num_engines={args.vllm_num_engines}, single_gpu_mode={args.single_gpu_mode}"
     )
     pg = None
-    # 10太大了，最多用28个，改成3
-    bundles = [{"GPU": actor_num_gpus, "CPU": actor_num_gpus * 3} for actor_num_gpus in args.num_learners_per_node]
+    # 注意：CPU 数量必须 >= num_gpus * num_cpus_per_actor（ModelGroup 中 num_cpus_per_actor=4）
+    # 否则无法调度所有 learner actor
+    # 之前改太小了改出问题了。。。无语
+    bundles = [{"GPU": actor_num_gpus, "CPU": actor_num_gpus * 6} for actor_num_gpus in args.num_learners_per_node]
     print(f"[debug] creating learner placement_group with bundles={bundles}")
 
     # bundles = [{"GPU": actor_num_gpus, "CPU": actor_num_gpus * 10} for actor_num_gpus in args.num_learners_per_node]
