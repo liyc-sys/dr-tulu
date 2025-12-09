@@ -126,9 +126,11 @@ uv run --extra compile python open_instruct/grpo_fast.py \
         --checkpoint_state_dir output/checkpoints \
         --mcp_parser_name v20250824 \
         --system_prompt_file open_instruct/search_utils/system_prompts/unified_tool_calling_v20250907.yaml  \
-        --mcp_tool_names 'snippet_search,google_search,browse_webpage' \
+        --mcp_tool_names 'google_search' \
         --mcp_server_command "uv run python -m dr_agent.mcp_backend.main --transport http --port 8003 --host 0.0.0.0 --path /mcp" \
         ${ADDITIONAL_ARGS} 2>&1 | tee ${log_file}
+
+# 为了调试，修改mcp tools，原为--mcp_tool_names 'snippet_search,google_search,browse_webpage' \
 
 # For people at Ai2, here is the exact command we used:
 #############
