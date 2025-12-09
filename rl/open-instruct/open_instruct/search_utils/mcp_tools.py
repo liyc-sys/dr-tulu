@@ -8,6 +8,9 @@ import os
 import time
 import httpx
 import httpcore
+import json
+import threading
+from datetime import datetime
 
 try:
     from dr_agent.tool_interface.mcp_tools import MassiveServeSearchTool, SemanticScholarSnippetSearchTool, SerperSearchTool, Crawl4AIBrowseTool, SerperBrowseTool
@@ -54,6 +57,12 @@ def truncate_at_second_last_stop(text: str, stops: list[str]) -> str:
     return text[idx + len(stop):]
 
 
+# Class-level counter and lock for thread-safe logging
+_call_counter = 0
+_call_counter_lock = threading.Lock()
+_max_logged_calls = 100
+
+
 class MCPTool(Tool):
     """
     Unlike other tools, this guy handles *all mcp tools*. Why?
@@ -78,11 +87,26 @@ class MCPTool(Tool):
         number_documents_to_search: int = 10,
         use_localized_snippets: bool = False,
         context_chars: int = 6000,
+        tool_log_dir: str | None = None,
         *args,
         **kwargs,
     ):
         self.mcp_tools = []
         self.stop_strings = []
+        # Setup logging directory for tool calls
+        # Priority: tool_log_dir parameter > MCP_TOOL_LOG_DIR env > output_dir/mcp_tool_logs > ./mcp_tool_logs
+        if tool_log_dir:
+            self.tool_log_dir = tool_log_dir
+        elif "MCP_TOOL_LOG_DIR" in os.environ:
+            self.tool_log_dir = os.environ["MCP_TOOL_LOG_DIR"]
+        elif "output_dir" in kwargs:
+            # If output_dir is provided, use it as base directory
+            self.tool_log_dir = os.path.join(kwargs["output_dir"], "mcp_tool_logs")
+        else:
+            self.tool_log_dir = "./mcp_tool_logs"
+        os.makedirs(self.tool_log_dir, exist_ok=True)
+        self.log_file_path = os.path.join(self.tool_log_dir, "tool_calls_log.jsonl")
+        print(f"📝 MCP Tool call logs will be saved to: {self.log_file_path} (first {_max_logged_calls} calls)")
         # Allow selecting transport via arg or env; default to StreamableHttpTransport
         self.transport_type = transport_type or os.environ.get("MCP_TRANSPORT", "StreamableHttpTransport")
         self.mcp_host = mcp_host or os.environ.get("MCP_TRANSPORT_HOST", "0.0.0.0")
@@ -134,6 +158,45 @@ class MCPTool(Tool):
     def get_stop_strings(self) -> List[str]:
         return self.stop_strings
 
+    def _log_tool_call(
+        self,
+        call_number: int | None,
+        should_log: bool,
+        tool_used_name: str | None,
+        trunc_prompt: str,
+        text_output: str,
+        document_tool_output,
+        error: str | None,
+        found_tool: bool,
+        call_start_time: float,
+    ):
+        """Helper function to log tool call details."""
+        if not should_log or call_number is None:
+            return
+        
+        call_end_time = time.time()
+        log_entry = {
+            "call_number": call_number,
+            "timestamp": datetime.now().isoformat(),
+            "tool_name": tool_used_name,
+            "success": found_tool and document_tool_output is not None,
+            "input_prompt": trunc_prompt[:1000] if trunc_prompt else None,  # Truncate to avoid huge logs
+            "full_input_prompt": trunc_prompt if len(trunc_prompt) <= 2000 else trunc_prompt[:2000] + "...[truncated]",
+            "output_text": text_output[:2000] if text_output else None,  # Truncate output
+            "full_output_text": text_output if text_output and len(text_output) <= 5000 else (text_output[:5000] + "...[truncated]" if text_output else None),
+            "error": error or (document_tool_output.error if document_tool_output and document_tool_output.error else None),
+            "timeout": document_tool_output.timeout if document_tool_output else False,
+            "runtime": document_tool_output.runtime if document_tool_output else None,
+            "call_duration": call_end_time - call_start_time,
+            "called": found_tool,
+        }
+        
+        try:
+            with open(self.log_file_path, "a", encoding="utf-8") as f:
+                f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
+        except Exception as log_error:
+            print(f"Warning: Failed to write tool call log: {log_error}")
+
     def __call__(self, prompt: str) -> ToolOutput:
         # the one thing open-instruct needs to do: remove older tool calls.
         trunc_prompt = truncate_at_second_last_stop(prompt, self.stop_strings)
@@ -143,6 +206,18 @@ class MCPTool(Tool):
         found_tool = False
         text_output = ""
         tool_used_name = None
+        call_start_time = time.time()
+        
+        # Get call number for logging
+        global _call_counter
+        should_log = False
+        call_number = None
+        with _call_counter_lock:
+            if _call_counter < _max_logged_calls:
+                call_number = _call_counter
+                _call_counter += 1
+                should_log = True
+        
         try:
             for mcp_tool in self.mcp_tools:
                 if mcp_tool.tool_parser.has_calls(trunc_prompt, mcp_tool.name):
@@ -172,6 +247,7 @@ class MCPTool(Tool):
             if error is None and not found_tool:
                 error = "No valid tool calls found."
                 print(f"MCP Tool Error: {error}")
+                self._log_tool_call(call_number, should_log, tool_used_name, trunc_prompt, text_output, None, error, found_tool, call_start_time)
                 return ToolOutput(
                     output=error,
                     called=False,
@@ -183,6 +259,7 @@ class MCPTool(Tool):
                 )
             elif error is not None:
                 print(f"MCP {tool_used_name} with {trunc_prompt} Tool Error: {error}")
+                self._log_tool_call(call_number, should_log, tool_used_name, trunc_prompt, text_output, None, error, found_tool, call_start_time)
                 return ToolOutput(
                     output=error,
                     called=False,
@@ -194,6 +271,7 @@ class MCPTool(Tool):
                 )
             else:
                 print(f"MCP {tool_used_name} Tool Error: Unknown error, no MCP response and no error found.")
+                self._log_tool_call(call_number, should_log, tool_used_name, trunc_prompt, text_output, None, "Unknown error, no MCP response and no error found.", found_tool, call_start_time)
                 return ToolOutput(
                     output="Unknown error, no MCP response and no error found.",
                     called=False,
@@ -207,6 +285,10 @@ class MCPTool(Tool):
         if document_tool_output.error:
             print(f"MCP {tool_used_name} Tool Error: {document_tool_output.error}")
             print("Returning error output anyway.")
+        
+        # Log tool call details for first 100 calls
+        self._log_tool_call(call_number, should_log, tool_used_name, trunc_prompt, text_output, document_tool_output, error, found_tool, call_start_time)
+        
         # munge into format that open-instruct likes.
         return ToolOutput(
             output=text_output,
