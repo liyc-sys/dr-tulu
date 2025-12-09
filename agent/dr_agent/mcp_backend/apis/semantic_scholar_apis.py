@@ -27,8 +27,8 @@ S2_GRAPH_API_URL_FREE = "https://api.semanticscholar.org/graph/v1"
 S2_RECOMMENDATIONS_API_URL_FREE = "https://api.semanticscholar.org/recommendations/v1"
 
 # 付费调用使用代理地址
-S2_GRAPH_API_URL_PAID = "https://lifuai.com/api/v1/graph/v1"
-S2_RECOMMENDATIONS_API_URL_PAID = "https://lifuai.com/api/v1/recommendations/v1"
+S2_GRAPH_API_URL_PAID = "https://ai4scholar.net/graph/v1"
+S2_RECOMMENDATIONS_API_URL_PAID = "https://ai4scholar.net/recommendations/v1"
 
 # 默认使用付费地址（向后兼容）
 S2_GRAPH_API_URL = S2_GRAPH_API_URL_PAID
