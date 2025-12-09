@@ -3,6 +3,11 @@ export http_proxy="http://httpproxy.glm.ai:8888"
 export https_proxy="http://httpproxy.glm.ai:8888"
 export no_proxy="127.0.0.1,localhost,platform.glm.ai,::1,$no_proxy"
 
+# wandb设置，先离线
+export WANDB_MODE=offline
+export WANDB_API_KEY=66b0b8398e5e095610d55373d3f5eff647e58405
+
+
 export OPENAI_API_KEY="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"
 export OPENAI_API_BASE="https://openrouter.ai/api/v1"
 
@@ -41,7 +46,7 @@ echo "日志文件将保存到: ${log_file}"
 echo "开始训练..."
 
 # set env vars
-export WANDB_API_KEY=66b0b8398e5e095610d55373d3f5eff647e58405
+# export WANDB_API_KEY=66b0b8398e5e095610d55373d3f5eff647e58405
 export CRAWL4AI_BLOCKLIST_PATH=/stage/rl-rag-mcp/utils/crawl4ai_block_list.txt
 export MCP_MAX_CONCURRENT_CALLS=512
 export VLLM_ALLOW_LONG_MAX_MODEL_LEN=1
