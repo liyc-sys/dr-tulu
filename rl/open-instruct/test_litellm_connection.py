@@ -8,11 +8,11 @@ import asyncio
 import litellm
 
 # 从train_dr_tulu.sh中复制的环境变量设置
-# os.environ["http_proxy"] = "http://httpproxy.glm.ai:8888"
-# os.environ["https_proxy"] = "http://httpproxy.glm.ai:8888"
-# os.environ["no_proxy"] = "127.0.0.1,localhost,platform.glm.ai,::1"
+os.environ["http_proxy"] = "http://httpproxy.glm.ai:8888"
+os.environ["https_proxy"] = "http://httpproxy.glm.ai:8888"
+os.environ["no_proxy"] = "127.0.0.1,localhost,platform.glm.ai,::1"
 
-os.environ["OPENROUTER_API_KEY"] = "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"
+os.environ["OPENROUTER_API_KEY"] = "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"
 # os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
 
 # 测试模型
@@ -41,7 +41,7 @@ async def test_basic_connection():
             messages=[{"role": "user", "content": "Hello, respond with just 'OK'"}],
             max_tokens=3000,
             timeout=30,
-            num_retries=2
+            num_retries=0
         )
         print(f"✅ 成功! 响应: {response.choices[0].message.content}")
         return True
@@ -65,7 +65,7 @@ async def test_without_proxy():
             messages=[{"role": "user", "content": "Hello, respond with just 'OK'"}],
             max_tokens=3000,
             timeout=30,
-            num_retries=2
+            num_retries=0
         )
         print(f"✅ 不使用代理成功! 响应: {response.choices[0].message.content}")
         result = True
@@ -93,7 +93,7 @@ async def test_with_debug():
             messages=[{"role": "user", "content": "Hello"}],
             max_tokens=3000,
             timeout=30,
-            num_retries=1
+            num_retries=0
         )
         print(f"✅ 调试模式成功!")
         return True
@@ -126,7 +126,7 @@ Output JSON format:
             messages=[{"role": "user", "content": test_prompt}],
             max_tokens=800,
             timeout=60,
-            num_retries=5,
+            num_retries=0,
             temperature=0
         )
         print(f"✅ Rubric生成测试成功!")

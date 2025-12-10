@@ -14,6 +14,17 @@ litellm.drop_params = True
 
 LOGGER = logging.getLogger(__name__)
 
+# 检查是否使用 OpenRouter 替代方案
+USE_OPENROUTER_DIRECT = os.environ.get("USE_OPENROUTER_DIRECT", "false").lower() == "true"
+
+if USE_OPENROUTER_DIRECT:
+    try:
+        from .openrouter_replacement import call_openrouter_async, call_openrouter
+        LOGGER.info("Using direct OpenRouter API calls instead of litellm")
+    except ImportError:
+        LOGGER.warning("Failed to import OpenRouter replacement, falling back to litellm")
+        USE_OPENROUTER_DIRECT = False
+
 
 # Per-event-loop concurrency control for LiteLLM async calls to avoid event loop binding issues
 _LITELLM_SEMAPHORES = weakref.WeakKeyDictionary()
@@ -201,6 +212,20 @@ def run_litellm(
         The response content from the model
     """
 
+    # 如果启用了 OpenRouter 直接调用，使用替代实现
+    if USE_OPENROUTER_DIRECT:
+        try:
+            return call_openrouter(
+                model_name=model_name,
+                user_prompt=user_prompt,
+                system_prompt=system_prompt,
+                **chat_kwargs,
+            )
+        except Exception as e:
+            print(f"Error in OpenRouter direct call: {e}")
+            return ""
+
+    # 否则使用原来的 litellm 实现
     # Set default parameters
     chat_kwargs["temperature"] = chat_kwargs.get("temperature", 0)
     chat_kwargs["max_tokens"] = chat_kwargs.get("max_tokens", 800)
@@ -258,6 +283,21 @@ async def run_litellm_async(
         The response content from the model
     """
 
+    # 如果启用了 OpenRouter 直接调用，使用替代实现
+    if USE_OPENROUTER_DIRECT:
+        try:
+            return await call_openrouter_async(
+                model_name=model_name,
+                user_prompt=user_prompt,
+                system_prompt=system_prompt,
+                messages=messages,
+                **chat_kwargs,
+            )
+        except Exception as e:
+            print(f"Error in OpenRouter direct call: {e}")
+            return ""
+
+    # 否则使用原来的 litellm 实现
     # Set default parameters
     chat_kwargs["temperature"] = chat_kwargs.get("temperature", 0)
     chat_kwargs["max_tokens"] = chat_kwargs.get("max_tokens", 16384)
