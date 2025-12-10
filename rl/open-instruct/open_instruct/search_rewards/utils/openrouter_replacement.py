@@ -5,22 +5,36 @@ Simpler and more reliable for OpenRouter-specific usage.
 
 import os
 import asyncio
+import weakref
 import httpx
 from typing import Optional, List, Dict
 import logging
 
 LOGGER = logging.getLogger(__name__)
 
-# 全局信号量，控制并发请求数
-_semaphore = None
+# Per-event-loop semaphore to avoid event loop binding issues in distributed environments
+_OPENROUTER_SEMAPHORES = weakref.WeakKeyDictionary()
 
 def _get_semaphore():
-    """Get or create the global semaphore for concurrent API calls."""
-    global _semaphore
-    if _semaphore is None:
+    """
+    Return a per-event-loop semaphore for concurrent API calls.
+    This avoids 'bound to a different event loop' errors in distributed training (Ray).
+    
+    Limit can be configured with env var `OPENROUTER_MAX_CONCURRENT_CALLS` (default 10).
+    """
+    try:
+        loop = asyncio.get_running_loop()
+    except RuntimeError:
+        # No running loop, create a new semaphore
         max_concurrent = int(os.environ.get("OPENROUTER_MAX_CONCURRENT_CALLS", "10"))
-        _semaphore = asyncio.Semaphore(max_concurrent)
-    return _semaphore
+        return asyncio.Semaphore(max_concurrent)
+    
+    sem = _OPENROUTER_SEMAPHORES.get(loop)
+    if sem is None:
+        max_concurrent = int(os.environ.get("OPENROUTER_MAX_CONCURRENT_CALLS", "10"))
+        sem = asyncio.Semaphore(max_concurrent)
+        _OPENROUTER_SEMAPHORES[loop] = sem
+    return sem
 
 
 async def call_openrouter_async(
