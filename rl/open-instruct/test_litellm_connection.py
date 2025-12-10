@@ -8,21 +8,26 @@ import asyncio
 import litellm
 
 # 从train_dr_tulu.sh中复制的环境变量设置
-os.environ["http_proxy"] = "http://httpproxy.glm.ai:8888"
-os.environ["https_proxy"] = "http://httpproxy.glm.ai:8888"
-os.environ["no_proxy"] = "127.0.0.1,localhost,platform.glm.ai,::1"
+# os.environ["http_proxy"] = "http://httpproxy.glm.ai:8888"
+# os.environ["https_proxy"] = "http://httpproxy.glm.ai:8888"
+# os.environ["no_proxy"] = "127.0.0.1,localhost,platform.glm.ai,::1"
 
-os.environ["OPENAI_API_KEY"] = "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"
-os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
+os.environ["OPENROUTER_API_KEY"] = "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"
+# os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
 
 # 测试模型
-test_model = os.environ.get("RUBRIC_JUDGE_MODEL", "gpt-4.1-mini")
+# test_model = os.environ.get("RUBRIC_JUDGE_MODEL", "openrouter/openai/gpt-4.1-mini")
+# test_model = "openrouter/openai/gpt-4o-mini"
+test_model = "openrouter/openai/gpt-5-mini"
+# 注意前面没有openrouter是不行的
+# test_model = "openai/gpt-4.1-mini"
+
 
 print("=" * 60)
 print("LiteLLM 连接测试")
 print("=" * 60)
 print(f"代理设置: {os.environ.get('http_proxy')}")
-print(f"API Base: {os.environ.get('OPENAI_API_BASE')}")
+# print(f"API Base: {os.environ.get('OPENAI_API_BASE')}")
 print(f"测试模型: {test_model}")
 print("=" * 60)
 
@@ -34,7 +39,7 @@ async def test_basic_connection():
         response = await litellm.acompletion(
             model=test_model,
             messages=[{"role": "user", "content": "Hello, respond with just 'OK'"}],
-            max_tokens=10,
+            max_tokens=3000,
             timeout=30,
             num_retries=2
         )
@@ -58,7 +63,7 @@ async def test_without_proxy():
         response = await litellm.acompletion(
             model=test_model,
             messages=[{"role": "user", "content": "Hello, respond with just 'OK'"}],
-            max_tokens=10,
+            max_tokens=3000,
             timeout=30,
             num_retries=2
         )
@@ -86,7 +91,7 @@ async def test_with_debug():
         response = await litellm.acompletion(
             model=test_model,
             messages=[{"role": "user", "content": "Hello"}],
-            max_tokens=10,
+            max_tokens=3000,
             timeout=30,
             num_retries=1
         )

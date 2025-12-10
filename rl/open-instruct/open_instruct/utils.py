@@ -1244,7 +1244,7 @@ def get_train_ds_config(
         zero_opt_dict["stage3_max_reuse_distance"] = 0
 
     return {
-        "steps_per_print": 100,
+        "steps_per_print": 1,
         "zero_optimization": zero_opt_dict,
         "bf16": {
             "enabled": bf16,
@@ -1270,7 +1270,7 @@ def get_eval_ds_config(
         },
     }
     return {
-        "steps_per_print": 100,
+        "steps_per_print": 1,
         "zero_optimization": zero_opt_dict,
         "bf16": {
             "enabled": bf16,

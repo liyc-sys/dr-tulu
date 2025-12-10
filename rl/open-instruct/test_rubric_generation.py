@@ -8,13 +8,13 @@ import sys
 import asyncio
 
 # 设置环境变量（从train_dr_tulu.sh复制）
-os.environ["http_proxy"] = "http://httpproxy.glm.ai:8888"
-os.environ["https_proxy"] = "http://httpproxy.glm.ai:8888"
-os.environ["no_proxy"] = "127.0.0.1,localhost,platform.glm.ai,::1"
-os.environ["OPENAI_API_KEY"] = "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"
-os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
-os.environ["RUBRIC_JUDGE_MODEL"] = "gpt-4.1-mini"
-os.environ["RUBRIC_GENERATION_MODEL"] = "gpt-4.1-mini"
+# os.environ["http_proxy"] = "http://httpproxy.glm.ai:8888"
+# os.environ["https_proxy"] = "http://httpproxy.glm.ai:8888"
+# os.environ["no_proxy"] = "127.0.0.1,localhost,platform.glm.ai,::1"
+os.environ["OPENROUTER_API_KEY"] = "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"
+# os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
+os.environ["RUBRIC_JUDGE_MODEL"] = "openrouter/openai/gpt-5-mini"
+os.environ["RUBRIC_GENERATION_MODEL"] = "openrouter/openai/gpt-5-mini"
 
 # 添加项目路径
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -116,7 +116,7 @@ async def test_litellm_direct():
         response = await run_litellm_async(
             model_name="gpt-4.1-mini",
             user_prompt="Say 'Hello' and nothing else.",
-            max_tokens=10,
+            max_tokens=3000,
             timeout=30
         )
         
