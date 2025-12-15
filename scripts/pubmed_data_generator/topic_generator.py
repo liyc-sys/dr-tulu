@@ -116,35 +116,111 @@ async def call_llm(prompt: str, temperature: float = 0.7) -> str:
 
 
 def extract_json(text: str) -> Dict:
-    """从 LLM 响应中提取 JSON"""
-    # 尝试找到 JSON 代码块
+    """从 LLM 响应中提取 JSON（容错处理）"""
     import re
+    
+    # 尝试找到 JSON 代码块
     json_match = re.search(r'```json\s*(.*?)\s*```', text, re.DOTALL)
-    if json_match:
-        return json.loads(json_match.group(1))
-    # 直接尝试解析
-    return json.loads(text)
+    json_str = json_match.group(1) if json_match else text
+    
+    # 尝试直接解析
+    try:
+        return json.loads(json_str)
+    except json.JSONDecodeError:
+        pass
+    
+    # 修复常见的转义问题
+    # 1. 修复无效的转义序列
+    def fix_escapes(s):
+        # 替换无效的 \x 为 \\x（除了有效的转义字符）
+        valid_escapes = ['\\n', '\\r', '\\t', '\\b', '\\f', '\\"', '\\\\', '\\/']
+        result = s
+        # 先处理已经是双反斜杠的情况
+        result = result.replace('\\\\', '\x00DOUBLE_BACKSLASH\x00')
+        # 修复单反斜杠后跟非法字符的情况
+        result = re.sub(r'\\(?![nrtbf"\/u])', r'\\\\', result)
+        # 恢复双反斜杠
+        result = result.replace('\x00DOUBLE_BACKSLASH\x00', '\\\\')
+        return result
+    
+    try:
+        fixed_str = fix_escapes(json_str)
+        return json.loads(fixed_str)
+    except json.JSONDecodeError:
+        pass
+    
+    # 尝试更宽松的解析：找到第一个 { 和最后一个 }
+    try:
+        start = json_str.find('{')
+        end = json_str.rfind('}') + 1
+        if start != -1 and end > start:
+            json_substr = json_str[start:end]
+            return json.loads(fix_escapes(json_substr))
+    except json.JSONDecodeError:
+        pass
+    
+    # 最后尝试：使用 ast.literal_eval 的方式清理
+    try:
+        # 移除可能导致问题的控制字符
+        cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', '', json_str)
+        return json.loads(cleaned)
+    except:
+        pass
+    
+    raise ValueError(f"无法解析 JSON 响应: {json_str[:500]}...")
 
 
-async def generate_topic_clusters(num_clusters: int = 30) -> List[Dict]:
-    """生成主题簇"""
+async def generate_topic_clusters(num_clusters: int = 30, max_retries: int = 3) -> List[Dict]:
+    """生成主题簇（带重试）"""
     prompt = TOPIC_GENERATION_PROMPT.format(num_clusters=num_clusters)
-    response = await call_llm(prompt)
-    result = extract_json(response)
-    return result["topic_clusters"]
+    
+    last_error = None
+    for attempt in range(max_retries):
+        try:
+            response = await call_llm(prompt, temperature=0.7 if attempt == 0 else 0.5)
+            result = extract_json(response)
+            return result["topic_clusters"]
+        except Exception as e:
+            last_error = e
+            print(f"  ⚠ 第 {attempt + 1} 次尝试失败: {e}")
+            if attempt < max_retries - 1:
+                import asyncio
+                await asyncio.sleep(2)
+    
+    raise ValueError(f"生成主题簇失败: {last_error}")
 
 
-async def generate_query_templates(cluster: Dict, num_queries: int = 10) -> List[Dict]:
-    """为单个主题簇生成查询模板"""
+async def generate_query_templates(cluster: Dict, num_queries: int = 10, max_retries: int = 3) -> List[Dict]:
+    """为单个主题簇生成查询模板（带重试）"""
     prompt = QUERY_TEMPLATE_PROMPT.format(
         num_queries=num_queries,
         cluster_name=cluster["name"],
         category=cluster["category"],
         description=cluster["description"]
     )
-    response = await call_llm(prompt)
-    result = extract_json(response)
-    return result["query_templates"]
+    
+    last_error = None
+    for attempt in range(max_retries):
+        try:
+            response = await call_llm(prompt, temperature=0.7 if attempt == 0 else 0.5)
+            result = extract_json(response)
+            return result["query_templates"]
+        except Exception as e:
+            last_error = e
+            print(f"    ⚠ 第 {attempt + 1} 次尝试失败: {e}")
+            if attempt < max_retries - 1:
+                import asyncio
+                await asyncio.sleep(2)  # 等待 2 秒后重试
+    
+    # 如果全部失败，返回一个默认的查询模板
+    print(f"    ✗ 生成失败，使用默认模板")
+    return [{
+        "query_id": 1,
+        "template": f'"{cluster["name"]}"',
+        "query_type": "综述",
+        "variables": [],
+        "description": f"搜索关于{cluster['name']}的文献"
+    }]
 
 
 async def generate_all_topic_clusters_and_queries(
