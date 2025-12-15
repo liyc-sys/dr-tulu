@@ -2,6 +2,16 @@
 PubMed 训练数据生成器配置
 """
 import os
+import sys
+from pathlib import Path
+
+# 确保可以找到 agent 模块
+SCRIPT_DIR = Path(__file__).parent.resolve()
+PROJECT_ROOT = SCRIPT_DIR.parent.parent  # dr-tulu 根目录
+AGENT_PATH = PROJECT_ROOT / "agent"
+if str(AGENT_PATH) not in sys.path:
+    sys.path.insert(0, str(AGENT_PATH))
+
 from dotenv import load_dotenv
 
 load_dotenv()

@@ -3,6 +3,14 @@ Step 3: 基于证据库反向生成问题
 生成必须依赖 pubmed_search 才能高质量回答的问题
 """
 import json
+import sys
+from pathlib import Path
+
+# 确保能找到 config 模块（支持绝对路径运行）
+SCRIPT_DIR = Path(__file__).parent.resolve()
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
 from typing import List, Dict, Any, Optional
 from dataclasses import dataclass, asdict
 from pubmed_client import PaperEvidence, EvidenceSnapshot

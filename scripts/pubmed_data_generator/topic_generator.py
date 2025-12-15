@@ -3,6 +3,14 @@ Step 1: 主题簇与查询模板生成
 生成覆盖疾病/药物/通路/方法学的主题簇，包含长尾主题
 """
 import json
+import sys
+from pathlib import Path
+
+# 确保能找到 config 模块（支持绝对路径运行）
+SCRIPT_DIR = Path(__file__).parent.resolve()
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
 import httpx
 from typing import List, Dict, Any
 from config import OPENROUTER_API_KEY, OPENROUTER_BASE_URL, LLM_MODEL
@@ -78,8 +86,18 @@ QUERY_TEMPLATE_PROMPT = """针对以下医学主题簇，生成 {num_queries} �
 
 
 async def call_llm(prompt: str, temperature: float = 0.7) -> str:
-    """调用 OpenRouter LLM API"""
-    async with httpx.AsyncClient(timeout=120.0) as client:
+    """调用 OpenRouter LLM API（支持代理）"""
+    import os
+    
+    # 获取代理设置
+    proxy_url = os.environ.get("https_proxy") or os.environ.get("http_proxy")
+    
+    # 配置客户端
+    client_kwargs = {"timeout": 120.0}
+    if proxy_url:
+        client_kwargs["proxy"] = proxy_url
+    
+    async with httpx.AsyncClient(**client_kwargs) as client:
         response = await client.post(
             f"{OPENROUTER_BASE_URL}/chat/completions",
             headers={

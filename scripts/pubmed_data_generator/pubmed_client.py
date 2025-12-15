@@ -8,9 +8,12 @@ import sys
 import os
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, asdict
+from pathlib import Path
 
-# 添加 agent 路径
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "../../agent"))
+# 确保能找到 config 模块（支持绝对路径运行）
+SCRIPT_DIR = Path(__file__).parent.resolve()
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
 
 from config import MCP_HOST, MCP_PORT, MCP_TRANSPORT, DEFAULT_LIMIT, DEFAULT_OFFSET
 

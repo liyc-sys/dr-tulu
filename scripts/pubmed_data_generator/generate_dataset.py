@@ -6,9 +6,16 @@ import asyncio
 import json
 import os
 import random
+import sys
+from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Any, Optional
 from dataclasses import asdict
+
+# 确保能找到 config 模块（支持绝对路径运行）
+SCRIPT_DIR = Path(__file__).parent.resolve()
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
 
 from config import (
     OUTPUT_DIR, 

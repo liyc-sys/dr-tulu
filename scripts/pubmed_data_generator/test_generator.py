@@ -6,6 +6,12 @@ import asyncio
 import json
 import os
 import sys
+from pathlib import Path
+
+# 确保能找到 config 模块（支持绝对路径运行）
+SCRIPT_DIR = Path(__file__).parent.resolve()
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
 
 # 设置环境变量
 os.environ.setdefault("MCP_TRANSPORT", "StreamableHttpTransport")
