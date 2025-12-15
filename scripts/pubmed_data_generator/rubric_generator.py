@@ -1,6 +1,10 @@
 """
 Step 4 & 5: 工具调用标注与评分 Rubrics 生成
 生成 expected_tools, evidence_pmids, answer_rubric
+
+Rubrics 分为两部分：
+1. 固定的工具调用 rubrics（4 条）- 所有数据一样
+2. 内容相关的 rubrics（4-8 条）- 根据 PubMed 返回结果动态生成
 """
 import json
 import sys
@@ -45,12 +49,10 @@ class EvidenceRequirement:
 @dataclass
 class RubricItem:
     """评分项"""
-    category: str  # tool_use / verifiability / task_completion
+    category: str  # tool_use / content
     title: str
     description: str
     weight: int
-    pass_condition: str
-    fail_condition: str
     
     def to_dict(self) -> Dict:
         return asdict(self)
@@ -69,15 +71,22 @@ class StabilityStrategy:
 
 @dataclass
 class AnswerRubric:
-    """完整的评分 Rubric"""
-    rubric_items: List[RubricItem]
+    """完整的评分 Rubric，分为两部分"""
+    tool_rubrics: List[RubricItem]  # 固定的工具调用 rubrics（4条）
+    content_rubrics: List[RubricItem]  # 内容相关的 rubrics（4-8条）
     stability_strategy: StabilityStrategy
     
     def to_dict(self) -> Dict:
         return {
-            "rubric_items": [r.to_dict() for r in self.rubric_items],
+            "tool_rubrics": [r.to_dict() for r in self.tool_rubrics],
+            "content_rubrics": [r.to_dict() for r in self.content_rubrics],
             "stability_strategy": self.stability_strategy.to_dict()
         }
+    
+    @property
+    def all_rubrics(self) -> List[RubricItem]:
+        """获取所有 rubrics"""
+        return self.tool_rubrics + self.content_rubrics
 
 
 @dataclass
@@ -183,81 +192,182 @@ def generate_evidence_requirements(
     return requirements
 
 
-def generate_rubric_items(
-    question_type: str,
+def generate_fixed_tool_rubrics(
     num_required_papers: int,
     is_pagination_task: bool = False
 ) -> List[RubricItem]:
-    """生成评分项列表"""
+    """
+    生成固定的工具调用 rubrics（4条，所有数据一样）
+    """
     items = []
     
-    # 1. 工具使用分
+    # 1. 正确调用 pubmed_search
     items.append(RubricItem(
         category="tool_use",
         title="正确调用 pubmed_search",
-        description="模型必须调用 pubmed_search 工具进行文献检索",
-        weight=3,
-        pass_condition="调用了 pubmed_search 且参数格式正确",
-        fail_condition="未调用 pubmed_search 或参数错误"
+        description="模型必须调用 pubmed_search 工具进行文献检索，参数格式正确",
+        weight=3
     ))
     
-    if is_pagination_task:
-        items.append(RubricItem(
-            category="tool_use",
-            title="正确使用分页",
-            description="模型必须使用 offset 参数进行分页检索",
-            weight=2,
-            pass_condition="调用了多次 pubmed_search 并使用不同 offset",
-            fail_condition="未进行分页检索或 offset 使用不正确"
-        ))
-    
-    # 2. 可验证性分
+    # 2. 引用正确的 PMID
     items.append(RubricItem(
-        category="verifiability",
+        category="tool_use",
         title="引用正确的 PMID",
-        description="输出必须包含正确的 PMID，与证据库对齐",
-        weight=3,
-        pass_condition=f"正确引用了至少 {min(2, num_required_papers)} 个 PMID",
-        fail_condition="未引用 PMID 或 PMID 不在证据库中"
+        description=f"输出必须包含正确的 PMID（至少 {min(2, num_required_papers)} 个），与工具返回结果对齐",
+        weight=3
     ))
     
+    # 3. 提供年份和期刊信息
     items.append(RubricItem(
-        category="verifiability",
+        category="tool_use",
         title="提供年份和期刊信息",
-        description="每篇被引用文献必须给出 year 和 venue",
-        weight=2,
-        pass_condition="所有引用的论文都包含 year 和 venue 信息",
-        fail_condition="缺少 year 或 venue 信息"
+        description="每篇被引用文献必须给出发表年份(year)和期刊名称(venue)",
+        weight=2
     ))
     
+    # 4. 摘要证据句对齐
     items.append(RubricItem(
-        category="verifiability",
+        category="tool_use",
         title="摘要证据句对齐",
-        description="每篇被引用文献必须给出 1 句摘要证据句",
-        weight=3,
-        pass_condition="提供的证据句能在对应 abstract 中找到或紧贴 abstract 改写",
-        fail_condition="证据句与 abstract 不匹配或完全缺失"
-    ))
-    
-    # 3. 任务完成分
-    task_descriptions = {
-        "比较": "完成不同研究的对比分析",
-        "汇总": "综合归纳多项研究的发现",
-        "抽取": "准确抽取特定信息",
-        "分类": "按标准分类分析不同研究",
-        "统计": "完成趋势/数量分析"
-    }
-    
-    items.append(RubricItem(
-        category="task_completion",
-        title=f"完成{question_type}任务",
-        description=task_descriptions.get(question_type, "完成指定任务"),
-        weight=3,
-        pass_condition=f"成功{task_descriptions.get(question_type, '完成任务')}",
-        fail_condition="未完成任务目标或分析不完整"
+        description="每篇被引用文献必须给出至少 1 句摘要证据句，可从 abstract 中摘写或紧贴改写",
+        weight=3
     ))
     
     return items
+
+
+# LLM prompt for generating content rubrics
+CONTENT_RUBRICS_PROMPT = """你是一个医学研究评估专家。基于以下问题和检索到的论文，生成 4-8 条内容评分项（content rubrics）。
+
+**用户问题**: {question}
+
+**检索到的论文摘要**:
+{papers_info}
+
+**要求**:
+1. 每条 rubric 描述模型回答时必须提到的一个具体知识点
+2. 这些知识点必须能从上述论文摘要中找到依据
+3. rubric 应该具体、可验证，不要太泛泛而谈
+4. 生成 4-8 条，涵盖论文中的关键发现、方法、结论等
+5. 每条 rubric 的权重为 3
+
+**输出 JSON 格式**:
+```json
+{{
+  "content_rubrics": [
+    {{
+      "title": "简短标题（5-15字）",
+      "description": "详细描述模型应该提到的具体内容点"
+    }}
+  ]
+}}
+```
+
+只输出 JSON，不要其他内容。
+"""
+
+
+async def generate_content_rubrics_with_llm(
+    question: str,
+    papers: List[PaperEvidence]
+) -> List[RubricItem]:
+    """
+    使用 LLM 根据论文内容生成内容相关的 rubrics（4-8条）
+    """
+    from topic_generator import call_llm, extract_json
+    
+    # 格式化论文信息
+    papers_info = []
+    for i, paper in enumerate(papers, 1):
+        authors_str = ", ".join(paper.authors[:3])
+        if len(paper.authors) > 3:
+            authors_str += " et al."
+        
+        abstract_preview = paper.abstract[:600] if paper.abstract else "无摘要"
+        
+        papers_info.append(f"""
+**论文 {i}** (PMID: {paper.pmid})
+- 标题: {paper.title}
+- 作者: {authors_str}
+- 年份: {paper.year} | 期刊: {paper.venue}
+- 摘要: {abstract_preview}
+""")
+    
+    prompt = CONTENT_RUBRICS_PROMPT.format(
+        question=question,
+        papers_info="\n".join(papers_info)
+    )
+    
+    try:
+        response = await call_llm(prompt, temperature=0.5)
+        result = extract_json(response)
+        
+        rubrics = []
+        for item in result.get("content_rubrics", []):
+            rubrics.append(RubricItem(
+                category="content",
+                title=item["title"],
+                description=item["description"],
+                weight=3
+            ))
+        
+        # 确保至少有 4 条，最多 8 条
+        if len(rubrics) < 4:
+            # 如果太少，添加一些通用的
+            default_rubrics = [
+                RubricItem(category="content", title="研究方法描述", description="提到论文中使用的主要研究方法", weight=3),
+                RubricItem(category="content", title="主要发现总结", description="总结论文的主要研究发现", weight=3),
+                RubricItem(category="content", title="临床意义", description="讨论研究结果的临床应用价值", weight=3),
+                RubricItem(category="content", title="研究局限性", description="提及研究的局限性或未来方向", weight=3),
+            ]
+            rubrics.extend(default_rubrics[:4 - len(rubrics)])
+        
+        return rubrics[:8]  # 最多 8 条
+        
+    except Exception as e:
+        print(f"生成内容 rubrics 失败: {e}")
+        # 返回默认的内容 rubrics
+        return [
+            RubricItem(category="content", title="研究背景", description="提到研究的背景和动机", weight=3),
+            RubricItem(category="content", title="研究方法", description="描述论文中使用的主要研究方法", weight=3),
+            RubricItem(category="content", title="主要发现", description="总结论文的主要研究发现和结论", weight=3),
+            RubricItem(category="content", title="临床意义", description="讨论研究结果的临床应用价值或科学意义", weight=3),
+        ]
+
+
+def generate_content_rubrics_sync(
+    question: str,
+    papers: List[PaperEvidence]
+) -> List[RubricItem]:
+    """
+    同步版本：根据论文内容生成内容相关的 rubrics（不调用 LLM）
+    用于测试或回退场景
+    """
+    rubrics = []
+    
+    # 根据论文数量和内容生成具体的 rubrics
+    for i, paper in enumerate(papers[:4]):  # 最多基于前 4 篇论文
+        if paper.abstract:
+            # 从摘要中提取关键信息作为 rubric
+            abstract_preview = paper.abstract[:100]
+            rubrics.append(RubricItem(
+                category="content",
+                title=f"论文{paper.pmid}的关键发现",
+                description=f"提到 {paper.title[:50]}... 中的主要研究发现",
+                weight=3
+            ))
+    
+    # 添加通用的内容 rubrics
+    if len(rubrics) < 4:
+        general_rubrics = [
+            RubricItem(category="content", title="研究方法对比", description="对比不同论文使用的研究方法", weight=3),
+            RubricItem(category="content", title="数据/样本描述", description="提到研究中的数据来源或样本特征", weight=3),
+            RubricItem(category="content", title="结果解读", description="正确解读论文中的主要结果和数据", weight=3),
+            RubricItem(category="content", title="综合结论", description="基于多篇论文给出综合性的结论", weight=3),
+        ]
+        rubrics.extend(general_rubrics[:4 - len(rubrics)])
+    
+    return rubrics[:8]
 
 
 def generate_stability_strategy(
@@ -293,14 +403,25 @@ def generate_stability_strategy(
         )
 
 
-def generate_training_sample(
+async def generate_training_sample(
     question: QuestionSample,
     evidence: EvidenceSnapshot,
     is_pagination_task: bool = False,
     num_pages: int = 1,
-    use_cache: bool = True
+    use_cache: bool = True,
+    use_llm_for_content_rubrics: bool = True
 ) -> TrainingSample:
-    """生成完整的训练样本"""
+    """
+    生成完整的训练样本
+    
+    Args:
+        question: 问题样本
+        evidence: 证据快照
+        is_pagination_task: 是否分页任务
+        num_pages: 页数
+        use_cache: 是否使用缓存
+        use_llm_for_content_rubrics: 是否使用 LLM 生成内容 rubrics
+    """
     
     # 生成工具调用计划
     expected_tools = generate_tool_calls(
@@ -315,12 +436,25 @@ def generate_training_sample(
         required_pmids=question.required_pmids
     )
     
-    # 生成评分项
-    rubric_items = generate_rubric_items(
-        question_type=question.question_type,
+    # 生成固定的工具调用 rubrics（4条）
+    tool_rubrics = generate_fixed_tool_rubrics(
         num_required_papers=len(question.required_pmids),
         is_pagination_task=is_pagination_task
     )
+    
+    # 生成内容相关的 rubrics（4-8条）
+    if use_llm_for_content_rubrics:
+        # 筛选需要引用的论文
+        required_papers = [p for p in evidence.papers if p.pmid in question.required_pmids]
+        content_rubrics = await generate_content_rubrics_with_llm(
+            question=question.user_question,
+            papers=required_papers if required_papers else evidence.papers
+        )
+    else:
+        content_rubrics = generate_content_rubrics_sync(
+            question=question.user_question,
+            papers=evidence.papers
+        )
     
     # 生成稳定性策略
     stability_strategy = generate_stability_strategy(
@@ -328,9 +462,10 @@ def generate_training_sample(
         use_cache=use_cache
     )
     
-    # 组装 rubric
+    # 组装 rubric（两部分）
     answer_rubric = AnswerRubric(
-        rubric_items=rubric_items,
+        tool_rubrics=tool_rubrics,
+        content_rubrics=content_rubrics,
         stability_strategy=stability_strategy
     )
     
@@ -347,56 +482,146 @@ def generate_training_sample(
             "language": question.language,
             "is_pagination_task": is_pagination_task,
             "evidence_snapshot_time": evidence.snapshot_time,
-            "total_papers_available": evidence.total
+            "total_papers_available": evidence.total,
+            "num_tool_rubrics": len(tool_rubrics),
+            "num_content_rubrics": len(content_rubrics)
+        }
+    )
+
+
+def generate_training_sample_sync(
+    question: QuestionSample,
+    evidence: EvidenceSnapshot,
+    is_pagination_task: bool = False,
+    num_pages: int = 1,
+    use_cache: bool = True
+) -> TrainingSample:
+    """
+    同步版本：生成完整的训练样本（不调用 LLM）
+    用于测试或回退场景
+    """
+    # 生成工具调用计划
+    expected_tools = generate_tool_calls(
+        query=evidence.query,
+        is_pagination_task=is_pagination_task,
+        num_pages=num_pages
+    )
+    
+    # 生成证据要求
+    evidence_requirements = generate_evidence_requirements(
+        papers=evidence.papers,
+        required_pmids=question.required_pmids
+    )
+    
+    # 生成固定的工具调用 rubrics（4条）
+    tool_rubrics = generate_fixed_tool_rubrics(
+        num_required_papers=len(question.required_pmids),
+        is_pagination_task=is_pagination_task
+    )
+    
+    # 生成内容相关的 rubrics（同步版本）
+    content_rubrics = generate_content_rubrics_sync(
+        question=question.user_question,
+        papers=evidence.papers
+    )
+    
+    # 生成稳定性策略
+    stability_strategy = generate_stability_strategy(
+        query=evidence.query,
+        use_cache=use_cache
+    )
+    
+    # 组装 rubric（两部分）
+    answer_rubric = AnswerRubric(
+        tool_rubrics=tool_rubrics,
+        content_rubrics=content_rubrics,
+        stability_strategy=stability_strategy
+    )
+    
+    return TrainingSample(
+        sample_id=question.question_id,
+        user_question=question.user_question,
+        expected_tools=expected_tools,
+        evidence_pmids=question.required_pmids,
+        evidence_requirements=evidence_requirements,
+        answer_rubric=answer_rubric,
+        metadata={
+            "query_used": evidence.query,
+            "question_type": question.question_type,
+            "language": question.language,
+            "is_pagination_task": is_pagination_task,
+            "evidence_snapshot_time": evidence.snapshot_time,
+            "total_papers_available": evidence.total,
+            "num_tool_rubrics": len(tool_rubrics),
+            "num_content_rubrics": len(content_rubrics)
         }
     )
 
 
 if __name__ == "__main__":
-    # 测试
+    import asyncio
     from pubmed_client import PaperEvidence, EvidenceSnapshot
     from datetime import datetime
     
-    # 模拟数据
-    mock_papers = [
-        PaperEvidence(
-            pmid="12345678",
-            title="BRCA1 mutations in breast cancer treatment",
-            abstract="This study investigates the role of BRCA1 mutations in treatment response. We found that patients with BRCA1 mutations showed improved response to PARP inhibitors.",
-            year="2023",
-            venue="Nature Medicine",
-            url="https://pubmed.ncbi.nlm.nih.gov/12345678/",
-            authors=["Smith, J.", "Johnson, M."]
-        ),
-        PaperEvidence(
-            pmid="87654321",
-            title="Novel therapies for BRCA-associated cancers",
-            abstract="We review recent advances in targeted therapies for BRCA-associated breast cancer. PARP inhibitors have shown significant efficacy.",
-            year="2022",
-            venue="Cancer Research",
-            url="https://pubmed.ncbi.nlm.nih.gov/87654321/",
-            authors=["Brown, A.", "Davis, K."]
+    async def test():
+        # 模拟数据
+        mock_papers = [
+            PaperEvidence(
+                pmid="12345678",
+                title="BRCA1 mutations in breast cancer treatment response to PARP inhibitors",
+                abstract="This study investigates the role of BRCA1 mutations in treatment response. We found that patients with BRCA1 mutations showed improved response to PARP inhibitors with a median progression-free survival of 12.3 months compared to 5.8 months in the control group. The overall response rate was 67% in the BRCA1-mutated cohort.",
+                year="2023",
+                venue="Nature Medicine",
+                url="https://pubmed.ncbi.nlm.nih.gov/12345678/",
+                authors=["Smith, J.", "Johnson, M."]
+            ),
+            PaperEvidence(
+                pmid="87654321",
+                title="Novel therapies for BRCA-associated cancers: A comprehensive review",
+                abstract="We review recent advances in targeted therapies for BRCA-associated breast cancer. PARP inhibitors including olaparib, niraparib, and talazoparib have shown significant efficacy in clinical trials. Combination therapies with immunotherapy are emerging as promising strategies.",
+                year="2022",
+                venue="Cancer Research",
+                url="https://pubmed.ncbi.nlm.nih.gov/87654321/",
+                authors=["Brown, A.", "Davis, K."]
+            )
+        ]
+        
+        mock_evidence = EvidenceSnapshot(
+            query="BRCA1 breast cancer treatment",
+            limit=5,
+            offset=0,
+            papers=mock_papers,
+            total=100,
+            snapshot_time=datetime.now().isoformat()
         )
-    ]
+        
+        mock_question = QuestionSample(
+            question_id="test_001",
+            user_question="BRCA1 突变乳腺癌患者的靶向治疗选择有哪些？请引用相关研究并提供证据。",
+            query_used="BRCA1 breast cancer treatment",
+            required_pmids=["12345678", "87654321"],
+            question_type="汇总",
+            language="zh"
+        )
+        
+        print("=" * 60)
+        print("测试 Rubric 生成（两部分结构）")
+        print("=" * 60)
+        
+        # 测试异步版本（使用 LLM）
+        print("\n使用 LLM 生成内容 rubrics...")
+        sample = await generate_training_sample(mock_question, mock_evidence, use_llm_for_content_rubrics=True)
+        
+        print(f"\n工具调用 rubrics ({len(sample.answer_rubric.tool_rubrics)} 条):")
+        for r in sample.answer_rubric.tool_rubrics:
+            print(f"  - [{r.category}] {r.title}")
+        
+        print(f"\n内容相关 rubrics ({len(sample.answer_rubric.content_rubrics)} 条):")
+        for r in sample.answer_rubric.content_rubrics:
+            print(f"  - [{r.category}] {r.title}: {r.description[:50]}...")
+        
+        print("\n完整样本 JSON:")
+        print(json.dumps(sample.to_dict(), indent=2, ensure_ascii=False))
     
-    mock_evidence = EvidenceSnapshot(
-        query="BRCA1 breast cancer treatment",
-        limit=5,
-        offset=0,
-        papers=mock_papers,
-        total=100,
-        snapshot_time=datetime.now().isoformat()
-    )
-    
-    mock_question = QuestionSample(
-        question_id="test_001",
-        user_question="BRCA1 突变乳腺癌患者的靶向治疗选择有哪些？请引用相关研究并提供证据。",
-        query_used="BRCA1 breast cancer treatment",
-        required_pmids=["12345678", "87654321"],
-        question_type="汇总",
-        language="zh"
-    )
-    
-    sample = generate_training_sample(mock_question, mock_evidence)
-    print(json.dumps(sample.to_dict(), indent=2, ensure_ascii=False))
+    asyncio.run(test())
 

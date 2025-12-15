@@ -206,13 +206,14 @@ class PubMedDatasetGenerator:
         if not question:
             return None
         
-        # 生成完整训练样本
-        sample = generate_training_sample(
+        # 生成完整训练样本（使用 LLM 生成内容 rubrics）
+        sample = await generate_training_sample(
             question=question,
             evidence=evidence,
             is_pagination_task=is_pagination and num_pages > 1,
             num_pages=num_pages,
-            use_cache=True
+            use_cache=True,
+            use_llm_for_content_rubrics=True
         )
         
         return sample
@@ -318,18 +319,33 @@ class PubMedDatasetGenerator:
                 # 构造 messages
                 messages = [{"content": sample.user_question, "role": "user"}]
                 
-                # 构造 ground_truth (rubric 格式)
-                rubrics = []
-                for item in sample.answer_rubric.rubric_items:
-                    rubrics.append({
+                # 构造 ground_truth (rubric 格式，分为两部分)
+                # 工具调用 rubrics（固定 4 条）
+                tool_rubrics = []
+                for item in sample.answer_rubric.tool_rubrics:
+                    tool_rubrics.append({
                         "title": item.title,
                         "description": item.description,
                         "weight": item.weight
                     })
                 
+                # 内容相关 rubrics（4-8 条，根据论文内容生成）
+                content_rubrics = []
+                for item in sample.answer_rubric.content_rubrics:
+                    content_rubrics.append({
+                        "title": item.title,
+                        "description": item.description,
+                        "weight": item.weight
+                    })
+                
+                # 合并所有 rubrics（兼容现有格式）
+                all_rubrics = tool_rubrics + content_rubrics
+                
                 ground_truth = {
                     "query": sample.user_question,
-                    "rubrics": rubrics,
+                    "rubrics": all_rubrics,  # 合并后的 rubrics（兼容现有格式）
+                    "tool_rubrics": tool_rubrics,  # 工具调用 rubrics
+                    "content_rubrics": content_rubrics,  # 内容相关 rubrics
                     "expected_tools": [t.to_dict() for t in sample.expected_tools],
                     "evidence_pmids": sample.evidence_pmids,
                     "stability_strategy": sample.answer_rubric.stability_strategy.to_dict()
@@ -352,6 +368,8 @@ class PubMedDatasetGenerator:
         languages = {}
         pagination_count = 0
         pmids_per_sample = []
+        tool_rubrics_counts = []
+        content_rubrics_counts = []
         
         for sample in self.samples:
             # 问题类型统计
@@ -368,6 +386,10 @@ class PubMedDatasetGenerator:
             
             # PMID 数量
             pmids_per_sample.append(len(sample.evidence_pmids))
+            
+            # Rubrics 统计
+            tool_rubrics_counts.append(len(sample.answer_rubric.tool_rubrics))
+            content_rubrics_counts.append(len(sample.answer_rubric.content_rubrics))
         
         return {
             "total_samples": len(self.samples),
@@ -377,6 +399,11 @@ class PubMedDatasetGenerator:
             "pagination_ratio": pagination_count / len(self.samples) if self.samples else 0,
             "avg_pmids_per_sample": sum(pmids_per_sample) / len(pmids_per_sample) if pmids_per_sample else 0,
             "unique_queries": len(self.evidence_cache),
+            "rubrics_stats": {
+                "avg_tool_rubrics": sum(tool_rubrics_counts) / len(tool_rubrics_counts) if tool_rubrics_counts else 0,
+                "avg_content_rubrics": sum(content_rubrics_counts) / len(content_rubrics_counts) if content_rubrics_counts else 0,
+                "total_rubrics_per_sample": (sum(tool_rubrics_counts) + sum(content_rubrics_counts)) / len(self.samples) if self.samples else 0
+            },
             "generation_time": datetime.now().isoformat()
         }
 
