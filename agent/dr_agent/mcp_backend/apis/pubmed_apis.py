@@ -176,7 +176,17 @@ def search_pubmed(
     ids = searchStat["ids"]
 
     paper_data = fetch_pubmed_details(ids)
-    paper_data = call_api_with_retry(fetch_semantic_scholar_details, paper_data)
+    
+    # ========== Semantic Scholar 调用 (当前已禁用) ==========
+    # 作用: 为 PubMed 论文补充引用数 (citationCount) 等学术指标
+    # 如需启用: 取消注释下面这行，并注释掉后面的手动设置 citationCount 的代码
+    # paper_data = call_api_with_retry(fetch_semantic_scholar_details, paper_data)
+    
+    # 临时方案: 手动设置 citationCount 为 None (禁用 Semantic Scholar 时使用)
+    # 如需启用 Semantic Scholar: 注释掉或删除下面这个循环
+    for paper in paper_data:
+        paper["citationCount"] = None
+    # ========== 结束 ==========
 
     return {
         "total": int(searchStat["count"]),
