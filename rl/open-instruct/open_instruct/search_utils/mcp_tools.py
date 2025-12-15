@@ -13,7 +13,14 @@ import threading
 from datetime import datetime
 
 try:
-    from dr_agent.tool_interface.mcp_tools import MassiveServeSearchTool, SemanticScholarSnippetSearchTool, SerperSearchTool, Crawl4AIBrowseTool, SerperBrowseTool
+    from dr_agent.tool_interface.mcp_tools import (
+        MassiveServeSearchTool,
+        SemanticScholarSnippetSearchTool,
+        SerperSearchTool,
+        Crawl4AIBrowseTool,
+        SerperBrowseTool,
+        PubMedSearchTool,
+    )
 except ImportError as e:
     print(f"Failed to import dr_agent. Please install it:\n{e}")
     raise e
@@ -26,6 +33,7 @@ MCP_TOOL_REGISTRY = {
     "google_search": SerperSearchTool,
     "massive_serve": MassiveServeSearchTool,
     "browse_webpage": Crawl4AIBrowseTool,
+    "pubmed_search": PubMedSearchTool,
     # "browse_webpage": SerperBrowseTool
 }
 

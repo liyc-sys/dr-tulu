@@ -746,6 +746,109 @@ class SerperSearchTool(MCPSearchTool):
         return documents
 
 
+class PubMedSearchTool(MCPSearchTool):
+    """Tool for searching medical and scientific papers using PubMed via MCP"""
+
+    def __init__(
+        self,
+        tool_parser: Optional[ToolCallParser | str] = None,
+        number_documents_to_search: int = 10,
+        timeout: int = 60,
+        name: Optional[str] = None,
+        description: Optional[str] = None,
+        **kwargs,
+    ):
+        super().__init__(
+            tool_parser=tool_parser,
+            number_documents_to_search=number_documents_to_search,
+            timeout=timeout,
+            name=name,
+            description=description,
+            **kwargs,
+        )
+
+    def get_mcp_tool_name(self) -> str:
+        return "pubmed_search"
+
+    def get_mcp_params(self, tool_call_info: ToolCallInfo) -> Dict[str, Any]:
+        """Build parameters for PubMed API"""
+        params = {
+            "query": tool_call_info.content,
+            "limit": self.number_documents_to_search,
+            "offset": 0,
+        }
+
+        # Override with validated parameters from tool call
+        if "limit" in tool_call_info.parameters:
+            try:
+                params["limit"] = int(tool_call_info.parameters["limit"])
+            except ValueError:
+                pass  # Keep default if conversion fails
+
+        if "offset" in tool_call_info.parameters:
+            try:
+                params["offset"] = int(tool_call_info.parameters["offset"])
+            except ValueError:
+                pass  # Keep default if conversion fails
+
+        return params
+
+    def extract_documents(self, raw_output: Dict[str, Any]) -> List[Document]:
+        """Extract documents from PubMed response"""
+        data = raw_output.get("data", [])
+        documents = []
+
+        for item in data:
+            if isinstance(item, dict):
+                # Extract paper information from PubMed response
+                title = item.get("title", "").strip()
+                abstract = item.get("abstract", "").strip()
+                url = item.get("url", "").strip()
+
+                # Build authors string
+                authors = item.get("authors", [])
+                if authors:
+                    author_names = [a.get("name", "") for a in authors if a.get("name")]
+                    authors_str = ", ".join(author_names[:3])  # Limit to first 3 authors
+                    if len(author_names) > 3:
+                        authors_str += " et al."
+                else:
+                    authors_str = ""
+
+                # Add metadata to snippet
+                year = item.get("year", "")
+                venue = item.get("venue", "")
+                citation_count = item.get("citationCount")
+
+                metadata_parts = []
+                if authors_str:
+                    metadata_parts.append(f"Authors: {authors_str}")
+                if year:
+                    metadata_parts.append(f"Year: {year}")
+                if venue:
+                    metadata_parts.append(f"Journal: {venue}")
+                if citation_count is not None:
+                    metadata_parts.append(f"Citations: {citation_count}")
+
+                if metadata_parts:
+                    snippet = " | ".join(metadata_parts) + "\n\n" + abstract
+                else:
+                    snippet = abstract
+
+                doc = Document(
+                    title=title,
+                    snippet=snippet,
+                    url=url,
+                    text="",  # No full text content from search
+                    score=citation_count,  # Use citation count as relevance score
+                )
+
+                if doc.title or doc.snippet:
+                    documents.append(doc)
+
+        return documents
+
+
 class MassiveServeSearchTool(MCPSearchTool):
     """Tool for searching documents using massive-serve API via MCP"""
 
