@@ -31,7 +31,7 @@ from open_instruct.tool_utils.tool_vllm import Tool, ToolOutput
 MCP_TOOL_REGISTRY = {
     "snippet_search": SemanticScholarSnippetSearchTool,
     "google_search": SerperSearchTool,
-    "massive_serve": MassiveServeSearchTool,
+    # "massive_serve": MassiveServeSearchTool,
     "browse_webpage": Crawl4AIBrowseTool,
     "pubmed_search": PubMedSearchTool,
     # "browse_webpage": SerperBrowseTool
