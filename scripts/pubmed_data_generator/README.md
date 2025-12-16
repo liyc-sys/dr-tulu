@@ -2,12 +2,25 @@
 
 为 `pubmed_search` 工具生成训练/评测数据，确保每条样本必须调用 PubMed 搜索才能取得最佳效果。
 
-## 功能特点
+## 🌟 两种生成模式
 
-1. **必须依赖工具调用**：生成的问题必须调用 `pubmed_search` 才能高质量回答
-2. **可验证的证据**：答案必须引用 PMID、摘要证据句、年份、期刊
-3. **支持分页任务**：部分样本需要多次调用（offset 分页）
-4. **稳定性策略**：内置证据库快照缓存，避免 API 漂移影响评测
+### 模式 1: 基于 GPT-5 轨迹生成（推荐）
+
+**流程**：
+1. 生成适合 pubmed_search 的问题
+2. 调用 GPT-5 连接 MCP 工具，自主决定工具调用
+3. 记录完整的工具调用轨迹
+4. 根据轨迹结果生成 content rubrics
+
+**输出**：问题 + GPT-5 工具调用轨迹 + 评判 rubrics
+
+### 模式 2: 基于证据采样生成
+
+**流程**：
+1. 生成主题簇和查询模板
+2. 调用 PubMed 采样证据库
+3. 基于证据反向生成问题
+4. 生成固定的 rubrics
 
 ## 快速开始
 
@@ -28,21 +41,26 @@ cd /Users/liyc/Desktop/dr-tulu/agent
 uv run python -m dr_agent.mcp_backend.main --transport http --port 8003 --host 0.0.0.0 --path /mcp
 ```
 
-### 3. 运行测试
+### 3. 生成轨迹数据集（推荐）
 
 ```bash
 cd /Users/liyc/Desktop/dr-tulu/scripts/pubmed_data_generator
-python test_generator.py --all
+
+# 测试轨迹生成
+python test_trajectory.py --test trajectory
+
+# 生成完整数据集
+python generate_trajectory_dataset.py --num-questions 10 --model openai/gpt-4o
 ```
 
-### 4. 生成数据集
+### 4. 或使用证据采样模式
 
 ```bash
 # 生成小规模数据集（测试用）
 python generate_dataset.py --clusters 5 --queries 3 --samples 1
 
 # 生成完整数据集
-python generate_dataset.py --clusters 30 --queries 10 --samples 1 --pagination-ratio 0.2
+python generate_dataset.py --clusters 30 --queries 10 --samples 1
 ```
 
 ## 数据格式
