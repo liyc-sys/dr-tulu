@@ -275,15 +275,23 @@ class TrajectoryDatasetGenerator:
             writer.writeheader()
             
             for sample in self.samples:
-                messages = [{"content": sample.question, "role": "user"}]
+                # 构造 messages：user 问题 + assistant 的完整 interleaved 轨迹
+                messages = [
+                    {"content": sample.question, "role": "user"},
+                    {"content": sample.trajectory.get("interleaved_text", ""), "role": "assistant"}
+                ]
                 
                 ground_truth = {
                     "query": sample.question,
                     "rubrics": sample.tool_rubrics + sample.content_rubrics,
                     "tool_rubrics": sample.tool_rubrics,
                     "content_rubrics": sample.content_rubrics,
-                    "trajectory": sample.trajectory,
-                    "expected_answer": sample.trajectory.get("final_answer", "")
+                    "interleaved_trajectory": sample.trajectory.get("interleaved_text", ""),
+                    "tool_calls": sample.trajectory.get("tool_calls", []),
+                    "final_answer": sample.trajectory.get("final_answer", ""),
+                    "pmids_cited": sample.trajectory.get("pmids_cited", []),
+                    "total_tool_calls": sample.trajectory.get("total_tool_calls", 0),
+                    "tools_used": sample.trajectory.get("tools_used", [])
                 }
                 
                 writer.writerow({
