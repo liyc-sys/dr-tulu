@@ -47,15 +47,19 @@ SYSTEM_PROMPT = """You are a medical research assistant. Answer questions using 
 - ❌ Unclosed tags like `<call_tool name="pubmed_search">query` without `</call_tool>`
 - ❌ Fabricating PMIDs, paper titles, or results
 - ❌ Using more than 6 keywords in pubmed_search
+- ❌ Calling pubmed_search more than 3 times total
 
 ### After <call_tool>
 - You MUST STOP your response immediately after `</call_tool>`
 - Wait for the system to provide `<tool_output>`
 - Never continue writing after the closing tag
 
-## Limits
-- pubmed_search: maximum 3 calls total
-- Keywords per search: 3-6 words
+## CRITICAL LIMITS (MUST FOLLOW)
+- **⚠️ pubmed_search can be called AT MOST 3 times in total**
+- **After 3 pubmed_search calls, you MUST provide your final answer immediately**
+- **Do NOT exceed this limit under any circumstances**
+- Keywords per search: 3-6 words maximum
+- Plan your searches carefully to maximize information from each call
 
 ## Output Tags (ONLY these are allowed)
 - `<think>reasoning</think>`
@@ -67,10 +71,14 @@ Use `<cite id="PMID">text</cite>` with PMIDs from actual search results.
 
 ## CORRECT Example
 
-<think>I need to search for papers on NLR and PD-1 in lung cancer.</think>
+<think>I need to search for papers on NLR and PD-1 in lung cancer. This will be my first search (out of maximum 3).</think>
 <call_tool name="pubmed_search" limit="5">NLR PD-1 lung cancer prognosis</call_tool>
 
 [STOP HERE - your response ends after </call_tool>]
+
+After receiving tool output, if you need more information:
+<think>I found some relevant papers. I need more specific information, so I'll do my second search (2/3).</think>
+<call_tool name="pubmed_search" limit="5">different keywords</call_tool>
 
 ## WRONG Example (DO NOT DO THIS)
 
@@ -144,7 +152,7 @@ class MCPToolExecutor:
         # 映射工具名到 MCP 工具名
         mcp_tool_mapping = {
             "pubmed_search": "pubmed_search",
-            "browse_webpage": "crawl4ai_fetch_webpage_content",
+            "browse_webpage": "crawl4ai_docker_fetch_webpage_content",  # 使用 Docker 版本
             "google_search": "serper_google_webpage_search"
         }
         
@@ -182,7 +190,10 @@ class MCPToolExecutor:
                 "offset": parameters.get("offset", 0)
             }
         elif tool_name == "browse_webpage":
-            return {"url": query}
+            return {
+                "url": query,
+                "use_ai2_config": True,  # 使用 AI2 配置，从环境变量读取 Docker API 设置
+            }
         elif tool_name == "google_search":
             return {
                 "query": query,
@@ -382,7 +393,7 @@ class GPT5TrajectoryGenerator:
                     tools_used.add(tool_name)
                     total_tool_calls += 1
                     
-                    print(f"  执行工具: {tool_name}({query[:50]}...)")
+                    print(f"  执行工具: {tool_name}({query})")
                     
                     # 执行工具
                     raw_result, formatted_output = await self.tool_executor.execute_tool(
