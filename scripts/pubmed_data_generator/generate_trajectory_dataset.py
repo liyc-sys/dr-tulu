@@ -29,24 +29,24 @@ from trajectory_generator import (
 )
 
 
-# 固定的工具调用 rubrics（3条，所有数据一样）
+# Fixed tool usage rubrics (3 items, same for all data samples)
 FIXED_TOOL_RUBRICS = [
     {
         "category": "tool_use",
-        "title": "正确调用 pubmed_search",
-        "description": "模型必须调用 pubmed_search 工具进行文献检索，参数格式正确",
+        "title": "Correct pubmed_search usage",
+        "description": "Model must call pubmed_search tool for literature search with correct parameter format",
         "weight": 3
     },
     {
         "category": "tool_use",
-        "title": "引用正确的 PMID",
-        "description": "输出必须包含正确的 PMID，与工具返回结果对齐",
+        "title": "Cite correct PMIDs",
+        "description": "Output must contain correct PMIDs that align with tool return results",
         "weight": 3
     },
     {
         "category": "tool_use",
-        "title": "提供年份和期刊信息",
-        "description": "每篇被引用文献必须给出发表年份(year)和期刊名称(venue)",
+        "title": "Provide year and journal info",
+        "description": "Each cited paper must include publication year and journal/venue name",
         "weight": 2
     },
 ]
@@ -54,54 +54,54 @@ FIXED_TOOL_RUBRICS = [
 
 # 主题列表（每次随机选择一个）
 TOPIC_LIST = [
-    "癌症治疗（靶向治疗、免疫治疗、化疗耐药）",
-    "心血管疾病（冠心病、心衰、房颤）",
-    "神经系统疾病（阿尔茨海默病、帕金森病、癫痫）",
-    "感染性疾病（COVID-19、HIV、耐药菌感染）",
-    "罕见病/遗传病（囊性纤维化、肌萎缩侧索硬化、亨廷顿病）",
-    "药物研发/临床试验（新药III期试验、药物相互作用）",
-    "代谢性疾病（糖尿病、肥胖、非酒精性脂肪肝）",
-    "自身免疫性疾病（类风湿关节炎、系统性红斑狼疮、多发性硬化）",
-    "肿瘤免疫治疗（CAR-T、PD-1/PD-L1抑制剂、肿瘤微环境）",
-    "基因治疗与细胞治疗（CRISPR、干细胞、基因编辑）",
+    "Cancer Treatment (targeted therapy, immunotherapy, chemotherapy resistance)",
+    "Cardiovascular Disease (coronary artery disease, heart failure, atrial fibrillation)",
+    "Neurological Disorders (Alzheimer's disease, Parkinson's disease, epilepsy)",
+    "Infectious Diseases (COVID-19, HIV, antibiotic-resistant infections)",
+    "Rare/Genetic Diseases (cystic fibrosis, ALS, Huntington's disease)",
+    "Drug Development/Clinical Trials (Phase III trials, drug interactions)",
+    "Metabolic Diseases (diabetes, obesity, NAFLD)",
+    "Autoimmune Diseases (rheumatoid arthritis, SLE, multiple sclerosis)",
+    "Cancer Immunotherapy (CAR-T, PD-1/PD-L1 inhibitors, tumor microenvironment)",
+    "Gene & Cell Therapy (CRISPR, stem cells, gene editing)",
 ]
 
 # 问题生成 Prompt
-QUESTION_GENERATION_PROMPT = """你是一个医学研究问题生成专家。请生成 {num_questions} 个适合使用 PubMed 医学文献搜索来回答的研究问题。
+QUESTION_GENERATION_PROMPT = """You are a medical research question generation expert. Please generate {num_questions} research questions suitable for answering using PubMed medical literature search.
 
-**要求**:
-1. 问题必须需要查阅 PubMed 论文才能准确回答
-2. 问题涉及具体的医学/生物医学研究（疾病、药物、机制、治疗方法等）
-3. 问题需要引用具体论文的 PMID 和研究数据
-4. 涵盖不同类型：疗效比较、机制研究、流行病学、预后分析、综述
-5. 语言：{language}
-6. 难度适中，需要查阅2篇论文才能完整回答
-7. 必须只能包括1个明确的问题，不能是多个问题的复合问题。
+**Requirements**:
+1. Questions must require consulting PubMed papers to answer accurately
+2. Questions involve specific medical/biomedical research (diseases, drugs, mechanisms, treatments, etc.)
+3. Questions should reference specific PMIDs and research data
+4. Cover different types: efficacy comparison, mechanism research, epidemiology, prognosis analysis, reviews
+5. Language: **English only**
+6. Moderate difficulty, requiring 2-5 papers to answer comprehensively
+7. Each must be a single clear question, not multiple compound questions
 
-问题示例：
-第一个示例：在晚期黑色素瘤一线治疗中，比较PD-1 抑制剂单药与PD-1 + CTLA-4 联合的疗效与毒性差异。
+Question examples:
+First example: In first-line treatment of advanced melanoma, compare the efficacy and toxicity differences between PD-1 inhibitor monotherapy versus PD-1 + CTLA-4 combination therapy.
 
-第二个示例：免疫检查点治疗中，**肿瘤突变负荷（TMB）与肿瘤微环境（如 CD8+T 细胞浸润）**分别如何与疗效相关？两者是否独立、是否存在交互？
+Second example: In immune checkpoint therapy, how do tumor mutational burden (TMB) and tumor microenvironment (such as CD8+ T cell infiltration) correlate with treatment efficacy? Are they independent or do they interact?
 
-**本次指定主题**：{topic}
-请围绕这个主题生成所有问题，确保问题具体、有深度、不重复。
+**Assigned topic for this batch**: {topic}
+Generate all questions around this topic, ensuring questions are specific, in-depth, and non-repetitive.
 
 
-**输出 JSON 格式**:
+**Output JSON format**:
 ```json
 {{
   "questions": [
     {{
-      "question": "问题内容",
-      "topic": "主题分类",
-      "question_type": "疗效比较/机制研究/流行病学/预后/综述",
-      "expected_search_terms": ["可能的 PubMed 搜索词"]
+      "question": "Question content in English",
+      "topic": "Topic classification",
+      "question_type": "efficacy_comparison/mechanism/epidemiology/prognosis/review",
+      "expected_search_terms": ["possible PubMed search terms"]
     }}
   ]
 }}
 ```
 
-只输出 JSON，不要其他内容。
+Output JSON only, no other content.
 """
 
 
@@ -140,7 +140,7 @@ class TrajectoryDatasetGenerator:
         # mini_model: str = "openai/gpt-5-mini",  # 用于次要任务的便宜模型
         mini_model: str = "openai/gpt-5.2",
         num_questions: int = 10,
-        language: str = "zh"
+        language: str = "en"  # 默认英文
     ):
         self.model = model  # 用于轨迹生成（重要）
         self.mini_model = mini_model  # 用于问题生成和 rubrics 生成（次要）
@@ -182,13 +182,12 @@ class TrajectoryDatasetGenerator:
             
             prompt = QUESTION_GENERATION_PROMPT.format(
                 num_questions=questions_for_topic,
-                language="中文" if self.language == "zh" else "English",
                 topic=topic
             )
             
             try:
-                # 使用 mini_model 生成问题（节省成本）
-                response = await call_llm(prompt, temperature=0.7, model=self.mini_model)
+                # 使用 model 生成问题
+                response = await call_llm(prompt, temperature=0.7, model=self.model)
                 result = extract_json(response)
                 questions = result.get("questions", [])
                 all_questions.extend(questions)

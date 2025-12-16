@@ -23,6 +23,8 @@ from config import OPENROUTER_API_KEY, OPENROUTER_BASE_URL, MCP_HOST, MCP_PORT
 # dr-tulu 风格的 system prompt
 SYSTEM_PROMPT = """You are a medical research assistant. Answer questions using PubMed literature search.
 
+**IMPORTANT: All your responses, including <think>, <answer>, and citations, must be in English.**
+
 ## Available Tools
 
 1. pubmed_search 
@@ -542,35 +544,36 @@ async def generate_content_rubrics_from_trajectory(
                             "venue": paper.get("venue", "")
                         })
     
-    prompt = f"""你是一个医学研究评估专家。基于以下问题和 GPT 模型通过工具调用获取的论文信息，生成 4-8 条内容评分项。
+    prompt = f"""You are a medical research evaluation expert. Based on the following question and papers retrieved by the model through tool calls, generate 4-8 content rubric items.
 
-**用户问题**: {question}
+**User Question**: {question}
 
-**模型最终回答**: 
+**Model's Final Answer**: 
 {trajectory.final_answer[:1500]}...
 
-**检索到的论文**:
+**Retrieved Papers**:
 {json.dumps(tool_results, ensure_ascii=False, indent=2)[:3000]}
 
-**要求**:
-1. 每条 rubric 描述模型回答中应该提到的一个具体知识点
-2. 这些知识点必须能从检索到的论文中找到依据
-3. rubric 应该具体、可验证
-4. 生成 4-8 条
+**Requirements**:
+1. Each rubric should describe a specific knowledge point that should be mentioned in the model's answer
+2. These knowledge points must be verifiable from the retrieved papers
+3. Rubrics should be specific and verifiable
+4. Generate 4-8 items
+5. **All rubrics must be in English**
 
-**输出 JSON 格式**:
+**Output JSON format**:
 ```json
 {{
   "content_rubrics": [
     {{
-      "title": "简短标题（5-15字）",
-      "description": "详细描述模型应该提到的具体内容点"
+      "title": "Brief title (5-15 words in English)",
+      "description": "Detailed description of specific content point the model should mention (in English)"
     }}
   ]
 }}
 ```
 
-只输出 JSON，不要其他内容。
+Output JSON only, no other content.
 """
     
     try:
