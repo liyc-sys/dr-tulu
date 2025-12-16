@@ -47,7 +47,7 @@ SYSTEM_PROMPT = """You are a medical research assistant. Answer questions using 
 - ❌ Unclosed tags like `<call_tool name="pubmed_search">query` without `</call_tool>`
 - ❌ Fabricating PMIDs, paper titles, or results
 - ❌ Using more than 6 keywords in pubmed_search
-- ❌ Calling pubmed_search more than 3 times total
+- ❌ Calling tools (any combination) more than 5 times total
 
 ### After <call_tool> (CRITICAL)
 - **You MUST STOP your response IMMEDIATELY after `</call_tool>` - do NOT write anything else**
@@ -57,11 +57,11 @@ SYSTEM_PROMPT = """You are a medical research assistant. Answer questions using 
 - Your response should end exactly at `</call_tool>` - nothing after it
 
 ## CRITICAL LIMITS (MUST FOLLOW)
-- **⚠️ pubmed_search can be called AT MOST 3 times in total**
-- **After 3 pubmed_search calls, you MUST provide your final answer immediately**
+- **⚠️ You can call tools AT MOST 5 times in total (including pubmed_search, browse_webpage, google_search)**
+- **After 5 tool calls, you MUST provide your final answer immediately**
 - **Do NOT exceed this limit under any circumstances**
-- Keywords per search: 3-6 words maximum
-- Plan your searches carefully to maximize information from each call
+- pubmed_search: Use 3-6 keywords maximum per search
+- Plan your tool usage carefully to maximize information from each call
 
 ## Output Tags (ONLY these are allowed)
 - `<think>reasoning</think>`
@@ -73,14 +73,18 @@ Use `<cite id="PMID">text</cite>` with PMIDs from actual search results.
 
 ## CORRECT Example
 
-<think>I need to search for papers on NLR and PD-1 in lung cancer. This will be my first search (out of maximum 3).</think>
+<think>I need to search for papers on NLR and PD-1 in lung cancer. This will be my first tool call (1/5 max).</think>
 <call_tool name="pubmed_search" limit="5">NLR PD-1 lung cancer prognosis</call_tool>
 
 [STOP HERE - your response ends after </call_tool>]
 
 After receiving tool output, if you need more information:
-<think>I found some relevant papers. I need more specific information, so I'll do my second search (2/3).</think>
+<think>I found some relevant papers. I need more specific information, so I'll do my second search (2/5).</think>
 <call_tool name="pubmed_search" limit="5">different keywords</call_tool>
+
+Or if you need to check a specific paper:
+<think>I want to read the full paper from PMID 12345678 (3/5 tool calls).</think>
+<call_tool name="browse_webpage">https://pubmed.ncbi.nlm.nih.gov/12345678/</call_tool>
 
 ## WRONG Examples (DO NOT DO THIS)
 
@@ -419,7 +423,14 @@ class GPT5TrajectoryGenerator:
                 # 将工具输出添加到消息中继续对话
                 # 注意：发送清理后的内容，不包含模型可能生成的假 tool_output
                 messages.append({"role": "assistant", "content": clean_content})
-                messages.append({"role": "user", "content": tool_output_text})
+                
+                # 检查是否达到工具调用限制
+                if total_tool_calls >= 5:
+                    reminder = f"{tool_output_text}\n\n⚠️ You have reached the maximum limit of 5 tool calls. You MUST provide your final answer now using the <answer> tag."
+                    messages.append({"role": "user", "content": reminder})
+                    print(f"  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案")
+                else:
+                    messages.append({"role": "user", "content": tool_output_text})
                 
             else:
                 # 没有工具调用，检查是否有 <answer>
