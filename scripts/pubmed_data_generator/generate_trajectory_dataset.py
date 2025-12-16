@@ -72,13 +72,20 @@ QUESTION_GENERATION_PROMPT = """You are a medical research question generation e
 **Requirements**:
 1. Questions must require consulting PubMed papers to answer accurately
 2. Questions involve specific medical/biomedical research (diseases, drugs, mechanisms, treatments, etc.)
-3. Questions should reference specific PMIDs and research data
-4. Cover different types: efficacy comparison, mechanism research, epidemiology, prognosis analysis, reviews
-5. Language: **English only**
-6. Moderate difficulty, requiring 2-5 papers to answer comprehensively
-7. Each must be a single clear question, not multiple compound questions
+3. **IMPORTANT: Do NOT include specific PMIDs, paper IDs, or study names in questions**
+4. Questions should be general but specific enough to require literature search
+5. Cover different types: efficacy comparison, mechanism research, epidemiology, prognosis analysis, reviews
+6. Language: **English only**
+7. Moderate difficulty, requiring 2-5 papers to answer comprehensively
+8. Each must be a single clear question, not multiple compound questions
 
-Question examples:
+**AVOID these patterns** (do NOT include in questions):
+- ❌ "According to PMID 12345678..."
+- ❌ "Based on the Smith et al. 2023 study..."
+- ❌ "In the KEYNOTE-001 trial..."
+- ❌ "Refer to paper PMID:98765432..."
+
+Question examples (GOOD):
 First example: In first-line treatment of advanced melanoma, compare the efficacy and toxicity differences between PD-1 inhibitor monotherapy versus PD-1 + CTLA-4 combination therapy.
 
 Second example: In immune checkpoint therapy, how do tumor mutational burden (TMB) and tumor microenvironment (such as CD8+ T cell infiltration) correlate with treatment efficacy? Are they independent or do they interact?
@@ -161,6 +168,10 @@ class TrajectoryDatasetGenerator:
                 self.output_dir, 
                 f"pubmed_trajectory_{timestamp}_incremental.jsonl"
             )
+            self.questions_incremental_file = os.path.join(
+                self.output_dir,
+                f"questions_{timestamp}_incremental.jsonl"
+            )
             self.timestamp = timestamp
     
     async def generate_questions(self) -> List[Dict]:
@@ -170,6 +181,9 @@ class TrajectoryDatasetGenerator:
         print("\n" + "=" * 60)
         print("Step 1: 生成问题")
         print("=" * 60)
+        
+        if self.incremental_save:
+            print(f"💾 问题增量保存已启用: {self.questions_incremental_file}")
         
         all_questions = []
         num_topics = len(TOPIC_LIST)
@@ -205,6 +219,10 @@ class TrajectoryDatasetGenerator:
                 result = extract_json(response)
                 questions = result.get("questions", [])
                 all_questions.extend(questions)
+                
+                # 增量保存问题
+                self.append_questions_to_file(questions)
+                
                 print(f"  ✓ 生成了 {len(questions)} 个问题")
             except Exception as e:
                 print(f"  ✗ 生成问题失败: {e}")
@@ -348,6 +366,18 @@ class TrajectoryDatasetGenerator:
         if self.incremental_save:
             print(f"💾 所有样本已增量保存到: {self.incremental_file}")
         return samples
+    
+    def append_questions_to_file(self, questions: List[Dict]):
+        """增量保存：追加问题到文件"""
+        if not self.incremental_save or not questions:
+            return
+        
+        try:
+            with open(self.questions_incremental_file, 'a', encoding='utf-8') as f:
+                for q in questions:
+                    f.write(json.dumps(q, ensure_ascii=False) + '\n')
+        except Exception as e:
+            print(f"  ⚠️ 问题增量保存失败: {e}")
     
     def append_sample_to_file(self, sample: TrajectoryDataSample):
         """增量保存：追加单条样本到文件"""

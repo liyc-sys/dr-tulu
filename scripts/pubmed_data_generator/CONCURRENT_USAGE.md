@@ -75,7 +75,7 @@ uv run python /workspace/math_science_data/lyc/1205/dr-tulu/scripts/pubmed_data_
 
 ### 1. 增量保存（默认启用）⭐ NEW
 
-**每生成 1 条数据立即保存到文件**，无需等待全部完成：
+**两个阶段的增量保存**，无需等待全部完成：
 
 ```bash
 # 启用增量保存（默认）
@@ -90,19 +90,32 @@ uv run python .../generate_trajectory_dataset.py \
     --no-incremental
 ```
 
+**阶段 1: 问题生成（按主题批量保存）**
+```
+💾 问题增量保存已启用: questions_20251216_143022_incremental.jsonl
+主题 [1/15]: Cardiovascular Diseases
+  ✓ 生成了 14 个问题
+...
+```
+- 每生成一批问题（按主题）立即追加到文件
+- 可以在轨迹生成前检查问题质量
+- 格式：每行一个 JSON 对象（包含 question, topic, question_type）
+
+**阶段 2: 轨迹生成（逐条保存）**
+```
+💾 增量保存已启用: pubmed_trajectory_20251216_143022_incremental.jsonl
+📊 进度: 1/200 (0.5%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
+📊 进度: 2/200 (1.0%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
+...
+```
+- 每生成 1 条轨迹数据立即保存
+
 **优势**：
 - ✅ **最安全**：即使程序异常退出，已生成的数据不会丢失
 - ✅ **可实时查看**：随时打开 `.jsonl` 文件查看进度
 - ✅ **可中断恢复**：Ctrl+C 后已保存的数据完整可用
 - ✅ **节省内存**：不需要在内存中累积所有样本
-
-**输出示例**：
-```
-💾 增量保存已启用: ../../pubmed_training_data/pubmed_trajectory_20251216_143022_incremental.jsonl
-📊 进度: 1/200 (0.5%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
-📊 进度: 2/200 (1.0%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
-...
-```
+- ✅ **问题质量审查**：可以在轨迹生成前查看问题文件，决定是否继续
 
 ### 2. 自动重试
 
@@ -127,9 +140,22 @@ uv run python .../generate_trajectory_dataset.py \
 ### 5. 输出文件
 
 **增量保存模式（默认）**：
-1. `pubmed_trajectory_YYYYMMDD_HHMMSS_incremental.jsonl` - **实时增量 JSONL**（生成 1 条追加 1 条）
-2. `pubmed_trajectory_YYYYMMDD_HHMMSS.csv` - CSV 格式（完成后生成）
-3. `trajectory_stats_YYYYMMDD_HHMMSS.json` - 统计信息（完成后生成）
+1. `questions_YYYYMMDD_HHMMSS_incremental.jsonl` - **问题增量保存**（按主题批量追加）
+2. `pubmed_trajectory_YYYYMMDD_HHMMSS_incremental.jsonl` - **轨迹增量保存**（生成 1 条追加 1 条）
+3. `pubmed_trajectory_YYYYMMDD_HHMMSS.csv` - CSV 格式（完成后生成）
+4. `trajectory_stats_YYYYMMDD_HHMMSS.json` - 统计信息（完成后生成）
+
+**查看问题质量**：
+```bash
+# 实时查看生成的问题
+tail -f questions_*_incremental.jsonl | jq '.question'
+
+# 查看问题和主题
+cat questions_*_incremental.jsonl | jq '{question: .question, topic: .topic}'
+
+# 统计每个主题的问题数
+cat questions_*_incremental.jsonl | jq -r '.topic' | sort | uniq -c
+```
 
 **传统保存模式（`--no-incremental`）**：
 1. `pubmed_trajectory_YYYYMMDD_HHMMSS.jsonl` - JSONL 格式（完成后一次性写入）

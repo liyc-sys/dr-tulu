@@ -100,8 +100,17 @@ watch -n 2 'free -h && echo "---" && ps aux | grep generate_trajectory_dataset |
 
 ### 增量保存模式（默认）⭐
 
-**每生成 1 条数据立即追加到文件**，无需等待全部完成：
+**两个阶段的增量保存**：
 
+#### 阶段 1: 问题生成
+```
+questions_20231216_143022_incremental.jsonl  # 实时保存生成的问题（可提前检查质量）
+```
+- 每生成一批问题（按主题）立即追加到文件
+- 可以在轨迹生成前查看问题质量
+- 包含：question, topic, question_type
+
+#### 阶段 2: 轨迹生成
 ```
 pubmed_trajectory_20231216_143022_incremental.jsonl  # 实时增量 JSONL（生成1条追加1条）
 pubmed_trajectory_20231216_143022.csv                # CSV 格式（完成后生成）
@@ -112,6 +121,7 @@ trajectory_stats_20231216_143022.json                # 统计信息（完成后�
 - ✅ 即使程序中途退出，已生成的数据完整保存
 - ✅ 可以随时打开 `.jsonl` 文件查看进度
 - ✅ 按 Ctrl+C 中断后，数据不丢失
+- ✅ **问题单独保存，方便提前审查质量**
 
 ### 禁用增量保存
 
