@@ -26,67 +26,63 @@ SYSTEM_PROMPT = """You are a medical research assistant. Answer questions using 
 ## Available Tools
 
 1. pubmed_search 
-- Purpose: search PubMed for relevant papers.
-- Input via: <call_tool name="pubmed_search" limit="N">keywords</call_tool>
-- **IMPORTANT: Use 3-6 keywords maximum. Long queries with 10+ words often return 0 results.**
-- Good example: <call_tool name="pubmed_search" limit="5">CRISPR BCL11A sickle cell therapy</call_tool>
-- Bad example (TOO LONG): <call_tool name="pubmed_search">CTX001 exa-cel BCL11A enhancer CRISPR Cas9 sickle cell beta thalassemia trial hemoglobin fetal off-target translocation</call_tool>
-- Optional parameters:
-  - limit: number of results (default: 10)
-  - offset: pagination offset (default: 0)
+- Format: <call_tool name="pubmed_search" limit="N">keywords</call_tool>
+- **IMPORTANT: Use 3-6 keywords maximum. Long queries often return 0 results.**
+- Good: <call_tool name="pubmed_search" limit="5">CRISPR BCL11A sickle cell</call_tool>
+- Bad (TOO LONG): <call_tool name="pubmed_search">CTX001 exa-cel BCL11A enhancer CRISPR Cas9 sickle cell beta thalassemia trial</call_tool>
 
-2. browse_webpage 
-- Purpose: open a specific URL and extract readable page text.
-- Input via: <call_tool name="browse_webpage">https://example.com/article</call_tool>
+2. browse_webpage: <call_tool name="browse_webpage">URL</call_tool>
+3. google_search: <call_tool name="google_search">query</call_tool>
 
-3. google_search 
-- Purpose: general web search.
-- Input via: <call_tool name="google_search">your query</call_tool>
+## CRITICAL FORMAT RULES
 
-## CRITICAL RULES (VIOLATION = INVALID RESPONSE)
+### Tag Format (MUST FOLLOW EXACTLY)
+1. **Always close your tags**: `<call_tool name="...">query</call_tool>` - the `</call_tool>` is REQUIRED
+2. **One tool call at a time**: Issue ONE <call_tool>...</call_tool>, then STOP
+3. **Never write multiple call_tool tags** in the same response
 
-### Search Query Rules
-- **Use 3-6 keywords per search. More keywords = fewer/no results.**
-- Prefer broad, high-impact terms over overly specific phrases.
-- If a search returns 0 results, simplify your query in the next attempt.
+### FORBIDDEN Actions (Will make response INVALID)
+- ❌ Writing `<tool_output>` - only system provides this
+- ❌ Multiple `<call_tool>` in one response  
+- ❌ Unclosed tags like `<call_tool name="pubmed_search">query` without `</call_tool>`
+- ❌ Fabricating PMIDs, paper titles, or results
+- ❌ Using more than 6 keywords in pubmed_search
 
-### Tool Output Rules  
-- **NEVER generate <tool_output> content yourself.**
-- **NEVER imagine, hallucinate, or fabricate search results.**
-- After <call_tool>, you MUST STOP immediately and wait for system response.
-- Only the system can provide <tool_output>. If you write it yourself, your response is INVALID.
+### After <call_tool>
+- You MUST STOP your response immediately after `</call_tool>`
+- Wait for the system to provide `<tool_output>`
+- Never continue writing after the closing tag
 
-### Call Limits
-- pubmed_search can be called AT MOST 3 times total.
-- After 3 calls, provide your final answer immediately.
+## Limits
+- pubmed_search: maximum 3 calls total
+- Keywords per search: 3-6 words
 
-## Response Format
-
-You can ONLY output these tags:
-- <think>your reasoning</think>
-- <call_tool name="...">query</call_tool>
-- <answer>your final answer with citations</answer>
-
-You CANNOT output:
-- <tool_output> (only system provides this)
-- Any fabricated PMIDs or paper content
+## Output Tags (ONLY these are allowed)
+- `<think>reasoning</think>`
+- `<call_tool name="...">query</call_tool>` (properly closed!)
+- `<answer>final answer with citations</answer>`
 
 ## Citation Format
-- Use <cite id="PMID">text</cite> with exact PMIDs from search results.
-- Include year and journal for each citation.
+Use `<cite id="PMID">text</cite>` with PMIDs from actual search results.
 
-## WORKFLOW
+## CORRECT Example
 
-<think>Planning my search with 3-6 keywords...</think>
-<call_tool name="pubmed_search" limit="5">keyword1 keyword2 keyword3</call_tool>
-[STOP HERE - wait for system <tool_output>]
+<think>I need to search for papers on NLR and PD-1 in lung cancer.</think>
+<call_tool name="pubmed_search" limit="5">NLR PD-1 lung cancer prognosis</call_tool>
 
-After receiving results:
-<think>Analyzing results...</think>
-<answer>
-Based on PubMed literature...
-<cite id="12345678">Key finding (Author et al., Year, Journal).</cite>
-</answer>
+[STOP HERE - your response ends after </call_tool>]
+
+## WRONG Example (DO NOT DO THIS)
+
+<call_tool name="pubmed_search">query1
+<call_tool name="pubmed_search">query2
+<call_tool name="pubmed_search">query3
+<answer>...
+
+This is WRONG because:
+- Tags are not closed (missing </call_tool>)
+- Multiple calls in one response
+- No waiting for tool output
 """
 
 
@@ -255,22 +251,48 @@ class GPT5TrajectoryGenerator:
 
     def _remove_hallucinated_tool_output(self, content: str) -> str:
         """移除模型可能生成的假 tool_output 内容"""
-        import re
-        
         # 如果内容中有 </call_tool> 后跟着 <tool_output>，截断它
-        # 模式：</call_tool> 后面可能有空白，然后是 <tool_output>
         pattern = r'(</call_tool>)\s*<tool_output>.*?(?:</tool_output>|$)'
-        
-        # 先尝试匹配完整的 tool_output 块
         cleaned = re.sub(pattern, r'\1', content, flags=re.DOTALL)
         
         # 如果还有未闭合的 <tool_output>，也删除
         if '<tool_output>' in cleaned:
-            # 找到 <tool_output> 的位置，删除它及之后的所有内容
             idx = cleaned.find('<tool_output>')
             cleaned = cleaned[:idx].rstrip()
         
         return cleaned
+    
+    def _clean_model_output(self, content: str, first_tool_call: tuple) -> str:
+        """清理模型输出，只保留到第一个有效的 call_tool 为止"""
+        tool_name, params_str, query = first_tool_call
+        
+        # 构建第一个 call_tool 的正确格式
+        if params_str:
+            call_tool_tag = f'<call_tool name="{tool_name}" {params_str}>{query}</call_tool>'
+        else:
+            call_tool_tag = f'<call_tool name="{tool_name}">{query}</call_tool>'
+        
+        # 找到第一个 <call_tool 的位置
+        first_call_idx = content.find('<call_tool')
+        if first_call_idx == -1:
+            return content
+        
+        # 获取 call_tool 之前的内容（如 <think>...</think>）
+        prefix = content[:first_call_idx]
+        
+        # 检查是否有闭合标签
+        close_tag_idx = content.find('</call_tool>', first_call_idx)
+        if close_tag_idx != -1:
+            # 有闭合标签，取到闭合标签为止
+            clean_content = content[:close_tag_idx + len('</call_tool>')]
+        else:
+            # 没有闭合标签，手动构建正确格式
+            clean_content = prefix + call_tool_tag
+        
+        # 移除任何 tool_output
+        clean_content = self._remove_hallucinated_tool_output(clean_content)
+        
+        return clean_content
         
     async def generate_trajectory(self, question: str) -> Trajectory:
         """为给定问题生成完整的 interleaved 轨迹"""
@@ -313,30 +335,39 @@ class GPT5TrajectoryGenerator:
                 print(f"  ✓ 获取到最终答案")
                 break
             
-            # 检查是否包含工具调用
+            # 检查是否包含工具调用（支持闭合和未闭合的标签）
+            # 先尝试匹配闭合的标签
             tool_call_matches = re.findall(
                 r'<call_tool\s+name="([^"]+)"(?:\s+([^>]*))?>([^<]*)</call_tool>',
                 content
             )
             
+            # 如果没有闭合标签的匹配，尝试匹配未闭合的
+            if not tool_call_matches:
+                # 匹配未闭合的 <call_tool> 标签，query 可能以换行或 <call_tool 或 <answer 结束
+                unclosed_matches = re.findall(
+                    r'<call_tool\s+name="([^"]+)"(?:\s+([^>]*))?>(.*?)(?=<call_tool|<answer|$)',
+                    content, re.DOTALL
+                )
+                if unclosed_matches:
+                    # 只取第一个未闭合的调用
+                    first_match = unclosed_matches[0]
+                    tool_name = first_match[0]
+                    params_str = first_match[1]
+                    query = first_match[2].strip().split('\n')[0].strip()  # 取第一行作为 query
+                    tool_call_matches = [(tool_name, params_str, query)]
+                    print(f"  ⚠ 检测到未闭合的 <call_tool>，自动修复")
+            
             if tool_call_matches:
-                # 重要：只保留到最后一个 </call_tool> 为止的内容
-                clean_content = self._remove_hallucinated_tool_output(content)
-
-                # 截断模型可能自己生成的假 <tool_output>
-                last_call_tool_end = content.rfind('</call_tool>')
-                if last_call_tool_end != -1:
-                    # 只保留到 </call_tool> 结束的部分
-                    clean_content = content[:last_call_tool_end + len('</call_tool>')]
-                else:
-                    clean_content = content
+                # 清理内容：移除假的 tool_output 和多余的未闭合 call_tool
+                clean_content = self._clean_model_output(content, tool_call_matches[0])
                 
-                # 添加清理后的内容（只包含 think 和 call_tool，不含假的 tool_output）
+                # 添加清理后的内容
                 interleaved_parts.append(clean_content)
                 
-                # 执行所有工具调用
+                # 只执行第一个工具调用（避免一次执行多个）
                 all_tool_outputs = []
-                for tool_name, params_str, query in tool_call_matches:
+                for tool_name, params_str, query in tool_call_matches[:1]:  # 只取第一个
                     # 解析参数
                     parameters = {}
                     if params_str:
@@ -407,8 +438,13 @@ class GPT5TrajectoryGenerator:
             "messages": messages,
             "temperature": 0.3,
             "max_tokens": 4096,
-            # 让模型在输出 </call_tool> 或 </answer> 后停止，防止生成假的 tool_output
-            "stop": ["<tool_output>", "<tool_output", "\n<tool_output", "</call_tool><tool_output", "</call_tool>\n<tool_output"],
+            # stop 序列：在 </call_tool> 后停止，防止模型继续生成
+            "stop": [
+                "</call_tool>\n",  # 闭合标签后换行
+                "</call_tool><",   # 闭合标签后直接跟其他标签
+                "<tool_output>",   # 任何 tool_output
+                "\n\n<call_tool",  # 防止多个 call_tool
+            ],
         }
         
         async with httpx.AsyncClient(timeout=180.0) as client:
