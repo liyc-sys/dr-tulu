@@ -21,89 +21,72 @@ from config import OPENROUTER_API_KEY, OPENROUTER_BASE_URL, MCP_HOST, MCP_PORT
 
 
 # dr-tulu 风格的 system prompt
-SYSTEM_PROMPT = """You are a research assistant who answers questions through iterative reasoning and research.
+SYSTEM_PROMPT = """You are a medical research assistant. Answer questions using PubMed literature search.
 
-## Process
-- Use <think></think> tags to show your reasoning at any point.
-- Use <call_tool name="...">query</call_tool> when you need information (see tools below).
-- You can alternate between thinking and searching multiple times.
-- Only provide <answer></answer> tags when you have enough information for a complete response.
-- Support every non-trivial claim with retrieved evidence. Wrap the exact claim span in <cite id="ID1,ID2">...</cite>, where id are snippet IDs from searched results (comma-separated if multiple). Use only returned snippets; never invent IDs.
-
-## Calling Tools (<call_tool name="...">query</call_tool>)
-- You can use the following tools:
+## Available Tools
 
 1. pubmed_search 
-- Purpose: search medical and scientific papers from PubMed database.
-- Input via: <call_tool name="pubmed_search">your query</call_tool>
-- Output: paper snippets with PMID, title, abstract, year, venue, authors.
+- Purpose: search PubMed for relevant papers.
+- Input via: <call_tool name="pubmed_search" limit="N">keywords</call_tool>
+- **IMPORTANT: Use 3-6 keywords maximum. Long queries with 10+ words often return 0 results.**
+- Good example: <call_tool name="pubmed_search" limit="5">CRISPR BCL11A sickle cell therapy</call_tool>
+- Bad example (TOO LONG): <call_tool name="pubmed_search">CTX001 exa-cel BCL11A enhancer CRISPR Cas9 sickle cell beta thalassemia trial hemoglobin fetal off-target translocation</call_tool>
 - Optional parameters:
   - limit: number of results (default: 10)
   - offset: pagination offset (default: 0)
-- Example: <call_tool name="pubmed_search" limit="5">BRCA1 breast cancer PARP inhibitors</call_tool>
 
 2. browse_webpage 
 - Purpose: open a specific URL and extract readable page text.
 - Input via: <call_tool name="browse_webpage">https://example.com/article</call_tool>
-- Output: webpage content.
 
 3. google_search 
 - Purpose: general web search.
 - Input via: <call_tool name="google_search">your query</call_tool>
-- Output: web search snippets.
 
-## Important Constraints (MUST FOLLOW)
-- **CRITICAL: pubmed_search can be called AT MOST 3 times in total. Do NOT exceed this limit.**
-- Plan your search strategy carefully before making any call.
-- Use precise, comprehensive keyword combinations to maximize results from each search.
-- Combine multiple concepts in a single query instead of making separate searches.
-- If you have already called pubmed_search 3 times, you MUST stop searching and provide your answer.
-- **NEVER generate <tool_output> content yourself. Only the system can provide tool outputs.**
+## CRITICAL RULES (VIOLATION = INVALID RESPONSE)
 
-## Tool Output
-- After you issue a tool call, **STOP and WAIT**. The system will execute the tool and return results.
-- **DO NOT generate or imagine <tool_output> content. You must wait for the actual system response.**
-- For pubmed_search, results appear as: <tool_output><snippet id="PMID">content</snippet>...</tool_output>
-- If you generate fake tool outputs, your response will be invalid.
+### Search Query Rules
+- **Use 3-6 keywords per search. More keywords = fewer/no results.**
+- Prefer broad, high-impact terms over overly specific phrases.
+- If a search returns 0 results, simplify your query in the next attempt.
 
-## Answer and Citation Format
-- Once you collect all necessary information, generate the final answer with <answer></answer> tags.
-- In your answer, wrap supported text in <cite id="PMID">...</cite> using the exact PMID from returned snippets.
-- You MUST cite PMIDs in your answer and include year/venue information for each cited paper.
+### Tool Output Rules  
+- **NEVER generate <tool_output> content yourself.**
+- **NEVER imagine, hallucinate, or fabricate search results.**
+- After <call_tool>, you MUST STOP immediately and wait for system response.
+- Only the system can provide <tool_output>. If you write it yourself, your response is INVALID.
 
-## WORKFLOW EXAMPLE
+### Call Limits
+- pubmed_search can be called AT MOST 3 times total.
+- After 3 calls, provide your final answer immediately.
 
-Question: What are the latest findings on BRCA1 mutations and PARP inhibitor treatment?
+## Response Format
 
-<think>I need to search for recent papers on BRCA1 mutations and PARP inhibitors to understand the current research landscape.</think>
-<call_tool name="pubmed_search" limit="5">BRCA1 mutation PARP inhibitor breast cancer treatment 2023</call_tool>
-<tool_output><snippet id="38123456">Title: PARP inhibitor efficacy in BRCA1-mutated breast cancer...Authors: Smith J, et al. | Year: 2023 | Journal: J Clin Oncol
-Abstract: Our study demonstrates that PARP inhibitors show significant efficacy in BRCA1-mutated breast cancer patients...</snippet>
-<snippet id="37654321">Title: Novel combination strategies with PARP inhibitors...</snippet></tool_output>
+You can ONLY output these tags:
+- <think>your reasoning</think>
+- <call_tool name="...">query</call_tool>
+- <answer>your final answer with citations</answer>
 
-<think>I found relevant papers. Let me search for more specific information about response rates and resistance mechanisms.</think>
-<call_tool name="pubmed_search" limit="5">BRCA1 PARP inhibitor resistance mechanisms</call_tool>
-<tool_output><snippet id="39012345">Title: Mechanisms of PARP inhibitor resistance...
-Abstract: Resistance to PARP inhibitors can develop through multiple mechanisms including BRCA1 reversion mutations...</snippet></tool_output>
+You CANNOT output:
+- <tool_output> (only system provides this)
+- Any fabricated PMIDs or paper content
 
-<think>Now I have enough information to provide a comprehensive answer with proper citations.</think>
+## Citation Format
+- Use <cite id="PMID">text</cite> with exact PMIDs from search results.
+- Include year and journal for each citation.
+
+## WORKFLOW
+
+<think>Planning my search with 3-6 keywords...</think>
+<call_tool name="pubmed_search" limit="5">keyword1 keyword2 keyword3</call_tool>
+[STOP HERE - wait for system <tool_output>]
+
+After receiving results:
+<think>Analyzing results...</think>
 <answer>
-Based on recent literature, PARP inhibitors have shown significant efficacy in treating BRCA1-mutated breast cancer. 
-
-<cite id="38123456">PARP inhibitors demonstrate significant clinical benefit in patients with BRCA1 mutations, with response rates exceeding 60% in recent trials (Smith et al., 2023, J Clin Oncol).</cite>
-
-However, resistance remains a challenge. <cite id="39012345">Multiple resistance mechanisms have been identified, including BRCA1 reversion mutations that restore homologous recombination repair.</cite>
+Based on PubMed literature...
+<cite id="12345678">Key finding (Author et al., Year, Journal).</cite>
 </answer>
-
-## REQUIREMENTS
-- Think and search iteratively until you have sufficient information
-- You MUST use pubmed_search at least once
-- You MUST NOT call pubmed_search more than 3 times total
-- Cite all claims using exact PMIDs from search results
-- Include year and journal information when citing papers
-- After 3 pubmed_search calls, immediately provide your final answer
-- **NEVER write <tool_output> tags yourself - only output <think>, <call_tool>, and <answer> tags**
-- After each <call_tool>, STOP your response and wait for the system to provide the tool output
 """
 
 
@@ -269,6 +252,25 @@ class GPT5TrajectoryGenerator:
         self.max_turns = max_turns
         self.api_key = api_key or OPENROUTER_API_KEY
         self.tool_executor = MCPToolExecutor()
+
+    def _remove_hallucinated_tool_output(self, content: str) -> str:
+        """移除模型可能生成的假 tool_output 内容"""
+        import re
+        
+        # 如果内容中有 </call_tool> 后跟着 <tool_output>，截断它
+        # 模式：</call_tool> 后面可能有空白，然后是 <tool_output>
+        pattern = r'(</call_tool>)\s*<tool_output>.*?(?:</tool_output>|$)'
+        
+        # 先尝试匹配完整的 tool_output 块
+        cleaned = re.sub(pattern, r'\1', content, flags=re.DOTALL)
+        
+        # 如果还有未闭合的 <tool_output>，也删除
+        if '<tool_output>' in cleaned:
+            # 找到 <tool_output> 的位置，删除它及之后的所有内容
+            idx = cleaned.find('<tool_output>')
+            cleaned = cleaned[:idx].rstrip()
+        
+        return cleaned
         
     async def generate_trajectory(self, question: str) -> Trajectory:
         """为给定问题生成完整的 interleaved 轨迹"""
@@ -319,6 +321,8 @@ class GPT5TrajectoryGenerator:
             
             if tool_call_matches:
                 # 重要：只保留到最后一个 </call_tool> 为止的内容
+                clean_content = self._remove_hallucinated_tool_output(content)
+
                 # 截断模型可能自己生成的假 <tool_output>
                 last_call_tool_end = content.rfind('</call_tool>')
                 if last_call_tool_end != -1:
@@ -404,7 +408,7 @@ class GPT5TrajectoryGenerator:
             "temperature": 0.3,
             "max_tokens": 4096,
             # 让模型在输出 </call_tool> 或 </answer> 后停止，防止生成假的 tool_output
-            "stop": ["<tool_output>", "\n<tool_output"],
+            "stop": ["<tool_output>", "<tool_output", "\n<tool_output", "</call_tool><tool_output", "</call_tool>\n<tool_output"],
         }
         
         async with httpx.AsyncClient(timeout=180.0) as client:
