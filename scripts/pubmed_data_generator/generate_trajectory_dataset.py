@@ -29,7 +29,7 @@ from trajectory_generator import (
 )
 
 
-# 固定的工具调用 rubrics（4条，所有数据一样）
+# 固定的工具调用 rubrics（3条，所有数据一样）
 FIXED_TOOL_RUBRICS = [
     {
         "category": "tool_use",
@@ -49,14 +49,22 @@ FIXED_TOOL_RUBRICS = [
         "description": "每篇被引用文献必须给出发表年份(year)和期刊名称(venue)",
         "weight": 2
     },
-    {
-        "category": "tool_use",
-        "title": "摘要证据句对齐",
-        "description": "每篇被引用文献必须给出至少 1 句摘要证据句，可从 abstract 中摘写或紧贴改写",
-        "weight": 3
-    }
 ]
 
+
+# 主题列表（每次随机选择一个）
+TOPIC_LIST = [
+    "癌症治疗（靶向治疗、免疫治疗、化疗耐药）",
+    "心血管疾病（冠心病、心衰、房颤）",
+    "神经系统疾病（阿尔茨海默病、帕金森病、癫痫）",
+    "感染性疾病（COVID-19、HIV、耐药菌感染）",
+    "罕见病/遗传病（囊性纤维化、肌萎缩侧索硬化、亨廷顿病）",
+    "药物研发/临床试验（新药III期试验、药物相互作用）",
+    "代谢性疾病（糖尿病、肥胖、非酒精性脂肪肝）",
+    "自身免疫性疾病（类风湿关节炎、系统性红斑狼疮、多发性硬化）",
+    "肿瘤免疫治疗（CAR-T、PD-1/PD-L1抑制剂、肿瘤微环境）",
+    "基因治疗与细胞治疗（CRISPR、干细胞、基因编辑）",
+]
 
 # 问题生成 Prompt
 QUESTION_GENERATION_PROMPT = """你是一个医学研究问题生成专家。请生成 {num_questions} 个适合使用 PubMed 医学文献搜索来回答的研究问题。
@@ -67,15 +75,16 @@ QUESTION_GENERATION_PROMPT = """你是一个医学研究问题生成专家。请
 3. 问题需要引用具体论文的 PMID 和研究数据
 4. 涵盖不同类型：疗效比较、机制研究、流行病学、预后分析、综述
 5. 语言：{language}
-6. 难度适中，需要查阅 2-5 篇论文才能完整回答
+6. 难度适中，需要查阅2篇论文才能完整回答
 
-**主题覆盖**（每类至少 1-2 个）：
-- 癌症治疗（靶向治疗、免疫治疗）
-- 心血管疾病
-- 神经系统疾病
-- 感染性疾病
-- 罕见病/遗传病
-- 药物研发/临床试验
+问题示例：
+a.在晚期黑色素瘤一线治疗中，比较PD-1 抑制剂单药与PD-1 + CTLA-4 联合的疗效与毒性差异。
+
+b.免疫检查点治疗中，**肿瘤突变负荷（TMB）与肿瘤微环境（如 CD8+T 细胞浸润）**分别如何与疗效相关？两者是否独立、是否存在交互？
+
+**本次指定主题**：{topic}
+请围绕这个主题生成所有问题，确保问题具体、有深度、不重复。
+
 
 **输出 JSON 格式**:
 ```json
@@ -137,27 +146,58 @@ class TrajectoryDatasetGenerator:
         self.samples: List[TrajectoryDataSample] = []
     
     async def generate_questions(self) -> List[Dict]:
-        """Step 1: 生成适合 pubmed 搜索的问题"""
+        """Step 1: 生成适合 pubmed 搜索的问题（主题均匀分布）"""
+        import random
+        
         print("\n" + "=" * 60)
         print("Step 1: 生成问题")
         print("=" * 60)
         
-        prompt = QUESTION_GENERATION_PROMPT.format(
-            num_questions=self.num_questions,
-            language="中文" if self.language == "zh" else "English"
-        )
+        all_questions = []
+        num_topics = len(TOPIC_LIST)
         
-        try:
-            response = await call_llm(prompt, temperature=0.7, model=self.model)
-            result = extract_json(response)
-            questions = result.get("questions", [])
-            print(f"✓ 生成了 {len(questions)} 个问题")
-            return questions
-        except Exception as e:
-            print(f"✗ 生成问题失败: {e}")
-            import traceback
-            traceback.print_exc()
-            return []
+        # 计算每个主题应该生成的问题数量
+        base_count = self.num_questions // num_topics  # 每个主题的基础数量
+        remainder = self.num_questions % num_topics     # 余数分配给前几个主题
+        
+        print(f"总共需要 {self.num_questions} 个问题，分布到 {num_topics} 个主题")
+        
+        # 打乱主题顺序，避免每次都从同一个主题开始
+        shuffled_topics = TOPIC_LIST.copy()
+        random.shuffle(shuffled_topics)
+        
+        for i, topic in enumerate(shuffled_topics):
+            # 前 remainder 个主题多生成 1 个问题
+            questions_for_topic = base_count + (1 if i < remainder else 0)
+            
+            if questions_for_topic == 0:
+                continue
+            
+            print(f"\n主题 [{i+1}/{num_topics}]: {topic}")
+            print(f"  计划生成 {questions_for_topic} 个问题...")
+            
+            prompt = QUESTION_GENERATION_PROMPT.format(
+                num_questions=questions_for_topic,
+                language="中文" if self.language == "zh" else "English",
+                topic=topic
+            )
+            
+            try:
+                response = await call_llm(prompt, temperature=0.7, model=self.model)
+                result = extract_json(response)
+                questions = result.get("questions", [])
+                all_questions.extend(questions)
+                print(f"  ✓ 生成了 {len(questions)} 个问题")
+            except Exception as e:
+                print(f"  ✗ 生成问题失败: {e}")
+                import traceback
+                traceback.print_exc()
+            
+            # 避免 API 限流
+            await asyncio.sleep(1)
+        
+        print(f"\n✓ 总共生成了 {len(all_questions)} 个问题")
+        return all_questions
     
     async def generate_trajectory_for_question(
         self,
