@@ -217,7 +217,7 @@ class MCPToolExecutor:
             for paper in data[:10]:  # 最多10篇
                 pmid = paper.get("paperId", "unknown")
                 title = paper.get("title", "No title")
-                abstract = paper.get("abstract", "No abstract")[:500]  # 截断摘要
+                abstract = paper.get("abstract", "No abstract")  # 完整摘要
                 year = paper.get("year", "N/A")
                 venue = paper.get("venue", "N/A")
                 authors = paper.get("authors", [])
@@ -417,7 +417,7 @@ class GPT5TrajectoryGenerator:
                         truncated_data.append({
                             "paperId": paper.get("paperId"),
                             "title": paper.get("title"),
-                            "abstract": paper.get("abstract", "")[:300],
+                            "abstract": paper.get("abstract", ""),  # 完整摘要
                             "year": paper.get("year"),
                             "venue": paper.get("venue"),
                         })
@@ -448,7 +448,7 @@ async def generate_content_rubrics_from_trajectory(
                         tool_results.append({
                             "pmid": paper.get("paperId", ""),
                             "title": paper.get("title", ""),
-                            "abstract": paper.get("abstract", "")[:400],
+                            "abstract": paper.get("abstract", ""),  # 完整摘要
                             "year": paper.get("year", ""),
                             "venue": paper.get("venue", "")
                         })
