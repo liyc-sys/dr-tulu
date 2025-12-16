@@ -148,13 +148,15 @@ class TrajectoryDatasetGenerator:
         )
         
         try:
-            response = await call_llm(prompt, temperature=0.7)
+            response = await call_llm(prompt, temperature=0.7, model=self.model)
             result = extract_json(response)
             questions = result.get("questions", [])
             print(f"✓ 生成了 {len(questions)} 个问题")
             return questions
         except Exception as e:
             print(f"✗ 生成问题失败: {e}")
+            import traceback
+            traceback.print_exc()
             return []
     
     async def generate_trajectory_for_question(
@@ -180,7 +182,7 @@ class TrajectoryDatasetGenerator:
         print("  正在生成内容 rubrics...")
         try:
             content_rubrics = await generate_content_rubrics_from_trajectory(
-                question, trajectory
+                question, trajectory, model=self.model
             )
             print(f"  ✓ 生成了 {len(content_rubrics)} 条内容 rubrics")
         except Exception as e:

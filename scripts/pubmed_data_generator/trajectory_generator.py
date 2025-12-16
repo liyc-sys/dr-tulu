@@ -321,22 +321,24 @@ class GPT5TrajectoryGenerator:
         )
     
     async def _call_llm(self, messages: List[Dict]) -> Optional[Dict]:
-        """调用 OpenRouter LLM API"""
+        """调用 OpenRouter LLM API（支持 UTF-8 编码）"""
+        request_data = {
+            "model": self.model,
+            "messages": messages,
+            "tools": MCP_TOOLS_SCHEMA,
+            "tool_choice": "auto",
+            "temperature": 0.3,
+        }
+        
         async with httpx.AsyncClient(timeout=180.0) as client:
             try:
                 response = await client.post(
                     f"{OPENROUTER_BASE_URL}/chat/completions",
                     headers={
                         "Authorization": f"Bearer {self.api_key}",
-                        "Content-Type": "application/json",
+                        "Content-Type": "application/json; charset=utf-8",
                     },
-                    json={
-                        "model": self.model,
-                        "messages": messages,
-                        "tools": MCP_TOOLS_SCHEMA,
-                        "tool_choice": "auto",
-                        "temperature": 0.3,
-                    },
+                    content=json.dumps(request_data, ensure_ascii=False).encode('utf-8'),
                 )
                 response.raise_for_status()
                 return response.json()
@@ -368,7 +370,8 @@ class GPT5TrajectoryGenerator:
 
 async def generate_content_rubrics_from_trajectory(
     question: str,
-    trajectory: Trajectory
+    trajectory: Trajectory,
+    model: str = None
 ) -> List[Dict]:
     """根据轨迹结果生成内容相关的 rubrics"""
     from topic_generator import call_llm, extract_json
@@ -423,7 +426,7 @@ async def generate_content_rubrics_from_trajectory(
 """
     
     try:
-        response = await call_llm(prompt, temperature=0.5)
+        response = await call_llm(prompt, temperature=0.5, model=model)
         result = extract_json(response)
         
         rubrics = []

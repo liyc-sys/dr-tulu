@@ -85,30 +85,36 @@ QUERY_TEMPLATE_PROMPT = """针对以下医学主题簇，生成 {num_queries} �
 """
 
 
-async def call_llm(prompt: str, temperature: float = 0.7) -> str:
-    """调用 OpenRouter LLM API（支持代理）"""
+async def call_llm(prompt: str, temperature: float = 0.7, model: str = None) -> str:
+    """调用 OpenRouter LLM API（支持代理和 UTF-8 编码）"""
     import os
     
     # 获取代理设置
     proxy_url = os.environ.get("https_proxy") or os.environ.get("http_proxy")
+    
+    # 使用指定的模型或默认模型
+    use_model = model or LLM_MODEL
     
     # 配置客户端
     client_kwargs = {"timeout": 120.0}
     if proxy_url:
         client_kwargs["proxy"] = proxy_url
     
+    # 构造请求数据
+    request_data = {
+        "model": use_model,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": temperature,
+    }
+    
     async with httpx.AsyncClient(**client_kwargs) as client:
         response = await client.post(
             f"{OPENROUTER_BASE_URL}/chat/completions",
             headers={
                 "Authorization": f"Bearer {OPENROUTER_API_KEY}",
-                "Content-Type": "application/json",
+                "Content-Type": "application/json; charset=utf-8",
             },
-            json={
-                "model": LLM_MODEL,
-                "messages": [{"role": "user", "content": prompt}],
-                "temperature": temperature,
-            },
+            content=json.dumps(request_data, ensure_ascii=False).encode('utf-8'),
         )
         response.raise_for_status()
         result = response.json()
