@@ -140,7 +140,9 @@ class TrajectoryDatasetGenerator:
         # mini_model: str = "openai/gpt-5-mini",  # 用于次要任务的便宜模型
         mini_model: str = "openai/gpt-5.2",
         num_questions: int = 10,
-        language: str = "en"  # 默认英文
+        language: str = "en",  # 默认英文
+        output_dir: str = OUTPUT_DIR,
+        incremental_save: bool = True
     ):
         self.model = model  # 用于轨迹生成（重要）
         self.mini_model = mini_model  # 用于问题生成和 rubrics 生成（次要）
@@ -148,6 +150,18 @@ class TrajectoryDatasetGenerator:
         self.language = language
         self.trajectory_generator = GPT5TrajectoryGenerator(model=model)
         self.samples: List[TrajectoryDataSample] = []
+        self.output_dir = output_dir
+        self.incremental_save = incremental_save
+        
+        # 创建输出目录和增量保存文件
+        if self.incremental_save:
+            os.makedirs(self.output_dir, exist_ok=True)
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            self.incremental_file = os.path.join(
+                self.output_dir, 
+                f"pubmed_trajectory_{timestamp}_incremental.jsonl"
+            )
+            self.timestamp = timestamp
     
     async def generate_questions(self) -> List[Dict]:
         """Step 1: 生成适合 pubmed 搜索的问题（主题均匀分布）"""
@@ -249,13 +263,42 @@ class TrajectoryDatasetGenerator:
             }
         )
     
-    async def generate_dataset(self) -> List[TrajectoryDataSample]:
-        """生成完整数据集"""
+    async def generate_trajectory_with_retry(
+        self,
+        q_data: Dict,
+        sample_index: int,
+        semaphore: asyncio.Semaphore,
+        max_retries: int = 3
+    ) -> Optional[TrajectoryDataSample]:
+        """带重试机制的轨迹生成（带并发控制）"""
+        async with semaphore:  # 控制并发数
+            for attempt in range(max_retries):
+                try:
+                    sample = await self.generate_trajectory_for_question(q_data, sample_index)
+                    if sample:
+                        return sample
+                except Exception as e:
+                    if attempt < max_retries - 1:
+                        wait_time = (attempt + 1) * 2  # 指数退避
+                        print(f"  ⚠️ [{sample_index}] 尝试 {attempt + 1}/{max_retries} 失败: {e}")
+                        print(f"  ⏳ 等待 {wait_time}s 后重试...")
+                        await asyncio.sleep(wait_time)
+                    else:
+                        print(f"  ✗ [{sample_index}] 所有重试失败: {e}")
+            return None
+    
+    async def generate_dataset(self, concurrency: int = 5) -> List[TrajectoryDataSample]:
+        """生成完整数据集（支持并发）
+        
+        Args:
+            concurrency: 并发数，建议 3-10（取决于 MCP 服务器和 API 限制）
+        """
         print("\n" + "=" * 60)
         print("PubMed 轨迹数据生成器")
         print("=" * 60)
         print(f"模型: {self.model}")
         print(f"计划生成: {self.num_questions} 个问题")
+        print(f"并发数: {concurrency}")
         
         # Step 1: 生成问题
         questions = await self.generate_questions()
@@ -264,35 +307,93 @@ class TrajectoryDatasetGenerator:
             print("✗ 没有生成任何问题")
             return []
         
-        # Step 2 & 3: 为每个问题生成轨迹和 rubrics
+        # Step 2 & 3: 并发生成轨迹和 rubrics
         print("\n" + "=" * 60)
-        print("Step 2 & 3: 生成轨迹和 rubrics")
+        print("Step 2 & 3: 生成轨迹和 rubrics（并发模式）")
         print("=" * 60)
         
-        samples = []
+        # 创建并发控制信号量
+        semaphore = asyncio.Semaphore(concurrency)
+        
+        # 创建所有任务
+        tasks = []
         for i, q_data in enumerate(questions, 1):
-            sample = await self.generate_trajectory_for_question(q_data, i)
+            task = self.generate_trajectory_with_retry(q_data, i, semaphore)
+            tasks.append(task)
+        
+        # 并发执行，显示进度
+        samples = []
+        completed = 0
+        total = len(tasks)
+        
+        if self.incremental_save:
+            print(f"💾 增量保存已启用: {self.incremental_file}")
+        
+        for coro in asyncio.as_completed(tasks):
+            sample = await coro
+            completed += 1
             if sample:
                 samples.append(sample)
+                # 立即保存到文件（增量保存）
+                self.append_sample_to_file(sample)
             
-            # 避免 API 限流
-            await asyncio.sleep(2)
+            # 显示进度
+            success_rate = (len(samples) / completed * 100) if completed > 0 else 0
+            print(f"\n📊 进度: {completed}/{total} ({completed/total*100:.1f}%) | "
+                  f"成功: {len(samples)} | 失败: {completed - len(samples)} | "
+                  f"成功率: {success_rate:.1f}%")
         
         self.samples = samples
         print(f"\n✓ 完成！共生成 {len(samples)} 个样本")
+        if self.incremental_save:
+            print(f"💾 所有样本已增量保存到: {self.incremental_file}")
         return samples
     
-    def save_dataset(self, output_dir: str = OUTPUT_DIR):
-        """保存数据集"""
-        os.makedirs(output_dir, exist_ok=True)
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    def append_sample_to_file(self, sample: TrajectoryDataSample):
+        """增量保存：追加单条样本到文件"""
+        if not self.incremental_save:
+            return
         
-        # 保存 JSONL
-        jsonl_path = os.path.join(output_dir, f"pubmed_trajectory_{timestamp}.jsonl")
-        with open(jsonl_path, 'w', encoding='utf-8') as f:
+        try:
+            with open(self.incremental_file, 'a', encoding='utf-8') as f:
+                f.write(json.dumps(sample.to_dict(), ensure_ascii=False) + '\n')
+        except Exception as e:
+            print(f"  ⚠️ 增量保存失败: {e}")
+    
+    def save_checkpoint(self, output_dir: str = OUTPUT_DIR, checkpoint_name: str = "checkpoint"):
+        """保存检查点"""
+        if not self.samples:
+            return None
+        
+        os.makedirs(output_dir, exist_ok=True)
+        checkpoint_path = os.path.join(output_dir, f"{checkpoint_name}.jsonl")
+        
+        with open(checkpoint_path, 'w', encoding='utf-8') as f:
             for sample in self.samples:
                 f.write(json.dumps(sample.to_dict(), ensure_ascii=False) + '\n')
-        print(f"✓ 保存 JSONL: {jsonl_path}")
+        
+        return checkpoint_path
+    
+    def save_dataset(self, output_dir: str = None):
+        """保存数据集"""
+        if output_dir is None:
+            output_dir = self.output_dir
+        
+        os.makedirs(output_dir, exist_ok=True)
+        
+        # 如果使用了增量保存，直接使用已有文件
+        if self.incremental_save and hasattr(self, 'incremental_file'):
+            jsonl_path = self.incremental_file
+            print(f"✓ JSONL (增量保存): {jsonl_path}")
+            timestamp = self.timestamp
+        else:
+            # 否则一次性保存
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            jsonl_path = os.path.join(output_dir, f"pubmed_trajectory_{timestamp}.jsonl")
+            with open(jsonl_path, 'w', encoding='utf-8') as f:
+                for sample in self.samples:
+                    f.write(json.dumps(sample.to_dict(), ensure_ascii=False) + '\n')
+            print(f"✓ 保存 JSONL: {jsonl_path}")
         
         # 保存 CSV（兼容现有训练格式）
         csv_path = os.path.join(output_dir, f"pubmed_trajectory_{timestamp}.csv")
@@ -376,27 +477,46 @@ async def main():
     """主函数"""
     import argparse
     
-    parser = argparse.ArgumentParser(description="生成 PubMed 轨迹数据集")
+    parser = argparse.ArgumentParser(description="生成 PubMed 轨迹数据集（支持并发 + 增量保存）")
     parser.add_argument("--model", type=str, default="openai/gpt-4o", help="轨迹生成用的主模型（重要）")
     parser.add_argument("--mini-model", type=str, default="openai/gpt-5-mini", help="问题和rubrics生成用的次要模型（节省成本）")
     parser.add_argument("--num-questions", type=int, default=5, help="问题数量")
     parser.add_argument("--language", type=str, default="zh", choices=["zh", "en"], help="语言")
     parser.add_argument("--output", type=str, default=OUTPUT_DIR, help="输出目录")
+    parser.add_argument("--concurrency", type=int, default=5, help="并发数（建议 3-10，取决于 MCP 服务器负载）")
+    parser.add_argument("--no-incremental", action="store_true", help="禁用增量保存（默认启用）")
     
     args = parser.parse_args()
     
     print(f"主模型（轨迹生成）: {args.model}")
     print(f"次要模型（问题/rubrics）: {args.mini_model}")
+    print(f"并发数: {args.concurrency}")
+    print(f"增量保存: {'禁用' if args.no_incremental else '启用'}")
     
     generator = TrajectoryDatasetGenerator(
         model=args.model,
         mini_model=args.mini_model,
         num_questions=args.num_questions,
-        language=args.language
+        language=args.language,
+        output_dir=args.output,
+        incremental_save=not args.no_incremental
     )
     
-    await generator.generate_dataset()
-    generator.save_dataset(args.output)
+    try:
+        await generator.generate_dataset(concurrency=args.concurrency)
+        generator.save_dataset(args.output)
+    except KeyboardInterrupt:
+        print("\n\n⚠️  用户中断，保存已完成的样本...")
+        if generator.samples:
+            generator.save_dataset(args.output)
+        print("✓ 已保存部分结果")
+    except Exception as e:
+        print(f"\n\n✗ 生成过程出错: {e}")
+        import traceback
+        traceback.print_exc()
+        if generator.samples:
+            print("\n保存已完成的样本...")
+            generator.save_dataset(args.output)
     
     print("\n" + "=" * 60)
     print("数据生成完成！")
