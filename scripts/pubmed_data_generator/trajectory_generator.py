@@ -225,6 +225,10 @@ class GPT5TrajectoryGenerator:
 2. browse_webpage - 访问网页获取完整内容
 3. google_search - 通用网页搜索
 
+**重要限制**：
+- pubmed_search 工具最多调用 3 次，请合理规划你的检索策略
+- 每次检索使用精准的关键词组合，避免无效调用
+
 回答要求：
 1. 必须使用 pubmed_search 搜索相关文献
 2. 在回答中引用具体的 PMID
