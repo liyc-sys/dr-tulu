@@ -49,10 +49,12 @@ SYSTEM_PROMPT = """You are a medical research assistant. Answer questions using 
 - ❌ Using more than 6 keywords in pubmed_search
 - ❌ Calling pubmed_search more than 3 times total
 
-### After <call_tool>
-- You MUST STOP your response immediately after `</call_tool>`
+### After <call_tool> (CRITICAL)
+- **You MUST STOP your response IMMEDIATELY after `</call_tool>` - do NOT write anything else**
+- **Do NOT write another <think> or <call_tool> in the same response**
+- **Do NOT write <answer> in the same response as <call_tool>**
 - Wait for the system to provide `<tool_output>`
-- Never continue writing after the closing tag
+- Your response should end exactly at `</call_tool>` - nothing after it
 
 ## CRITICAL LIMITS (MUST FOLLOW)
 - **⚠️ pubmed_search can be called AT MOST 3 times in total**
@@ -80,17 +82,26 @@ After receiving tool output, if you need more information:
 <think>I found some relevant papers. I need more specific information, so I'll do my second search (2/3).</think>
 <call_tool name="pubmed_search" limit="5">different keywords</call_tool>
 
-## WRONG Example (DO NOT DO THIS)
+## WRONG Examples (DO NOT DO THIS)
 
-<call_tool name="pubmed_search">query1
-<call_tool name="pubmed_search">query2
-<call_tool name="pubmed_search">query3
-<answer>...
+### Wrong 1: Multiple calls in one response
+<call_tool name="pubmed_search" limit="5">query1</call_tool>
+<think>Now search for query2...</think>
+<call_tool name="pubmed_search" limit="5">query2</call_tool>
 
-This is WRONG because:
-- Tags are not closed (missing </call_tool>)
-- Multiple calls in one response
-- No waiting for tool output
+❌ WRONG: Multiple calls in one response. Only ONE call per response!
+
+### Wrong 2: Continue after </call_tool>
+<call_tool name="pubmed_search" limit="5">query</call_tool>
+<think>Now I will analyze...</think>
+
+❌ WRONG: Writing after </call_tool>. Stop immediately after the closing tag!
+
+### Wrong 3: call_tool and answer together
+<call_tool name="pubmed_search" limit="5">query</call_tool>
+<answer>Based on my knowledge...</answer>
+
+❌ WRONG: Mixing call_tool and answer. Wait for tool output first!
 """
 
 
@@ -333,18 +344,9 @@ class GPT5TrajectoryGenerator:
                 print(f"  ⚠ 响应内容为空，停止生成")
                 break
             
-            # 检查是否包含 <answer> 标签（最终答案）
-            if "<answer>" in content:
-                interleaved_parts.append(content)
-                # 提取最终答案
-                answer_match = re.search(r'<answer>(.*?)</answer>', content, re.DOTALL)
-                if answer_match:
-                    final_answer = answer_match.group(1).strip()
-                else:
-                    # 如果没有闭合标签，取 <answer> 之后的所有内容
-                    final_answer = content.split("<answer>")[-1].strip()
-                print(f"  ✓ 获取到最终答案")
-                break
+            # 重要：先检查工具调用，再检查 answer
+            # 这样如果模型在一次响应中同时生成了 call_tool 和 answer，
+            # 我们可以先执行工具，然后在下一轮处理 answer
             
             # 检查是否包含工具调用（支持闭合和未闭合的标签）
             # 先尝试匹配闭合的标签
@@ -420,11 +422,24 @@ class GPT5TrajectoryGenerator:
                 messages.append({"role": "user", "content": tool_output_text})
                 
             else:
-                # 没有工具调用也没有 answer，可能是纯思考，添加并继续
-                interleaved_parts.append(content)
-                messages.append({"role": "assistant", "content": content})
-                # 提示继续
-                messages.append({"role": "user", "content": "Please continue with tool calls or provide your final answer."})
+                # 没有工具调用，检查是否有 <answer>
+                if "<answer>" in content:
+                    interleaved_parts.append(content)
+                    # 提取最终答案
+                    answer_match = re.search(r'<answer>(.*?)</answer>', content, re.DOTALL)
+                    if answer_match:
+                        final_answer = answer_match.group(1).strip()
+                    else:
+                        # 如果没有闭合标签，取 <answer> 之后的所有内容
+                        final_answer = content.split("<answer>")[-1].strip()
+                    print(f"  ✓ 获取到最终答案")
+                    break
+                else:
+                    # 没有工具调用也没有 answer，可能是纯思考，添加并继续
+                    interleaved_parts.append(content)
+                    messages.append({"role": "assistant", "content": content})
+                    # 提示继续
+                    messages.append({"role": "user", "content": "Please continue with tool calls or provide your final answer."})
         
         # 组合完整的 interleaved 文本
         interleaved_text = "\n".join(interleaved_parts)
@@ -447,15 +462,10 @@ class GPT5TrajectoryGenerator:
         request_data = {
             "model": self.model,
             "messages": messages,
-            "temperature": 0.3,
-            "max_tokens": 4096,
-            # stop 序列：在 </call_tool> 后停止，防止模型继续生成
-            "stop": [
-                "</call_tool>\n",  # 闭合标签后换行
-                "</call_tool><",   # 闭合标签后直接跟其他标签
-                "<tool_output>",   # 任何 tool_output
-                "\n\n<call_tool",  # 防止多个 call_tool
-            ],
+            "temperature": 0.1,  # 更低的温度，让模型更确定性
+            "max_tokens": 1024,  # 更低的 max_tokens，防止一次生成太多
+            # stop 序列
+            "stop": ["</call_tool>\n", "</call_tool><", "<tool_output>"],
         }
         
         async with httpx.AsyncClient(timeout=180.0) as client:
