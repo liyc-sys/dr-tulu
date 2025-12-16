@@ -318,8 +318,17 @@ class GPT5TrajectoryGenerator:
             )
             
             if tool_call_matches:
-                # 先添加当前内容（包含 think 和 call_tool）
-                interleaved_parts.append(content)
+                # 重要：只保留到最后一个 </call_tool> 为止的内容
+                # 截断模型可能自己生成的假 <tool_output>
+                last_call_tool_end = content.rfind('</call_tool>')
+                if last_call_tool_end != -1:
+                    # 只保留到 </call_tool> 结束的部分
+                    clean_content = content[:last_call_tool_end + len('</call_tool>')]
+                else:
+                    clean_content = content
+                
+                # 添加清理后的内容（只包含 think 和 call_tool，不含假的 tool_output）
+                interleaved_parts.append(clean_content)
                 
                 # 执行所有工具调用
                 all_tool_outputs = []
@@ -360,7 +369,8 @@ class GPT5TrajectoryGenerator:
                 interleaved_parts.append(tool_output_text)
                 
                 # 将工具输出添加到消息中继续对话
-                messages.append({"role": "assistant", "content": content})
+                # 注意：发送清理后的内容，不包含模型可能生成的假 tool_output
+                messages.append({"role": "assistant", "content": clean_content})
                 messages.append({"role": "user", "content": tool_output_text})
                 
             else:
@@ -393,6 +403,8 @@ class GPT5TrajectoryGenerator:
             "messages": messages,
             "temperature": 0.3,
             "max_tokens": 4096,
+            # 让模型在输出 </call_tool> 或 </answer> 后停止，防止生成假的 tool_output
+            "stop": ["<tool_output>", "\n<tool_output"],
         }
         
         async with httpx.AsyncClient(timeout=180.0) as client:
