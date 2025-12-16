@@ -135,11 +135,13 @@ class TrajectoryDatasetGenerator:
     
     def __init__(
         self,
-        model: str = "openai/gpt-4o",
+        model: str = "openai/gpt-5.2",
+        mini_model: str = "openai/gpt-5-mini",  # 用于次要任务的便宜模型
         num_questions: int = 10,
         language: str = "zh"
     ):
-        self.model = model
+        self.model = model  # 用于轨迹生成（重要）
+        self.mini_model = mini_model  # 用于问题生成和 rubrics 生成（次要）
         self.num_questions = num_questions
         self.language = language
         self.trajectory_generator = GPT5TrajectoryGenerator(model=model)
@@ -183,7 +185,8 @@ class TrajectoryDatasetGenerator:
             )
             
             try:
-                response = await call_llm(prompt, temperature=0.7, model=self.model)
+                # 使用 mini_model 生成问题（节省成本）
+                response = await call_llm(prompt, temperature=0.7, model=self.mini_model)
                 result = extract_json(response)
                 questions = result.get("questions", [])
                 all_questions.extend(questions)
@@ -207,7 +210,7 @@ class TrajectoryDatasetGenerator:
         """Step 2 & 3: 为单个问题生成轨迹和 rubrics"""
         question = question_data["question"]
         
-        print(f"\n[{sample_index}] 问题: {question[:60]}...")
+        print(f"\n[{sample_index}] 问题: {question}")
         
         # Step 2: 生成轨迹
         print("  正在生成工具调用轨迹...")
@@ -218,11 +221,11 @@ class TrajectoryDatasetGenerator:
             print(f"  ✗ 轨迹生成失败: {e}")
             return None
         
-        # Step 3: 根据轨迹生成 content rubrics
+        # Step 3: 根据轨迹生成 content rubrics（使用 mini_model 节省成本）
         print("  正在生成内容 rubrics...")
         try:
             content_rubrics = await generate_content_rubrics_from_trajectory(
-                question, trajectory, model=self.model
+                question, trajectory, model=self.mini_model
             )
             print(f"  ✓ 生成了 {len(content_rubrics)} 条内容 rubrics")
         except Exception as e:
@@ -373,15 +376,20 @@ async def main():
     import argparse
     
     parser = argparse.ArgumentParser(description="生成 PubMed 轨迹数据集")
-    parser.add_argument("--model", type=str, default="openai/gpt-4o", help="LLM 模型")
+    parser.add_argument("--model", type=str, default="openai/gpt-4o", help="轨迹生成用的主模型（重要）")
+    parser.add_argument("--mini-model", type=str, default="openai/gpt-5-mini", help="问题和rubrics生成用的次要模型（节省成本）")
     parser.add_argument("--num-questions", type=int, default=5, help="问题数量")
     parser.add_argument("--language", type=str, default="zh", choices=["zh", "en"], help="语言")
     parser.add_argument("--output", type=str, default=OUTPUT_DIR, help="输出目录")
     
     args = parser.parse_args()
     
+    print(f"主模型（轨迹生成）: {args.model}")
+    print(f"次要模型（问题/rubrics）: {args.mini_model}")
+    
     generator = TrajectoryDatasetGenerator(
         model=args.model,
+        mini_model=args.mini_model,
         num_questions=args.num_questions,
         language=args.language
     )
