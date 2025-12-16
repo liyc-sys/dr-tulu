@@ -137,7 +137,8 @@ class TrajectoryDatasetGenerator:
     def __init__(
         self,
         model: str = "openai/gpt-5.2",
-        mini_model: str = "openai/gpt-5-mini",  # 用于次要任务的便宜模型
+        # mini_model: str = "openai/gpt-5-mini",  # 用于次要任务的便宜模型
+        mini_model: str = "openai/gpt-5.2",
         num_questions: int = 10,
         language: str = "zh"
     ):
