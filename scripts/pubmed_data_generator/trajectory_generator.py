@@ -220,8 +220,11 @@ class MCPToolExecutor:
     
     def _format_tool_output(self, tool_name: str, raw_result: Dict[str, Any]) -> str:
         """将原始工具结果格式化为 <tool_output> 格式"""
-        if "error" in raw_result:
-            return f"<tool_output>Error: {raw_result['error']}</tool_output>"
+        # NOTE: Some MCP backends always include an "error" field (often null/None).
+        # Treat it as an error only when it is non-empty.
+        err = raw_result.get("error")
+        if err is not None and err != "":
+            return f"<tool_output>Error: {err}</tool_output>"
         
         if tool_name == "pubmed_search":
             snippets = []
@@ -247,7 +250,13 @@ Abstract: {abstract}</snippet>"""
             return f"<tool_output>\n{header}" + "\n".join(snippets) + "\n</tool_output>"
         
         elif tool_name == "browse_webpage":
-            content = str(raw_result)[:2000]
+            # Prefer the fetched markdown content when available.
+            md = raw_result.get("markdown") or ""
+            if md:
+                # Keep tool output bounded to avoid ballooning trajectories/prompts.
+                content = md[:8000]
+            else:
+                content = json.dumps(raw_result, ensure_ascii=False)[:2000]
             return f"<tool_output><webpage>{content}</webpage></tool_output>"
         
         elif tool_name == "google_search":
