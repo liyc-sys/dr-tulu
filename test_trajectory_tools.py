@@ -87,7 +87,7 @@ async def test_browse_webpage():
             tool_name, parameters, query
         )
         
-        if "error" in raw_result:
+        if "error" in raw_result and raw_result["error"] is not None:
             print(f"❌ 失败: {raw_result['error']}")
             return False
         
