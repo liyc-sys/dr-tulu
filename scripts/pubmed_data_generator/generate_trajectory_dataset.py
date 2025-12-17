@@ -120,22 +120,27 @@ class TrajectoryDataSample:
     topic: str
     question_type: str
     trajectory: Dict[str, Any]  # GPT-5 生成的轨迹
-    tool_rubrics: List[Dict]  # 固定的工具调用 rubrics
-    content_rubrics: List[Dict]  # 动态生成的内容 rubrics
+    tool_rubrics: Optional[List[Dict]] = None  # 固定的工具调用 rubrics（可选）
+    content_rubrics: Optional[List[Dict]] = None  # 动态生成的内容 rubrics（可选）
     metadata: Dict[str, Any] = field(default_factory=dict)
     
     def to_dict(self) -> Dict:
-        return {
+        result = {
             "sample_id": self.sample_id,
             "question": self.question,
             "topic": self.topic,
             "question_type": self.question_type,
             "trajectory": self.trajectory,
-            "tool_rubrics": self.tool_rubrics,
-            "content_rubrics": self.content_rubrics,
-            "all_rubrics": self.tool_rubrics + self.content_rubrics,
             "metadata": self.metadata
         }
+        
+        # 只有在有 rubrics 时才添加
+        if self.tool_rubrics is not None and self.content_rubrics is not None:
+            result["tool_rubrics"] = self.tool_rubrics
+            result["content_rubrics"] = self.content_rubrics
+            result["all_rubrics"] = self.tool_rubrics + self.content_rubrics
+        
+        return result
 
 
 class TrajectoryDatasetGenerator:
@@ -149,12 +154,14 @@ class TrajectoryDatasetGenerator:
         num_questions: int = 10,
         language: str = "en",  # 默认英文
         output_dir: str = OUTPUT_DIR,
-        incremental_save: bool = True
+        incremental_save: bool = True,
+        generate_rubrics: bool = True  # 是否生成 rubrics
     ):
         self.model = model  # 用于轨迹生成（重要）
         self.mini_model = mini_model  # 用于问题生成和 rubrics 生成（次要）
         self.num_questions = num_questions
         self.language = language
+        self.generate_rubrics = generate_rubrics  # 控制是否生成 rubrics
         self.trajectory_generator = GPT5TrajectoryGenerator(model=model)
         self.samples: List[TrajectoryDataSample] = []
         self.output_dir = output_dir
@@ -164,13 +171,16 @@ class TrajectoryDatasetGenerator:
         if self.incremental_save:
             os.makedirs(self.output_dir, exist_ok=True)
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            
+            # 根据是否生成 rubrics 使用不同的文件名
+            suffix = "incremental" if self.generate_rubrics else "no_rubrics_incremental"
             self.incremental_file = os.path.join(
                 self.output_dir, 
-                f"pubmed_trajectory_{timestamp}_incremental.jsonl"
+                f"pubmed_trajectory_{timestamp}_{suffix}.jsonl"
             )
             self.questions_incremental_file = os.path.join(
                 self.output_dir,
-                f"questions_{timestamp}_incremental.jsonl"
+                f"questions_{timestamp}_{suffix}.jsonl"
             )
             self.timestamp = timestamp
     
@@ -240,7 +250,7 @@ class TrajectoryDatasetGenerator:
         question_data: Dict,
         sample_index: int
     ) -> Optional[TrajectoryDataSample]:
-        """Step 2 & 3: 为单个问题生成轨迹和 rubrics"""
+        """Step 2 & 3: 为单个问题生成轨迹和 rubrics（可选）"""
         question = question_data["question"]
         
         print(f"\n[{sample_index}] 问题: {question}")
@@ -254,16 +264,24 @@ class TrajectoryDatasetGenerator:
             print(f"  ✗ 轨迹生成失败: {e}")
             return None
         
-        # Step 3: 根据轨迹生成 content rubrics（使用 mini_model 节省成本）
-        print("  正在生成内容 rubrics...")
-        try:
-            content_rubrics = await generate_content_rubrics_from_trajectory(
-                question, trajectory, model=self.mini_model
-            )
-            print(f"  ✓ 生成了 {len(content_rubrics)} 条内容 rubrics")
-        except Exception as e:
-            print(f"  ⚠ 内容 rubrics 生成失败: {e}")
-            content_rubrics = []
+        # Step 3: 根据轨迹生成 content rubrics（如果启用）
+        tool_rubrics = None
+        content_rubrics = None
+        
+        if self.generate_rubrics:
+            print("  正在生成内容 rubrics...")
+            try:
+                content_rubrics = await generate_content_rubrics_from_trajectory(
+                    question, trajectory, model=self.mini_model
+                )
+                print(f"  ✓ 生成了 {len(content_rubrics)} 条内容 rubrics")
+            except Exception as e:
+                print(f"  ⚠ 内容 rubrics 生成失败: {e}")
+                content_rubrics = []
+            
+            tool_rubrics = FIXED_TOOL_RUBRICS.copy()
+        else:
+            print("  ⊘ 跳过 rubrics 生成")
         
         return TrajectoryDataSample(
             sample_id=f"pubmed_traj_{sample_index:05d}",
@@ -271,7 +289,7 @@ class TrajectoryDatasetGenerator:
             topic=question_data.get("topic", ""),
             question_type=question_data.get("question_type", ""),
             trajectory=trajectory.to_dict(),
-            tool_rubrics=FIXED_TOOL_RUBRICS.copy(),
+            tool_rubrics=tool_rubrics,
             content_rubrics=content_rubrics,
             metadata={
                 "expected_search_terms": question_data.get("expected_search_terms", []),
@@ -458,9 +476,6 @@ class TrajectoryDatasetGenerator:
                 
                 ground_truth = {
                     "query": sample.question,
-                    "rubrics": sample.tool_rubrics + sample.content_rubrics,
-                    "tool_rubrics": sample.tool_rubrics,
-                    "content_rubrics": sample.content_rubrics,
                     "interleaved_trajectory": sample.trajectory.get("interleaved_text", ""),
                     "tool_calls": sample.trajectory.get("tool_calls", []),
                     "final_answer": sample.trajectory.get("final_answer", ""),
@@ -468,6 +483,12 @@ class TrajectoryDatasetGenerator:
                     "total_tool_calls": sample.trajectory.get("total_tool_calls", 0),
                     "tools_used": sample.trajectory.get("tools_used", [])
                 }
+                
+                # 只有在有 rubrics 时才添加
+                if sample.tool_rubrics is not None and sample.content_rubrics is not None:
+                    ground_truth["rubrics"] = sample.tool_rubrics + sample.content_rubrics
+                    ground_truth["tool_rubrics"] = sample.tool_rubrics
+                    ground_truth["content_rubrics"] = sample.content_rubrics
                 
                 writer.writerow({
                     'source': 'pubmed_trajectory_generator',
@@ -491,16 +512,24 @@ class TrajectoryDatasetGenerator:
             topics[sample.topic] = topics.get(sample.topic, 0) + 1
             question_types[sample.question_type] = question_types.get(sample.question_type, 0) + 1
             tool_calls_counts.append(sample.metadata.get("total_tool_calls", 0))
-            content_rubrics_counts.append(len(sample.content_rubrics))
+            # 只有在有 rubrics 时才统计
+            if sample.content_rubrics is not None:
+                content_rubrics_counts.append(len(sample.content_rubrics))
         
-        return {
+        stats = {
             "total_samples": len(self.samples),
             "topics": topics,
             "question_types": question_types,
-            "avg_tool_calls": sum(tool_calls_counts) / len(tool_calls_counts),
-            "avg_content_rubrics": sum(content_rubrics_counts) / len(content_rubrics_counts),
-            "generation_time": datetime.now().isoformat()
+            "avg_tool_calls": sum(tool_calls_counts) / len(tool_calls_counts) if tool_calls_counts else 0,
+            "generation_time": datetime.now().isoformat(),
+            "has_rubrics": self.generate_rubrics
         }
+        
+        # 只有在生成了 rubrics 时才添加 rubrics 统计
+        if content_rubrics_counts:
+            stats["avg_content_rubrics"] = sum(content_rubrics_counts) / len(content_rubrics_counts)
+        
+        return stats
 
 
 async def main():
@@ -515,6 +544,7 @@ async def main():
     parser.add_argument("--output", type=str, default=OUTPUT_DIR, help="输出目录")
     parser.add_argument("--concurrency", type=int, default=5, help="并发数（建议 3-10，取决于 MCP 服务器负载）")
     parser.add_argument("--no-incremental", action="store_true", help="禁用增量保存（默认启用）")
+    parser.add_argument("--no-rubrics", action="store_true", help="禁用 rubrics 生成（默认生成）")
     
     args = parser.parse_args()
     
@@ -522,6 +552,7 @@ async def main():
     print(f"次要模型（问题/rubrics）: {args.mini_model}")
     print(f"并发数: {args.concurrency}")
     print(f"增量保存: {'禁用' if args.no_incremental else '启用'}")
+    print(f"Rubrics 生成: {'禁用' if args.no_rubrics else '启用'}")
     
     generator = TrajectoryDatasetGenerator(
         model=args.model,
@@ -529,7 +560,8 @@ async def main():
         num_questions=args.num_questions,
         language=args.language,
         output_dir=args.output,
-        incremental_save=not args.no_incremental
+        incremental_save=not args.no_incremental,
+        generate_rubrics=not args.no_rubrics
     )
     
     try:

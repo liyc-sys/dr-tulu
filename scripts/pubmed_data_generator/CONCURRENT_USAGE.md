@@ -26,14 +26,29 @@ uv run python /workspace/math_science_data/lyc/1205/dr-tulu/scripts/pubmed_data_
     --concurrency 5
 ```
 
-### 3. 大批量生成（200条，并发 8）
+### 3. 大批量生成（带 rubrics，300条，并发 8）
 
 ```bash
 uv run python /workspace/math_science_data/lyc/1205/dr-tulu/scripts/pubmed_data_generator/generate_trajectory_dataset.py \
-    --num-questions 200 \
+    --num-questions 300 \
     --model openai/gpt-5.2 \
     --concurrency 8
 ```
+
+### 4. 超大批量生成（不带 rubrics，1000条，并发 10）⭐ NEW
+
+```bash
+uv run python /workspace/math_science_data/lyc/1205/dr-tulu/scripts/pubmed_data_generator/generate_trajectory_dataset.py \
+    --num-questions 1000 \
+    --model openai/gpt-5.2 \
+    --concurrency 10 \
+    --no-rubrics
+```
+
+**说明**：
+- `--no-rubrics` 跳过 rubrics 生成，速度提升 ~30-40%
+- 适合用于大规模训练数据生成
+- 输出文件名包含 `no_rubrics` 标识
 
 ## 参数说明
 
@@ -46,6 +61,7 @@ uv run python /workspace/math_science_data/lyc/1205/dr-tulu/scripts/pubmed_data_
 | `--concurrency` | 5 | **并发数（重要！）** |
 | `--output` | `../../pubmed_training_data` | 输出目录 |
 | `--no-incremental` | 否 | **禁用增量保存（默认启用）** |
+| `--no-rubrics` | 否 | **禁用 rubrics 生成（默认生成）⭐ NEW** |
 
 ## 并发数选择建议
 
@@ -54,7 +70,8 @@ uv run python /workspace/math_science_data/lyc/1205/dr-tulu/scripts/pubmed_data_
 | **测试** | 1-2 | 便于调试，查看详细日志 |
 | **小规模（<50条）** | 3-5 | 平衡速度和稳定性 |
 | **中规模（50-100条）** | 5-8 | 较好的并发效率 |
-| **大规模（100-300条）** | 8-10 | 最大化吞吐量 |
+| **大规模（100-300条，带 rubrics）** | 8-10 | 最大化吞吐量 |
+| **超大规模（1000条，不带 rubrics）** | 10-12 | 无 rubrics 生成，可更高并发 |
 
 ### 注意事项
 
@@ -166,13 +183,18 @@ cat questions_*_incremental.jsonl | jq -r '.topic' | sort | uniq -c
 
 基于实测数据（gpt-5.2 + MCP 服务器）：
 
-| 数量 | 并发数 | 预计时间 | 说明 |
-|------|-------|---------|------|
-| 1 条 | 1 | ~30秒 | 单条测试 |
-| 10 条 | 3 | ~3分钟 | 快速验证 |
-| 50 条 | 5 | ~10分钟 | 中等规模 |
-| 100 条 | 8 | ~15分钟 | 较大规模 |
-| 200 条 | 8-10 | ~25-30分钟 | 大批量 |
+| 数量 | 模式 | 并发数 | 预计时间 | 说明 |
+|------|------|-------|---------|------|
+| 1 条 | 带 rubrics | 1 | ~30秒 | 单条测试 |
+| 10 条 | 带 rubrics | 3 | ~3分钟 | 快速验证 |
+| 50 条 | 带 rubrics | 5 | ~10分钟 | 中等规模 |
+| 100 条 | 带 rubrics | 8 | ~15分钟 | 较大规模 |
+| 300 条 | 带 rubrics | 8-10 | ~40-50分钟 | 大批量（带评估标准） |
+| 1000 条 | **不带 rubrics** | 10-12 | ~80-100分钟 | **超大批量（训练数据）** |
+
+**速度对比**：
+- 带 rubrics：~15秒/条（包含问题、轨迹、rubrics 生成）
+- 不带 rubrics：~6秒/条（仅问题和轨迹生成，提速 ~60%）
 
 *实际时间会因网络、API 响应速度、问题复杂度而异*
 
@@ -220,7 +242,9 @@ uv run python -m dr_agent.mcp_backend.main --transport http --port 8003 --host 0
 
 ## 最佳实践
 
-### 生成 200 条数据的推荐流程
+### 生成大量数据的推荐流程
+
+#### 方案 A: 带 rubrics（300条，适合评估）
 
 ```bash
 # 1. 先测试 1 条，验证环境
@@ -235,11 +259,36 @@ uv run python .../generate_trajectory_dataset.py \
     --model openai/gpt-5.2 \
     --concurrency 5
 
-# 3. 正式生成 200 条
+# 3. 正式生成 300 条（带 rubrics）
 uv run python .../generate_trajectory_dataset.py \
-    --num-questions 200 \
+    --num-questions 300 \
     --model openai/gpt-5.2 \
     --concurrency 8
+```
+
+#### 方案 B: 不带 rubrics（1000条，适合训练）⭐
+
+```bash
+# 1. 先测试 1 条（不带 rubrics）
+uv run python .../generate_trajectory_dataset.py \
+    --num-questions 1 \
+    --model openai/gpt-5.2 \
+    --concurrency 1 \
+    --no-rubrics
+
+# 2. 测试 10 条，验证稳定性
+uv run python .../generate_trajectory_dataset.py \
+    --num-questions 10 \
+    --model openai/gpt-5.2 \
+    --concurrency 5 \
+    --no-rubrics
+
+# 3. 正式生成 1000 条（不带 rubrics）
+uv run python .../generate_trajectory_dataset.py \
+    --num-questions 1000 \
+    --model openai/gpt-5.2 \
+    --concurrency 10 \
+    --no-rubrics
 ```
 
 ### 使用 nohup 后台运行（推荐用于大批量）

@@ -43,27 +43,53 @@ uv run python /workspace/math_science_data/lyc/1205/dr-tulu/scripts/pubmed_data_
 
 **预期结果**：生成 10 条数据，耗时约 3-5 分钟
 
-### 步骤 3: 正式生成 200 条（25-30分钟）
+### 步骤 3: 正式生成数据
+
+#### 方案 A: 带 rubrics（300条，适合评估）
 
 ```bash
-# 方式 A: 前台运行（可以看到实时进度）
+# 前台运行
 uv run python /workspace/math_science_data/lyc/1205/dr-tulu/scripts/pubmed_data_generator/generate_trajectory_dataset.py \
-    --num-questions 200 \
+    --num-questions 300 \
     --model openai/gpt-5.2 \
     --concurrency 8
 
-# 方式 B: 后台运行（推荐，可以关闭终端）
+# 后台运行（推荐）
 nohup uv run python /workspace/math_science_data/lyc/1205/dr-tulu/scripts/pubmed_data_generator/generate_trajectory_dataset.py \
-    --num-questions 200 \
+    --num-questions 300 \
     --model openai/gpt-5.2 \
     --concurrency 8 \
-    > ~/generation_200.log 2>&1 &
+    > ~/generation_300_rubrics.log 2>&1 &
+```
+
+**预期结果**：
+- 总耗时：~40-50 分钟
+- 成功率：> 90%
+- 包含：tool_rubrics + content_rubrics
+
+#### 方案 B: 不带 rubrics（1000条，适合训练）⭐ NEW
+
+```bash
+# 前台运行
+uv run python /workspace/math_science_data/lyc/1205/dr-tulu/scripts/pubmed_data_generator/generate_trajectory_dataset.py \
+    --num-questions 1000 \
+    --model openai/gpt-5.2 \
+    --concurrency 10 \
+    --no-rubrics
+
+# 后台运行（推荐）
+nohup uv run python /workspace/math_science_data/lyc/1205/dr-tulu/scripts/pubmed_data_generator/generate_trajectory_dataset.py \
+    --num-questions 1000 \
+    --model openai/gpt-5.2 \
+    --concurrency 10 \
+    --no-rubrics \
+    > ~/generation_1000_no_rubrics.log 2>&1 &
 
 # 记录进程 ID
 echo $! > ~/generation.pid
 
 # 实时查看进度
-tail -f ~/generation_200.log
+tail -f ~/generation_1000_no_rubrics.log
 
 # 查看进程状态
 ps -p $(cat ~/generation.pid)
@@ -73,8 +99,9 @@ kill $(cat ~/generation.pid)
 ```
 
 **预期结果**：
-- 总耗时：25-30 分钟
+- 总耗时：~80-100 分钟（比带 rubrics 快 ~30-40%）
 - 成功率：> 90%
+- 无 rubrics，仅包含问题和轨迹
 - 输出文件位置：`/workspace/math_science_data/lyc/1205/dr-tulu/pubmed_training_data/`
 
 ## 📊 实时监控
