@@ -1,0 +1,13 @@
+{
+  "total_samples": 2,
+  "topics": {
+    "冠心病/动脉粥样硬化性心血管病（PCSK9 抑制剂二级预防）": 1,
+    "非酒精性脂肪肝/非酒精性脂肪性肝炎（NAFLD/NASH）合并代谢异常（2型糖尿病/肥胖）": 1
+  },
+  "question_types": {
+    "疗效比较": 2
+  },
+  "avg_tool_calls": 3.5,
+  "avg_content_rubrics": 7.0,
+  "generation_time": "2025-12-16T10:34:58.177230"
+}

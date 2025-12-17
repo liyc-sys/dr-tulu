@@ -1,0 +1,12 @@
+{
+  "total_samples": 1,
+  "topics": {
+    "癌症治疗（靶向治疗耐药）": 1
+  },
+  "question_types": {
+    "疗效比较与机制研究": 1
+  },
+  "avg_tool_calls": 0.0,
+  "avg_content_rubrics": 6.0,
+  "generation_time": "2025-12-16T12:26:48.392447"
+}

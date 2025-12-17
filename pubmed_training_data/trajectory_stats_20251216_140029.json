@@ -1,0 +1,12 @@
+{
+  "total_samples": 1,
+  "topics": {
+    "罕见病/遗传病（囊性纤维化）": 1
+  },
+  "question_types": {
+    "疗效比较": 1
+  },
+  "avg_tool_calls": 3.0,
+  "avg_content_rubrics": 6.0,
+  "generation_time": "2025-12-16T14:00:29.397450"
+}

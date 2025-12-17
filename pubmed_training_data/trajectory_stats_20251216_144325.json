@@ -1,0 +1,12 @@
+{
+  "total_samples": 1,
+  "topics": {
+    "Cancer Immunotherapy (PD-1/PD-L1 inhibitors; CTLA-4 combination; tumor microenvironment biomarker)": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 1
+  },
+  "avg_tool_calls": 5.0,
+  "avg_content_rubrics": 4.0,
+  "generation_time": "2025-12-16T14:43:25.727323"
+}

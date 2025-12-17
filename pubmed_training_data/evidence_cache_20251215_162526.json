@@ -1,0 +1,1246 @@
+{
+  "\"immune checkpoint inhibitors\" AND \"breast cancer\" AND \"mechanism\" AND \"PD-1\" AND (\"\"[MeSH Terms])": {
+    "query": "\"immune checkpoint inhibitors\" AND \"breast cancer\" AND \"mechanism\" AND \"PD-1\" AND (\"\"[MeSH Terms])",
+    "limit": 5,
+    "offset": 0,
+    "papers": [
+      {
+        "pmid": "32954856",
+        "title": "Platinum-based chemotherapy in combination with PD-1/PD-L1 inhibitors: preclinical and clinical studies and mechanism of action.",
+        "abstract": "INTRODUCTION\nPlatinum chemotherapy is widely used in first-line treatment of patients with various cancers. PD-1/PD-L1 inhibitors have shown efficacy in several cancers, and the combination of platinum-based chemotherapy and PD-1/PD-L1 inhibitors has gradually become the focus of attention. Recently, the combination therapy has exhibited significant effects in preclinical models and clinical trials.\nAREAS COVERED\nThis review summarizes preclinical and clinical studies of the combination therapy in various cancers, and further explores mechanisms of the treatment. Furthermore, exploration of the mechanism demonstrates that the combination therapy plays a combination role in two ways. On the one hand, the positive effects of platinum-based chemotherapy on immunomodulation can be harnessed to increase the sensitivity of tumor cells to PD-1/PD-L1 inhibitors. On the other hand, platinum-based chemotherapy may upregulate PD-L1 expression in tumor tissue and exert a negative immunomodulatory effect, which can be counteracted by PD-1/PD-L1 inhibitors through their action pathway. What's more, different types of platinum-based chemotherapy exert different immunomodulation properties.\nEXPERT OPINION\nThis review describes a potential for the combination of PD-1/PD-L1 inhibitors and novel nanoparticles composed of platinum-loaded complex to yield positive effects in a wide range of doses, thus achieving higher therapeutic effects and lower side effects.\nABBREVIATIONS\nTreg: regulatory T cell; MDSC: myeloid-derived suppressor cell; TAM: tumor-associated macrophage; IL: interleukin; PD-1: programmed cell death protein-1; PD-L1: programmed death-ligand-1; NSCLC: non-small cell lung cancer; SCLC: small cell lung cancer; HNSCC: head and neck squamous cell cancer; ICD: immunogenic cell death; TME: tumor microenvironment; CTLs: cytotoxic T lymphocytes; TCR: T cell receptor; MHC class 1: major histocompatibility complex class 1; DC: dendritic cell; APC: antigen-presenting cell; PD-L2: programmed death-ligand-2; STAT6: signal transducers and activators of transcription 6; PLG: poly (L-glutamic acid); mPEG: methoxy poly (ethylene glycol); LLC1: Lewis lung carcinoma 1; PI3K: phosphoinositide 3-kinase; AKT: protein kinase B; MOC1: mouse oral cancer 1; cGAS: cyclic guanosine monophosphate-adenosine monophosphate synthase; STING: stimulator of interferon genes; FDA: food and drug administration; cHL: classical Hodgkin's lymphoma; PMBCL: primary mediastinal large B-cell lymphoma; HCC: hepatocellular carcinoma; MCC: merkel cell carcinoma; RCC: renal cell carcinoma; ORR: overall response rate; OR: overall response; OS: overall survival; PFS: progression-free survival; vs: versus; EFGR: epidermal growth factor receptor; ALK: anaplastic lymphoma kinase; ES: extensive stage; CPS: combined positive score; DOR: duration of response; ITT: intention to treat; NMPA: national medical products administration; TKI: tyrosine kinase inhibitor; NPC: nasopharyngeal cancer; DLT: dose-limiting toxicity; MTD: maximum tolerated dose; TNBC: triple-negative breast cancer; GC: gastric cancer; GEJC: gastroesophageal junction carcinoma; DCR: disease control rate; BTC: biliary tract cancer; TTR: time to response; PR: partial response; SD: stable disease; PD: progressive disease; IC 50 : half maximal inhibitory concentration; IFN: interferon; HLA: human leukocyte antigen; NK: natural killer cell; M6PR: mannose-6-phosphate receptor; GrzB: granzyme B; TNF: tumor necrosis factor.",
+        "year": "2021",
+        "venue": "Expert opinion on drug delivery",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32954856/",
+        "authors": [
+          "Xue, Yingyan",
+          "Gao, Song",
+          "Gou, Jingxin",
+          "Yin, Tian",
+          "He, Haibing",
+          "Wang, Yanjiao",
+          "Zhang, Yu",
+          "Tang, Xing",
+          "Wu, Rong"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "40563015",
+        "title": "Mobilizing antigen-presenting mast cells in anti-PD-1-refractory triple-negative breast cancer: a phase 2 trial.",
+        "abstract": "The central challenge in triple-negative breast cancer (TNBC) immunotherapy is to identify novel mechanism-derived strategies for anti-programmed death-1 (PD-1) resistance and efficiently assess their efficacy and safety in humans. Understanding the intricate heterogeneity of the tumor microenvironment and its impact on treatment could guide the initiation of proof-of-concept clinical trials. Here, integrating single-cell transcriptome of 44 treatment-naive patients with TNBC, we unveiled an association between intrapatient mast cell heterogeneity and clinical benefit of PD-1 blockade. Upon independent parallel validation in 484 patients with TNBC, high levels of breast tissue antigen-presenting mast cells (apMCs) were associated with enhanced anti-PD-1 efficacy. Mechanistically, apMCs largely located within tertiary lymphoid structures and were efficient in performing presentation and cross-presentation of antigens and expressed co-stimulatory molecules. Conditional deletion of antigen-presenting machinery in mast cells dampened tumor-reactive T cells. A widely prescribed allergy medication, cromolyn, was identified to mobilize apMC-mediated T cell immunity and sensitize tumors to PD-1 blockade. We subsequently initiated a phase 2 clinical trial in female patients with anti-PD-1-refractory metastatic TNBC. Here we report the results of the cromolyn arm (cromolyn plus anti-PD-1 backbone). The prespecified primary endpoint of this arm was met, with a confirmed objective response rate of 50.0%. Our study defines a crucial role of mast cells in cancer immune control, identifies an apMC-directed approach to overcome anti-PD-1 resistance and highlights a reverse-translational framework that offers conceptual advances in precision immuno-oncology with direct implications for clinical therapy. ClinicalTrials.gov identifier: NCT05076682 .",
+        "year": "2025",
+        "venue": "Nature medicine",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40563015/",
+        "authors": [
+          "Wu, Song-Yang",
+          "Jin, Xi",
+          "Liu, Yin",
+          "Wang, Zi-Yu",
+          "Zuo, Wen-Jia",
+          "Ma, Ding",
+          "Xiao, Yi",
+          "Fu, Tong",
+          "Xiao, Yu-Ling",
+          "Chen, Li",
+          "Liu, Xi-Yu",
+          "Fan, Lei",
+          "Wang, Zhong-Hua",
+          "Shen, Minhong",
+          "Liu, Ronghua",
+          "Chai, Wen-Jun",
+          "Shao, Zhi-Ming",
+          "Jiang, Yi-Zhou"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "34715028",
+        "title": "Determinants of anti-PD-1 response and resistance in clear cell renal cell carcinoma.",
+        "abstract": "ADAPTeR is a prospective, phase II study of nivolumab (anti-PD-1) in 15 treatment-naive patients (115 multiregion tumor samples) with metastatic clear cell renal cell carcinoma (ccRCC) aiming to understand the mechanism underpinning therapeutic response. Genomic analyses show no correlation between tumor molecular features and response, whereas ccRCC-specific human endogenous retrovirus expression indirectly correlates with clinical response. T cell receptor (TCR) analysis reveals a significantly higher number of expanded TCR clones pre-treatment in responders suggesting pre-existing immunity. Maintenance of highly similar clusters of TCRs post-treatment predict response, suggesting ongoing antigen engagement and survival of families of T cells likely recognizing the same antigens. In responders, nivolumab-bound CD8 + T cells are expanded and express GZMK/B. Our data suggest nivolumab drives both maintenance and replacement of previously expanded T cell clones, but only maintenance correlates with response. We hypothesize that maintenance and boosting of a pre-existing response is a key element of anti-PD-1 mode of action.",
+        "year": "2021",
+        "venue": "Cancer cell",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34715028/",
+        "authors": [
+          "Au, Lewis",
+          "Hatipoglu, Emine",
+          "Robert de Massy, Marc",
+          "Litchfield, Kevin",
+          "Beattie, Gordon",
+          "Rowan, Andrew",
+          "Schnidrig, Desiree",
+          "Thompson, Rachael",
+          "Byrne, Fiona",
+          "Horswell, Stuart",
+          "Fotiadis, Nicos",
+          "Hazell, Steve",
+          "Nicol, David",
+          "Shepherd, Scott T C",
+          "Fendler, Annika",
+          "Mason, Robert",
+          "Del Rosario, Lyra",
+          "Edmonds, Kim",
+          "Lingard, Karla",
+          "Sarker, Sarah",
+          "Mangwende, Mary",
+          "Carlyle, Eleanor",
+          "Attig, Jan",
+          "Joshi, Kroopa",
+          "Uddin, Imran",
+          "Becker, Pablo D",
+          "Sunderland, Mariana Werner",
+          "Akarca, Ayse",
+          "Puccio, Ignazio",
+          "Yang, William W",
+          "Lund, Tom",
+          "Dhillon, Kim",
+          "Vasquez, Marcos Duran",
+          "Ghorani, Ehsan",
+          "Xu, Hang",
+          "Spencer, Charlotte",
+          "López, José I",
+          "Green, Anna",
+          "Mahadeva, Ula",
+          "Borg, Elaine",
+          "Mitchison, Miriam",
+          "Moore, David A",
+          "Proctor, Ian",
+          "Falzon, Mary",
+          "Pickering, Lisa",
+          "Furness, Andrew J S",
+          "Reading, James L",
+          "Salgado, Roberto",
+          "Marafioti, Teresa",
+          "Jamal-Hanjani, Mariam",
+          "Kassiotis, George",
+          "Chain, Benny",
+          "Larkin, James",
+          "Swanton, Charles",
+          "Quezada, Sergio A",
+          "Turajlic, Samra"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "40268075",
+        "title": "PD-1/PD-L1 inhibitors combined with anti-angiogenic drugs for advanced triple-negative breast cancer: Synergistic mechanisms and research progress.",
+        "abstract": "Triple-negative breast cancer (TNBC), a subtype of breast cancer that is highly aggressive and lacks effective therapeutic targets, has a particularly grim prognosis, with advanced patients having a significantly shorter median survival and showing resistance to chemotherapy. The introduction of immunotherapy has brought new hope for cancer treatment, but the use of immune checkpoint inhibitors（ ICI） alone in TNBC is ineffective, and there is an urgent need to explore more effective combination therapies.The combination of PD-1/PD-L1 inhibitors and anti-angiogenic drugs（AADs） can produce synergistic effects and open up new therapeutic avenues for TNBC patients. Specifically, inhibition of the vascular endothelial growth factor（VEGF） signaling pathway induces normalization of tumor vasculature, which in turn promotes infiltration of CD8 + T lymphocytes(CD8 + T cells）. Meanwhile, PD-1/PD-L1 inhibitors can similarly promote normalization of tumor vasculature and enhance the function of effector T cells by activating effector T cells and upregulating γ-interferon (IFN-γ) secretion. This combination regimen has demonstrated encouraging efficacy in several clinical studies. In this article, we comprehensively analyze the latest advances in the field,and provides insights into the application, mechanism of action, signaling pathways, clinical translational prospects, and shortcomings of anti-PD-1/PD-L1 drugs combined with anti-angiogenic drugs in advanced TNBC. This study aims to provide clues for the individualized treatment of TNBC, with a view to realizing precision medicine, reducing the risk of recurrence and metastasis in patients, and improving the poor prognosis, which has an important clinical practice value.",
+        "year": "2025",
+        "venue": "Critical reviews in oncology/hematology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40268075/",
+        "authors": [
+          "Xu, Rui",
+          "Guo, Shaowei",
+          "Song, Qingle",
+          "Wang, Xiaotong",
+          "Li, Qingxia"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "37001908",
+        "title": "ANXA1-derived peptide for targeting PD-L1 degradation inhibits tumor immune evasion in multiple cancers.",
+        "abstract": "BACKGROUND\nImmune checkpoint inhibitors (ICIs) therapy targeting programmed cell death 1 (PD-1)/programmed cell death ligand 1 (PD-L1) shows promising clinical benefits. However, the relatively low response rate highlights the need to develop an alternative strategy to target PD-1/PD-L1 immune checkpoint. Our study focuses on the role and mechanism of annexin A1 (ANXA1)-derived peptide A11 degrading PD-L1 and the effect of A11 on tumor immune evasion in multiple cancers.\nMETHODS\nBinding of A11 to PD-L1 was identified by biotin pull-down coupled with mass spectrometry analysis. USP7 as PD-L1's deubiquitinase was found by screening a human deubiquitinase cDNA library. The role and mechanism of A11 competing with USP7 to degrade PD-L1 were analyzed. The capability to enhance the T cell-mediated tumor cell killing activity and antitumor effect of A11 via suppressing tumor immune evasion were investigated. The synergistic antitumor effect of A11 and PD-L1 mAb (monoclonal antibody) via suppressing tumor immune evasion were also studied in mice. The expression and clinical significance of USP7 and PD-L1 in cancer tissues were evaluated by immunohistochemistry.\nRESULTS\nA11 decreases PD-L1 protein stability and levels by ubiquitin proteasome pathway in breast cancer, lung cancer and melanoma cells. Mechanistically, A11 competes with PD-L1's deubiquitinase USP7 for binding PD-L1, and then degrades PD-L1 by inhibiting USP7-mediated PD-L1 deubiquitination. Functionally, A11 promotes T cell ability of killing cancer cells in vitro, inhibits tumor immune evasion in mice via increasing the population and activation of CD8 + T cells in tumor microenvironment, and A11 and PD-1 mAb possess synergistic antitumor effect in mice. Moreover, expression levels of both USP7 and PD-L1 are significantly higher in breast cancer, non-small cell lung cancer and skin melanoma tissues than those in their corresponding normal tissues and are positively correlated in cancer tissues, and both proteins for predicting efficacy of PD-1 mAb immunotherapy and patient prognosis are superior to individual protein.\nCONCLUSION\nOur results reveal that A11 competes with USP7 to bind and degrade PD-L1 in cancer cells, A11 exhibits obvious antitumor effects and synergistic antitumor activity with PD-1 mAb via inhibiting tumor immune evasion and A11 can serve as an alternative strategy for ICIs therapy in multiple cancers.",
+        "year": "2023",
+        "venue": "Journal for immunotherapy of cancer",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37001908/",
+        "authors": [
+          "Yu, Zheng-Zheng",
+          "Liu, Yun-Ya",
+          "Zhu, Wei",
+          "Xiao, Ding",
+          "Huang, Wei",
+          "Lu, Shan-Shan",
+          "Yi, Hong",
+          "Zeng, Ting",
+          "Feng, Xue-Ping",
+          "Yuan, Li",
+          "Qiu, Jie-Ya",
+          "Wu, Di",
+          "Wen, Qi",
+          "Zhou, Jian-Hua",
+          "Zhuang, Wei",
+          "Xiao, Zhi-Qiang"
+        ],
+        "citation_count": null
+      }
+    ],
+    "total": 47,
+    "snapshot_time": "2025-12-15T16:22:48.800298"
+  },
+  "(\"PI3K-AKT pathway\" OR \"PI3K-Akt signaling\") AND diabetes AND (\"therapeutic effect\" OR \"treatment outcome\") AND": {
+    "query": "(\"PI3K-AKT pathway\" OR \"PI3K-Akt signaling\") AND diabetes AND (\"therapeutic effect\" OR \"treatment outcome\") AND",
+    "limit": 5,
+    "offset": 0,
+    "papers": [
+      {
+        "pmid": "40120541",
+        "title": "Combined metabolomics and network pharmacology to elucidate the mechanisms of Huiyang Shengji decoction in treating diabetic skin ulcer mice.",
+        "abstract": "BACKGROUND\nDiabetic skin ulcer is a clinical disorder of glucose metabolism that has a long treatment period and is prone to recurrent episodes. Huiyang Shengji decoction (HYSJD) is an effective traditional Chinese medicine for its clinical treatment, but its metabolic effects in patients with diabetic skin ulcers have not been well studied.\nPURPOSE\nOur study aimed to investigate the mechanism of pharmacological treatment of HYSJD in treating diabetic skin ulcers.\nMETHODS\nThe potential mechanism underlying diabetic wound treatment by HYSJD was screened using network pharmacology. Ultra-high performance liquid chromatography-MS/MS metabolomics analysis and correlation analysis were performed to investigate potential target pathways and genes. Furthermore, the db/db diabetic wound tissues and RAW264.7 macrophage inflammation model verified the mechanism using molecular biology experiments.\nRESULTS\nIn network pharmacology, HYSJD played a mainly therapeutic effect by regulating PI3K/AKT signaling pathway, EGFR tyrosine kinase inhibitor resistance, metabolic pathway, and other related metabolic-related pathways. Metabolomics analysis disclosed that L-lysine content increased, while those of linoleic and deoxycholic acids decreased in plasma between the HYSJD-treated group and the control group, participating in biotin metabolism. Among them, PPARγ played an important role. The experiments conducted in db/db mice indicated that HYSJD facilitates VEGF secretion and PPARγ expression. In vitro experiments have revealed that HYSJD inhibits macrophage ROS production, augments mitochondrial ATP production, elevates mitochondrial membrane potential, and diminishes the mitochondrial ECAR rate. Furthermore, these effects culminate in promoting M2 macrophage polarization through PPARγ activation. The molecular docking results revealed that the active compounds from HYSJD were capable of binding to PPARγ protein primarily through hydrogen bonding interactions. Notably, all binding energies were found to be lower than -3 kcal/mol, indicating strong and favorable interactions between the active compounds and the target receptor.\nCONCLUSIONS\nThe findings suggested that HYSJD regulates biotin metabolism by reducing excess levels of linoleic and deoxycholic acids and increasing levels of L-lysine, which in turn promotes diabetic wound healing by promoting M2 macrophage polarization through PPARγ up-regulation. These findings indicated that HYSJD is a decoction that can effectively treat diabetic skin ulcers.",
+        "year": "2025",
+        "venue": "Phytomedicine : international journal of phytotherapy and phytopharmacology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40120541/",
+        "authors": [
+          "Chen, Jia",
+          "Qu, Baoquan",
+          "Yang, Danyang",
+          "Wang, Yazhuo",
+          "Zhu, Haoyue",
+          "Wang, Zhengchun",
+          "Zhang, Xiawei",
+          "Ma, Huike",
+          "Zhao, Ning",
+          "Zhao, Li",
+          "Zhou, Lijiaming",
+          "He, Xiujuan",
+          "Li, Ping"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "38301984",
+        "title": "Bioactive triterpenoid compounds of Poria cocos (Schw.) Wolf in the treatment of diabetic ulcers via regulating the PI3K-AKT signaling pathway.",
+        "abstract": "ETHNOPHARMACOLOGICAL RELEVANCE\nDiabetic ulcers represent a chronic condition characterized by prolonged hyperglycemia and delayed wound healing, accompanied by endocrine disorders, inflammatory responses, and microvascular damage in the epidermal tissue, demanding effective clinical treatment approaches. For thousands of years, ancient Chinese ethnopharmacological studies have documented the use of Poria cocos (Schw.) Wolf in treating diabetic ulcers. Recent research has substantiated the diverse pharmacological effects of Poria cocos (Schw.) Wolf, including its potential to alleviate hyperglycemia and exhibit anti-inflammatory, antioxidant, and immune regulatory properties, which could effectively mitigate diabetic ulcer symptoms. Furthermore, being a natural medicine, Poria cocos (Schw.) Wolf has demonstrated promising therapeutic effects and safety in the management of diabetic ulcers, holding significant clinical value. Despite its potential clinical efficacy and applications in diabetic ulcer treatment, the primary active components and underlying pharmacological mechanisms of Poria cocos (Schw.) Wolf remains unclear. Further investigations are imperative to establish a solid foundation for drug development in this domain.\nAIM OF THE STUDY AND MATERIALS AND METHODS\nIn this study, we aimed to identify the active compounds and potential targets of Poria cocos (Schw.) Wolf using UHPLC-Q-TOF-MS and TCMSP databases. Additionally, we attempt to identify targets related to diabetic ulcers. Following enrichment analysis, a network of protein-protein interactions was constructed to identify hub genes based on the common elements between the two datasets. To gain insights into the binding activities of the hub genes and active ingredients, molecular docking analysis was employed. Furthermore, to further validate the therapeutic effect of Poria cocos (Schw.) Wolf, we exerted in vitro experiments using human umbilical vein vascular endothelial cells and human myeloid leukemia monocytes (THP-1). The active ingredient of Poria cocos (Schw.) Wolf was applied in these experiments. Our investigations included various assays, such as CCK-8, scratch test, immunofluorescence, western blotting, RT-PCR, and flow cytometry, to explore the potential of Poria cocos (Schw.) Wolf triterpenoid extract (PTE) in treating diabetic ulcers.\nRESULTS\nThe findings here highlighted PTE as the primary active ingredient in Poria cocos (Schw.) Wolf. Utilizing network pharmacology, we identified 74 potential targets associated with diabetic ulcer treatment for Poria cocos (Schw.) Wolf, with five hub genes (JUN, MAPK1, STAT3, AKT1, and CTNNB1). Enrichment analysis revealed the involvement of multiple pathways in the therapeutic process, with the PI3K-AKT signaling pathway showing significant enrichment. Through molecular docking, we discovered that relevant targets within this pathway exhibited strong binding with the active components of Poria cocos (Schw.) Wolf. In vitro experiments unveiled that PTE (10 mg/L) facilitated the migration of human umbilical vein vascular endothelial cells (P < 0.05). PTE also increased the expression of CD31 and VEGF mRNA (P < 0.05) while activating the expressions of p-PI3K and p-AKT (P < 0.05). Moreover, PTE demonstrated its potential by reducing the expression of IL-1β, IL-6, TNF-α, and NF-κB mRNA in THP-1 (P < 0.05) and fostering M2 macrophage polarization. These results signify the potential therapeutic effects of PTE in treating diabetic ulcers, with its beneficial actions mediated through the PI3K-AKT signaling pathway.\nCONCLUSIONS\nPTE is the main active ingredient in Poria cocos (Schw.) Wolf that exerts therapeutic effects. Through PI3K-AKT signaling pathway activation and inflammatory response reduction, PTE promotes angiogenesis, thereby healing diabetic ulcers.",
+        "year": "2024",
+        "venue": "Journal of ethnopharmacology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38301984/",
+        "authors": [
+          "Ding, Xiaofeng",
+          "Li, Shiyan",
+          "Huang, Heyan",
+          "Shen, Jiayun",
+          "Ding, Youjun",
+          "Chen, Timson",
+          "Ma, Ling",
+          "Liu, Jinfang",
+          "Lai, Yongxian",
+          "Chen, Bin",
+          "Wang, Yiwei",
+          "Tan, Qian"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "38137541",
+        "title": "Esaxerenone Protects against Diabetic Cardiomyopathy via Inhibition of the Chemokine and PI3K-Akt Signaling Pathway.",
+        "abstract": "(1) Background: Diabetic cardiomyopathy (DCM) is a unique form of cardiomyopathy that develops as a consequence of diabetes and significantly contributes to heart failure in patients. Esaxerenone, a selective non-steroidal mineralocorticoid receptor antagonist, has demonstrated potential in reducing the incidence of cardiovascular and renal events in individuals with chronic kidney and diabetes disease. However, the exact protective effects of esaxerenone in the context of DCM are still unclear. (2) Methods: The DCM model was successfully induced in mice by administering streptozotocin (55 mg/kg per day) for five consecutive days. After being fed a normal diet for 16 weeks, echocardiography was performed to confirm the successful establishment of the DCM model. Subsequent sequencing and gene expression analysis revealed significant differences in gene expression in the DCM group. These differentially expressed genes were identified as potential targets for DCM. By utilizing the Swiss Target Prediction platform, we employed predictive analysis to identify the potential targets of esaxerenone. A protein-protein-interaction (PPI) network was constructed using the common targets of esaxerenone and DCM. Enrichment analysis was conducted using Metascape. (3) Results: Compared to the control, the diabetic group exhibited impaired cardiac function and myocardial fibrosis. There was a total of 36 common targets, with 5 key targets. Enrichment analysis revealed that the chemokine and PI3K-Akt signaling pathway was considered a crucial pathway. A target-pathway network was established, from which seven key targets were identified. All key targets exhibited good binding characteristics when interacting with esaxerenone. (4) Conclusion: The findings of this study suggest that esaxerenone exhibits a favorable therapeutic effect on DCM, primarily by modulating the chemokine and PI3K-Akt signaling pathway.",
+        "year": "2023",
+        "venue": "Biomedicines",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38137541/",
+        "authors": [
+          "Li, Ziyue",
+          "Zhang, Huihui",
+          "Zheng, Weihan",
+          "Yan, Zi",
+          "Yang, Jiaxin",
+          "Li, Shiyu",
+          "Huang, Wenhua"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "38801993",
+        "title": "Tirzepatide protects against doxorubicin-induced cardiotoxicity by inhibiting oxidative stress and inflammation via PI3K/Akt signaling.",
+        "abstract": "BACKGROUND\nDoxorubicin (DOX) is a highly effective and widely used cytotoxic agent with application for various malignancies, but it's clinically limited due to its cardiotoxicity Oxidative stress and inflammation were reported to take part in DOX-induced cardiotoxicity. Tirzepatide, a dual glucagon-like peptide-1 (GLP-1) and glucose-dependent insulinotropic polypeptide (GIP) receptor agonist has been approved to treat type 2 diabetes. However, its role in DOX-induced cardiotoxicity and the underlying mechanisms has not been explored.\nMETHODS\nThe cardioprotective properties of Tirzepatide against DOX-induced cardiotoxicity are examined in this work both in vivo and in vitro. For four weeks, an intraperitoneal injection of 4 mg/kg DOX was used to cause cardiotoxicity in C57BL/6 mice. To ascertain the cardioprotective function and underlying mechanisms of Tirzepatide against DOX-induced cardiotoxicity, mice and H9c2 cells were treated with and without Tirzepatide.\nRESULTS\nTirzepatide treatment significantly inhibited DOX-induced oxidative stress, inflammation and cardiac injury. Mechanistically, PI3K/Akt signaling pathway contributes to the protective effect of Tirzepatide against DOX-induced cardiotoxicity and inhibited PI3K/Akt signaling pathway with LY294002 almost blocked its therapeutic effect.\nCONCLUSIONS\nCollectively, Tirzepatide could alleviate DOX-induced oxidative stress, inflammation and cardiac injury via activating PI3K/Akt signaling pathway and Tirzepatide may be a novel therapeutic target for DOX-induced cardiotoxicity.",
+        "year": "2024",
+        "venue": "Peptides",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38801993/",
+        "authors": [
+          "Chen, Ling",
+          "Chen, Xi",
+          "Ruan, Bing",
+          "Yang, Hongjie",
+          "Yu, Yang"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "29990865",
+        "title": "Tangganjian decoction ameliorates type 2 diabetes mellitus and nonalcoholic fatty liver disease in rats by activating the IRS/PI3K/AKT signaling pathway.",
+        "abstract": "AIM\nPrevious clinical studies have demonstrated that tangganjian (TGJ), a modern Chinese prescribed medicine, has a clinical effect in the treatment of type 2 diabetes mellitus (T2DM) with nonalcoholic fatty liver disease (NAFLD). Our study aimed to investigate whether the phosphatidylinositol 3-kinase (PI3K)/protein kinase B (AKT) signaling pathway is involved in this therapeutic effect.\nMATERIALS AND METHODS\nT2DM and NAFLD rat models were constructed and treated with three different concentrations of TGJ. Pioglitazone was used as a positive control, along with the model and normal groups. For analyses, blood and livers were collected. Levels of glucose and lipid metabolism indicators, including fasting insulin and total cholesterol, were determined. The expression levels of insulin receptor substrate (IRS), PI3K, and AKT were also determined by western blotting and immunohistochemistry. Liver tissues were stained with hematoxylin & eosin.\nRESULTS\nIn the high-dose TGJ-treated and positive groups, there was a significant increase in the HDL-C level and decreases in the levels of the fasting blood glucose, 2 h postprandial blood glucose, fasting insulin, triglyceride, total cholesterol, and low-density lipoprotein cholesterol, along with a significant increase in the expression of IRS, PI3K, and AKT in the liver. TGJ could also attenuate or counteract the effects of T2DM and NAFLD in the liver lobules.\nCONCLUSION\nA high concentration of TGJ can improve glucose and lipid metabolism by activating the IRS/PI3K/AKT signaling pathway.",
+        "year": "2018",
+        "venue": "Biomedicine & pharmacotherapy = Biomedecine & pharmacotherapie",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29990865/",
+        "authors": [
+          "Fan, Yanbo",
+          "He, Zhiwei",
+          "Wang, Wei",
+          "Li, Jingjing",
+          "Hu, Aimin",
+          "Li, Li",
+          "Yan, Ling",
+          "Li, Zhijie",
+          "Yin, Qiang"
+        ],
+        "citation_count": null
+      }
+    ],
+    "total": 40,
+    "snapshot_time": "2025-12-15T16:23:03.909786"
+  },
+  "(\"PI3K-AKT pathway\" OR \"PI3K-Akt signaling\") AND diabetes AND (\"molecular mechanism\" OR \"pathogenesis\") AND (\"human\" OR \"animal\") AND": {
+    "query": "(\"PI3K-AKT pathway\" OR \"PI3K-Akt signaling\") AND diabetes AND (\"molecular mechanism\" OR \"pathogenesis\") AND (\"human\" OR \"animal\") AND",
+    "limit": 5,
+    "offset": 0,
+    "papers": [
+      {
+        "pmid": "37759297",
+        "title": "Natural exosomes-like nanoparticles in mung bean sprouts possesses anti-diabetic effects via activation of PI3K/Akt/GLUT4/GSK-3β signaling pathway.",
+        "abstract": "BACKGROUND\nType 2 diabetes mellitus (T2DM) is a chronic metabolic disease characterized by hyperglycemia and insulin resistance. Mung bean sprouts are traditionally considered a \"folk\" hypoglycemic food and their pharmacological effects and underlying mechanisms warrant further investigation.\nPURPOSE\nThis study aimed to investigate the anti-diabetic effects of the exosomes-like nanoparticles in mung bean sprouts (MELNs) and explore the related molecular mechanisms.\nRESULTS\nMELNs were isolated using a differential centrifugation-polyethylene glycol (PEG) method, and the identification of MELNs were confirmed by PAGE gel electrophoresis, agarose gel electrophoresis, thin-layer chromatography (TLC), and transmission electron microscopy (TEM). In the high-fat diet/streptozotocin (HFD/STZ) mouse model, MELNs ameliorated the progression of T2DM by increasing oral glucose tolerance test (OGTT) and insulin tolerance test (ITT) results, decreasing the fasting blood glucose level, and reducing the serum triglycerides (TG) and total cholesterol (TC). Histopathological examinations indicated MELNs diminished inflammatory infiltration of hepatocytes and amplified the area of islet B cells. In addition, MELNs decreased the oxidative stress levels in liver tissue and had good biocompatibility. In vitro experiments verified that MELNs improved the viability of glucosamine (GlcN) induced insulin-resistant hepatocytes. Furthermore, this study also revealed that MELNs upregulated GLUT4 & Nrf2 and down-regulated GSK-3β via activating the PI3K/Akt signaling pathway, promoting the production of antioxidant enzymes, such as HO-1 and SOD, to reduce oxidative stress.\nCONCLUSION\nMELNs mitigated the progression of type 2 diabetes in HFD/STZ mouse model. The underlying molecular mechanism is related to PI3K/Akt/GLUT4/GSK-3β signaling pathway.",
+        "year": "2023",
+        "venue": "Journal of nanobiotechnology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37759297/",
+        "authors": [
+          "He, Chengxun",
+          "Wang, Ke",
+          "Xia, Jun",
+          "Qian, Die",
+          "Guo, Juan",
+          "Zhong, Lian",
+          "Tang, Dandan",
+          "Chen, Xiuping",
+          "Peng, Wei",
+          "Chen, Yunhui",
+          "Tang, Yong"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "40555342",
+        "title": "Inflammation-related gene ITGA5 affects the healing of diabetic foot ulcers through PI3K-AKT signaling pathway.",
+        "abstract": "BACKGROUND\nDiabetic foot ulcers (DFU), a severe complication of diabetes, are characterized by impaired healing due to chronic inflammation and dysregulated cellular processes. Identifying inflammation-related biomarkers and their mechanisms is critical for improving DFU management.\nMETHODS\nBioinformatics analysis of GEO datasets (GSE7014, GSE29221, GSE147890) identified inflammation-related differentially expressed genes (IRDEGs). Functional enrichment, LASSO regression, and SVM modeling were employed to pinpoint key genes. In vitro (HaCaT/fibroblast cultures) and in vivo (db/db mouse models) experiments validated ITGA5's role, including proliferation, migration, and PI3K-AKT pathway activation via siRNA knockdown.\nRESULTS\nTwelve IRDEGs were identified, with eight (CD14, IL7R, VIP, ITGA5, HBEGF, IFITM1, IRAK2, LPAR1) forming a diagnostic model (AUC >0.7). ITGA5 exhibited significant upregulation in DFU tissues and high-glucose conditions. Knockdown of ITGA5 enhanced keratinocyte/fibroblast proliferation and migration via PI3K-AKT activation. In vivo, ITGA5 silencing accelerated wound closure, improved angiogenesis, reduced pro-inflammatory cytokines (IL-1β, IL-6, TNF-α), and increased collagen deposition.\nCONCLUSION\nITGA5 drives DFU pathogenesis through suppression of PI3K-AKT signaling under hyperglycemia. Targeting ITGA5 may offer a therapeutic strategy to enhance wound healing, highlighting its potential as a diagnostic and therapeutic biomarker for DFU.",
+        "year": "2025",
+        "venue": "European journal of pharmacology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40555342/",
+        "authors": [
+          "Wang, Xiaoxiang",
+          "Zhang, Weiqiang",
+          "Mao, Lujia",
+          "Chen, Jianwei",
+          "Zhou, Xin",
+          "Wang, Xuehua",
+          "Chen, Yongjian",
+          "Zhou, Sitong",
+          "Yang, Ronghua"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "39928224",
+        "title": "The Role of Inflammation in the Pathogenesis of Diabetic Peripheral Neuropathy: New Lessons from Experimental Studies and Clinical Implications.",
+        "abstract": "Diabetic peripheral neuropathy (DPN) is one of the most frequent complications of diabetes mellitus (DM). Its pathogenesis is still not entirely clear. Inflammation is increasingly being appreciated as a key factor in its development and progression. The aim of this review was to outline current evidence from experimental research on the role of inflammation in the pathogenesis of DPN and to suggest emerging clinical implications. Beyond commonly assessed interleukins, chemokines and tumour necrosis factor alpha (TNFα), several novel underlying mechanisms and potential therapeutic targets have been unravelled. Pathogenesis is also influenced by dietary patterns, such as iron supplementation. Furthermore, the impact of the inflammasome nucleotide-binding oligomerisation domain-like receptor pyrin domain-containing protein 3 (NLPR3) is gaining importance. The same holds true for inflammatory pathways, such as the Toll-like receptor (TLR)-associated pathways or the phosphatidylinositol 3-kinase/protein kinase B (PI3K/AKT) pathway. SIRTuins are also of importance. DPN is associated with changes in macrophage polarisation. In addition, several metalloproteinases are emerging as contributors, although data is still limited. Finally, miRNAs (e.g. miR146a) are strongly linked with DPN by acting in several inflammatory pathways. However, we still need confirmation of preliminary research findings. It is hoped that new knowledge will lead to new therapeutic approaches, including stem cell-based or exosome-based therapies.",
+        "year": "2025",
+        "venue": "Diabetes therapy : research, treatment and education of diabetes and related disorders",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39928224/",
+        "authors": [
+          "Panou, Theodoros",
+          "Gouveri, Evanthia",
+          "Popovic, Djordje S",
+          "Papazoglou, Dimitrios",
+          "Papanas, Nikolaos"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "29578634",
+        "title": "mTOR: A double-edged sword for diabetes.",
+        "abstract": "Diabetes is both a metabolic and an immune disorder. One intriguing link between the two is the serine-threonine protein kinase mammalian target of rapamycin (mTOR). As a component of the PI3K/Akt pathway and other cellular signals, mTOR is a key regulator of fuel metabolism and function of both pancreatic islet β cells and immune cells. Consequently, it seems that mTOR has both anti- and prodiabetic effects. On the one hand, activation of mTOR in β cells can increase their growth and proliferation, opposing impairments of insulin secretion in diabetes. On the other, activation of mTOR signaling in specific immune cells alters their fuel metabolism, amplifying their contributions to β-cell dysfunction, contributing to the development of diabetes. In this review, we focus on roles of mTOR signaling in pancreatic β cells and immune cells and their implications in the pathogenesis and treatment of diabetes.",
+        "year": "2019",
+        "venue": "Journal of leukocyte biology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29578634/",
+        "authors": [
+          "Tuo, Yali",
+          "Xiang, Ming"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "37503738",
+        "title": "Mechanistic Insights of Thyroid Cancer Progression.",
+        "abstract": "Differentiated thyroid cancers (DTCs) are primarily initiated by mutations that activate the MAPK signaling cascade, typically at BRAF or RAS oncoproteins. DTCs can evolve to more aggressive forms, specifically, poorly differentiated (PDTC) and anaplastic thyroid cancers (ATC), by acquiring additional genetic alterations which deregulate key pathways. In this review, we focused on bona fide mutations involved in thyroid cancer progression for which consistent mechanistic data exist. Here we summarized the relevant literature, spanning approximately 2 decades, highlighting genetic alterations that are unquestionably enriched in PDTC/ATC. We describe the relevant functional data obtained in multiple in vitro and in vivo thyroid cancer models employed to study genetic alterations in the following genes and functional groups: TP53, effectors of the PI3K/AKT pathway, TERT promoter, members of the SWI/SNF chromatin remodeling complex, NF2, and EIF1AX. In addition, we briefly discuss other genetic alterations that are selected in aggressive thyroid tumors but for which mechanistic data is still either limited or nonexistent. Overall, we argue for the importance conveyed by preclinical studies for the clinical translation of genomic knowledge of thyroid cancers.",
+        "year": "2023",
+        "venue": "Endocrinology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37503738/",
+        "authors": [
+          "Leandro-García, Luis Javier",
+          "Landa, Iñigo"
+        ],
+        "citation_count": null
+      }
+    ],
+    "total": 86,
+    "snapshot_time": "2025-12-15T16:23:07.799919"
+  },
+  "(\"PI3K-AKT pathway\" OR \"PI3K-Akt signaling\") AND diabetes AND (\"biomarker\" OR \"prognosis\") AND AND": {
+    "query": "(\"PI3K-AKT pathway\" OR \"PI3K-Akt signaling\") AND diabetes AND (\"biomarker\" OR \"prognosis\") AND AND",
+    "limit": 5,
+    "offset": 0,
+    "papers": [
+      {
+        "pmid": "40555342",
+        "title": "Inflammation-related gene ITGA5 affects the healing of diabetic foot ulcers through PI3K-AKT signaling pathway.",
+        "abstract": "BACKGROUND\nDiabetic foot ulcers (DFU), a severe complication of diabetes, are characterized by impaired healing due to chronic inflammation and dysregulated cellular processes. Identifying inflammation-related biomarkers and their mechanisms is critical for improving DFU management.\nMETHODS\nBioinformatics analysis of GEO datasets (GSE7014, GSE29221, GSE147890) identified inflammation-related differentially expressed genes (IRDEGs). Functional enrichment, LASSO regression, and SVM modeling were employed to pinpoint key genes. In vitro (HaCaT/fibroblast cultures) and in vivo (db/db mouse models) experiments validated ITGA5's role, including proliferation, migration, and PI3K-AKT pathway activation via siRNA knockdown.\nRESULTS\nTwelve IRDEGs were identified, with eight (CD14, IL7R, VIP, ITGA5, HBEGF, IFITM1, IRAK2, LPAR1) forming a diagnostic model (AUC >0.7). ITGA5 exhibited significant upregulation in DFU tissues and high-glucose conditions. Knockdown of ITGA5 enhanced keratinocyte/fibroblast proliferation and migration via PI3K-AKT activation. In vivo, ITGA5 silencing accelerated wound closure, improved angiogenesis, reduced pro-inflammatory cytokines (IL-1β, IL-6, TNF-α), and increased collagen deposition.\nCONCLUSION\nITGA5 drives DFU pathogenesis through suppression of PI3K-AKT signaling under hyperglycemia. Targeting ITGA5 may offer a therapeutic strategy to enhance wound healing, highlighting its potential as a diagnostic and therapeutic biomarker for DFU.",
+        "year": "2025",
+        "venue": "European journal of pharmacology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40555342/",
+        "authors": [
+          "Wang, Xiaoxiang",
+          "Zhang, Weiqiang",
+          "Mao, Lujia",
+          "Chen, Jianwei",
+          "Zhou, Xin",
+          "Wang, Xuehua",
+          "Chen, Yongjian",
+          "Zhou, Sitong",
+          "Yang, Ronghua"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "36400343",
+        "title": "Biological impact and therapeutic perspective of targeting PI3K/Akt signaling in hepatocellular carcinoma: Promises and Challenges.",
+        "abstract": "Cancer progression results from activation of various signaling networks. Among these, PI3K/Akt signaling contributes to proliferation, invasion, and inhibition of apoptosis. Hepatocellular carcinoma (HCC) is a primary liver cancer with high incidence rate, especially in regions with high prevalence of viral hepatitis infection. Autoimmune disorders, diabetes mellitus, obesity, alcohol consumption, and inflammation can also lead to initiation and development of HCC. The treatment of HCC depends on the identification of oncogenic factors that lead tumor cells to develop resistance to therapy. The present review article focuses on the role of PI3K/Akt signaling in HCC progression. Activation of PI3K/Akt signaling promotes glucose uptake, favors glycolysis and increases tumor cell proliferation. It inhibits both apoptosis and autophagy while promoting HCC cell survival. PI3K/Akt stimulates epithelial-to-mesenchymal transition (EMT) and increases matrix-metalloproteinase (MMP) expression during HCC metastasis. In addition to increasing colony formation capacity and facilitating the spread of tumor cells, PI3K/Akt signaling stimulates angiogenesis. Therefore, silencing PI3K/Akt signaling prevents aggressive HCC cell behavior. Activation of PI3K/Akt signaling can confer drug resistance, particularly to sorafenib, and decreases the radio-sensitivity of HCC cells. Anti-cancer agents, like phytochemicals and small molecules can suppress PI3K/Akt signaling by limiting HCC progression. Being upregulated in tumor tissues and clinical samples, PI3K/Akt can also be used as a biomarker to predict patients' response to therapy.",
+        "year": "2023",
+        "venue": "Pharmacological research",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36400343/",
+        "authors": [
+          "Paskeh, Mahshid Deldar Abad",
+          "Ghadyani, Fatemeh",
+          "Hashemi, Mehrdad",
+          "Abbaspour, Alireza",
+          "Zabolian, Amirhossein",
+          "Javanshir, Salar",
+          "Razzazan, Mehrnaz",
+          "Mirzaei, Sepideh",
+          "Entezari, Maliheh",
+          "Goharrizi, Mohammad Ali Shekhi Beig",
+          "Salimimoghadam, Shokooh",
+          "Aref, Amir Reza",
+          "Kalbasi, Alireza",
+          "Rajabi, Romina",
+          "Rashidi, Mohsen",
+          "Taheriazam, Afshin",
+          "Sethi, Gautam"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "39404708",
+        "title": "TGFBR3 inhibits progression of papillary thyroid cancer by inhibiting the PI3K/AKT pathway and EMT.",
+        "abstract": "BACKGROUND\nTransforming growth factor beta receptor III (TGFBR3) has been shown to play a tumor-suppressive role in a variety of cancers. However, its role in papillary thyroid cancer (PTC) remains unknown.\nMETHOD\nTGFBR3 expression levels in PTC were analyzed utilizing The Cancer Genome Atlas (TCGA) and Gene Expression Omnibus (GEO) databases. Edu, wound healing, and Transwell assays were used to evaluate cell proliferation, migration, and invasion. Transcriptome sequencing, quantitative real-time reverse transcription-polymerase chain reaction (qRT-PCR), and Western blotting were used to detect the underlying mechanism of TGFBR3 in PTC progression.\nRESULT\nThis study demonstrated that TGFBR3 expression was significantly down-regulated in PTC compared to normal thyroid tissues. Low expression of TGFBR3 was associated with poor prognosis of patients with PTC. Furthermore, TGFBR3 expression positively correlated with thyroid differentiation score. In investigating the biological impact of TGFBR3 overexpression in PTC cell lines, we found that the proliferation, migration, and invasion of PTC cells were significantly inhibited in response to TGFBR3 overexpression. Moreover, we also demonstrated that overexpression of TGFBR3 inhibited the PI3K/AKT pathway and epithelial-mesenchymal transformation processes. Lastly, TGFBR3 expression was found to be involved in tumor immune infiltration, highlighting its potential influence on immune dynamics within the tumor microenvironment in PTC.\nCONCLUSION\nTGFBR3 plays a tumor-suppressive role in PTC progression by inhibiting the PI3K/AKT pathway and epithelial mesenchymal transformation.",
+        "year": "2024",
+        "venue": "Endocrine connections",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39404708/",
+        "authors": [
+          "Zhang, Hanrong",
+          "Chen, Junxin",
+          "Chen, Xin",
+          "Zeng, Chuimian",
+          "Zhang, Pengyuan",
+          "Jin, Jiewen",
+          "Xiao, Haipeng",
+          "Li, Yanbing",
+          "Guan, Hongyu",
+          "Li, Hai"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "36103112",
+        "title": "Astragaloside IV Regulates Insulin Resistance and Inflammatory Response of Adipocytes via Modulating CTRP3 and PI3K/AKT Signaling.",
+        "abstract": "INTRODUCTION\nEmerging evidence showed that adipocytes are important regulators in controlling insulin resistance in type 2 diabetes mellitus (T2DM). So far, compounds isolated from natural plants have been widely studied for their roles in alleviating T2DM-associated complications. This work evaluated the actions of astragaloside IV (AS-IV) on insulin resistance and inflammatory biomarker expression in adipocytes and explored the potential mechanisms.\nMETHODS\nGlucose consumption of the adipocytes was determined by a glucose assay kit; the mRNA expression levels of glucose transporter type 4 (GLUT-4), interleukin-6 (IL-6), TNF-α and C1q tumor necrosis factor-related protein 3 (CTRP3) were measured by quantitative real-time PCR (qRT-PCR); the protein levels were determined by western blot assay and enzyme-linked immunosorbent assay.\nRESULTS\nAS-IV concentration-dependently increased glucose consumption in the insulin resistance adipocytes. Further qRT-PCR results showed that AS-IV concentration-dependently reduced adipocyte IL-6 and TNF-α expression. Moreover, GLUT-4 expression in adipocytes was also significantly upregulated by AS-IV. Furthermore, we found that AS-IV concentration-dependently increased CTRP3 expression in adipocytes. CTRP3 silence decreased glucose consumption, upregulated IL-6 and TNF-α expression and downregulated GLUT-4 mRNA expression in 200 µM AS-IV-treated adipocytes. Moreover, AS-IV treatment enhanced the activity of phosphoinositide 3-kinase (PI3K)/AKT signaling in adipocytes, which was markedly attenuated by CTRP3 silencing. Importantly, inhibition of PI3K/AKT signaling also attenuated AS-IV induced an increase in glucose consumption and GLUT-4 expression and a decrease in IL-6 and TNF-α expression of adipocytes.\nCONCLUSIONS\nCollectively, our data indicated that AS-IV attenuated insulin resistance and inflammation in adipocytes via targeting CTRP3/PI3K/Akt signaling.",
+        "year": "2022",
+        "venue": "Diabetes therapy : research, treatment and education of diabetes and related disorders",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36103112/",
+        "authors": [
+          "Zhang, Yue",
+          "Xu, Guangning",
+          "Huang, Baoyi",
+          "Chen, Dongni",
+          "Ye, Renqun"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "31179340",
+        "title": "To Explore the Pathogenesis of Vascular Lesion of Type 2 Diabetes Mellitus Based on the PI3K/Akt Signaling Pathway.",
+        "abstract": "BACKGROUND\nType 2 diabetes mellitus (T2DM) has become a chronic disease, serious harm to human health. Complications of the blood pipe are the main cause of disability and death in diabetic patients, including vascular lesions that directly affects the prognosis of patients with diabetes and survival. This study was to determine the influence of high glucose and related mechanism of vascular lesion of type 2 diabetes mellitus pathogenesis.\nMETHODS\nIn vivo aorta abdominalis of GK rats was observed with blood pressure, heart rate, hematoxylin and eosin (H&E), Masson, and Verhoeff staining. In vitro cells were cultured with 30 mM glucose for 24 h. RT-QPCR was used to detect the mRNA expression of endothelial markers PTEN, PI3K, Akt, and VEGF. Immunofluorescence staining was used to detect the expression of PTEN, PI3K, Akt, and VEGF. PI3K and Akt phosphorylation levels were detected by Western blot analysis.\nRESULTS\nHeart rate, systolic blood pressure, diastolic blood pressure, and mean blood pressure in the GK control group were higher compared with the Wistar control group and no difference compared with the GK experimental model group. Fluorescence intensity of VEGF, Akt, and PI3K in the high-sugar stimulus group was stronger than the control group; PTEN in the high-sugar stimulus group was weakening than the control group. VEGF, Akt, and PI3K mRNA in the high-sugar stimulus group were higher than the control group; protein expressions of VEGF, Akt, and PI3K in the high-sugar stimulus group were higher than the control group. PTEN mRNA in the high-sugar stimulus group was lower than the control group. Protein expression of PTEN in the high-sugar stimulus group was lower than the control group.\nCONCLUSIONS\nAngiogenesis is an important pathogenesis of T2DM vascular disease, and PTEN plays a negative regulatory role in the development of new blood vessels and can inhibit the PI3K/Akt signaling pathway.",
+        "year": "2019",
+        "venue": "Journal of diabetes research",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31179340/",
+        "authors": [
+          "Gao, Jia-Rong",
+          "Qin, Xiu-Juan",
+          "Fang, Zhao-Hui",
+          "Han, Li-Ping",
+          "Guo, Ming-Fei",
+          "Jiang, Nan-Nan"
+        ],
+        "citation_count": null
+      }
+    ],
+    "total": 54,
+    "snapshot_time": "2025-12-15T16:23:10.975832"
+  },
+  "\"single-cell sequencing\" AND \"neurodegenerative diseases\" AND \"mechanism\" AND": {
+    "query": "\"single-cell sequencing\" AND \"neurodegenerative diseases\" AND \"mechanism\" AND",
+    "limit": 5,
+    "offset": 0,
+    "papers": [
+      {
+        "pmid": "34715039",
+        "title": "Mitochondrial metabolism coordinates stage-specific repair processes in macrophages during wound healing.",
+        "abstract": "Wound healing is a coordinated process that initially relies on pro-inflammatory macrophages, followed by a pro-resolution function of these cells. Changes in cellular metabolism likely dictate these distinct activities, but the nature of these changes has been unclear. Here, we profiled early- versus late-stage skin wound macrophages in mice at both the transcriptional and functional levels. We found that glycolytic metabolism in the early phase is not sufficient to ensure productive repair. Instead, by combining conditional disruption of the electron transport chain with deletion of mitochondrial aspartyl-tRNA synthetase, followed by single-cell sequencing analysis, we found that a subpopulation of early-stage wound macrophages are marked by mitochondrial ROS (mtROS) production and HIF1α stabilization, which ultimately drives a pro-angiogenic program essential for timely healing. In contrast, late-phase, pro-resolving wound macrophages are marked by IL-4Rα-mediated mitochondrial respiration and mitohormesis. Collectively, we identify changes in mitochondrial metabolism as a critical control mechanism for macrophage effector functions during wound healing.",
+        "year": "2021",
+        "venue": "Cell metabolism",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34715039/",
+        "authors": [
+          "Willenborg, Sebastian",
+          "Sanin, David E",
+          "Jais, Alexander",
+          "Ding, Xiaolei",
+          "Ulas, Thomas",
+          "Nüchel, Julian",
+          "Popović, Milica",
+          "MacVicar, Thomas",
+          "Langer, Thomas",
+          "Schultze, Joachim L",
+          "Gerbaulet, Alexander",
+          "Roers, Axel",
+          "Pearce, Edward J",
+          "Brüning, Jens C",
+          "Trifunovic, Aleksandra",
+          "Eming, Sabine A"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "32712267",
+        "title": "Somatic mutations in neurodegeneration: An update.",
+        "abstract": "Mosaicism, the presence of genomic differences between cells due to post-zygotic somatic mutations, is widespread in the human body, including within the brain. A role for this in neurodegenerative diseases has long been hypothesised, and technical developments are now allowing the question to be addressed in detail. The rapidly accumulating evidence is discussed in this review, with a focus on recent developments. Somatic mutations of numerous types may occur, including single nucleotide variants (SNVs), copy number variants (CNVs), and retrotransposon insertions. They could act as initiators or risk factors, especially if they arise in development, although they could also result from the disease process, potentially contributing to progression. In common sporadic neurodegenerative disorders, relevant mutations have been reported in synucleinopathies, comprising somatic gains of SNCA in Parkinson's disease and multiple system atrophy, and in Alzheimer's disease, where a novel recombination mechanism leading to somatic variants of APP, as well as an excess of somatic SNVs affecting tau phosphorylation, have been reported. In Mendelian repeat expansion disorders, mosaicism due to somatic instability, first detected 25 years ago, has come to the forefront. Brain somatic SNVs occur in DNA repair disorders, and there is evidence for a role of several ALS genes in DNA repair. While numerous challenges, and need for further validation, remain, this new, or perhaps rediscovered, area of research has the potential to transform our understanding of neurodegeneration.",
+        "year": "2020",
+        "venue": "Neurobiology of disease",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32712267/",
+        "authors": [
+          "Proukakis, Christos"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "39920690",
+        "title": "uN2CpolyG-mediated p65 nuclear sequestration suppresses the NF-κB-NLRP3 pathway in neuronal intranuclear inclusion disease.",
+        "abstract": "BACKGROUND\nNeuronal intranuclear inclusion disease (NIID) is genetically linked to CGG repeat expansion in the 5'-untranslated region of the NOTCH2NLC gene, with nascent polyglycine-containing protein (uN2CpolyG) identified as a primary pathogenic factor. Emerging clinical evidence suggests that inflammation contributes to NIID pathogenesis, yet the underlying molecular mechanisms remain elusive. This study aimed to elucidate the molecular interaction between uN2CpolyG and the NF-κB-NLRP3 pathway.\nMETHODS\nSingle-cell RNA sequencing was conducted on the skin tissues of NIID patients to assess changes in the expression of genes involved in inflammatory pathways. Cell models (HEK-293T and U87-MG) transfected with CGG 9/69/100 expansion vectors were used to investigate alterations in the NF-κB-NLRP3-autophagy pathway. Additionally, the therapeutic potential of NF-κB activators was evaluated in a Drosophila model with a CGG expansion knock-in.\nRESULTS\nSingle-cell sequencing revealed a significant reduction in the expression of NFKBIA, encoding NF-κB inhibitor alpha (IkBa), which facilitates the nuclear translocation of p65, a key NF-κB component. uN2CpolyG directly interacted with and sequestered p65 in nuclear inclusions, leading to reduced phosphorylated p65 (p-p65) levels. This sequestration significantly downregulated the NF-κB-NLRP3 pathway, impairing autophagy, as indicated by decreased LC3II/LC3I ratios. Treatment of CGG 100 cells with lipopolysaccharide (LPS) significantly increased p-p65, NLRP3, and LC3II/LC3I levels while reducing insoluble uN2CpolyG levels and intranuclear inclusions. In the Drosophila knock-in model, LPS significantly reduced the number of intranuclear inclusions and improved phenotypic manifestations.\nCONCLUSIONS\nThis study revealed that uN2CpolyG directly interacts with and sequesters p65, thereby inhibiting the NF-κB-NLRP3 pathway and impairing autophagy. This mechanism highlights a novel therapeutic target for NIID and provides potentially broader insights into similar mechanisms in other neurodegenerative diseases characterized by misfolded protein aggregates.",
+        "year": "2025",
+        "venue": "Cell communication and signaling : CCS",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39920690/",
+        "authors": [
+          "Shen, Yu",
+          "Jiang, Kaiyan",
+          "Tan, Dandan",
+          "Zhu, Min",
+          "Qiu, Yusen",
+          "Huang, Pencheng",
+          "Zou, Wenquan",
+          "Deng, Jianwen",
+          "Wang, Zhaoxia",
+          "Xiong, Ying",
+          "Hong, Daojun"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "38082562",
+        "title": "Multiomic integration reveals neuronal-extracellular vesicle coordination of gliotic responses in degeneration.",
+        "abstract": "In the central nervous system (CNS), including in the retina, neuronal-to-glial communication is critical for maintaining tissue homeostasis including signal transmission, transfer of trophic factors, and in the modulation of inflammation. Extracellular vesicle (EV)-mediated transport of molecular messages to regulate these processes has been suggested as a mechanism by which bidirectional communication between neuronal and glial cells can occur. In this work we employed multiomics integration to investigate the role of EV communication pathways from neurons to glial cells within the CNS, using the mouse retina as a readily accessible representative CNS tissue. Further, using a well-established model of degeneration, we aimed to uncover how dysregulation of homeostatic messaging between neurons and glia via EV can result in retinal and neurodegenerative diseases. EV proteomics, glia microRNA (miRNA) Open Array and small RNA sequencing, and retinal single cell sequencing were performed, with datasets integrated and analysed computationally. Results demonstrated that exogenous transfer of neuronal miRNA to glial cells was mediated by EV and occurred as a targeted response during degeneration to modulate gliotic inflammation. Taken together, our results support a model of neuronal-to-glial communication via EV, which could be harnessed for therapeutic targeting to slow the progression of retinal-, and neuro-degenerations of the CNS.",
+        "year": "2023",
+        "venue": "Journal of extracellular vesicles",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38082562/",
+        "authors": [
+          "Cioanca, Adrian V",
+          "Wooff, Yvette",
+          "Aggio-Bruce, Riemke",
+          "Sekar, Rakshanya",
+          "Dietrich, Catherine",
+          "Natoli, Riccardo"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "32181251",
+        "title": "Type 1 Interleukin-4 Signaling Obliterates Mouse Astroglia in vivo but Not in vitro .",
+        "abstract": "Recent findings suggest that reduced neurogenesis could be one of the underlying reasons for the exacerbated neuropathology in humans, thus restoring the neural stem cell proliferation and neurogenesis could help to circumvent some pathological aspects of Alzheimer's disease. We recently identified Interleukin-4/STAT6 signaling as a neuron-glia crosstalk mechanism that enables glial proliferation and neurogenesis in adult zebrafish brain and 3D cultures of human astroglia, which manifest neurogenic properties. In this study, by using single cell sequencing in the APP/PS1dE9 mouse model of AD, we found that IL4 receptor ( Il4r ) is not expressed in mouse astroglia and IL4 signaling is not active in these cells. We tested whether activating IL4/STAT6 signaling would enhance cell proliferation and neurogenesis in healthy and disease conditions. Lentivirus-mediated expression of IL4R or constitutively active STAT6VT impaired the survival capacity of mouse astroglia in vivo but not in vitro . These results suggest that the adult mouse brain generates a non-permissive environment that dictates a negative effect of IL4 signaling on astroglial survival and neurogenic properties in contrast to zebrafish brains and in vitro mammalian cell cultures. Our findings that IL4R signaling in dentate gyrus (DG) of adult mouse brain impinges on the survival of DG cells implicate an evolutionary mechanism that might underlie the loss of neuroregenerative ability of the brain, which might be utilized for basic and clinical aspects for neurodegenerative diseases.",
+        "year": "2020",
+        "venue": "Frontiers in cell and developmental biology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32181251/",
+        "authors": [
+          "Mashkaryan, Violeta",
+          "Siddiqui, Tohid",
+          "Popova, Stanislava",
+          "Cosacak, Mehmet Ilyas",
+          "Bhattarai, Prabesh",
+          "Brandt, Kerstin",
+          "Govindarajan, Nambirajan",
+          "Petzold, Andreas",
+          "Reinhardt, Susanne",
+          "Dahl, Andreas",
+          "Lefort, Roger",
+          "Kizil, Caghan"
+        ],
+        "citation_count": null
+      }
+    ],
+    "total": 6,
+    "snapshot_time": "2025-12-15T16:23:17.351170"
+  },
+  "\"single-cell sequencing\" AND \"neurodegenerative diseases\" AND \"biomarkers\" AND": {
+    "query": "\"single-cell sequencing\" AND \"neurodegenerative diseases\" AND \"biomarkers\" AND",
+    "limit": 5,
+    "offset": 0,
+    "papers": [
+      {
+        "pmid": "36405716",
+        "title": "Identification of diagnostic genes for both Alzheimer's disease and Metabolic syndrome by the machine learning algorithm.",
+        "abstract": "BACKGROUND\nAlzheimer's disease is the most common neurodegenerative disease worldwide. Metabolic syndrome is the most common metabolic and endocrine disease in the elderly. Some studies have suggested a possible association between MetS and AD, but few studied genes that have a co-diagnostic role in both diseases.\nMETHODS\nThe microarray data of AD (GSE63060 and GSE63061 were merged after the batch effect was removed) and MetS (GSE98895) in the GEO database were downloaded. The WGCNA was used to identify the co-expression modules related to AD and MetS. RF and LASSO were used to identify the candidate genes. Machine learning XGBoost improves the diagnostic effect of hub gene in AD and MetS. The CIBERSORT algorithm was performed to assess immune cell infiltration MetS and AD samples and to investigate the relationship between biomarkers and infiltrating immune cells. The peripheral blood mononuclear cells (PBMCs) single-cell RNA (scRNA) sequencing data from patients with AD and normal individuals were visualized with the Seurat standard flow dimension reduction clustering the metabolic pathway activity changes each cell with ssGSEA.\nRESULTS\nThe brown module was identified as the significant module with AD and MetS. GO analysis of shared genes showed that intracellular transport and establishment of localization in cell and organelle organization were enriched in the pathophysiology of AD and MetS. By using RF and Lasso learning methods, we finally obtained eight diagnostic genes, namely ARHGAP4 , SNRPG , UQCRB , PSMA3 , DPM1 , MED6 , RPL36AL and RPS27A . Their AUC were all greater than 0.7. Higher immune cell infiltrations expressions were found in the two diseases and were positively linked to the characteristic genes. The scRNA-seq datasets finally obtained seven cell clusters. Seven major cell types including CD8 T cell, monocytes, T cells, NK cell, B cells, dendritic cells and macrophages were clustered according to immune cell markers. The ssGSEA revealed that immune-related gene ( SNRPG ) was significantly regulated in the glycolysis-metabolic pathway.\nCONCLUSION\nWe identified genes with common diagnostic effects on both MetS and AD, and found genes involved in multiple metabolic pathways associated with various immune cells.",
+        "year": "2022",
+        "venue": "Frontiers in immunology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36405716/",
+        "authors": [
+          "Li, Jinwei",
+          "Zhang, Yang",
+          "Lu, Tanli",
+          "Liang, Rui",
+          "Wu, Zhikang",
+          "Liu, Meimei",
+          "Qin, Linyao",
+          "Chen, Hongmou",
+          "Yan, Xianlei",
+          "Deng, Shan",
+          "Zheng, Jiemin",
+          "Liu, Quan"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "32416267",
+        "title": "Discovery of new epigenomics-based biomarkers and the early diagnosis of neurodegenerative diseases.",
+        "abstract": "Treatment options for many neurodegenerative diseases are limited due to the lack of early diagnostic procedures that allow timely delivery of therapeutic agents to affected neurons prior to cell death. While notable advances have been made in neurodegenerative disease biomarkers, whether or not the biomarkers discovered to date are useful for early diagnosis remains an open question. Additionally, the reliability of these biomarkers has been disappointing, due in part to the large dissimilarities between the tissues traditionally used to source biomarkers and primarily diseased neurons. In this article, we review the potential viability of atypical epigenetic and/or consequent transcriptional alterations (ETAs) as biomarkers of early-stage neurodegenerative disease, and present our perspectives on the discovery and practical use of such biomarkers in patient-derived neural samples using single-cell level analyses, thereby greatly enhancing the reliability of biomarker application.",
+        "year": "2020",
+        "venue": "Ageing research reviews",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32416267/",
+        "authors": [
+          "Lee, Davin",
+          "Choi, Yoon Ha",
+          "Seo, Jinsoo",
+          "Kim, Jong Kyoung",
+          "Lee, Sung Bae"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "41314746",
+        "title": "Multi-omics integration in disease research.",
+        "abstract": "Neurodegenerative diseases, marked by complex molecular mechanisms and diverse clinical features, challenge conventional research approaches. This chapter emphasizes the value of multi-omics integration in understanding the biology of Alzheimer's disease, Parkinson's disease, and amyotrophic lateral sclerosis (ALS). Genomic studies reveal risk variants such as APOE ε4 in Alzheimer's and rare mutations in familial forms. Transcriptomics highlights gene expression changes, including synaptic dysfunction in early Parkinson's and alternative splicing errors in TARDBP-related ALS. Proteomics identifies key protein aggregates like amyloid beta and alpha-synuclein, along with modifications such as hyperphosphorylated tau that correlate with cognitive decline. Metabolomics uncovers metabolic alterations, including mitochondrial dysfunction in Parkinson's and lipid peroxidation in ALS, which contribute to disease progression. By combining these layers with high-throughput tools like single-cell sequencing, spatial transcriptomics, and mass spectrometry, researchers can reconstruct molecular networks linking genetic risk, gene regulation, protein dysfunction, and metabolic imbalance. This approach enables patient stratification into molecular subtypes, such as neuroinflammatory clusters defined by microglial gene signatures and cytokine expression. Biomarkers from blood and cerebrospinal fluid allow for minimally invasive disease monitoring. Despite challenges such as data heterogeneity and limited standardization, multi-omics approaches support biomarker discovery and therapeutic development. Integrating these datasets with neuroimaging and digital tools enhances diagnostic precision and guides targeted interventions, such as antisense therapies for SOD1-linked ALS. Multi-omics integration is thus a critical foundation for advancing personalized strategies in neurodegenerative disease research.",
+        "year": "2025",
+        "venue": "Progress in brain research",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41314746/",
+        "authors": [
+          "Ceballos, Michael Warren Gonzales",
+          "Sy, Florge Francis Arnejo",
+          "Akbar, Amna",
+          "Taofiq, Alishba"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "34822450",
+        "title": "Metabolism, HDACs, and HDAC Inhibitors: A Systems Biology Perspective.",
+        "abstract": "Histone deacetylases (HDACs) are epigenetic enzymes that play a central role in gene regulation and are sensitive to the metabolic state of the cell. The cross talk between metabolism and histone acetylation impacts numerous biological processes including development and immune function. HDAC inhibitors are being explored for treating cancers, viral infections, inflammation, neurodegenerative diseases, and metabolic disorders. However, how HDAC inhibitors impact cellular metabolism and how metabolism influences their potency is unclear. Discussed herein are recent applications and future potential of systems biology methods such as high throughput drug screens, cancer cell line profiling, single cell sequencing, proteomics, metabolomics, and computational modeling to uncover the interplay between metabolism, HDACs, and HDAC inhibitors. The synthesis of new systems technologies can ultimately help identify epigenomic and metabolic biomarkers for patient stratification and the design of effective therapeutics.",
+        "year": "2021",
+        "venue": "Metabolites",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34822450/",
+        "authors": [
+          "King, Jacob",
+          "Patel, Maya",
+          "Chandrasekaran, Sriram"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "32629384",
+        "title": "Identification of unique and shared mitochondrial DNA mutations in neurodegeneration and cancer by single-cell mitochondrial DNA structural variation sequencing (MitoSV-seq).",
+        "abstract": "BACKGROUND\nPoint mutations and structural variations (SVs) in mitochondrial DNA (mtDNA) contribute to many neurodegenerative diseases. Technical limitations and heteroplasmy, however, have impeded their identification, preventing these changes from being examined in neurons in healthy and disease states.\nMETHODS\nWe have developed a high-resolution technique-Mitochondrial DNA Structural Variation Sequencing (MitoSV-seq)-that identifies all types of mtDNA SVs and single-nucleotide variations (SNVs) in single neurons and novel variations that have been undetectable with conventional techniques.\nFINDINGS\nUsing MitoSV-seq, we discovered SVs/SNVs in dopaminergic neurons in the Ifnar1 -/- murine model of Parkinson disease. Further, MitoSV-seq was found to have broad applicability, delivering high-quality, full-length mtDNA sequences in a species-independent manner from human PBMCs, haematological cancers, and tumour cell lines, regardless of heteroplasmy. We characterised several common SVs in haematological cancers (AML and MDS) that were linked to the same mtDNA region, MT-ND5, using only 10 cells, indicating the power of MitoSV-seq in determining single-cancer-cell ontologies. Notably, the MT-ND5 hotspot, shared between all examined cancers and Ifnar1 -/- dopaminergic neurons, suggests that its mutations have clinical value as disease biomarkers.\nINTERPRETATION\nMitoSV-seq identifies disease-relevant mtDNA mutations in single cells with high resolution, rendering it a potential drug screening platform in neurodegenerative diseases and cancers.\nFUNDING\nThe Lundbeck Foundation, Danish Council for Independent Research-Medicine, and European Union Horizon 2020 Research and Innovation Programme.",
+        "year": "2020",
+        "venue": "EBioMedicine",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32629384/",
+        "authors": [
+          "Jaberi, Elham",
+          "Tresse, Emilie",
+          "Grønbæk, Kirsten",
+          "Weischenfeldt, Joachim",
+          "Issazadeh-Navikas, Shohreh"
+        ],
+        "citation_count": null
+      }
+    ],
+    "total": 8,
+    "snapshot_time": "2025-12-15T16:23:20.813887"
+  },
+  "\"exosomes\" AND \"cardiovascular diseases\" AND \"biomarkers\" AND (\"diagnosis\" OR \"prognosis\") AND": {
+    "query": "\"exosomes\" AND \"cardiovascular diseases\" AND \"biomarkers\" AND (\"diagnosis\" OR \"prognosis\") AND",
+    "limit": 5,
+    "offset": 0,
+    "papers": [
+      {
+        "pmid": "37846107",
+        "title": "New Biomarkers for Cardiovascular Disease.",
+        "abstract": "Cardiovascular disease is the leading cause of death and disability worldwide. Early detection and treatment of cardiovascular disease are crucial for patient survival and long-term health. Despite advances in cardiovascular disease biomarkers, the prevalence of cardiovascular disease continues to increase worldwide as the global population ages. To address this problem, novel biomarkers that are more sensitive and specific to cardiovascular diseases must be developed and incorporated into clinical practice. Exosomes are promising biomarkers for cardiovascular disease. These small vesicles are produced and released into body fluids by all cells and carry specific information that can be correlated with disease progression. This article reviews the advantages and limitations of existing biomarkers for cardiovascular disease, such as cardiac troponin and cytokines, and discusses recent evidence suggesting the promise of exosomes as cardiovascular disease biomarkers.",
+        "year": "2023",
+        "venue": "Texas Heart Institute journal",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37846107/",
+        "authors": [
+          "Kim, Stephanie J",
+          "Mesquita, Fernanda C P",
+          "Hochman-Mendez, Camila"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "28495994",
+        "title": "Methodological Guidelines to Study Extracellular Vesicles.",
+        "abstract": "Owing to the relationship between extracellular vesicles (EVs) and physiological and pathological conditions, the interest in EVs is exponentially growing. EVs hold high hopes for novel diagnostic and translational discoveries. This review provides an expert-based update of recent advances in the methods to study EVs and summarizes currently accepted considerations and recommendations from sample collection to isolation, detection, and characterization of EVs. Common misconceptions and methodological pitfalls are highlighted. Although EVs are found in all body fluids, in this review, we will focus on EVs from human blood, not only our most complex but also the most interesting body fluid for cardiovascular research.",
+        "year": "2017",
+        "venue": "Circulation research",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28495994/",
+        "authors": [
+          "Coumans, Frank A W",
+          "Brisson, Alain R",
+          "Buzas, Edit I",
+          "Dignat-George, Françoise",
+          "Drees, Esther E E",
+          "El-Andaloussi, Samir",
+          "Emanueli, Costanza",
+          "Gasecka, Aleksandra",
+          "Hendrix, An",
+          "Hill, Andrew F",
+          "Lacroix, Romaric",
+          "Lee, Yi",
+          "van Leeuwen, Ton G",
+          "Mackman, Nigel",
+          "Mäger, Imre",
+          "Nolan, John P",
+          "van der Pol, Edwin",
+          "Pegtel, D Michiel",
+          "Sahoo, Susmita",
+          "Siljander, Pia R M",
+          "Sturk, Guus",
+          "de Wever, Olivier",
+          "Nieuwland, Rienk"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "34687770",
+        "title": "Extracellular vesicles in cardiovascular disease: Biological functions and therapeutic implications.",
+        "abstract": "Extracellular vesicles (EVs), including exosomes and microvesicles, are lipid bilayer particles naturally released from the cell. While exosomes are formed as intraluminal vesicles (ILVs) of the multivesicular endosomes (MVEs) and released to extracellular space upon MVE-plasma membrane fusion, microvesicles are generated through direct outward budding of the plasma membrane. Exosomes and microvesicles have same membrane orientation, different yet overlapping sizes; their cargo contents are selectively packed and dependent on the source cell type and functional state. Both exosomes and microvesicles can transfer bioactive RNAs, proteins, lipids, and metabolites from donor to recipient cells and influence the biological properties of the latter. Over the last decade, their potential roles as effective inter-tissue communicators in cardiovascular physiology and pathology have been increasingly appreciated. In addition, EVs are attractive sources of biomarkers for the diagnosis and prognosis of diseases, because they acquire their complex cargoes through cellular processes intimately linked to disease pathogenesis. Furthermore, EVs obtained from various stem/progenitor cell populations have been tested as cell-free therapy in various preclinical models of cardiovascular diseases and demonstrate unequivocally encouraging benefits. Here we summarize the findings from recent research on the biological functions of EVs in the ischemic heart disease and heart failure, and their potential as novel diagnostic biomarkers and therapeutic opportunities.",
+        "year": "2022",
+        "venue": "Pharmacology & therapeutics",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34687770/",
+        "authors": [
+          "Han, Chaoshan",
+          "Yang, Junjie",
+          "Sun, Jiacheng",
+          "Qin, Gangjian"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "28936732",
+        "title": "Exosomes as Diagnostic Biomarkers in Cardiovascular Diseases.",
+        "abstract": "Exosomes play important roles in the development and progression of cardiovascular diseases by modulating intercellular communication. Contents and quantities of exosomes are variable under different pathological cardiovascular conditions. Based on these concepts, exosomes have been proposed as novel diagnostic biomarkers in cardiovascular diseases. However, many issues related with clinically applicable biomarkers remain unresolved. Within this chapter, we discuss the potential value, but also the current challenges using exosome numbers and contents as diagnostic and prognostic biomarker in diverse cardiovascular pathologies.",
+        "year": "2017",
+        "venue": "Advances in experimental medicine and biology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28936732/",
+        "authors": [
+          "Jansen, Felix",
+          "Li, Qian"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "28936733",
+        "title": "Exosomes-Based Biomarkers for the Prognosis of Cardiovascular Diseases.",
+        "abstract": "Cardiovascular diseases (CVDs) have a high prevalence and annually increasing incidence with high mortality and morbidity. Identification of biomarkers with high sensitivity and specificity for assessing the prognosis of CVDs is necessary for optimizing personalized treatment and reducing mortality. Exosomes have been proved to be accessible in nearly all body fluids and they can reflect disease stage or progression. Here we summarized exosomes-based biomarkers for the prognosis of coronary artery diseases, heart failure, stroke, hypertension, cardiac arrhythmia, cardiomyopathy, valvular heart diseases and pulmonary arterial hypertension. If exosome-based biomarkers can achieve additionally benefits as compared to the present prognostic biomarkers remains to be determined and multicenter studies with large cohorts of patients are highly needed.",
+        "year": "2017",
+        "venue": "Advances in experimental medicine and biology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28936733/",
+        "authors": [
+          "Bei, Yihua",
+          "Yu, Pujiao",
+          "Cretoiu, Dragos",
+          "Cretoiu, Sanda Maria",
+          "Xiao, Junjie"
+        ],
+        "citation_count": null
+      }
+    ],
+    "total": 110,
+    "snapshot_time": "2025-12-15T16:23:26.298607"
+  },
+  "\"exosomes\" AND \"cardiovascular diseases\" AND \"mechanism\" AND \"biomarkers\" AND (\"humans\"[MeSH Terms]) AND": {
+    "query": "\"exosomes\" AND \"cardiovascular diseases\" AND \"mechanism\" AND \"biomarkers\" AND (\"humans\"[MeSH Terms]) AND",
+    "limit": 5,
+    "offset": 0,
+    "papers": [
+      {
+        "pmid": "39994679",
+        "title": "THBS1 in macrophage-derived exosomes exacerbates cerebral ischemia-reperfusion injury by inducing ferroptosis in endothelial cells.",
+        "abstract": "Macrophages play a critical role in the development of acute ischemic stroke (AIS). Cerebral ischemia-reperfusion injury (CIRI) is a pivotal pathological process that exacerbates AIS, with exosomes act as crucial mediators. However, the effects and mechanisms of action of macrophage-derived exosomes on CIRI remain unclear. This study demonstrated that macrophage-derived exosomes induce endothelial ferroptosis and barrier disruption during CIRI. Through proteomic sequencing and the reanalysis of transcriptomic and single-cell sequencing data, thrombospondin-1 (THBS1) was identified as a key exosomal molecule. Elevated THBS1 was observed in exosomes and monocytes from the peripheral blood of patients with AIS in oxygen-glucose deprivation/reoxygenation (OGD/R)-stimulated THP-1 and RAW264.7, in their secreted exosomes, and in macrophages within the brains of transient middle cerebral artery occlusion (tMCAO) mice. Additionally, THBS1 expression in exosomes was positively correlated with vascular barrier injury biomarkers, including MMP-9 and S100B. Modulation of THBS1 in macrophage-derived exosomes affected exosome-induced ferroptosis in endothelial cells. The mechanism by which THBS1 binds directly to OTUD5 and promotes GPX4 ubiquitination was elucidated using RNA interference, adeno-associated virus transfection, and endothelial-specific Gpx4 knockout mice. High-throughput screening of small-molecule compounds targeting THBS1 was performed. Molecular docking, molecular dynamics simulations, and cellular thermal shift assays further confirmed that salvianolic acid B (SAB) has a potent binding affinity for THBS1. SAB treatment inhibited the interaction between THBS1 and OTUD5, leading to reduced GPX4 ubiquitination. Further research revealed that SAB treatment enhanced the cerebral protective effects of THBS1 inhibition. In conclusion, this study explored the role of exosome-mediated signaling between macrophages and cerebral vascular endothelial cells in CIRI, highlighting the THBS1-OTUD5-GPX4 axis as a driver of endothelial ferroptosis and brain injury. Targeting this signaling axis represents a potential therapeutic strategy for treating CIRI.",
+        "year": "2025",
+        "venue": "Journal of neuroinflammation",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39994679/",
+        "authors": [
+          "Liu, Chang",
+          "Sui, Haijing",
+          "Li, Zhixi",
+          "Sun, Zhenyu",
+          "Li, Chenglong",
+          "Chen, Guangmin",
+          "Ma, Zhaoxue",
+          "Cao, Hang",
+          "Xi, Hongjie"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "30385010",
+        "title": "The therapeutic and diagnostic role of exosomes in cardiovascular diseases.",
+        "abstract": "Exosomes are nano-sized membranous vesicles that are secreted by cells. They have an important role in transferring proteins, mRNA, miRNA and other bioactive molecules between cells and regulate gene expression in recipient cells. Therefore, exosomes are a mechanism by which communication between cells is achieved and they are involved in a wide range of physiological processes, especially those requiring cell-cell communication. In the cardiovascular system, exosomes are associated with endothelial cells, cardiac myocytes, vascular cells, stem and progenitor cells, and play an essential role in development, injury and disease of the cardiovascular system. In recent years, accumulating evidence implicates exosomes in the development and progression of cardiovascular disease. Additionally, exosomal microRNAs are considered to be key players in cardiac regeneration and confer cardioprotective and regenerative properties on both cardiac and non-cardiac cells and, additionally, stem and progenitor cells. Notably, miRNAs may be isolated from blood and offer a potential source of novel diagnostic and prognostic biomarkers for cardiovascular disease. In this review, we summarize and assess the functional roles of exosomes in cardiovascular physiology, cell-to-cell communication and cardio-protective effects in cardiovascular disease.",
+        "year": "2019",
+        "venue": "Trends in cardiovascular medicine",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30385010/",
+        "authors": [
+          "Zamani, Parvin",
+          "Fereydouni, Narges",
+          "Butler, Alexandra E",
+          "Navashenaq, Jamshid Gholizadeh",
+          "Sahebkar, Amirhossein"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "32333198",
+        "title": "Exosomes: Cell-Free Therapy for Cardiovascular Diseases.",
+        "abstract": "Cardiovascular diseases (CVDs) are an important cause of death and disease worldwide. Because injured cardiac tissue cannot be repaired itself, it is urgent to develop other alternate therapies. Stem cells can be differentiated into cardiomyocytes, endothelial cells, and vascular smooth muscle cells for the treatment of CVDs. Therefore, cell therapy has recently been considered a viable treatment option that can significantly improve cardiac function. Nonetheless, implanted stem cells rarely survive in the recipient heart, suggesting that the benefits of stem cell therapy may involve other mechanisms. Exosomes derived from stem cells have a myocardial protection function after myocardial injury, and may be a promising and effective therapy for CVDs. Here, we discuss the application and mechanism of exosomes derived from stem cells in the diagnosis and treatment of CVDs and provide evidence for the application of exosomes in CVDs. Graphical Abstract.",
+        "year": "2020",
+        "venue": "Journal of cardiovascular translational research",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32333198/",
+        "authors": [
+          "He, Nana",
+          "Zhang, Yuelin",
+          "Zhang, Shun",
+          "Wang, Dongjuan",
+          "Ye, Honghua"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "33951921",
+        "title": "Cyclin D2 Overexpression Enhances the Efficacy of Human Induced Pluripotent Stem Cell-Derived Cardiomyocytes for Myocardial Repair in a Swine Model of Myocardial Infarction.",
+        "abstract": "BACKGROUND\nHuman induced pluripotent stem cells with normal (wild-type) or upregulated (overexpressed) levels of CCND2 (cyclin D2) expression were differentiated into cardiomyocytes (CCND2 WT CMs or CCND2 OE CMs, respectively) and injected into infarcted pig hearts.\nMETHODS\nAcute myocardial infarction was induced by a 60-minute occlusion of the left anterior descending coronary artery. Immediately after reperfusion, CCND2 WT CMs or CCND2 OE CMs (3×10 7 cells each) or an equivalent volume of the delivery vehicle was injected around the infarct border zone area.\nRESULTS\nThe number of the engrafted CCND2 OE CMs exceeded that of the engrafted CCND2 WT CMs from 6- to 8-fold, rising from 1 week to 4 weeks after implantation. In contrast to the treatment with the CCND2 WT CMs or the delivery vehicle, the administration of CCND2 OE CM was associated with significantly improved left ventricular function, as revealed by magnetic resonance imaging. This correlated with reduction of infarct size, fibrosis, ventricular hypertrophy, and cardiomyocyte apoptosis, and increase of vascular density and arterial density, as per histologic analysis of the treated hearts. Expression of cell proliferation markers (eg, Ki67, phosphorylated histone 3, and Aurora B kinase) was also significantly upregulated in the recipient cardiomyocytes from the CCND2 OE CM-treated than from the CCND2 WT CM-treated pigs. The cell proliferation rate and the hypoxia tolerance measured in cultured human induced pluripotent stem cell cardiomyocytes were significantly greater after treatment with exosomes isolated from the CCND2 OE CMs (CCND2 OE Exos) than from the CCND2 WT CMs (CCND2 WT Exos). As demonstrated by our study, CCND2 OE Exos can also promote the proliferation activity of postnatal rat and adult mouse cardiomyocytes. A bulk miRNA sequencing analysis of CCND2 OE Exos versus CCND2 WT Exos identified 206 and 91 miRNAs that were significantly upregulated and downregulated, respectively. Gene ontology enrichment analysis identified significant differences in the expression profiles of miRNAs from various functional categories and pathways, including miRNAs implicated in cell-cycle checkpoints (G2/M and G1/S transitions), or the mechanism of cytokinesis.\nCONCLUSIONS\nWe demonstrated that enhanced potency of CCND2 OE CMs promoted myocyte proliferation in both grafts and recipient tissue in a large mammal acute myocardial infarction model. These results suggest that CCND2 OE CMs transplantation may be a potential therapeutic strategy for the repair of infarcted hearts.",
+        "year": "2021",
+        "venue": "Circulation",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33951921/",
+        "authors": [
+          "Zhao, Meng",
+          "Nakada, Yuji",
+          "Wei, Yuhua",
+          "Bian, Weihua",
+          "Chu, Yuxin",
+          "Borovjagin, Anton V",
+          "Xie, Min",
+          "Zhu, Wuqiang",
+          "Nguyen, Thanh",
+          "Zhou, Yang",
+          "Serpooshan, Vahid",
+          "Walcott, Gregory P",
+          "Zhang, Jianyi"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "32861822",
+        "title": "Extracellular vesicles and cardiovascular system: Biomarkers and Cardioprotective Effectors.",
+        "abstract": "In the last few decades extracellular vesicles (EVs), which include exosomes and microvesicles, have attracted significant interest in cardiovascular pathophysiology due to their intrinsic properties. Indeed, EVs by transferring their cargo, which contains miRNA, DNA, proteins and lipids, were found effective in preventive and regenerative medicine and in protecting the heart against an array of pathological conditions, including myocardial infarction and arrhythmias. EVs can attenuate cellular senescence, inflammation and myocardial injury. Cardiovascular structures may be targeted by circulating EVs derived by extra-cardiac cells and platelets, as well by EVs locally released from all major cardiovascular cell types, including endothelial cells, cardiomyocytes, macrophages and fibroblasts. Yet, EVs of cardiovascular origin can be also transferred to distant tissues by circulation. Therefore, EVs have been proposed not only as promising diagnostic tools (early disease biomarkers), but also as therapeutics. This review focuses on the protective effects exerted by EVs, released by different cell types in the cardiovascular system. Physical exercise is considered as a natural mechanism of EV production involved in preventive medicine. Particular attention will be devoted to describe the impact of EVs in cardioprotection after ischemia/reperfusion injury.",
+        "year": "2020",
+        "venue": "Vascular pharmacology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32861822/",
+        "authors": [
+          "Femminò, Saveria",
+          "Penna, Claudia",
+          "Margarita, Sara",
+          "Comità, Stefano",
+          "Brizzi, Maria F",
+          "Pagliaro, Pasquale"
+        ],
+        "citation_count": null
+      }
+    ],
+    "total": 24,
+    "snapshot_time": "2025-12-15T16:23:29.477318"
+  },
+  "\"exosomes\" AND \"cardiovascular diseases\" AND \"biomarkers\" AND \"review\"[Publication Type] AND": {
+    "query": "\"exosomes\" AND \"cardiovascular diseases\" AND \"biomarkers\" AND \"review\"[Publication Type] AND",
+    "limit": 5,
+    "offset": 0,
+    "papers": [
+      {
+        "pmid": "37846107",
+        "title": "New Biomarkers for Cardiovascular Disease.",
+        "abstract": "Cardiovascular disease is the leading cause of death and disability worldwide. Early detection and treatment of cardiovascular disease are crucial for patient survival and long-term health. Despite advances in cardiovascular disease biomarkers, the prevalence of cardiovascular disease continues to increase worldwide as the global population ages. To address this problem, novel biomarkers that are more sensitive and specific to cardiovascular diseases must be developed and incorporated into clinical practice. Exosomes are promising biomarkers for cardiovascular disease. These small vesicles are produced and released into body fluids by all cells and carry specific information that can be correlated with disease progression. This article reviews the advantages and limitations of existing biomarkers for cardiovascular disease, such as cardiac troponin and cytokines, and discusses recent evidence suggesting the promise of exosomes as cardiovascular disease biomarkers.",
+        "year": "2023",
+        "venue": "Texas Heart Institute journal",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37846107/",
+        "authors": [
+          "Kim, Stephanie J",
+          "Mesquita, Fernanda C P",
+          "Hochman-Mendez, Camila"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "38123019",
+        "title": "Advances in the study of exosomes in cardiovascular diseases.",
+        "abstract": "BACKGROUND\nCardiovascular disease (CVD) has been the leading cause of death worldwide for many years. In recent years, exosomes have gained extensive attention in the cardiovascular system due to their excellent biocompatibility. Studies have extensively researched miRNAs in exosomes and found that they play critical roles in various physiological and pathological processes in the cardiovascular system. These processes include promoting or inhibiting inflammatory responses, promoting angiogenesis, participating in cell proliferation and migration, and promoting pathological progression such as fibrosis.\nAIM OF REVIEW\nThis systematic review examines the role of exosomes in various cardiovascular diseases such as atherosclerosis, myocardial infarction, ischemia-reperfusion injury, heart failure and cardiomyopathy. It also presents the latest treatment and prevention methods utilizing exosomes. The study aims to provide new insights and approaches for preventing and treating cardiovascular diseases by exploring the relationship between exosomes and these conditions. Furthermore, the review emphasizes the potential clinical use of exosomes as biomarkers for diagnosing cardiovascular diseases.\nKEY SCIENTIFIC CONCEPTS OF REVIEW\nExosomes are nanoscale vesicles surrounded by lipid bilayers that are secreted by most cells in the body. They are heterogeneous, varying in size and composition, with a diameter typically ranging from 40 to 160 nm. Exosomes serve as a means of information communication between cells, carrying various biologically active substances, including lipids, proteins, and small RNAs such as miRNAs and lncRNAs. As a result, they participate in both physiological and pathological processes within the body.",
+        "year": "2024",
+        "venue": "Journal of advanced research",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38123019/",
+        "authors": [
+          "Zhang, Zhaobo",
+          "Zou, Yuanming",
+          "Song, Chunyu",
+          "Cao, Kexin",
+          "Cai, Kexin",
+          "Chen, Shuxian",
+          "Wu, Yanjiao",
+          "Geng, Danxi",
+          "Sun, Guozhe",
+          "Zhang, Naijin",
+          "Zhang, Xingang",
+          "Zhang, Yixiao",
+          "Sun, Yingxian",
+          "Zhang, Ying"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "33402823",
+        "title": "Roles of Exosomes in Ocular Diseases.",
+        "abstract": "Exosomes, nanoscale vesicles with a diameter of 30 to 150 nm, are composed of a lipid bilayer, protein, and genetic material. Exosomes are secreted by virtually all types of cells in the human body. They have key functions in cell-to-cell communication, immune regulation, inflammatory response, and neovascularization. Mounting evidence indicates that exosomes play an important role in various diseases, such as cancer, cardiovascular diseases, and brain diseases; however, the role that exosomes play in eye diseases has not yet been rigorously studied. This review covers current exosome research as it relates to ocular diseases including diabetic retinopathy, age-related macular degeneration, autoimmune uveitis, glaucoma, traumatic optic neuropathies, corneal diseases, retinopathy of prematurity, and uveal melanoma. In addition, we discuss recent advances in the biological functions of exosomes, focusing on the toxicity of exosomes and the use of exosomes as biomarkers and drug delivery vesicles. Finally, we summarize the primary considerations and challenges to be taken into account for the effective applications of exosomes.",
+        "year": "2020",
+        "venue": "International journal of nanomedicine",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33402823/",
+        "authors": [
+          "Liu, Jia",
+          "Jiang, Feng",
+          "Jiang, Yu",
+          "Wang, Yicheng",
+          "Li, Zelin",
+          "Shi, Xuefeng",
+          "Zhu, Yanping",
+          "Wang, Hongbo",
+          "Zhang, Zhuhong"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "28495994",
+        "title": "Methodological Guidelines to Study Extracellular Vesicles.",
+        "abstract": "Owing to the relationship between extracellular vesicles (EVs) and physiological and pathological conditions, the interest in EVs is exponentially growing. EVs hold high hopes for novel diagnostic and translational discoveries. This review provides an expert-based update of recent advances in the methods to study EVs and summarizes currently accepted considerations and recommendations from sample collection to isolation, detection, and characterization of EVs. Common misconceptions and methodological pitfalls are highlighted. Although EVs are found in all body fluids, in this review, we will focus on EVs from human blood, not only our most complex but also the most interesting body fluid for cardiovascular research.",
+        "year": "2017",
+        "venue": "Circulation research",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28495994/",
+        "authors": [
+          "Coumans, Frank A W",
+          "Brisson, Alain R",
+          "Buzas, Edit I",
+          "Dignat-George, Françoise",
+          "Drees, Esther E E",
+          "El-Andaloussi, Samir",
+          "Emanueli, Costanza",
+          "Gasecka, Aleksandra",
+          "Hendrix, An",
+          "Hill, Andrew F",
+          "Lacroix, Romaric",
+          "Lee, Yi",
+          "van Leeuwen, Ton G",
+          "Mackman, Nigel",
+          "Mäger, Imre",
+          "Nolan, John P",
+          "van der Pol, Edwin",
+          "Pegtel, D Michiel",
+          "Sahoo, Susmita",
+          "Siljander, Pia R M",
+          "Sturk, Guus",
+          "de Wever, Olivier",
+          "Nieuwland, Rienk"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "34687770",
+        "title": "Extracellular vesicles in cardiovascular disease: Biological functions and therapeutic implications.",
+        "abstract": "Extracellular vesicles (EVs), including exosomes and microvesicles, are lipid bilayer particles naturally released from the cell. While exosomes are formed as intraluminal vesicles (ILVs) of the multivesicular endosomes (MVEs) and released to extracellular space upon MVE-plasma membrane fusion, microvesicles are generated through direct outward budding of the plasma membrane. Exosomes and microvesicles have same membrane orientation, different yet overlapping sizes; their cargo contents are selectively packed and dependent on the source cell type and functional state. Both exosomes and microvesicles can transfer bioactive RNAs, proteins, lipids, and metabolites from donor to recipient cells and influence the biological properties of the latter. Over the last decade, their potential roles as effective inter-tissue communicators in cardiovascular physiology and pathology have been increasingly appreciated. In addition, EVs are attractive sources of biomarkers for the diagnosis and prognosis of diseases, because they acquire their complex cargoes through cellular processes intimately linked to disease pathogenesis. Furthermore, EVs obtained from various stem/progenitor cell populations have been tested as cell-free therapy in various preclinical models of cardiovascular diseases and demonstrate unequivocally encouraging benefits. Here we summarize the findings from recent research on the biological functions of EVs in the ischemic heart disease and heart failure, and their potential as novel diagnostic biomarkers and therapeutic opportunities.",
+        "year": "2022",
+        "venue": "Pharmacology & therapeutics",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34687770/",
+        "authors": [
+          "Han, Chaoshan",
+          "Yang, Junjie",
+          "Sun, Jiacheng",
+          "Qin, Gangjian"
+        ],
+        "citation_count": null
+      }
+    ],
+    "total": 164,
+    "snapshot_time": "2025-12-15T16:23:33.350210"
+  },
+  "\"Huntington Disease\" AND \"epigenetic mechanisms\" AND \"\"[MeSH Terms] AND (\"molecular biology\"[MeSH Terms] OR \"gene expression regulation\"[MeSH Terms])": {
+    "query": "\"Huntington Disease\" AND \"epigenetic mechanisms\" AND \"\"[MeSH Terms] AND (\"molecular biology\"[MeSH Terms] OR \"gene expression regulation\"[MeSH Terms])",
+    "limit": 5,
+    "offset": 0,
+    "papers": [
+      {
+        "pmid": "34038804",
+        "title": "Epigenetic regulation in Huntington's disease.",
+        "abstract": "Huntington's disease (HD) is a devastating and fatal monogenic neurodegenerative disorder characterized by progressive loss of selective neurons in the brain and is caused by an abnormal expansion of CAG trinucleotide repeats in a coding exon of the huntingtin (HTT) gene. Progressive gene expression changes that begin at premanifest stages are a prominent feature of HD and are thought to contribute to disease progression. Increasing evidence suggests the critical involvement of epigenetic mechanisms in abnormal transcription in HD. Genome-wide alterations of a number of epigenetic modifications, including DNA methylation and multiple histone modifications, are associated with HD, suggesting that mutant HTT causes complex epigenetic abnormalities and chromatin structural changes, which may represent an underlying pathogenic mechanism. The causal relationship of specific epigenetic changes to early transcriptional alterations and to disease pathogenesis require further investigation. In this article, we review recent studies on epigenetic regulation in HD with a focus on DNA and histone modifications. We also discuss the contribution of epigenetic modifications to HD pathogenesis as well as potential mechanisms linking mutant HTT and epigenetic alterations. Finally, we discuss the therapeutic potential of epigenetic-based treatments.",
+        "year": "2021",
+        "venue": "Neurochemistry international",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34038804/",
+        "authors": [
+          "Hyeon, Jae Wook",
+          "Kim, Albert H",
+          "Yano, Hiroko"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "34830381",
+        "title": "Non-Cell Autonomous and Epigenetic Mechanisms of Huntington's Disease.",
+        "abstract": "Huntington's disease (HD) is a rare neurodegenerative disorder caused by an expansion of CAG trinucleotide repeat located in the exon 1 of Huntingtin (HTT) gene in human chromosome 4. The HTT protein is ubiquitously expressed in the brain. Specifically, mutant HTT (mHTT) protein-mediated toxicity leads to a dramatic degeneration of the striatum among many regions of the brain. HD symptoms exhibit a major involuntary movement followed by cognitive and psychiatric dysfunctions. In this review, we address the conventional role of wild type HTT (wtHTT) and how mHTT protein disrupts the function of medium spiny neurons (MSNs). We also discuss how mHTT modulates epigenetic modifications and transcriptional pathways in MSNs. In addition, we define how non-cell autonomous pathways lead to damage and death of MSNs under HD pathological conditions. Lastly, we overview therapeutic approaches for HD. Together, understanding of precise neuropathological mechanisms of HD may improve therapeutic approaches to treat the onset and progression of HD.",
+        "year": "2021",
+        "venue": "International journal of molecular sciences",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34830381/",
+        "authors": [
+          "Kim, Chaebin",
+          "Yousefian-Jazi, Ali",
+          "Choi, Seung-Hye",
+          "Chang, Inyoung",
+          "Lee, Junghee",
+          "Ryu, Hoon"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "33925016",
+        "title": "Histone Methylation Regulation in Neurodegenerative Disorders.",
+        "abstract": "Advances achieved with molecular biology and genomics technologies have permitted investigators to discover epigenetic mechanisms, such as DNA methylation and histone posttranslational modifications, which are critical for gene expression in almost all tissues and in brain health and disease. These advances have influenced much interest in understanding the dysregulation of epigenetic mechanisms in neurodegenerative disorders. Although these disorders diverge in their fundamental causes and pathophysiology, several involve the dysregulation of histone methylation-mediated gene expression. Interestingly, epigenetic remodeling via histone methylation in specific brain regions has been suggested to play a critical function in the neurobiology of psychiatric disorders, including that related to neurodegenerative diseases. Prominently, epigenetic dysregulation currently brings considerable interest as an essential player in neurodegenerative disorders, such as Alzheimer's disease (AD), Parkinson's disease (PD), Huntington's disease (HD), Amyotrophic lateral sclerosis (ALS) and drugs of abuse, including alcohol abuse disorder, where it may facilitate connections between genetic and environmental risk factors or directly influence disease-specific pathological factors. We have discussed the current state of histone methylation, therapeutic strategies, and future perspectives for these disorders. While not somatically heritable, the enzymes responsible for histone methylation regulation, such as histone methyltransferases and demethylases in neurons, are dynamic and reversible. They have become promising potential therapeutic targets to treat or prevent several neurodegenerative disorders. These findings, along with clinical data, may provide links between molecular-level changes and behavioral differences and provide novel avenues through which the epigenome may be targeted early on in people at risk for neurodegenerative disorders.",
+        "year": "2021",
+        "venue": "International journal of molecular sciences",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33925016/",
+        "authors": [
+          "Basavarajappa, Balapal S",
+          "Subbanna, Shivakumar"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "33127472",
+        "title": "Epigenetic mechanisms underlying enhancer modulation of neuronal identity, neuronal activity and neurodegeneration.",
+        "abstract": "Neurodegenerative diseases, including Huntington's disease (HD) and Alzheimer's disease (AD), are progressive conditions characterized by selective, disease-dependent loss of neuronal regions and/or subpopulations. Neuronal loss is preceded by a long period of neuronal dysfunction, during which glial cells also undergo major changes, including neuroinflammatory response. Those dramatic changes affecting both neuronal and glial cells associate with epigenetic and transcriptional dysregulations, characterized by defined cell-type-specific signatures. Notably, increasing studies support the view that altered regulation of transcriptional enhancers, which are distal regulatory regions of the genome capable of modulating the activity of promoters through chromatin looping, play a critical role in transcriptional dysregulation in HD and AD. We review current knowledge on enhancers in HD and AD, and highlight challenging issues to better decipher the epigenetic code of neurodegenerative diseases.",
+        "year": "2021",
+        "venue": "Neurobiology of disease",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33127472/",
+        "authors": [
+          "Alcalà-Vida, Rafael",
+          "Awada, Ali",
+          "Boutillier, Anne-Laurence",
+          "Merienne, Karine"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "25813218",
+        "title": "Epigenetic Mechanisms Involved in Huntington's Disease Pathogenesis.",
+        "abstract": "Transcriptional dysregulation is an early event and may be an important pathological mechanism in Huntington's disease (HD). However, the exact process that leads to alterations in gene expression in HD is not clear. One potential mechanism underlying transcriptional abnormalities in HD may be epigenetic alterations which regulate gene expression without changing the DNA sequence. Previous work has demonstrated that epigenetic marks, such as DNA methylation and post-translational modifications of histone proteins, are significantly altered in HD cellular and animal models as well as HD patients. Furthermore, studies have shown a therapeutic role for histone deacetylase (HDAC) inhibitors in numerous HD …models. Here, we review a range of studies describing epigenetic changes in HD as well as several potential therapeutics that target aberrant epigenetic alterations in HD.",
+        "year": "2015",
+        "venue": "Journal of Huntington's disease",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25813218/",
+        "authors": [
+          "Glajch, Kelly E",
+          "Sadri-Vakili, Ghazaleh"
+        ],
+        "citation_count": null
+      }
+    ],
+    "total": 21,
+    "snapshot_time": "2025-12-15T16:23:40.983039"
+  },
+  "\"CRISPR screening\" AND \"mechanism\" AND \"cancer\" AND \"drug targets\" AND \"\"": {
+    "query": "\"CRISPR screening\" AND \"mechanism\" AND \"cancer\" AND \"drug targets\" AND \"\"",
+    "limit": 5,
+    "offset": 0,
+    "papers": [
+      {
+        "pmid": "40513576",
+        "title": "Enhancing anti-tumor immunity of natural killer cells through targeting IL-15R signaling.",
+        "abstract": "Interleukin-15 receptor (IL-15R) agonists induce anti-tumor immunity in pre-clinical models. However, dose-limiting toxicity has hampered their clinical development. We performed genome-wide CRISPR screens to reveal the complete IL-15R signaling mechanism in natural killer (NK) cells and discovered that ubiquitin-dependent IL-15R degradation is the dominant mechanism restraining IL-15R signaling. Key hits included the NEDD8 E2-conjugating enzyme UBE2F, the ubiquitin E3-ligase ARIH2, and Cullin-5 RING E3 ligase (CRL5) members. We found that UBE2F was required for neddylation and activation of CUL5, whereas ARIH2 contributed to CRL5-mediated IL-15RB degradation. Ablation of ARIH2 or UBE2F increased IL-15RB surface expression and enhanced signaling, resulting in proinflammatory cytokine production and augmented natural and CAR-mediated cytotoxicity. In mice lacking Arih2, Rnf7, or Ube2f, we observed that the IL-15R hyperresponsive NK cells exhibited superior in vivo anti-tumor immunity against primary and disseminated metastatic tumors. Thus, we have identified the enzymes UBE2F and ARIH2 as tractable immunotherapy drug targets.",
+        "year": "2025",
+        "venue": "Cancer cell",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40513576/",
+        "authors": [
+          "Nikolic, Iva",
+          "Cursons, Joseph",
+          "Shields, Benjamin",
+          "Chappaz, Stephane",
+          "Sudholz, Harrison",
+          "Meng, Xiangpeng",
+          "Constantinescu, Patrick",
+          "Vijayakumaran, Reshma",
+          "D'Angelo, Michael",
+          "Foroutan, Momeneh",
+          "Ladd, David",
+          "Veldman, Matthew",
+          "Glab, Jason",
+          "Procter, Tahlia",
+          "Park, Hae-Young",
+          "Contet, Julian",
+          "Deuss, Felix",
+          "Wong, Kahlia",
+          "Sun, Yi",
+          "Berry, Richard",
+          "Rautela, Jai",
+          "Huntington, Nicholas D"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "35474966",
+        "title": "Extracting functional insights from loss-of-function screens using deep link prediction.",
+        "abstract": "We present deep link prediction (DLP), a method for the interpretation of loss-of-function screens. Our approach uses representation-based link prediction to reprioritize phenotypic readouts by integrating screening experiments with gene-gene interaction networks. We validate on 2 different loss-of-function technologies, RNAi and CRISPR, using datasets obtained from DepMap. Extensive benchmarking shows that DLP-DeepWalk outperforms other methods in recovering cell-specific dependencies, achieving an average precision well above 90% across 7 different cancer types and on both RNAi and CRISPR data. We show that the genes ranked highest by DLP-DeepWalk are appreciably more enriched in drug targets compared to the ranking based on original screening scores. Interestingly, this enrichment is more pronounced on RNAi data compared to CRISPR data, consistent with the greater inherent noise of RNAi screens. Finally, we demonstrate how DLP-DeepWalk can infer the molecular mechanism through which putative targets trigger cell line mortality.",
+        "year": "2022",
+        "venue": "Cell reports methods",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35474966/",
+        "authors": [
+          "Strybol, Pieter-Paul",
+          "Larmuseau, Maarten",
+          "de Schaetzen van Brienen, Louise",
+          "Van den Bulcke, Tim",
+          "Marchal, Kathleen"
+        ],
+        "citation_count": null
+      }
+    ],
+    "total": 2,
+    "snapshot_time": "2025-12-15T16:24:00.068927"
+  },
+  "\"CRISPR screening\" AND \"cancer\" AND \"drug targets\" AND \"review\" AND \"\"": {
+    "query": "\"CRISPR screening\" AND \"cancer\" AND \"drug targets\" AND \"review\" AND \"\"",
+    "limit": 5,
+    "offset": 0,
+    "papers": [
+      {
+        "pmid": "35189910",
+        "title": "Current applications and future perspective of CRISPR/Cas9 gene editing in cancer.",
+        "abstract": "Clustered regularly interspaced short palindromic repeats (CRISPR) system provides adaptive immunity against plasmids and phages in prokaryotes. This system inspires the development of a powerful genome engineering tool, the CRISPR/CRISPR-associated nuclease 9 (CRISPR/Cas9) genome editing system. Due to its high efficiency and precision, the CRISPR/Cas9 technique has been employed to explore the functions of cancer-related genes, establish tumor-bearing animal models and probe drug targets, vastly increasing our understanding of cancer genomics. Here, we review current status of CRISPR/Cas9 gene editing technology in oncological research. We first explain the basic principles of CRISPR/Cas9 gene editing and introduce several new CRISPR-based gene editing modes. We next detail the rapid progress of CRISPR screening in revealing tumorigenesis, metastasis, and drug resistance mechanisms. In addition, we introduce CRISPR/Cas9 system delivery vectors and finally demonstrate the potential of CRISPR/Cas9 engineering to enhance the effect of adoptive T cell therapy (ACT) and reduce adverse reactions.",
+        "year": "2022",
+        "venue": "Molecular cancer",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35189910/",
+        "authors": [
+          "Wang, Si-Wei",
+          "Gao, Chao",
+          "Zheng, Yi-Min",
+          "Yi, Li",
+          "Lu, Jia-Cheng",
+          "Huang, Xiao-Yong",
+          "Cai, Jia-Bin",
+          "Zhang, Peng-Fei",
+          "Cui, Yue-Hong",
+          "Ke, Ai-Wu"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "34830205",
+        "title": "To Discover the Efficient and Novel Drug Targets in Human Cancers Using CRISPR/Cas Screening and Databases.",
+        "abstract": "CRISPR/Cas has emerged as an excelle nt gene-editing technology and is used worldwide for research. The CRISPR library is an ideal tool for identifying essential genes and synthetic lethality targeted for cancer therapies in human cancers. Synthetic lethality is defined as multiple genetic abnormalities that, when present individually, do not affect function or survival, but when present together, are lethal. Recently, many CRISPR libraries are available, and the latest libraries are more accurate and can be applied to few cells. However, it is easier to efficiently search for cancer targets with their own screenings by effectively using databases of CRISPR screenings, such as Depmap portal, PICKLES (Pooled In-Vitro CRISPR Knockout Library Essentiality Screens), iCSDB, Project Score database, and CRISP-view. This review will suggest recent optimal CRISPR libraries and effective databases for Novel Approaches in the Discovery and Design of Targeted Therapies.",
+        "year": "2021",
+        "venue": "International journal of molecular sciences",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34830205/",
+        "authors": [
+          "Onishi, Iichiroh",
+          "Yamamoto, Kouhei",
+          "Kinowaki, Yuko",
+          "Kitagawa, Masanobu",
+          "Kurata, Morito"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "40650785",
+        "title": "CRISPR screening approaches in breast cancer research.",
+        "abstract": "The emergence of CRISPR-Cas9 technology has transformed functional genomics, offering unmatched opportunities to dissect and understand biological pathways and identify novel therapeutic targets in cancer. Breast cancer is a complex, heterogeneous disease and remains a major cause of morbidity and mortality in women, particularly when diagnosed at advanced or metastatic stages where effective treatments are limited. High-throughput CRISPR screening is undoubtedly a powerful tool to discover novel drug targets, uncover synthetic lethal interactions, and identify vulnerabilities in cancer. This review focuses on advances in our understanding of breast cancer developed through CRISPR-based screening technology, particularly in identifying drivers of breast cancer progression, growth, and metastasis, as well as in identifying potential new therapeutic targets and combination therapies. We discuss recent discoveries, current challenges, and limitations of this approach and explore how advancements in CRISPR technology could have a profound impact on the future of breast cancer treatment.",
+        "year": "2025",
+        "venue": "Cancer metastasis reviews",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40650785/",
+        "authors": [
+          "Samuels, Mark",
+          "Besta, Simoni",
+          "Betrán, Andrea Lauer",
+          "Nia, Reza Shirazi",
+          "Xie, Xiaohong",
+          "Gu, Xidong",
+          "Shu, Qijin",
+          "Giamas, Georgios"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "30827888",
+        "title": "Hacking the Cancer Genome: Profiling Therapeutically Actionable Long Non-coding RNAs Using CRISPR-Cas9 Screening.",
+        "abstract": "Long non-coding RNAs (lncRNAs) represent a huge reservoir of potential cancer targets. Such \"onco-lncRNAs\" have resisted traditional RNAi methods, but CRISPR-Cas9 genome editing now promises functional screens at high throughput and low cost. The unique biology of lncRNAs demands screening strategies distinct from protein-coding genes. The first such screens have identified hundreds of onco-lncRNAs promoting cell proliferation and drug resistance. Ongoing developments will further improve screen performance and translational relevance. This Review aims to highlight the potential of CRISPR screening technology for discovering new onco-lncRNAs, and to guide molecular oncologists wishing to apply it to their cancer of interest.",
+        "year": "2019",
+        "venue": "Cancer cell",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30827888/",
+        "authors": [
+          "Esposito, Roberta",
+          "Bosch, Núria",
+          "Lanzós, Andrés",
+          "Polidori, Taisia",
+          "Pulido-Quetglas, Carlos",
+          "Johnson, Rory"
+        ],
+        "citation_count": null
+      },
+      {
+        "pmid": "40516634",
+        "title": "Exploring synthetic lethality in cancer therapy: CRISPR-Cas9 technology offers new hope.",
+        "abstract": "Synthetic lethality (SL) is a breakthrough concept in cancer therapy that describes a scenario in which the simultaneous inactivation of two genes leads to cell death, whereas inactivation of either gene alone does not. The rise of clustered regularly interspaced short palindromic repeat (CRISPR)-CRISPR-associated nuclease 9 (Cas9) technology has provided a new tool for exploring this phenomenon, enabling genome editing and screening. This review evaluates the advancements achieved by CRISPR technology in identifying novel therapeutic targets and comprehending the processes of drug resistance using the concept of SL in cancer cells. This review explores the fundamental concept of SL and its application in cancer therapy, highlighting how the CRISPR-Cas9 system functions and how CRISPR-based screening can be leveraged to identify synthetic lethal genes and investigate the mechanisms of drug resistance. We summarize important research in related fields from recent years, demonstrating the role of CRISPR screening in revealing cancer cellular pathways and identifying new drug targets. We also summarize the clinical trials of related drugs currently underway, and anticipate that with the continuous development of CRISPR technology, its integration with cancer genetics and immuno-oncology will bring new hope to patients with drug-resistant cancers.",
+        "year": "2025",
+        "venue": "Biochimica et biophysica acta. Reviews on cancer",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40516634/",
+        "authors": [
+          "Wu, Yuqi",
+          "Wang, Yali",
+          "Wang, Yanbin",
+          "Qiu, Hong",
+          "Yuan, Xianglin",
+          "Xiong, Hua",
+          "Zou, Yanmei"
+        ],
+        "citation_count": null
+      }
+    ],
+    "total": 5,
+    "snapshot_time": "2025-12-15T16:24:03.809767"
+  }
+}

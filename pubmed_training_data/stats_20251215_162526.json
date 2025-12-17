@@ -1,0 +1,18 @@
+{
+  "total_samples": 12,
+  "question_types": {
+    "系统性汇总": 1,
+    "比较": 4,
+    "汇总": 5,
+    "文献综述": 2
+  },
+  "languages": {
+    "en": 2,
+    "zh": 10
+  },
+  "pagination_samples": 3,
+  "pagination_ratio": 0.25,
+  "avg_pmids_per_sample": 3.8333333333333335,
+  "unique_queries": 12,
+  "generation_time": "2025-12-15T16:25:26.709096"
+}

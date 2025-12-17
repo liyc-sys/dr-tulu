@@ -1,0 +1,12 @@
+{
+  "total_samples": 1,
+  "topics": {
+    "肿瘤免疫治疗（PD-1/PD-L1抑制剂，生物标志物）": 1
+  },
+  "question_types": {
+    "预后分析": 1
+  },
+  "avg_tool_calls": 0.0,
+  "avg_content_rubrics": 5.0,
+  "generation_time": "2025-12-16T12:19:57.373447"
+}

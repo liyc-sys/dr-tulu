@@ -1,0 +1,12 @@
+{
+  "total_samples": 1,
+  "topics": {
+    "基因治疗与细胞治疗（CRISPR/造血干细胞/基因编辑）": 1
+  },
+  "question_types": {
+    "疗效比较": 1
+  },
+  "avg_tool_calls": 10.0,
+  "avg_content_rubrics": 6.0,
+  "generation_time": "2025-12-16T13:32:51.914600"
+}

@@ -1,0 +1,139 @@
+========== 系统信息 ==========
+主机名: develop-20251201222510-guf7k
+日期: Mon Dec  8 12:26:03 UTC 2025
+
+========== GPU 状态 ==========
+Mon Dec  8 12:26:04 2025       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.4     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA H100 80GB HBM3          On  | 00000000:18:00.0 Off |                    0 |
+| N/A   26C    P0              72W / 700W |      0MiB / 81559MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   1  NVIDIA H100 80GB HBM3          On  | 00000000:2A:00.0 Off |                    0 |
+| N/A   28C    P0              71W / 700W |      0MiB / 81559MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   2  NVIDIA H100 80GB HBM3          On  | 00000000:3A:00.0 Off |                    0 |
+| N/A   27C    P0              69W / 700W |      0MiB / 81559MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   3  NVIDIA H100 80GB HBM3          On  | 00000000:5D:00.0 Off |                    0 |
+| N/A   32C    P0              71W / 700W |      0MiB / 81559MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   4  NVIDIA H100 80GB HBM3          On  | 00000000:9A:00.0 Off |                    0 |
+| N/A   27C    P0              70W / 700W |      0MiB / 81559MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   5  NVIDIA H100 80GB HBM3          On  | 00000000:AB:00.0 Off |                    0 |
+| N/A   28C    P0              70W / 700W |      0MiB / 81559MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   6  NVIDIA H100 80GB HBM3          On  | 00000000:BA:00.0 Off |                    0 |
+| N/A   27C    P0              70W / 700W |      0MiB / 81559MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   7  NVIDIA H100 80GB HBM3          On  | 00000000:DB:00.0 Off |                    0 |
+| N/A   26C    P0              70W / 700W |      0MiB / 81559MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+
+========== GPU 详细信息 ==========
+index, name, memory.total [MiB], memory.used [MiB], memory.free [MiB], utilization.gpu [%]
+0, NVIDIA H100 80GB HBM3, 81559 MiB, 0 MiB, 81007 MiB, 0 %
+1, NVIDIA H100 80GB HBM3, 81559 MiB, 0 MiB, 81007 MiB, 0 %
+2, NVIDIA H100 80GB HBM3, 81559 MiB, 0 MiB, 81007 MiB, 0 %
+3, NVIDIA H100 80GB HBM3, 81559 MiB, 0 MiB, 81007 MiB, 0 %
+4, NVIDIA H100 80GB HBM3, 81559 MiB, 0 MiB, 81007 MiB, 0 %
+5, NVIDIA H100 80GB HBM3, 81559 MiB, 0 MiB, 81007 MiB, 0 %
+6, NVIDIA H100 80GB HBM3, 81559 MiB, 0 MiB, 81007 MiB, 0 %
+7, NVIDIA H100 80GB HBM3, 81559 MiB, 0 MiB, 81007 MiB, 0 %
+
+========== 占用 GPU 的进程 ==========
+pid, used_gpu_memory [MiB], gpu_name
+
+========== NCCL 相关环境变量 ==========
+CUDA_CACHE_DISABLE=1
+CUDA_DRIVER_VERSION=550.54.15
+CUDA_HOME=/usr/local/cuda
+CUDA_MODULE_LOADING=LAZY
+CUDA_VERSION=12.4.1.003
+MLP_RACK_RANK_INDEX=
+NCCL_VERSION=2.21.5
+NVIDIA_REQUIRE_CUDA=cuda>=9.0
+PAYLOAD_RACK_RANK_WITH_PORT=
+TORCH_CUDA_ARCH_LIST=8.0;9.0
+_CUDA_COMPAT_PATH=/usr/local/cuda/compat
+_CUDA_COMPAT_STATUS=CUDA Driver OK
+
+========== PyTorch 和 CUDA 版本 ==========
+PyTorch version: 2.6.0+cu124
+CUDA available: True
+CUDA version: 12.4
+NCCL version: (2, 21, 5)
+GPU count: 8
+  GPU 0: NVIDIA H100 80GB HBM3
+    Memory: 79.1 GB
+  GPU 1: NVIDIA H100 80GB HBM3
+    Memory: 79.1 GB
+  GPU 2: NVIDIA H100 80GB HBM3
+    Memory: 79.1 GB
+  GPU 3: NVIDIA H100 80GB HBM3
+    Memory: 79.1 GB
+  GPU 4: NVIDIA H100 80GB HBM3
+    Memory: 79.1 GB
+  GPU 5: NVIDIA H100 80GB HBM3
+    Memory: 79.1 GB
+  GPU 6: NVIDIA H100 80GB HBM3
+    Memory: 79.1 GB
+  GPU 7: NVIDIA H100 80GB HBM3
+    Memory: 79.1 GB
+
+========== 测试 GPU 间通信 ==========
+检测到 8 个 GPU
+  GPU 0: ✅ 可用
+  GPU 1: ✅ 可用
+  GPU 2: ✅ 可用
+  GPU 3: ✅ 可用
+  GPU 4: ✅ 可用
+  GPU 5: ✅ 可用
+  GPU 6: ✅ 可用
+  GPU 7: ✅ 可用
+
+========== 检查端口占用 (58000-60000) ==========
+端口范围内无监听
+
+========== 检查 Ray 进程 ==========
+
+========== 系统资源 ==========
+内存使用:
+               total        used        free      shared  buff/cache   available
+Mem:           2.0Ti       439Gi       365Gi       980Mi       1.2Ti       1.5Ti
+Swap:             0B          0B          0B
+
+CPU 核心数: 96
+
+========== DeepSpeed 和关键包版本 ==========
+accelerate                        1.6.0
+ray                               2.44.1
+torch                             2.5.1+cu124
+torchaudio                        2.5.1+cu124
+torchvision                       0.20.1+cu124
+transformers                      4.48.2
+vllm                              0.1.dev5121+g7c10f2c /opt/glm-vllm
+
+========== 诊断完成 ==========

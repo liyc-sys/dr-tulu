@@ -1,0 +1,24 @@
+{
+  "total_samples": 18,
+  "question_types": {
+    "比较": 7,
+    "汇总": 8,
+    "趋势分析": 1,
+    "抽取": 1,
+    "文献综述": 1
+  },
+  "languages": {
+    "zh": 13,
+    "en": 5
+  },
+  "pagination_samples": 2,
+  "pagination_ratio": 0.1111111111111111,
+  "avg_pmids_per_sample": 2.611111111111111,
+  "unique_queries": 18,
+  "rubrics_stats": {
+    "avg_tool_rubrics": 4.0,
+    "avg_content_rubrics": 5.111111111111111,
+    "total_rubrics_per_sample": 9.11111111111111
+  },
+  "generation_time": "2025-12-15T17:06:52.741707"
+}
