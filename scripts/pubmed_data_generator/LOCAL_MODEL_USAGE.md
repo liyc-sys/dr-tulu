@@ -26,6 +26,11 @@ vllm serve Qwen/Qwen3-8B \
     --api-key YOUR_API_KEY  # 可选
 ```
 
+vllm serve /workspace/math_science_data/lyc/models/DR-Tulu-8B \
+    --host 0.0.0.0 \
+    --port 8000 \
+    --max-model-len 40960
+
 或者使用其他工具（如llama.cpp, Ollama等），只要提供OpenAI兼容的`/v1/chat/completions`接口即可。
 
 ### 2. MCP服务器
