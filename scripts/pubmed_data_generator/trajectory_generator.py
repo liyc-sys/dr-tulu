@@ -485,7 +485,7 @@ class GPT5TrajectoryGenerator:
             "model": self.model,
             "messages": messages,
             "temperature": 0.1,  # 更低的温度，让模型更确定性
-            "max_tokens": 1024,  # 更低的 max_tokens，防止一次生成太多
+            "max_tokens": 8192,  # 增加到 8192 tokens，确保完整答案生成
             # stop 序列
             "stop": ["</call_tool>\n", "</call_tool><", "<tool_output>"],
         }
