@@ -4,7 +4,7 @@ CUDA_VISIBLE_DEVICES=1 vllm serve /workspace/math_science_data/lyc/models/DR-Tul
 
 CUDA_VISIBLE_DEVICES=2 vllm serve /workspace/math_science_data/lyc/models/DR-Tulu-8B --port 8002 --max-model-len 40960
 
-CUDA_VISIBLE_DEVICES=3 vllm serve /workspace/math_science_data/lyc/models/DR-Tulu-8B --port 8003 --max-model-len 40960
+CUDA_VISIBLE_DEVICES=3 vllm serve /workspace/math_science_data/lyc/models/DR-Tulu-8B --port 8009 --max-model-len 40960
 
 CUDA_VISIBLE_DEVICES=4 vllm serve /workspace/math_science_data/lyc/models/DR-Tulu-8B --port 8004 --max-model-len 40960
 

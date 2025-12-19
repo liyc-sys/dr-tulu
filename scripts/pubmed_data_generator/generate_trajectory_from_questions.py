@@ -215,7 +215,7 @@ class LocalModelTrajectoryGenerator:
             "model": self.model_name,
             "messages": messages,
             "temperature": 0.1,
-            "max_tokens": 8192,
+            "max_tokens": 1024,
             "stop": ["</call_tool>\n", "</call_tool><", "<tool_output>"],
         }
         
