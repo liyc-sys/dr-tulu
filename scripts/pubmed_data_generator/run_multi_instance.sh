@@ -84,7 +84,8 @@ for i in "${!PORTS[@]}"; do
         python generate_trajectory_from_questions.py \
             --questions-file "$part_file" \
             --local-model-url "http://localhost:$port/v1" \
-            --model-name "${MODEL_NAME}_port${port}" \
+            --model-name "${MODEL_NAME}" \
+            --instance-id "port${port}" \
             --concurrency $CONCURRENCY_PER_INSTANCE \
             --output "$OUTPUT_DIR" \
             > "$TEMP_DIR/log_port_${port}.txt" 2>&1 &
@@ -94,7 +95,8 @@ for i in "${!PORTS[@]}"; do
         python generate_trajectory_from_questions.py \
             --questions-file "$part_file" \
             --local-model-url "http://localhost:$port/v1" \
-            --model-name "${MODEL_NAME}_port${port}" \
+            --model-name "${MODEL_NAME}" \
+            --instance-id "port${port}" \
             --concurrency $CONCURRENCY_PER_INSTANCE \
             --output "$OUTPUT_DIR" \
             > "$TEMP_DIR/log_port_${port}.txt" 2>&1 &

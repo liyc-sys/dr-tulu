@@ -286,12 +286,19 @@ class QuestionBasedTrajectoryGenerator:
         local_model_url: str = "http://localhost:8000/v1",
         model_name: str = "Qwen3-8B",
         output_dir: str = OUTPUT_DIR,
-        incremental_save: bool = True
+        incremental_save: bool = True,
+        instance_id: str = None  # 新增：实例标识（如"port8000"）
     ):
         self.questions_file = questions_file
+        self.model_name = model_name  # 保存原始model_name用于文件名
+        self.instance_id = instance_id  # 保存实例ID
+        
+        # 提取基础模型名用于API调用（移除端口后缀）
+        api_model_name = model_name.split("_port")[0] if "_port" in model_name else model_name
+        
         self.trajectory_generator = LocalModelTrajectoryGenerator(
             local_model_url=local_model_url,
-            model_name=model_name
+            model_name=api_model_name  # API调用使用基础模型名
         )
         self.samples: List[TrajectoryDataSample] = []
         self.output_dir = output_dir
@@ -301,13 +308,20 @@ class QuestionBasedTrajectoryGenerator:
         if self.incremental_save:
             os.makedirs(self.output_dir, exist_ok=True)
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            model_suffix = model_name.replace("/", "_").replace(":", "_")
+            model_suffix = api_model_name.replace("/", "_").replace(":", "_")
+            
+            # 如果有instance_id，在文件名中包含
+            if instance_id:
+                file_suffix = f"{model_suffix}_{instance_id}"
+            else:
+                file_suffix = model_suffix
+            
             self.incremental_file = os.path.join(
                 self.output_dir,
-                f"pubmed_trajectory_{timestamp}_{model_suffix}_incremental.jsonl"
+                f"pubmed_trajectory_{timestamp}_{file_suffix}_incremental.jsonl"
             )
             self.timestamp = timestamp
-            self.model_suffix = model_suffix
+            self.model_suffix = file_suffix
     
     def load_questions(self) -> List[Dict]:
         """从JSONL文件加载问题"""
@@ -348,8 +362,15 @@ class QuestionBasedTrajectoryGenerator:
             traceback.print_exc()
             return None
         
+        # 构建sample_id，如果有instance_id则包含
+        if self.instance_id:
+            sample_id = f"{self.instance_id}_traj_{sample_index:05d}"
+        else:
+            base_name = self.model_name.replace("/", "_").replace(":", "_").replace("-", "_")
+            sample_id = f"{base_name}_traj_{sample_index:05d}"
+        
         return TrajectoryDataSample(
-            sample_id=f"qwen3_traj_{sample_index:05d}",
+            sample_id=sample_id,
             question=question,
             topic=question_data.get("topic", ""),
             question_type=question_data.get("question_type", ""),
@@ -359,7 +380,9 @@ class QuestionBasedTrajectoryGenerator:
                 "tools_used": trajectory.tools_used,
                 "total_tool_calls": trajectory.total_tool_calls,
                 "generation_time": datetime.now().isoformat(),
-                "model": self.trajectory_generator.model_name,
+                "model": self.model_name,  # 使用原始model_name（可能包含端口信息）
+                "api_model": self.trajectory_generator.model_name,  # API实际使用的模型名
+                "instance_id": self.instance_id,
                 "source_file": self.questions_file
             }
         )
@@ -519,6 +542,7 @@ async def main():
     parser.add_argument("--local-model-url", type=str, default="http://localhost:8000/v1", 
                         help="本地模型API地址（OpenAI兼容格式）")
     parser.add_argument("--model-name", type=str, default="Qwen3-8B", help="模型名称")
+    parser.add_argument("--instance-id", type=str, default=None, help="实例标识（如port8000），用于区分不同实例")
     parser.add_argument("--output", type=str, default=OUTPUT_DIR, help="输出目录")
     parser.add_argument("--concurrency", type=int, default=5, help="并发数")
     parser.add_argument("--limit", type=int, default=None, help="限制生成的问题数量（用于测试）")
@@ -539,7 +563,8 @@ async def main():
         local_model_url=args.local_model_url,
         model_name=args.model_name,
         output_dir=args.output,
-        incremental_save=not args.no_incremental
+        incremental_save=not args.no_incremental,
+        instance_id=args.instance_id
     )
     
     try:
