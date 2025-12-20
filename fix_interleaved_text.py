@@ -710,8 +710,11 @@ def main():
     # input_file = "/Users/liyc/Desktop/dr-tulu/交付数据/pubmed_trajectory_20251218_092432_no_rubrics_incremental.jsonl"
     # output_file = "/Users/liyc/Desktop/dr-tulu/交付数据/pubmed_trajectory_20251218_092432_no_rubrics_incremental_fixed.jsonl"
 
-    input_file = "/Users/liyc/Desktop/dr-tulu/交付数据/pubmed_trajectory_20251218_135723_no_rubrics_incremental.jsonl"
-    output_file = "/Users/liyc/Desktop/dr-tulu/交付数据/pubmed_trajectory_20251218_135723_no_rubrics_incremental_fixed.jsonl"
+    # input_file = "/Users/liyc/Desktop/dr-tulu/交付数据/pubmed_trajectory_20251218_135723_no_rubrics_incremental.jsonl"
+    # output_file = "/Users/liyc/Desktop/dr-tulu/交付数据/pubmed_trajectory_20251218_135723_no_rubrics_incremental_fixed.jsonl"
+
+    input_file = "/Users/liyc/Desktop/dr-tulu/交付数据/pubmed_trajectory_20251220_144143_no_rubrics_incremental.jsonl"
+    output_file = "/Users/liyc/Desktop/dr-tulu/交付数据/pubmed_trajectory_20251220_144143_no_rubrics_incremental_fixed.jsonl"
 
     # Check if input file exists
     if not os.path.exists(input_file):
