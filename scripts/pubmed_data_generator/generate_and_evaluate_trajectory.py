@@ -318,7 +318,8 @@ class TrajectoryEvaluator:
             ],
         }
         
-        response = requests.post(self.api_base, headers=headers, json=data)
+        # 添加超时设置：连接超时10秒，读取超时60秒
+        response = requests.post(self.api_base, headers=headers, json=data, timeout=(10, 60))
         response.raise_for_status()
         
         result = response.json()

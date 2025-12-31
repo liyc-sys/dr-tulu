@@ -47,9 +47,12 @@ REMAINDER=$((TOTAL_QUESTIONS % NUM_INSTANCES))
 echo "每实例处理: ~$QUESTIONS_PER_INSTANCE 个问题"
 echo ""
 
-# 创建临时文件目录
-TEMP_DIR=$(mktemp -d)
-echo "临时目录: $TEMP_DIR"
+# 创建日志文件夹
+LOG_DIR_BASE="/workspace/math_science_data/lyc/1205/dr-tulu/record"
+mkdir -p "$LOG_DIR_BASE"
+TEMP_DIR="$LOG_DIR_BASE/temp_$(date +%Y%m%d_%H%M%S)"
+mkdir -p "$TEMP_DIR"
+echo "日志目录: $TEMP_DIR"
 
 # 分割问题文件
 echo "分割问题文件..."
