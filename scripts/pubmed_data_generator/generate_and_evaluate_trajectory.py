@@ -781,7 +781,7 @@ async def main():
     parser.add_argument("--instance-id", type=str, default=None, help="实例标识（如port8000）")
     parser.add_argument("--output", type=str, default=OUTPUT_DIR, help="输出目录")
     parser.add_argument("--concurrency", type=int, default=5, help="并发数")
-    parser.add_argument("--limit", type=int, default=5, help="限制生成的问题数量")
+    parser.add_argument("--limit", type=int, default=None, help="限制生成的问题数量")
     parser.add_argument("--no-incremental", action="store_true", help="禁用增量保存")
     parser.add_argument("--no-evaluation", action="store_true", help="禁用评估")
     parser.add_argument("--eval-model", type=str, default="openai/gpt-5-mini",
