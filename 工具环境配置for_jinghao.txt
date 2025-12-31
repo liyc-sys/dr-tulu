@@ -1,0 +1,49 @@
+12.17更新标准操作规程：
+
+先配置uv环境
+cd /workspace/math_science_data/lyc/1205/dr-tulu/rl/open-instruct
+uv sync
+
+
+1.启动mcp服务
+为防止有问题，mcp服务也统一采用export的形式
+
+运行crawl4ai 的docker版本：
+docker run -d -p 11235:11235 \
+  -e http_proxy="http://httpproxy.glm.ai:8888" \
+  -e https_proxy="http://httpproxy.glm.ai:8888" \
+  -e no_proxy="127.0.0.1,localhost,platform.glm.ai" \
+  unclecode/crawl4ai:latest
+
+停掉容器：
+docker stop $(docker ps -q --filter "ancestor=unclecode/crawl4ai:latest")
+
+确认docker在运行
+docker ps | grep crawl4ai
+
+export http_proxy="http://httpproxy.glm.ai:8888"
+export https_proxy="http://httpproxy.glm.ai:8888"
+export no_proxy="127.0.0.1,localhost,platform.glm.ai"
+export OPENROUTER_API_KEY="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"
+export MCP_TRANSPORT="StreamableHttpTransport"
+export MCP_TRANSPORT_PORT="8003"
+export MCP_TRANSPORT_HOST="127.0.0.1"
+
+# Crawl4AI Docker API 配置
+export CRAWL4AI_API_URL="http://localhost:11235"
+export CRAWL4AI_BLOCKLIST_PATH=/workspace/math_science_data/lyc/1205/dr-tulu/1.txt # 空白txt，绕过限制
+export CRAWL4AI_API_KEY="mamba-out" # 无意义，单纯绕过限制
+
+# 添加工具API KEY
+export S2_API_KEY=sk-user-F788DB8EABBDAD1858E82734A4E0C1BA
+export SERPER_API_KEY=56e20b0fb1dc8a9d19fb80be90fb346e63294148
+
+启动mcp server
+# cd /workspace/math_science_data/lyc/1205/dr-tulu/agent
+# uv run python -m dr_agent.mcp_backend.main --transport http --port 8003 --host 0.0.0.0 --path /mcp
+
+2.运行工具测试
+cd /workspace/math_science_data/lyc/1205/dr-tulu/rl/open-instruct
+uv run python /workspace/math_science_data/lyc/1205/dr-tulu/test_trajectory_tools.py
+
+训练启动失败/手动停止时，MCPserver不会自动关闭。使用netstat -tlnp | grep 8003监听是否仍有server，使用fuser -k 8003/tcp一键停止server。
