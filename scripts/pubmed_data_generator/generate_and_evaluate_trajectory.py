@@ -303,8 +303,14 @@ class TrajectoryEvaluator:
     
     def _call_openrouter(self, prompt: str) -> str:
         """调用OpenRouter API"""
+        import time
+        
+        print(f"    [API] 准备调用 {self.model_name}")
+        print(f"    [API] API Base: {self.api_base}")
+        print(f"    [API] Prompt长度: {len(prompt)} 字符")
+        
         headers = {
-            "Authorization": f"Bearer {self.api_key}",
+            "Authorization": f"Bearer {self.api_key[:20]}...",  # 只显示前20个字符
             "Content-Type": "application/json"
         }
         
@@ -318,12 +324,40 @@ class TrajectoryEvaluator:
             ],
         }
         
-        # 添加超时设置：连接超时10秒，读取超时60秒
-        response = requests.post(self.api_base, headers=headers, json=data, timeout=(10, 60))
-        response.raise_for_status()
-        
-        result = response.json()
-        return result["choices"][0]["message"]["content"].strip()
+        try:
+            start_time = time.time()
+            print(f"    [API] 发送请求...")
+            
+            # 添加超时设置：连接超时10秒，读取超时60秒
+            response = requests.post(self.api_base, headers=headers, json=data, timeout=(10, 60))
+            
+            elapsed_time = time.time() - start_time
+            print(f"    [API] 收到响应 (耗时: {elapsed_time:.2f}秒)")
+            print(f"    [API] HTTP状态码: {response.status_code}")
+            
+            response.raise_for_status()
+            
+            result = response.json()
+            content = result["choices"][0]["message"]["content"].strip()
+            
+            print(f"    [API] 响应内容长度: {len(content)} 字符")
+            print(f"    [API] ✓ API调用成功")
+            
+            return content
+            
+        except requests.exceptions.Timeout as e:
+            print(f"    [API] ✗ 请求超时: {e}")
+            raise
+        except requests.exceptions.ConnectionError as e:
+            print(f"    [API] ✗ 连接错误: {e}")
+            raise
+        except requests.exceptions.HTTPError as e:
+            print(f"    [API] ✗ HTTP错误: {e}")
+            print(f"    [API] 响应内容: {response.text[:200] if response.text else 'N/A'}")
+            raise
+        except Exception as e:
+            print(f"    [API] ✗ 未知错误: {e}")
+            raise
     
     def _build_general_quality_prompt(self, question: str, trajectory: Trajectory) -> str:
         """构建通用的质量评分提示词"""
@@ -497,12 +531,26 @@ class TrajectoryGeneratorWithEval:
         
         self.evaluator = None
         if enable_evaluation:
+            print("\n[初始化] 尝试初始化评估器...")
+            print(f"[初始化] 评估模型: {eval_model}")
             try:
                 self.evaluator = TrajectoryEvaluator(model_name=eval_model)
-            except Exception as e:
-                print(f"⚠️ 无法初始化评估器: {e}")
-                print("   将继续生成轨迹但不进行评分")
+                print(f"[初始化] ✓ 评估器初始化成功")
+                print(f"[初始化] API Base: {self.evaluator.api_base}")
+                print(f"[初始化] API Key: {self.evaluator.api_key[:20]}...")
+            except ValueError as e:
+                print(f"[初始化] ✗ 评估器初始化失败 (ValueError): {e}")
+                print(f"[初始化] 提示: 请检查 OPENROUTER_API_KEY 环境变量是否设置")
+                print(f"[初始化] 将继续生成轨迹但不进行评分")
                 self.enable_evaluation = False
+            except Exception as e:
+                print(f"[初始化] ✗ 评估器初始化失败 (未知错误): {e}")
+                import traceback
+                traceback.print_exc()
+                print(f"[初始化] 将继续生成轨迹但不进行评分")
+                self.enable_evaluation = False
+        else:
+            print("\n[初始化] 评估功能已禁用")
         
         self.samples: List[EvaluatedTrajectorySample] = []
         self.output_dir = output_dir
@@ -568,23 +616,44 @@ class TrajectoryGeneratorWithEval:
         # 评估轨迹
         evaluation = {"enabled": False}
         if self.enable_evaluation:
-            print("  正在评估轨迹质量...")
+            print("  [评估] 正在评估轨迹质量...")
+            print(f"  [评估] 评估器状态: {'已初始化' if self.evaluator else '未初始化'}")
+            print(f"  [评估] 使用模型: {self.evaluator.model_name if self.evaluator else 'N/A'}")
+            print(f"  [评估] Rubrics提供: {'是' if rubrics else '否'}")
+            
             try:
+                print(f"  [评估] 开始调用评估API...")
                 evaluation = await self.evaluator.evaluate_trajectory(
                     question=question,
                     trajectory=trajectory,
                     rubrics=rubrics
                 )
                 evaluation["enabled"] = True
-                print(f"  ✓ 评估完成: 得分 {evaluation.get('score', 0)}")
+                
+                score = evaluation.get('score', 0)
+                print(f"  [评估] ✓ 评估完成")
+                print(f"  [评估] 得分: {score}")
+                
+                if 'error' in evaluation:
+                    print(f"  [评估] ⚠ 包含错误信息: {evaluation['error']}")
+                
+                reasoning = evaluation.get('reasoning', '')
+                if reasoning:
+                    reasoning_preview = reasoning[:100] + '...' if len(reasoning) > 100 else reasoning
+                    print(f"  [评估] 评估理由: {reasoning_preview}")
+                    
             except Exception as e:
-                print(f"  ⚠ 评估失败: {e}")
+                print(f"  [评估] ✗ 评估失败: {e}")
+                import traceback
+                traceback.print_exc()
                 evaluation = {
                     "enabled": True,
                     "error": str(e),
                     "score": 0.0,
                     "reasoning": "评估过程出错"
                 }
+        else:
+            print("  [评估] 评估功能已禁用，跳过评分")
         
         # 构建sample_id
         if self.instance_id:
