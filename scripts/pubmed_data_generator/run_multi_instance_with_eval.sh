@@ -91,26 +91,26 @@ for i in "${!PORTS[@]}"; do
     # 使用uv环境运行
     if [ -d "$UV_VENV" ]; then
         source "$UV_VENV/bin/activate"
-        python generate_and_evaluate_trajectory.py \
+        python -u generate_and_evaluate_trajectory.py \
             --questions-file "$part_file" \
             --local-model-url "http://localhost:$port/v1" \
             --model-name "${MODEL_NAME}" \
             --instance-id "port${port}" \
             --concurrency $CONCURRENCY_PER_INSTANCE \
             --output "$OUTPUT_DIR" \
-            --eval-model "$EVAL_MODEL" \
+            --no-evaluation \
             > "$TEMP_DIR/log_port_${port}.txt" 2>&1 &
         deactivate
     else
         # 如果uv环境不存在，直接使用python
-        python generate_and_evaluate_trajectory.py \
+        python -u generate_and_evaluate_trajectory.py \
             --questions-file "$part_file" \
             --local-model-url "http://localhost:$port/v1" \
             --model-name "${MODEL_NAME}" \
             --instance-id "port${port}" \
             --concurrency $CONCURRENCY_PER_INSTANCE \
             --output "$OUTPUT_DIR" \
-            --eval-model "$EVAL_MODEL" \
+            --no-evaluation \
             > "$TEMP_DIR/log_port_${port}.txt" 2>&1 &
     fi
     
