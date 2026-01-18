@@ -28,6 +28,7 @@ from .apis.serper_apis import (
     search_serper_scholar,
 )
 from .apis.jina_apis import JinaWebpageResponse, fetch_webpage_content_jina
+from .apis.fda_apis import search_fda_drug_label
 from .cache import set_cache_enabled
 from .local.crawl4ai_fetcher import Crawl4AiResult
 
@@ -539,6 +540,52 @@ async def webthinker_fetch_webpage_content_async(
         )
 
     return {"url": url, "text": text}
+
+
+@mcp.tool(tags={"search", "necessary"})
+def fda_drug_label_search(
+    keyword: Annotated[str, "Drug name or keyword to search in FDA database"],
+    focus: Annotated[
+        str,
+        "Specific aspect to focus on (e.g., 'adverse reactions', 'indications', 'dosage', 'warnings')",
+    ],
+    limit: Annotated[int, "Maximum number of results to return"] = 3,
+    use_llm_extraction: Annotated[
+        bool, "Whether to use LLM to extract relevant information from FDA data"
+    ] = True,
+) -> dict:
+    """
+    Search for drug information from FDA Drug Label API with intelligent extraction.
+    
+    This tool searches FDA's drug label database using a three-tier strategy:
+    1. Brand name search (most specific)
+    2. Generic name search (if brand name fails)
+    3. Full-text search (fallback)
+    
+    When use_llm_extraction=True, it uses an LLM to extract only information relevant
+    to the specified focus from the raw FDA data.
+    
+    Returns:
+        Dictionary containing:
+        - keyword: The searched drug name
+        - focus: The specified focus area
+        - search_strategy: Which search strategy succeeded (BRAND_NAME, GENERIC_NAME, or FINDALL_NAME)
+        - extracted_info: List of extracted relevant information (if use_llm_extraction=True)
+        - data: Raw or processed FDA data
+        - error: Error message if search failed
+    
+    Example:
+        Search for adverse reactions of aspirin:
+        keyword="aspirin", focus="adverse reactions", limit=3
+    """
+    results = search_fda_drug_label(
+        keyword=keyword,
+        focus=focus,
+        limit=limit,
+        use_llm_extraction=use_llm_extraction,
+    )
+    
+    return results
 
 
 if __name__ == "__main__":

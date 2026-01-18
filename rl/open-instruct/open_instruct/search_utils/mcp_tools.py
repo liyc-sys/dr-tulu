@@ -20,6 +20,7 @@ try:
         Crawl4AIBrowseTool,
         SerperBrowseTool,
         PubMedSearchTool,
+        FDADrugLabelSearchTool,
     )
 except ImportError as e:
     print(f"Failed to import dr_agent. Please install it:\n{e}")
@@ -34,6 +35,7 @@ MCP_TOOL_REGISTRY = {
     # "massive_serve": MassiveServeSearchTool,
     "browse_webpage": Crawl4AIBrowseTool,
     "pubmed_search": PubMedSearchTool,
+    "fda_drug_search": FDADrugLabelSearchTool,
     # "browse_webpage": SerperBrowseTool
 }
 

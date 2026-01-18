@@ -1875,3 +1875,68 @@ class VllmHostedRerankerTool(MCPRerankerTool):
         )
 
         return reranked_documents
+
+
+class FDADrugLabelSearchTool(MCPSearchTool):
+    """Tool for searching FDA Drug Label database via MCP"""
+
+    def __init__(
+        self,
+        tool_parser: Optional[ToolCallParser | str] = None,
+        number_documents_to_search: int = 3,
+        timeout: int = 180,
+        name: Optional[str] = None,
+        description: Optional[str] = None,
+        use_llm_extraction: bool = True,
+        **kwargs,
+    ):
+        super().__init__(
+            tool_parser=tool_parser,
+            number_documents_to_search=number_documents_to_search,
+            timeout=timeout,
+            name=name,
+            description=description,
+            **kwargs,
+        )
+        self.use_llm_extraction = use_llm_extraction
+
+    def get_mcp_tool_name(self) -> str:
+        return "fda_drug_label_search"
+
+    def get_mcp_params(self, tool_call_info: ToolCallInfo) -> Dict[str, Any]:
+        """Build parameters for FDA Drug Label API"""
+        # Extract keyword and focus from the tool call
+        # Expected format: tool_call_info.content contains the drug name
+        # and tool_call_info.parameters contains the focus
+        
+        params = {
+            "keyword": tool_call_info.content,
+            "focus": tool_call_info.parameters.get("focus", "general information"),
+            "limit": self.number_documents_to_search,
+            "use_llm_extraction": self.use_llm_extraction,
+        }
+
+        return params
+
+    def extract_documents(self, raw_output: Dict[str, Any]) -> List[Document]:
+        """Extract documents from FDA Drug Label response"""
+        extracted_info = raw_output.get("extracted_info", [])
+        keyword = raw_output.get("keyword", "")
+        focus = raw_output.get("focus", "")
+        search_strategy = raw_output.get("search_strategy", "")
+        
+        documents = []
+
+        # Create documents from extracted information
+        for i, info in enumerate(extracted_info):
+            if isinstance(info, str) and info.strip():
+                doc = Document(
+                    title=f"{keyword} - {focus}",
+                    snippet=info[:500] if len(info) > 500 else info,  # First 500 chars as snippet
+                    url=f"https://api.fda.gov/drug/label.json (Strategy: {search_strategy})",
+                    text=info,  # Full extracted information
+                    score=1.0 - (i * 0.1),  # Decreasing score for multiple results
+                )
+                documents.append(doc)
+
+        return documents
