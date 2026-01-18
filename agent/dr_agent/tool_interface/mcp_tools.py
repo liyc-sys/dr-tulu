@@ -1877,6 +1877,466 @@ class VllmHostedRerankerTool(MCPRerankerTool):
         return reranked_documents
 
 
+class MedBrowseCompSearchTool(MCPSearchTool):
+    """Tool for unified medical search via MCP (auto-routing)"""
+
+    def __init__(
+        self,
+        tool_parser: Optional[ToolCallParser | str] = None,
+        number_documents_to_search: int = 10,
+        timeout: int = 180,
+        name: Optional[str] = None,
+        description: Optional[str] = None,
+        **kwargs,
+    ):
+        super().__init__(
+            tool_parser=tool_parser,
+            number_documents_to_search=number_documents_to_search,
+            timeout=timeout,
+            name=name,
+            description=description,
+            **kwargs,
+        )
+
+    def get_mcp_tool_name(self) -> str:
+        return "medbrowsecomp_search"
+
+    def get_mcp_params(self, tool_call_info: ToolCallInfo) -> Dict[str, Any]:
+        params = {"query": tool_call_info.content}
+        # 从 tool_call_info.parameters 中提取可选参数
+        if "prefer_url" in tool_call_info.parameters:
+            params["prefer_url"] = tool_call_info.parameters["prefer_url"]
+        if "reason" in tool_call_info.parameters:
+            params["reason"] = tool_call_info.parameters["reason"]
+        return params
+
+    def extract_documents(self, raw_output: Dict[str, Any]) -> List[Document]:
+        """Extract documents from unified search response"""
+        if not raw_output.get("success", False):
+            error_msg = raw_output.get("error", "Unknown error")
+            return [
+                Document(
+                    title="Error",
+                    url="",
+                    snippet=f"Search failed: {error_msg}",
+                    text=None,
+                    score=None,
+                )
+            ]
+
+        documents = []
+        metadata = raw_output.get("_search_metadata", {})
+        func_called = metadata.get("function_called", "")
+
+        # 根据调用的函数类型提取文档
+        if func_called == "get_trial_info":
+            # 临床试验信息
+            title = f"Clinical Trial: {raw_output.get('nct_id', 'N/A')}"
+            snippet_parts = []
+            if raw_output.get("sponsor"):
+                snippet_parts.append(f"Sponsor: {raw_output['sponsor']}")
+            if raw_output.get("recruitment_status"):
+                snippet_parts.append(f"Status: {raw_output['recruitment_status']}")
+            if raw_output.get("ingredients"):
+                ingredients = raw_output["ingredients"]
+                if isinstance(ingredients, list):
+                    snippet_parts.append(f"Ingredients: {', '.join(ingredients)}")
+                else:
+                    snippet_parts.append(f"Ingredients: {ingredients}")
+            
+            sources = raw_output.get("sources", [])
+            url = sources[0] if sources else ""
+            
+            doc = Document(
+                title=title,
+                url=url,
+                snippet="\n".join(snippet_parts) if snippet_parts else "",
+                text=None,
+                score=None,
+            )
+            documents.append(doc)
+
+        elif func_called == "get_drug_patents":
+            # 专利信息
+            patents = raw_output.get("patents", [])
+            for pat in patents:
+                title = f"Patent: {pat.get('number', 'N/A')}"
+                snippet_parts = [
+                    f"Jurisdiction: {pat.get('jurisdiction', 'N/A')}",
+                    f"Expiry Date: {pat.get('expiry_date', 'N/A')}",
+                ]
+                if pat.get("notes"):
+                    snippet_parts.append(f"Notes: {pat['notes']}")
+                
+                doc = Document(
+                    title=title,
+                    url="",
+                    snippet="\n".join(snippet_parts),
+                    text=None,
+                    score=None,
+                )
+                documents.append(doc)
+
+        elif func_called == "get_drug_approvals":
+            # 批准信息
+            approvals = raw_output.get("approvals", [])
+            for appr in approvals:
+                title = f"Approval: {appr.get('product_name', 'N/A')}"
+                snippet_parts = [
+                    f"Active Ingredient: {appr.get('active_ingredient', 'N/A')}",
+                    f"Approval Date: {appr.get('approval_date', 'N/A')}",
+                    f"Status: {appr.get('status', 'N/A')}",
+                ]
+                if appr.get("marketing_authorisation_holder"):
+                    snippet_parts.append(f"Company: {appr['marketing_authorisation_holder']}")
+                
+                doc = Document(
+                    title=title,
+                    url="",
+                    snippet="\n".join(snippet_parts),
+                    text=None,
+                    score=None,
+                )
+                documents.append(doc)
+
+        elif func_called == "get_drug_exclusivities":
+            # 独占期信息
+            exclusivities = raw_output.get("exclusivities", [])
+            for excl in exclusivities:
+                title = f"Exclusivity: {excl.get('type', 'N/A')}"
+                snippet_parts = [
+                    f"Region: {excl.get('region', 'N/A')}",
+                    f"Start Date: {excl.get('start_date', 'N/A')}",
+                    f"End Date: {excl.get('end_date', 'N/A')}",
+                ]
+                if excl.get("notes"):
+                    snippet_parts.append(f"Notes: {excl['notes']}")
+                
+                doc = Document(
+                    title=title,
+                    url="",
+                    snippet="\n".join(snippet_parts),
+                    text=None,
+                    score=None,
+                )
+                documents.append(doc)
+
+        return documents if documents else [
+            Document(
+                title="No Results",
+                url="",
+                snippet="No results found",
+                text=None,
+                score=None,
+            )
+        ]
+
+
+class TrialInfoSearchTool(MCPSearchTool):
+    """Tool for searching clinical trial information via MCP"""
+
+    def __init__(
+        self,
+        tool_parser: Optional[ToolCallParser | str] = None,
+        number_documents_to_search: int = 10,
+        timeout: int = 180,
+        name: Optional[str] = None,
+        description: Optional[str] = None,
+        **kwargs,
+    ):
+        super().__init__(
+            tool_parser=tool_parser,
+            number_documents_to_search=number_documents_to_search,
+            timeout=timeout,
+            name=name,
+            description=description,
+            **kwargs,
+        )
+
+    def get_mcp_tool_name(self) -> str:
+        return "get_trial_info"
+
+    def get_mcp_params(self, tool_call_info: ToolCallInfo) -> Dict[str, Any]:
+        return {"nct_id": tool_call_info.content}
+
+    def extract_documents(self, raw_output: Dict[str, Any]) -> List[Document]:
+        """Extract documents from clinical trial response"""
+        if not raw_output.get("success", False):
+            error_msg = raw_output.get("error", "Unknown error")
+            return [
+                Document(
+                    title="Error",
+                    url="",
+                    snippet=f"Failed to get trial info: {error_msg}",
+                    text=None,
+                    score=None,
+                )
+            ]
+
+        nct_id = raw_output.get("nct_id", "")
+        title = f"Clinical Trial: {nct_id}"
+        snippet_parts = []
+        if raw_output.get("sponsor"):
+            snippet_parts.append(f"Sponsor: {raw_output['sponsor']}")
+        if raw_output.get("recruitment_status"):
+            snippet_parts.append(f"Status: {raw_output['recruitment_status']}")
+        if raw_output.get("ingredients"):
+            ingredients = raw_output["ingredients"]
+            if isinstance(ingredients, list):
+                snippet_parts.append(f"Ingredients: {', '.join(ingredients)}")
+            else:
+                snippet_parts.append(f"Ingredients: {ingredients}")
+
+        sources = raw_output.get("sources", [])
+        url = sources[0] if sources else ""
+
+        doc = Document(
+            title=title,
+            url=url,
+            snippet="\n".join(snippet_parts) if snippet_parts else "",
+            text=None,
+            score=None,
+        )
+
+        return [doc]
+
+
+class DrugPatentsSearchTool(MCPSearchTool):
+    """Tool for searching drug patent information via MCP"""
+
+    def __init__(
+        self,
+        tool_parser: Optional[ToolCallParser | str] = None,
+        number_documents_to_search: int = 10,
+        timeout: int = 180,
+        name: Optional[str] = None,
+        description: Optional[str] = None,
+        **kwargs,
+    ):
+        super().__init__(
+            tool_parser=tool_parser,
+            number_documents_to_search=number_documents_to_search,
+            timeout=timeout,
+            name=name,
+            description=description,
+            **kwargs,
+        )
+
+    def get_mcp_tool_name(self) -> str:
+        return "get_drug_patents"
+
+    def get_mcp_params(self, tool_call_info: ToolCallInfo) -> Dict[str, Any]:
+        from dr_agent.mcp_backend.apis.query_parser import extract_ingredients
+
+        ingredients = extract_ingredients(tool_call_info.content)
+        return {"ingredients": ",".join(ingredients)}
+
+    def extract_documents(self, raw_output: Dict[str, Any]) -> List[Document]:
+        """Extract documents from drug patents response"""
+        if not raw_output.get("success", False):
+            error_msg = raw_output.get("error", "Unknown error")
+            return [
+                Document(
+                    title="Error",
+                    url="",
+                    snippet=f"Failed to get patents: {error_msg}",
+                    text=None,
+                    score=None,
+                )
+            ]
+
+        documents = []
+        patents = raw_output.get("patents", [])
+        ingredients = raw_output.get("ingredients", [])
+
+        for pat in patents:
+            title = f"Patent: {pat.get('number', 'N/A')}"
+            snippet_parts = [
+                f"Ingredients: {', '.join(ingredients) if isinstance(ingredients, list) else ingredients}",
+                f"Jurisdiction: {pat.get('jurisdiction', 'N/A')}",
+                f"Expiry Date: {pat.get('expiry_date', 'N/A')}",
+            ]
+            if pat.get("notes"):
+                snippet_parts.append(f"Notes: {pat['notes']}")
+
+            doc = Document(
+                title=title,
+                url="",
+                snippet="\n".join(snippet_parts),
+                text=None,
+                score=None,
+            )
+            documents.append(doc)
+
+        return documents if documents else [
+            Document(
+                title="No Patents Found",
+                url="",
+                snippet="No patents found for the specified ingredients",
+                text=None,
+                score=None,
+            )
+        ]
+
+
+class DrugApprovalsSearchTool(MCPSearchTool):
+    """Tool for searching drug approval information via MCP"""
+
+    def __init__(
+        self,
+        tool_parser: Optional[ToolCallParser | str] = None,
+        number_documents_to_search: int = 10,
+        timeout: int = 180,
+        name: Optional[str] = None,
+        description: Optional[str] = None,
+        **kwargs,
+    ):
+        super().__init__(
+            tool_parser=tool_parser,
+            number_documents_to_search=number_documents_to_search,
+            timeout=timeout,
+            name=name,
+            description=description,
+            **kwargs,
+        )
+
+    def get_mcp_tool_name(self) -> str:
+        return "get_drug_approvals"
+
+    def get_mcp_params(self, tool_call_info: ToolCallInfo) -> Dict[str, Any]:
+        from dr_agent.mcp_backend.apis.query_parser import extract_ingredients
+
+        ingredients = extract_ingredients(tool_call_info.content)
+        return {"ingredients": ",".join(ingredients)}
+
+    def extract_documents(self, raw_output: Dict[str, Any]) -> List[Document]:
+        """Extract documents from drug approvals response"""
+        if not raw_output.get("success", False):
+            error_msg = raw_output.get("error", "Unknown error")
+            return [
+                Document(
+                    title="Error",
+                    url="",
+                    snippet=f"Failed to get approvals: {error_msg}",
+                    text=None,
+                    score=None,
+                )
+            ]
+
+        documents = []
+        approvals = raw_output.get("approvals", [])
+        ingredients = raw_output.get("ingredients", [])
+
+        for appr in approvals:
+            title = f"Approval: {appr.get('product_name', 'N/A')}"
+            snippet_parts = [
+                f"Ingredients: {', '.join(ingredients) if isinstance(ingredients, list) else ingredients}",
+                f"Active Ingredient: {appr.get('active_ingredient', 'N/A')}",
+                f"Approval Date: {appr.get('approval_date', 'N/A')}",
+                f"Status: {appr.get('status', 'N/A')}",
+            ]
+            if appr.get("marketing_authorisation_holder"):
+                snippet_parts.append(f"Company: {appr['marketing_authorisation_holder']}")
+
+            doc = Document(
+                title=title,
+                url="",
+                snippet="\n".join(snippet_parts),
+                text=None,
+                score=None,
+            )
+            documents.append(doc)
+
+        return documents if documents else [
+            Document(
+                title="No Approvals Found",
+                url="",
+                snippet="No approvals found for the specified ingredients",
+                text=None,
+                score=None,
+            )
+        ]
+
+
+class DrugExclusivitiesSearchTool(MCPSearchTool):
+    """Tool for searching drug exclusivity information via MCP"""
+
+    def __init__(
+        self,
+        tool_parser: Optional[ToolCallParser | str] = None,
+        number_documents_to_search: int = 10,
+        timeout: int = 180,
+        name: Optional[str] = None,
+        description: Optional[str] = None,
+        **kwargs,
+    ):
+        super().__init__(
+            tool_parser=tool_parser,
+            number_documents_to_search=number_documents_to_search,
+            timeout=timeout,
+            name=name,
+            description=description,
+            **kwargs,
+        )
+
+    def get_mcp_tool_name(self) -> str:
+        return "get_drug_exclusivities"
+
+    def get_mcp_params(self, tool_call_info: ToolCallInfo) -> Dict[str, Any]:
+        from dr_agent.mcp_backend.apis.query_parser import extract_ingredients
+
+        ingredients = extract_ingredients(tool_call_info.content)
+        return {"ingredients": ",".join(ingredients)}
+
+    def extract_documents(self, raw_output: Dict[str, Any]) -> List[Document]:
+        """Extract documents from drug exclusivities response"""
+        if not raw_output.get("success", False):
+            error_msg = raw_output.get("error", "Unknown error")
+            return [
+                Document(
+                    title="Error",
+                    url="",
+                    snippet=f"Failed to get exclusivities: {error_msg}",
+                    text=None,
+                    score=None,
+                )
+            ]
+
+        documents = []
+        exclusivities = raw_output.get("exclusivities", [])
+        ingredients = raw_output.get("ingredients", [])
+
+        for excl in exclusivities:
+            title = f"Exclusivity: {excl.get('type', 'N/A')}"
+            snippet_parts = [
+                f"Ingredients: {', '.join(ingredients) if isinstance(ingredients, list) else ingredients}",
+                f"Region: {excl.get('region', 'N/A')}",
+                f"Start Date: {excl.get('start_date', 'N/A')}",
+                f"End Date: {excl.get('end_date', 'N/A')}",
+            ]
+            if excl.get("notes"):
+                snippet_parts.append(f"Notes: {excl['notes']}")
+
+            doc = Document(
+                title=title,
+                url="",
+                snippet="\n".join(snippet_parts),
+                text=None,
+                score=None,
+            )
+            documents.append(doc)
+
+        return documents if documents else [
+            Document(
+                title="No Exclusivities Found",
+                url="",
+                snippet="No exclusivities found for the specified ingredients",
+                text=None,
+                score=None,
+            )
+        ]
+
+
 class FDADrugLabelSearchTool(MCPSearchTool):
     """Tool for searching FDA Drug Label database via MCP"""
 

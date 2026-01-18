@@ -21,6 +21,11 @@ try:
         SerperBrowseTool,
         PubMedSearchTool,
         FDADrugLabelSearchTool,
+        MedBrowseCompSearchTool,
+        TrialInfoSearchTool,
+        DrugPatentsSearchTool,
+        DrugApprovalsSearchTool,
+        DrugExclusivitiesSearchTool,
     )
 except ImportError as e:
     print(f"Failed to import dr_agent. Please install it:\n{e}")
@@ -37,6 +42,11 @@ MCP_TOOL_REGISTRY = {
     "pubmed_search": PubMedSearchTool,
     "fda_drug_search": FDADrugLabelSearchTool,
     # "browse_webpage": SerperBrowseTool
+    "medbrowsecomp_search": MedBrowseCompSearchTool,
+    "trial_info": TrialInfoSearchTool,
+    "drug_patents": DrugPatentsSearchTool,
+    "drug_approvals": DrugApprovalsSearchTool,
+    "drug_exclusivities": DrugExclusivitiesSearchTool,
 }
 
 def truncate_at_second_last_stop(text: str, stops: list[str]) -> str:

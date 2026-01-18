@@ -588,6 +588,63 @@ def fda_drug_label_search(
     return results
 
 
+@mcp.tool(tags={"search", "medical"})
+def medbrowsecomp_search(
+    query: Annotated[str, "搜索查询内容，可以是NCT编号（如'NCT02838420'）或药物成分（如'crizotinib'）"],
+    prefer_url: Annotated[Optional[str], "偏好URL（用于说明数据来源）"] = None,
+    reason: Annotated[Optional[str], "搜索原因，用于路由到不同功能（如'patent'/'专利'查询专利，'exclusivity'/'独占'查询独占期，'approval'/'批准'查询批准信息）"] = None,
+) -> dict:
+    """
+    统一的医疗搜索工具，根据查询内容自动路由到相应功能：
+    - 如果查询包含NCT编号，查询临床试验信息
+    - 如果查询包含药物成分，根据reason参数查询专利/批准/独占期信息
+    """
+    from .apis.search_tool import search
+    return search(query=query, prefer_url=prefer_url, reason=reason)
+
+
+@mcp.tool(tags={"search", "medical"})
+def get_trial_info(
+    nct_id: Annotated[str, "NCT编号，如 'NCT02838420'"],
+) -> dict:
+    """获取临床试验信息（从 ClinicalTrials.gov API）"""
+    from .apis.trial_tools import get_trial_info
+    return get_trial_info(nct_id)
+
+
+@mcp.tool(tags={"search", "medical"})
+def get_drug_patents(
+    ingredients: Annotated[str, "药物成分，多个成分用逗号分隔，如 'crizotinib' 或 'crizotinib,aspirin'"],
+) -> dict:
+    """获取药物专利信息（从 FDA Orange Book）"""
+    from .apis.trial_tools import get_drug_patents
+    from .apis.query_parser import extract_ingredients
+    ingredient_list = extract_ingredients(ingredients)
+    return get_drug_patents(ingredient_list)
+
+
+@mcp.tool(tags={"search", "medical"})
+def get_drug_approvals(
+    ingredients: Annotated[str, "药物成分，多个成分用逗号分隔"],
+) -> dict:
+    """获取药物批准信息（从 FDA Orange Book）"""
+    from .apis.trial_tools import get_drug_approvals
+    from .apis.query_parser import extract_ingredients
+    ingredient_list = extract_ingredients(ingredients)
+    return get_drug_approvals(ingredient_list)
+
+
+@mcp.tool(tags={"search", "medical"})
+def get_drug_exclusivities(
+    ingredients: Annotated[str, "药物成分，多个成分用逗号分隔"],
+) -> dict:
+    """获取药物独占期信息（从 FDA Orange Book）"""
+    from .apis.trial_tools import get_drug_exclusivities
+    from .apis.query_parser import extract_ingredients
+    ingredient_list = extract_ingredients(ingredients)
+    return get_drug_exclusivities(ingredient_list)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run the MCP server")
     parser.add_argument(

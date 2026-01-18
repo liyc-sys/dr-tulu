@@ -12,6 +12,11 @@ from .mcp_tools import (
     SerperSearchTool,
     VllmHostedRerankerTool,
     WebThinkerBrowseTool,
+    MedBrowseCompSearchTool,
+    TrialInfoSearchTool,
+    DrugPatentsSearchTool,
+    DrugApprovalsSearchTool,
+    DrugExclusivitiesSearchTool,
 )
 from .tool_parsers import ToolCallInfo, ToolCallParser
 
@@ -36,6 +41,11 @@ __all__ = [
     "Crawl4AIBrowseTool",
     "FDADrugLabelSearchTool",
     "VllmHostedRerankerTool",
+    "MedBrowseCompSearchTool",
+    "TrialInfoSearchTool",
+    "DrugPatentsSearchTool",
+    "DrugApprovalsSearchTool",
+    "DrugExclusivitiesSearchTool",
     # Tool parsing
     "ToolCallInfo",
     "ToolCallParser",
