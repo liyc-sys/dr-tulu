@@ -1,0 +1,13 @@
+{
+  "total_samples": 1,
+  "topics": {
+    "Drug development/Phase III trials (Diabetes)": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 1
+  },
+  "avg_tool_calls": 5.0,
+  "generation_time": "2026-01-01T02:57:12.804080",
+  "model": "/workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0",
+  "source_file": "/workspace/math_science_data/lyc/1205/dr-tulu/pubmed_training_data/questions_20251217_033030_no_rubrics_incremental.jsonl"
+}

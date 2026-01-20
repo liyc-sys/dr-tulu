@@ -1,0 +1,31 @@
+{
+  "total_samples": 18,
+  "topics": {
+    "Huntington's disease": 2,
+    "Energy metabolism; obesity": 1,
+    "COVID-19 thrombosis": 1,
+    "NAFLD epidemiology": 1,
+    "Rheumatoid arthritis": 2,
+    "Alzheimer's disease": 3,
+    "ALS": 1,
+    "COVID-19 clinical predictors": 1,
+    "Immunology of viral vector gene therapy": 1,
+    "Microbiome; checkpoint inhibitor outcomes": 1,
+    "COVID-19 variants and immunity": 1,
+    "Adjuvant immunotherapy; melanoma": 1,
+    "CAR-T toxicity prediction": 1,
+    "Microbiome; diabetes; NAFLD": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 6,
+    "mechanism": 6,
+    "epidemiology": 1,
+    "prognosis": 4,
+    "review": 1
+  },
+  "avg_tool_calls": 4.944444444444445,
+  "generation_time": "2026-01-01T15:40:51.614099",
+  "model": "/workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0",
+  "source_file": "/workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_03.jsonl",
+  "evaluation_enabled": false
+}

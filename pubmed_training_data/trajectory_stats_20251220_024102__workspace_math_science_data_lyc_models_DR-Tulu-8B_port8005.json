@@ -1,0 +1,23 @@
+{
+  "total_samples": 189,
+  "topics": {
+    "Systemic lupus erythematosus": 44,
+    "Multiple sclerosis": 41,
+    "Cross-disease": 8,
+    "Heart Failure": 26,
+    "Coronary Artery Disease": 29,
+    "Atrial Fibrillation": 25,
+    "Rheumatoid arthritis": 16
+  },
+  "question_types": {
+    "prognosis": 28,
+    "mechanism": 41,
+    "efficacy_comparison": 70,
+    "epidemiology": 40,
+    "review": 10
+  },
+  "avg_tool_calls": 0.0,
+  "generation_time": "2025-12-20T02:41:04.351722",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B_port8005",
+  "source_file": "/tmp/tmp.Te0udNFsCO/questions_part_05.jsonl"
+}

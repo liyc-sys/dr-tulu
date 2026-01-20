@@ -4,7 +4,8 @@
 
 QUESTIONS_FILE="${1:-../../pubmed_training_data/questions_20251217_033030_no_rubrics_incremental.jsonl}"
 OUTPUT_DIR="../../pubmed_training_data"
-MODEL_NAME="/workspace/math_science_data/lyc/models/DR-Tulu-8B"
+# MODEL_NAME="/workspace/math_science_data/lyc/models/DR-Tulu-8B"
+MODEL_NAME="/workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0"
 
 # uv环境路径（根据实际情况修改）
 UV_VENV="/workspace/math_science_data/lyc/1205/dr-tulu/rl/open-instruct/.venv"

@@ -1,0 +1,37 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Chemotherapy/targeted therapy resistance mechanisms (NSCLC)": 1,
+    "Systemic lupus erythematosus": 2,
+    "Gene-edited HSC safety; clonal expansion epidemiology": 1,
+    "Obesity pharmacotherapy": 1,
+    "Treatment sequencing (melanoma)": 1,
+    "Renal outcome trials and interaction-like safety (hyperkalemia)": 1,
+    "Immunotherapy vs targeted therapy (melanoma)": 1,
+    "Cystic fibrosis": 3,
+    "Antibiotic-resistant Gram-positive infections": 1,
+    "Parkinson's disease": 2,
+    "Alzheimer's disease": 1,
+    "Antibiotic-resistant Gram-negative infections": 1,
+    "CAR-T conditioning optimization": 1,
+    "Heart failure (HFrEF)": 1,
+    "Targeted therapy (ALK+ NSCLC)": 1,
+    "Antibiotic-resistant infections (TB)": 1,
+    "NAFLD/NASH treatment": 1,
+    "Neurology phase III comparisons and safety monitoring": 1,
+    "Neuromuscular gene therapy; prognosis": 1,
+    "Immunotherapy for brain metastases": 1,
+    "AAV gene therapy; seroepidemiology; eligibility": 1
+  },
+  "question_types": {
+    "mechanism": 2,
+    "prognosis": 3,
+    "epidemiology": 3,
+    "efficacy_comparison": 15,
+    "review": 2
+  },
+  "avg_tool_calls": 4.96,
+  "generation_time": "2025-12-20T05:43:16.339855",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.3xjKm2ErVx/questions_part_06.jsonl"
+}

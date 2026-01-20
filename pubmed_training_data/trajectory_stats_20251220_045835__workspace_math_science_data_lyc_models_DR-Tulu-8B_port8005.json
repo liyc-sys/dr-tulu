@@ -1,0 +1,34 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "CAR-T resistance and relapse biology": 1,
+    "Cystic fibrosis": 3,
+    "HIV treatment durability": 1,
+    "Atrial fibrillation (stroke prevention devices)": 1,
+    "Alzheimer's disease": 4,
+    "Diabetic kidney disease": 1,
+    "Rheumatoid arthritis": 3,
+    "Prognostic modeling within advanced therapy trials": 1,
+    "DNA repair; HSC editing; mechanism": 1,
+    "Genome editing platforms; base vs prime editing": 1,
+    "Type 2 diabetes, cardiovascular outcomes": 1,
+    "Safety epidemiology in phase III immunotherapy trials": 1,
+    "PD-L1 as a predictive biomarker": 1,
+    "Systemic lupus erythematosus": 1,
+    "Combination immunotherapy in breast cancer": 1,
+    "HIV drug resistance": 1,
+    "AAV gene therapy; immunology; toxicity mechanism": 1,
+    "Sequential therapy strategies in phase III fracture trials": 1
+  },
+  "question_types": {
+    "mechanism": 8,
+    "prognosis": 4,
+    "review": 3,
+    "efficacy_comparison": 8,
+    "epidemiology": 2
+  },
+  "avg_tool_calls": 4.92,
+  "generation_time": "2025-12-20T05:43:37.754453",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.3xjKm2ErVx/questions_part_05.jsonl"
+}

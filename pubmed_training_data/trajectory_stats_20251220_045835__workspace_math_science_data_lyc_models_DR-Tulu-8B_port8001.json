@@ -1,0 +1,39 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Epilepsy": 3,
+    "NAFLD therapeutics mechanisms": 1,
+    "Diabetes cardiovascular outcomes trials": 1,
+    "Amyotrophic lateral sclerosis (ALS)": 1,
+    "Multiple sclerosis": 1,
+    "Combination immunotherapy vs IO+TKI in RCC": 1,
+    "Atrial fibrillation (ablation)": 1,
+    "Heart failure outcome trials and add-on therapy": 1,
+    "BCMA immunotherapy in multiple myeloma": 1,
+    "Antibiotic-resistant sepsis outcomes": 1,
+    "Stem cell therapy safety; tumorigenicity mechanisms": 1,
+    "Cardiovascular phase III trials and comparative effectiveness": 1,
+    "Heart failure (iron deficiency)": 1,
+    "Maintenance immunotherapy strategies": 1,
+    "Rheumatoid arthritis / Systemic lupus erythematosus": 1,
+    "Stem cell therapy; Parkinson disease; iPSC transplantation": 1,
+    "Immunotherapy vs chemotherapy (urothelial cancer)": 1,
+    "Immunotherapy biomarkers (GI cancers)": 1,
+    "Type 2 diabetes, pharmacoepidemiology": 1,
+    "Coronary microvascular dysfunction": 1,
+    "COVID-19 therapeutics": 1,
+    "Immunotherapy resistance mechanisms (NSCLC)": 1,
+    "Huntington's disease": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 15,
+    "mechanism": 5,
+    "prognosis": 2,
+    "epidemiology": 2,
+    "review": 1
+  },
+  "avg_tool_calls": 4.92,
+  "generation_time": "2025-12-20T05:45:32.202284",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.3xjKm2ErVx/questions_part_01.jsonl"
+}

@@ -1,0 +1,34 @@
+{
+  "total_samples": 18,
+  "topics": {
+    "NAFLD/NASH treatment": 1,
+    "Oncology / Concomitant medication impact on trial and real-world outcomes": 1,
+    "Predictors of durability in AAV gene therapy": 1,
+    "Immunotherapy and microbiome-related modifiers": 1,
+    "Heart failure / biomarkers": 1,
+    "Cell therapy vs gene therapy for metabolic disorders": 1,
+    "Immunology / Safety signal characterization across development stages": 1,
+    "Cystic fibrosis": 2,
+    "Prediabetes prevention": 1,
+    "ALS": 1,
+    "Infectious disease therapeutics / Phase III add-on efficacy and stratified effects": 1,
+    "Psychiatry / Formulation-based comparative trial outcomes": 1,
+    "Melanoma; checkpoint combination therapy": 1,
+    "Chemotherapy resistance biomarkers (ovarian cancer)": 1,
+    "Atrial fibrillation + coronary artery disease": 1,
+    "Biomarkers; tumor microenvironment": 1,
+    "Heart failure": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 10,
+    "prognosis": 4,
+    "epidemiology": 2,
+    "review": 1,
+    "mechanism": 1
+  },
+  "avg_tool_calls": 0.0,
+  "generation_time": "2026-01-01T15:03:37.578062",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150335/questions_part_01.jsonl",
+  "evaluation_enabled": false
+}

@@ -1,0 +1,35 @@
+{
+  "total_samples": 24,
+  "topics": {
+    "Systemic lupus erythematosus": 3,
+    "In vivo liver gene editing": 1,
+    "Epilepsy": 1,
+    "Coronary artery disease": 1,
+    "Antibiotic-resistant infections": 3,
+    "Combination therapy - ovarian cancer": 1,
+    "NAFLD prognosis / biomarkers": 1,
+    "Huntington's disease": 2,
+    "CAR-T toxicity management": 1,
+    "Obesity / NAFLD / diet interventions": 1,
+    "Checkpoint inhibitors in MSI-H colorectal cancer": 1,
+    "Heart failure": 1,
+    "Hematopoietic gene therapy": 1,
+    "Diabetes / obesity / microbiome": 1,
+    "Immunotherapy - biomarkers": 1,
+    "Diabetes / obesity / cardiovascular outcomes": 1,
+    "Parkinson's disease": 1,
+    "CAR-T engineering for solid tumors": 1,
+    "Targeted therapy - breast cancer": 1
+  },
+  "question_types": {
+    "epidemiology": 4,
+    "mechanism": 6,
+    "review": 4,
+    "efficacy_comparison": 6,
+    "prognosis": 4
+  },
+  "avg_tool_calls": 4.708333333333333,
+  "generation_time": "2025-12-20T17:24:33.004485",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.ApUd2X1dZ9/questions_part_06.jsonl"
+}

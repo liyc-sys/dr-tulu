@@ -1,0 +1,35 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Gene Delivery; LNP; AAV": 1,
+    "Rheumatoid arthritis": 3,
+    "Parkinson's disease": 3,
+    "Therapy sequencing in prostate cancer": 1,
+    "PARP inhibitor resistance mechanisms": 1,
+    "COVID-19 pathophysiology": 1,
+    "Atrial fibrillation (AF) with CAD": 1,
+    "ALS": 3,
+    "Coronary artery disease (post-ACS)": 1,
+    "COVID-19 immunomodulators": 1,
+    "Biomanufacturing; Cell Therapy": 1,
+    "Infectious disease clinical trials (antibiotic regimen comparison/interaction)": 1,
+    "Rheumatology clinical trials (targeted therapy safety)": 1,
+    "Pediatrics; Gene Therapy Safety; Long-term Outcomes": 1,
+    "Immunotherapy and antiangiogenic therapy in HCC": 1,
+    "Checkpoint blockade combinations in melanoma": 1,
+    "CAR-T in B-cell lymphomas": 1,
+    "Genome Editing; Translational Methods": 1,
+    "Type 2 diabetes / cardiovascular outcomes": 1
+  },
+  "question_types": {
+    "review": 2,
+    "efficacy_comparison": 13,
+    "mechanism": 6,
+    "prognosis": 3,
+    "epidemiology": 1
+  },
+  "avg_tool_calls": 4.96,
+  "generation_time": "2025-12-20T13:10:02.722918",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.CtqIdevgp6/questions_part_06.jsonl"
+}

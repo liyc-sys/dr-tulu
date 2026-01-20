@@ -1,0 +1,37 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Phase III efficacy comparison (immunology/rheumatology)": 1,
+    "Parkinson's disease": 3,
+    "Antibiotic-resistant infections (CRE)": 1,
+    "Microbiome and immunotherapy outcomes": 1,
+    "Microbiome correlates of immunotherapy response": 1,
+    "Heart failure (HFpEF)": 1,
+    "Non-viral delivery; lipid nanoparticles; in vivo editing": 1,
+    "Type 2 diabetes prognosis and treatment trajectory": 1,
+    "Rheumatoid arthritis": 1,
+    "Stroma and immunotherapy resistance": 1,
+    "Adverse response patterns to immunotherapy": 1,
+    "Antibiotic-resistant infections (ESBL UTI)": 1,
+    "MASLD progression predictors": 1,
+    "Atrial fibrillation": 2,
+    "Phase III efficacy comparison (oncology/immunotherapy)": 1,
+    "Phase III efficacy comparison (oncology/adjuvant therapy)": 1,
+    "Rare/Genetic diseases (cross-disease)": 1,
+    "Targeted therapy vs chemotherapy in AML": 1,
+    "Huntington's disease": 2,
+    "Antibiotic-resistant infections (MRSA)": 1,
+    "Obesity treatment durability": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 11,
+    "mechanism": 3,
+    "prognosis": 6,
+    "review": 4,
+    "epidemiology": 1
+  },
+  "avg_tool_calls": 4.92,
+  "generation_time": "2025-12-20T07:14:16.793829",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.5yJsahY0Zc/questions_part_03.jsonl"
+}

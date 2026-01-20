@@ -1,0 +1,40 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Huntington's disease": 2,
+    "COVID-19 vaccines": 1,
+    "Ophthalmic gene therapy; AAV vs CRISPR": 1,
+    "Rheumatoid arthritis": 1,
+    "Cell therapy vs chemotherapy/transplant (DLBCL)": 1,
+    "Dermatology phase III efficacy vs safety": 1,
+    "NASH fibrosis progression": 1,
+    "Diet interventions in obesity/NAFLD": 1,
+    "Heart failure (comorbidity: sleep apnea)": 1,
+    "Atrial fibrillation (rate control)": 1,
+    "Microbiome and immunotherapy outcomes": 1,
+    "COVID-19 in HIV": 1,
+    "Bariatric surgery and diabetes remission": 1,
+    "Drug–drug interactions in antiviral therapy": 1,
+    "Targeted therapy biomarkers (ovarian cancer)": 1,
+    "Immune-related adverse events (cardiac)": 1,
+    "Alzheimer's disease": 1,
+    "Epilepsy": 1,
+    "Parkinson's disease": 1,
+    "In vivo gene editing; amyloidosis; RNAi comparison": 1,
+    "COVID-19 risk in HIV": 1,
+    "Concomitant medications and immunotherapy": 1,
+    "Long-term toxicity epidemiology": 1,
+    "Oncology pharmacokinetics and interaction management": 1
+  },
+  "question_types": {
+    "review": 4,
+    "efficacy_comparison": 9,
+    "prognosis": 5,
+    "mechanism": 2,
+    "epidemiology": 5
+  },
+  "avg_tool_calls": 4.92,
+  "generation_time": "2025-12-20T05:41:28.945966",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.3xjKm2ErVx/questions_part_03.jsonl"
+}

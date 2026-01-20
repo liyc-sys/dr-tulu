@@ -1,0 +1,649 @@
+本地模型: /workspace/math_science_data/lyc/models/DR-Tulu-8B
+API地址: http://localhost:8002/v1
+问题文件: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20251231_174422/questions_part_02.jsonl
+并发数: 3
+评估: 启用
+
+[初始化] 尝试初始化评估器...
+[初始化] 评估模型: openai/gpt-4o-mini
+[初始化] ✓ 评估器初始化成功
+[初始化] API Base: https://openrouter.ai/api/v1
+[初始化] API Key: sk-or-v1-bed1cfa18b9...
+
+============================================================
+从已有问题生成轨迹并进行评估
+============================================================
+本地模型: /workspace/math_science_data/lyc/models/DR-Tulu-8B
+API地址: http://localhost:8002/v1
+并发数: 3
+评估: 启用
+从文件加载问题: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20251231_174422/questions_part_02.jsonl
+✓ 加载了 18 个问题
+
+============================================================
+生成轨迹并评估（并发模式）
+============================================================
+💾 增量保存已启用: ../../pubmed_training_data/pubmed_trajectory_evaluated_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8002_incremental.jsonl
+
+[10] 问题: In metastatic urothelial carcinoma, does maintenance avelumab after response or stable disease on platinum chemotherapy improve overall survival compared with observation or best supportive care?
+  正在生成工具调用轨迹...
+
+[13] 问题: What is the incidence and prevalence of ALS in different geographic regions, and how do age, sex, and ancestry influence observed epidemiologic patterns?
+  正在生成工具调用轨迹...
+
+[16] 问题: In rheumatoid arthritis with inadequate response to methotrexate, how do JAK inhibitors compare with TNF inhibitors in achieving sustained clinical remission and in rates of serious infections?
+  正在生成工具调用轨迹...
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS incidence prevalence epidemiology geographic regions registry)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis inadequate response to methotrexate JAK inhibitor versus TNF inhibitor remission infection randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(avelumab maintenance metastatic urothelial carcinoma overall survival)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS prevalence population-based registry Europe Asia Africa incidence per 100,000)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(baricitinib adalimumab rheumatoid arthritis remission randomized methotrexate inadequate response infection)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(JAVELIN Bladder 100 best supportive care control arm chemotherapy not given avelumab maintenance overall survival)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS age sex incidence prevalence ancestry genetic risk C9orf72 population-based study)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis inadequate response to methotrexate JAK inhibitor versus TNF inhibitor remission infection randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(JAVELIN Bladder 100 control arm best supportive care chemotherapy not given overall survival hazard ratio)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS incidence age sex differences C9orf72 PRKN FUS C9orf72 risk ancestry population-based registry)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(baricitinib versus TNF inhibitor rheumatoid arthritis inadequate methotrexate remission infection randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(avelumab maintenance after response or stable disease on platinum chemotherapy overall survival metastatic urothelial carcinoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(C9ORF72 repeat expansion risk ancestry geographic distribution ALS incidence Europe Asia Africa registry)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis methotrexate inadequate response JAK inhibitor remission rate serious infection comparative TNF inhibitor)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(avelumab maintenance after response or stable disease on platinum chemotherapy overall survival metastatic urothelial carcinoma)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9266 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.82秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[3] 问题: What mechanisms of primary resistance to PD-1/PD-L1 blockade are most consistently supported in human tumor studies, particularly involving antigen presentation defects and interferon signaling alterations?
+  正在生成工具调用轨迹...
+
+📊 进度: 1/18 (5.6%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 10444 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.83秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[6] 问题: What mechanisms explain how visceral adiposity drives insulin resistance through adipokines, inflammation, and ectopic lipid deposition in liver and muscle?
+  正在生成工具调用轨迹...
+
+📊 进度: 2/18 (11.1%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 blockade antigen presentation MHC I human melanoma resistance)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 8771 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.85秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[9] 问题: In ALS patients, how does neurofilament light chain level (serum or CSF) predict survival and rate of functional decline across different disease stages?
+  正在生成工具调用轨迹...
+
+📊 进度: 3/18 (16.7%) | 成功: 3 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(visceral adipose tissue insulin resistance mechanisms adipokines inflammation ectopic lipid liver muscle review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS neurofilament light chain survival prognosis cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(visceral adipose tissue adipokines insulin resistance TNF IL-6 PAI-1 visfatin review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 resistance antigen presentation loss human lung cancer interferon)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS neurofilament light chain stage survival King's ALSFRS decline CSF serum)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(visceral adipose tissue inflammation macrophage infiltration insulin resistance review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 resistance interferon signaling pathway human tumors interferon receptor loss)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS neurofilament light chain survival prognosis cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ectopic lipid deposition liver muscle insulin resistance lipotoxicity review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 resistance antigen presentation defects interferon signaling human tumors review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: google_search(neurofilament light chain ALS stage survival King's prognostic)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 resistance antigen presentation MHC I human melanoma resistance)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CSF neurofilament light chain survival amyotrophic lateral sclerosis cohort)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 16614 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 1.00秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[12] 问题: In non-hospitalized adults with early mild-to-moderate COVID-19, how does nirmatrelvir/ritonavir compare with molnupiravir in reducing hospitalization or death, and how do their adverse event profiles differ?
+  正在生成工具调用轨迹...
+
+📊 进度: 4/18 (22.2%) | 成功: 4 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nirmatrelvir molnupiravir randomized trial head-to-head COVID-19)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 10412 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.82秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[15] 问题: Across multiple tumor types treated with PD-1/PD-L1 inhibitors, which tumor-intrinsic mechanisms (such as loss of antigen presentation or interferon signaling defects) are most consistently linked to primary resistance?
+  正在生成工具调用轨迹...
+
+📊 进度: 5/18 (27.8%) | 成功: 5 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 8925 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.86秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[17] 问题: How do hepatic de novo lipogenesis and adipose tissue lipolysis each contribute to intrahepatic triglyceride accumulation in NAFLD, and what biomarkers best reflect these pathways in humans?
+  正在生成工具调用轨迹...
+
+📊 进度: 6/18 (33.3%) | 成功: 6 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 PD-L1 primary resistance mechanisms tumor intrinsic cross cancer review 2020 2021 2022 2023)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD hepatic de novo lipogenesis VLDL triglyceride secretion review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tumor intrinsic mechanisms primary resistance PD-1 PD-L1 across cancers antigen presentation interferon signaling review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nirmatrelvir vs molnupiravir head-to-head randomized trial COVID-19 hospitalization death adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD hepatic de novo lipogenesis VLDL secretion review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 blockade resistance antigen presentation loss MHC I downregulation tumor intrinsic)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antivirals COVID-19 randomized trial nirmatrelvir ritonavir molnupiravir outcomes hospitalization mortality adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD adipose lipolysis hepatic TG accumulation NEFA review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 PD-L1 primary resistance tumor intrinsic antigen presentation loss interferon pathway defects across cancers review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nirmatrelvir adverse events compared to molnupiravir COVID-19 randomized trial safety)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(adipose tissue lipolysis NAFLD hepatic triglyceride accumulation NEFA)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 PD-L1 primary resistance mechanisms tumor intrinsic cross cancer review 2020 2021 2022 2023)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD adipose browning lipolysis BAT UCP1 hepatic TG)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 5104 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.79秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[2] 问题: In patients with NAFLD, what is the comparative impact of Mediterranean diet versus low-carbohydrate diet on hepatic steatosis measured by imaging and on liver enzymes?
+  正在生成工具调用轨迹...
+
+📊 进度: 7/18 (38.9%) | 成功: 7 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD Mediterranean diet low carbohydrate randomized trial steatosis ALT AST)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 7641 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.90秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[18] 问题: Among hospitalized patients with severe COVID-19 requiring oxygen, what is the comparative effectiveness of tocilizumab versus baricitinib when added to corticosteroids for reducing mortality and progression to mechanical ventilation?
+  正在生成工具调用轨迹...
+
+📊 进度: 8/18 (44.4%) | 成功: 8 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tocilizumab baricitinib COVID-19 randomized comparative effectiveness corticosteroids)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 16837 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.89秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[5] 问题: In oncology phase III trials, what trial design and statistical strategies are most commonly used to control type I error when multiple endpoints and interim analyses are planned, and how do these choices impact interpretability of results?
+  正在生成工具调用轨迹...
+
+📊 进度: 9/18 (50.0%) | 成功: 9 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(oncology phase III trial multiple endpoints interim analyses type I error control group sequential Bayesian)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(randomized controlled trial NAFLD Mediterranean diet low carbohydrate low-fat head-to-head steatosis ALT AST)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(RECOVERY baricitinib tocilizumab dexamethasone randomized COVID-19 trial mortality ventilation)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(oncology phase III trial group sequential boundaries interim analyses type I error)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(COVID-19 tocilizumab baricitinib corticosteroids comparative effectiveness mortality ventilation meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD Mediterranean diet low carbohydrate randomized trial steatosis ALT AST)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(oncology randomized phase III trial multiple co-primary endpoints type I error control combination test procedure)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(COVID-19 tocilizumab versus baricitinib randomized trial corticosteroids oxygen requiring hospitalized mortality ventilation)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD Mediterranean diet low carbohydrate randomized trial steatosis ALT AST)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Bayesian hierarchical mixture model oncology phase III trial multiple subgroups interim selection type I error)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD Mediterranean diet randomized controlled trial MRI-PDFF ultrasound ALT AST)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(composite endpoint oncology trial guidance FDA EMA interpretability interim analysis)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9018 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.87秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[8] 问题: Across phase III randomized trials of oral small-molecule therapies, how frequently do clinically significant food effects (fed vs fasting) alter exposure and toxicity, and what labeling or dosing strategies are supported by the evidence?
+  正在生成工具调用轨迹...
+
+📊 进度: 10/18 (55.6%) | 成功: 10 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(systematic review food effect oral drugs exposure AUC Cmax randomized trial labeling dosing)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 5725 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.81秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[11] 问题: In multiple myeloma, how do response durability and rates of cytokine release syndrome compare between BCMA-directed CAR-T products and BCMA-directed bispecific T-cell engagers?
+  正在生成工具调用轨迹...
+
+📊 进度: 11/18 (61.1%) | 成功: 11 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(systematic review food effect oral drugs exposure AUC Cmax randomized trial labeling dosing)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ide-cel amg 119 cytokine release syndrome rate multiple myeloma)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9394 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.91秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[14] 问题: What is the incidence of immune checkpoint inhibitor–associated myocarditis across tumor types, and which clinical risk factors are most consistently associated with its development?
+  正在生成工具调用轨迹...
+
+📊 进度: 12/18 (66.7%) | 成功: 12 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(immune checkpoint inhibitor myocarditis incidence pooled incidence cross tumor types)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(food effect AUC randomized trial oral medication labeling dosing recommendations)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(immune checkpoint inhibitor-associated myocarditis pooled incidence risk factors meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(belantamab mafodotin CRS rate multiple myeloma CheckMate 98C 98B durability response)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(sickle cell BCL11A CRISPR oral therapy phase III trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(myocarditis immune checkpoint inhibitor incidence meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ide-cel AMG 119 cytokine release syndrome rate multiple myeloma KarMMa-3 KarMMa-4 durability MRD progression-free survival)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR BCL11A oral therapy trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(immune checkpoint inhibitor myocarditis incidence tumor type risk factors age hypertension smoking)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ide-cel AMG 119 cytokine release syndrome rate multiple myeloma KarMMa-3 KarMMa-4 durability MRD progression-free survival)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ICI myocarditis incidence per tumor type risk factors age hypertension smoking comorbid CAD history)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 10640 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.87秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[1] 问题: In hepatocellular carcinoma, how does first-line atezolizumab plus bevacizumab compare with tyrosine kinase inhibitor therapy in overall survival, progression-free survival, and bleeding risk?
+  正在生成工具调用轨迹...
+
+📊 进度: 13/18 (72.2%) | 成功: 13 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(IMbrave150 atezolizumab bevacizumab sorafenib overall survival progression-free survival hepatocellular carcinoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(belantamab mafodotin CRS rate multiple myeloma CheckMate 98B 98C durability PFS MRD)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(IMbrave150 bleeding hemorrhage atezolizumab bevacizumab sorafenib hepatocellular carcinoma)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9605 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.82秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[4] 问题: In ALS, what mechanistic links have been identified between TDP-43 pathology and nucleocytoplasmic transport defects in motor neurons?
+  正在生成工具调用轨迹...
+
+📊 进度: 14/18 (77.8%) | 成功: 14 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TDP-43 nucleocytoplasmic transport nuclear pore motor neurons ALS mechanism)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 4856 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.88秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[7] 问题: What are the reported frequencies and clinical consequences of cytokine release syndrome and neurotoxicity in gene-edited allogeneic CAR-T cell therapies compared with autologous CAR-T approaches?
+  正在生成工具调用轨迹...
+
+📊 进度: 15/18 (83.3%) | 成功: 15 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(allogeneic CAR-T cytokine release syndrome frequency neurotoxicity CRISPR)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(sorafenib vs atezolizumab bevacizumab overall survival progression-free survival bleeding hepatocellular carcinoma IMbrave150)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TDP-43 nuclear export Ran gradient importin motor neurons ALS)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(base-edited allogeneic CAR-T cytokine release syndrome neurotoxicity prime-edited universal CAR-T)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS TDP-43 nuclear pore complex nucleocytoplasmic transport motor neurons mechanism)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(IMbrave150 bleeding risk hemorrhage bevacizumab atezolizumab sorafenib hepatocellular carcinoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR-edited T cell therapy cytokine release syndrome neurotoxicity allogeneic)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TDP-43 nuclear export Ran gradient importin motor neurons ALS)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(autologous CAR-T cytokine release syndrome frequency neurotoxicity large B-cell lymphoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TDP-43 importin Ran nuclear import inhibition ALS motor neurons)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 8680 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.86秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 16/18 (88.9%) | 成功: 16 | 失败: 0 | 成功率: 100.0%
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6453 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.86秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 17/18 (94.4%) | 成功: 17 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 17859 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 1.03秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 18/18 (100.0%) | 成功: 18 | 失败: 0 | 成功率: 100.0%
+
+✓ 完成！共生成 18 个样本
+💾 所有样本已增量保存到: ../../pubmed_training_data/pubmed_trajectory_evaluated_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8002_incremental.jsonl
+✓ 保存统计: ../../pubmed_training_data/trajectory_evaluated_stats_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8002.json
+
+============================================================
+数据生成完成！
+============================================================

@@ -1,0 +1,34 @@
+{
+  "total_samples": 18,
+  "topics": {
+    "Therapy sequencing (prostate cancer)": 1,
+    "Obesity pharmacotherapy": 1,
+    "Type 2 diabetes; cardiovascular outcomes": 1,
+    "Alzheimer's disease": 1,
+    "Neuroregenerative cell therapy vs gene therapy": 1,
+    "Targeted therapy toxicity comparison (CDK4/6 inhibitors)": 1,
+    "Cystic fibrosis": 2,
+    "Coronary artery disease / lipids": 1,
+    "Diabetic kidney disease": 1,
+    "NSCLC; checkpoint inhibitors": 1,
+    "Heart failure / inflammation": 1,
+    "Hematologic malignancies; CAR-T vs bispecific antibodies": 1,
+    "Genomic integrity after CRISPR editing": 1,
+    "Gene therapy for hemophilia": 1,
+    "Targeted therapy dosing strategies (melanoma)": 1,
+    "Atrial fibrillation / stroke": 1,
+    "Nephrology / Add-on therapy evaluation in phase III trials": 1
+  },
+  "question_types": {
+    "prognosis": 2,
+    "efficacy_comparison": 9,
+    "mechanism": 4,
+    "review": 2,
+    "epidemiology": 1
+  },
+  "avg_tool_calls": 4.777777777777778,
+  "generation_time": "2026-01-01T15:40:38.081394",
+  "model": "/workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0",
+  "source_file": "/workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_00.jsonl",
+  "evaluation_enabled": false
+}

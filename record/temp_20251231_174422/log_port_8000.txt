@@ -1,0 +1,664 @@
+本地模型: /workspace/math_science_data/lyc/models/DR-Tulu-8B
+API地址: http://localhost:8000/v1
+问题文件: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20251231_174422/questions_part_00.jsonl
+并发数: 3
+评估: 启用
+
+[初始化] 尝试初始化评估器...
+[初始化] 评估模型: openai/gpt-4o-mini
+[初始化] ✓ 评估器初始化成功
+[初始化] API Base: https://openrouter.ai/api/v1
+[初始化] API Key: sk-or-v1-bed1cfa18b9...
+
+============================================================
+从已有问题生成轨迹并进行评估
+============================================================
+本地模型: /workspace/math_science_data/lyc/models/DR-Tulu-8B
+API地址: http://localhost:8000/v1
+并发数: 3
+评估: 启用
+从文件加载问题: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20251231_174422/questions_part_00.jsonl
+✓ 加载了 18 个问题
+
+============================================================
+生成轨迹并评估（并发模式）
+============================================================
+💾 增量保存已启用: ../../pubmed_training_data/pubmed_trajectory_evaluated_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8000_incremental.jsonl
+
+[13] 问题: In metastatic castration-resistant prostate cancer, how does sequencing an androgen receptor pathway inhibitor before versus after docetaxel influence subsequent treatment response and survival?
+  正在生成工具调用轨迹...
+
+[2] 问题: In adults with type 2 diabetes and established atherosclerotic cardiovascular disease, how do GLP-1 receptor agonists compare with SGLT2 inhibitors in reducing major adverse cardiovascular events and all-cause mortality?
+  正在生成工具调用轨迹...
+
+[16] 问题: Among adults with obesity without diabetes, how does semaglutide compare with tirzepatide for achieving at least 10% total body weight loss and improving cardiometabolic risk markers?
+  正在生成工具调用轨迹...
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(semaglutide vs tirzepatide weight loss randomized adults obesity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ERASE trial abiraterone docetaxel metastatic castration-resistant prostate cancer overall survival progression-free survival)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(GLP-1 receptor agonist vs SGLT2 inhibitor cardiovascular outcomes type 2 diabetes ASCVD trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tirzepatide semaglutide cardiometabolic risk markers blood pressure lipids glucose adults without diabetes randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(metastatic castration-resistant prostate cancer sequencing androgen receptor pathway inhibitor before versus after docetaxel ERASE CHAARTED LATITUDE ZEST-100)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(head-to-head GLP-1 receptor agonist SGLT2 inhibitor cardiovascular outcomes trial MACE mortality type 2 diabetes ASCVD)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tirzepatide semaglutide head-to-head randomized overweight or obesity without diabetes weight loss blood pressure lipids glucose)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ERASE trial abiraterone versus docetaxel metastatic castration-resistant prostate cancer overall survival progression-free survival)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(sGLT2 inhibitor vs GLP-1 receptor agonist cardiovascular mortality all-cause mortality type 2 diabetes ASCVD outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(semaglutide tirzepatide randomized trial adults without diabetes weight loss 10% blood pressure lipids glucose)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ERASE trial abiraterone versus docetaxel metastatic castration-resistant prostate cancer overall survival progression-free survival)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(sGLT2 inhibitor vs GLP-1 receptor agonist cardiovascular mortality all-cause mortality type 2 diabetes ASCVD outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(semaglutide tirzepatide cardiovascular risk markers randomized adults without diabetes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(liraglutide cardiovascular outcomes trial ASCVD type 2 diabetes LEADER trial major adverse cardiovascular events mortality)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ERASE trial abiraterone versus docetaxel metastatic castration-resistant prostate cancer overall survival progression-free survival)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 7467 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.81秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[3] 问题: Across clinical studies of Alzheimer’s disease, how do microglial activation markers measured by PET imaging relate to cognitive trajectory and neurodegeneration biomarkers?
+  正在生成工具调用轨迹...
+
+📊 进度: 1/18 (5.6%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(microglial activation PET Alzheimer longitudinal cognition)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 11288 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.85秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[6] 问题: In Parkinson disease models, how do dopaminergic neuron replacement strategies using iPSC-derived cells compare with in vivo gene therapy approaches targeting dopamine synthesis in terms of motor outcomes and graft-related risks?
+  正在生成工具调用轨迹...
+
+📊 进度: 2/18 (11.1%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9447 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.91秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[9] 问题: In hormone receptor–positive, HER2-negative metastatic breast cancer, how do CDK4/6 inhibitors differ in rates of neutropenia, diarrhea, and QT prolongation when combined with endocrine therapy?
+  正在生成工具调用轨迹...
+
+📊 进度: 3/18 (16.7%) | 成功: 3 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(iPSC dopaminergic transplantation Parkinson rat primate outcomes dyskinesia)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(palbociclib neutropenia diarrhea QT prolongation letrozole metastatic breast cancer)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(iPSC dopaminergic transplantation Parkinson primate)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tau PET microglial activation TREM2 AXL longitudinal Alzheimer)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(palbociclib letrozole neutropenia diarrhea QT prolongation PALOMA-2 PALOMA-3 incidence)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TSPO [11C]PK11195 longitudinal cognitive decline Alzheimer biomarkers amyloid tau)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV2-GAD65/67 gene therapy Parkinson rat primate dopamine synthesis TH GUSB outcomes dyskinesia)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ribociclib endocrine therapy neutropenia diarrhea QT prolongation safety trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PBR28 longitudinal Alzheimer cognition microglial activation)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AADC gene therapy Parkinsonian motor symptoms GUSB rat primate)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(palbociclib neutropenia incidence diarrhea QT prolongation PFS OS PALOMA-2 PALOMA-3)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR BCL11A sickle cell)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AADC GUSB Parkinson gene therapy trial randomized primate)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(palbociclib letrozole neutropenia diarrhea incidence PALOMA-2)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6567 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.78秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[12] 问题: In coronary artery disease, how do elevated lipoprotein(a) levels contribute to atherosclerotic risk through pro-inflammatory or pro-thrombotic mechanisms, and how consistent is the association across cohorts?
+  正在生成工具调用轨迹...
+
+📊 进度: 4/18 (22.2%) | 成功: 4 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lipoprotein(a) atherosclerosis mechanisms pro-inflammatory pro-thrombotic review 2019..2024)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 5959 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.81秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[1] 问题: In cystic fibrosis, what is the effect of CFTR modulator therapy on the airway microbiome composition and chronic Pseudomonas aeruginosa colonization over time?
+  正在生成工具调用轨迹...
+
+📊 进度: 5/18 (27.8%) | 成功: 5 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis CFTR modulator microbiome Pseudomonas aeruginosa)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 16363 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.88秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[15] 问题: In patients with type 2 diabetes and chronic kidney disease, what is the comparative effect of finerenone versus SGLT2 inhibitors on progression to end-stage kidney disease and albuminuria reduction?
+  正在生成工具调用轨迹...
+
+📊 进度: 6/18 (33.3%) | 成功: 6 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(finerenone FINE-REAL albuminuria end-stage kidney disease type 2 diabetes chronic kidney disease)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lipoprotein(a) atherosclerosis pro-inflammatory pro-thrombotic mechanisms PAI-1 endothelial dysfunction review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(FINE-REAL finerenone albuminuria eGFR progression end-stage renal disease)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis longitudinal microbiome CFTR modulator Pseudomonas aeruginosa elexacaftor tezacaftor ivacaftor efdaltacaftor erdalfibranil tezacaftor ivacaftor erdalfibranil microbiome colonization)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(finerenone randomized trial albuminuria eGFR progression CKD type 2 diabetes FINE)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis CFTR modulator microbiome longitudinal sputum microbiome Pseudomonas aeruginosa elexacaftor/tezacaftor/ivacaftor ETI study)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lipoprotein(a) atherosclerosis mechanisms pro-inflammatory pro-thrombotic review 2019..2024)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(finerenone albuminuria randomized trial CKD type 2 diabetes NEJM Lancet)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis CFTR modulator airway microbiome longitudinal Pseudomonas aeruginosa colonization time course)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lipoprotein(a) pro-inflammatory pro-thrombotic mechanisms atherosclerosis PAI-1 oxidized LDL endothelial dysfunction)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(finerenone randomized trial chronic kidney disease albuminuria renal failure type 2 diabetes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis CFTR modulator microbiome longitudinal sputum microbiome Pseudomonas aeruginosa elexacaftor/tezacaftor/ivacaftor ETI study)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lipoprotein(a) atherosclerosis mechanisms pro-inflammatory pro-thrombotic review 2019..2024)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9064 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.84秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[18] 问题: In advanced non-small cell lung cancer, what is the comparative efficacy of anti-PD-1 versus anti-PD-L1 monotherapy when stratified by tumor PD-L1 expression levels?
+  正在生成工具调用轨迹...
+
+📊 进度: 7/18 (38.9%) | 成功: 7 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 8215 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.90秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[5] 问题: In heart failure, what mechanistic roles do NLRP3 inflammasome activation and interleukin-1 signaling play in adverse remodeling, and how does targeting these pathways affect cardiac function in clinical or translational studies?
+  正在生成工具调用轨迹...
+
+📊 进度: 8/18 (44.4%) | 成功: 8 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nivolumab versus pembrolizumab overall survival progression-free survival non-small cell lung cancer meta-analysis PD-L1)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 7435 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.93秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[8] 问题: In relapsed or refractory diffuse large B-cell lymphoma, how do outcomes and severe toxicity rates compare between CD19-directed CAR-T therapy and bispecific CD20xCD3 antibody therapy?
+  正在生成工具调用轨迹...
+
+📊 进度: 9/18 (50.0%) | 成功: 9 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NLRP3 inflammasome heart failure adverse remodeling IL-1 signaling)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(diffuse large B-cell lymphoma CD19 CAR-T vs CD20 CD3 bispecific blinatumomab outcomes toxicity comparative)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(pembrolizumab monotherapy PD-L1 50% progression-free survival KEYNOTE-024)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(heart failure NLRP3 inflammasome IL-1β adverse remodeling fibrosis review clinical trial MCC950 canakinumab anakinra)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(diffuse large B-cell lymphoma axicabtagene ciloleucel vs blinatumomab outcomes toxicity relapsed refractory)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(heart failure NLRP3 inflammasome IL-1 signaling adverse remodeling fibrosis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nivolumab monotherapy PD-L1 50% progression-free survival CheckMate 025 advanced NSCLC)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(relapsed refractory diffuse large B-cell lymphoma axicabtagene ciloleucel ZUMA-5 outcomes toxicity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NLRP3 inflammasome heart failure IL-1 signaling adverse remodeling fibrosis review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(diffuse large B-cell lymphoma CD19 CAR-T vs CD20 CD3 bispecific outcomes toxicity comparative review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(anti-PD-1 versus anti-PD-L1 monotherapy PD-L1 expression non-small cell lung cancer meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(canakinumab anakinra heart failure randomized trial cardiac remodeling IL-1β)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(KEYNOTE-052 pembrolizumab monotherapy PD-L1 1% advanced non-small-cell lung cancer progression-free survival overall survival)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TRANSFORM trial mosunetuzumab axicabtagene diffuse large B-cell lymphoma outcomes safety)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 5240 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.86秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[11] 问题: Among people with cystic fibrosis, how does early initiation of CFTR modulators in childhood influence long-term trajectories of lung function decline compared with later initiation?
+  正在生成工具调用轨迹...
+
+📊 进度: 10/18 (55.6%) | 成功: 10 | 失败: 0 | 成功率: 100.0%
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(early initiation CFTR modulator childhood lung function decline trajectory FVC FEV1)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6513 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.84秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[14] 问题: What is the rate and spectrum of unintended large deletions, chromosomal rearrangements, or translocations after CRISPR editing in primary human T cells, and which detection methods are most sensitive in published studies?
+  正在生成工具调用轨迹...
+
+📊 进度: 11/18 (61.1%) | 成功: 11 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR primary human T cells off-target deletions rearrangements translocations rate)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 11956 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.89秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[17] 问题: In hemophilia A or B, how do AAV-mediated liver-directed gene therapies differ in durability of factor expression and risk of transaminitis across serotypes and promoter designs?
+  正在生成工具调用轨迹...
+
+📊 进度: 12/18 (66.7%) | 成功: 12 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(valoctocogene roxaparvovec Hemgenix AAV5 liver FIX Padua transaminitis durability trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR T cells large deletion primary human T cells off-target)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(early vs delayed initiation CFTR modulator childhood lung function decline FVC FEV1 trajectory elexacaftor tezacaftor ivacaftor)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(valoctocogene roxaparvovec Hemgenix AAV5 liver FIX Padua transaminitis durability trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR T cell genome integrity large deletions translocations chromosomal rearrangements)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis early initiation CFTR modulator childhood longitudinal FVC FEV1 trajectory registry elexacaftor tezacaftor triple)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Jivi fidanacogene elaparvovec long-term follow-up transaminitis liver enzyme elevation hemophilia A AAV5 PGK FIX durability)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(T cell CRISPR off-target large deletion chromosomal rearrangement translocation primary human)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis early CFTR modulator initiation childhood lung function outcomes FVC FEV1 longitudinal study)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(hemophilia liver-directed AAV gene therapy transaminitis durability factor IX factor VIII serotype promoter)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR primary human T cells off-target deletions rearrangements translocations rate)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis early initiation CFTR modulator childhood lung function FVC FEV1 trajectory longitudinal registry)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(hemophilia AAV liver-directed gene therapy transaminitis ALT AST durability factor VIII factor IX serotype promoter)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6007 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.85秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[4] 问题: In BRAF V600-mutant melanoma, what evidence supports intermittent versus continuous dosing of BRAF/MEK inhibitors in delaying resistance and improving tolerability?
+  正在生成工具调用轨迹...
+
+📊 进度: 13/18 (72.2%) | 成功: 13 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 7728 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.86秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[7] 问题: In chronic kidney disease with albuminuria, what is the incremental benefit and hyperkalemia risk of adding a nonsteroidal mineralocorticoid receptor antagonist to standard renin–angiotensin system blockade in phase III trials?
+  正在生成工具调用轨迹...
+
+📊 进度: 14/18 (77.8%) | 成功: 14 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(intermittent dosing BRAF V600 melanoma dabrafenib trametinib resistance on-off pulse metronomic tolerability)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(finerenone add-on to renin-angiotensin system blockade phase III chronic kidney disease albuminuria hyperkalemia FINE-REAL FINE-TUNE)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9244 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.87秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[10] 问题: What is the association between subclinical atrial fibrillation detected by implanted devices and subsequent ischemic stroke risk, and how does risk vary by atrial high-rate episode duration?
+  正在生成工具调用轨迹...
+
+📊 进度: 15/18 (83.3%) | 成功: 15 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(subclinical atrial fibrillation implantable cardiac devices ischemic stroke risk cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(intermittent versus continuous BRAF/MEK inhibitor dosing melanoma randomized phase II on-off pulse metronomic tolerability resistance)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(FINE-REAL finerenone add-on to renin-angiotensin system blockade phase III hyperkalemia)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(device-detected atrial fibrillation ischemic stroke risk cohort meta-analysis implantable cardiac monitor pacemaker loop recorder)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(BRAF V600E melanoma intermittent dosing dabrafenib trametinib resistance on-off pulse metronomic)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nonsteroidal mineralocorticoid receptor antagonist add-on to RAAS chronic kidney disease albuminuria phase 3 hyperkalemia)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(subclinical atrial fibrillation implantable cardiac monitors stroke risk cohort study)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(intermittent dosing BRAF/MEK melanoma resistance survival tolerability pulse on-off metronomic)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(spironolactone add-on to ACE inhibitor or ARB albuminuria chronic kidney disease phase 3 hyperkalemia)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(atrial high-rate episodes duration ischemic stroke risk device-detected subclinical atrial fibrillation implantable cardiac monitor)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(on-off dosing BRAF MEK inhibitor melanoma trametinib dabrafenib intermittent pulse schedule resistance tolerability)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: google_search(FINE-REAL trial finerenone phase 3 hyperkalemia)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(device-detected subclinical atrial fibrillation atrial high rate burden duration ischemic stroke risk cohort)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 7892 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.87秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 16/18 (88.9%) | 成功: 16 | 失败: 0 | 成功率: 100.0%
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 10599 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.84秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 17/18 (94.4%) | 成功: 17 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 7804 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.91秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 18/18 (100.0%) | 成功: 18 | 失败: 0 | 成功率: 100.0%
+
+✓ 完成！共生成 18 个样本
+💾 所有样本已增量保存到: ../../pubmed_training_data/pubmed_trajectory_evaluated_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8000_incremental.jsonl
+✓ 保存统计: ../../pubmed_training_data/trajectory_evaluated_stats_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8000.json
+
+============================================================
+数据生成完成！
+============================================================

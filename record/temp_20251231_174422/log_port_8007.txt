@@ -1,0 +1,658 @@
+本地模型: /workspace/math_science_data/lyc/models/DR-Tulu-8B
+API地址: http://localhost:8007/v1
+问题文件: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20251231_174422/questions_part_07.jsonl
+并发数: 3
+评估: 启用
+
+[初始化] 尝试初始化评估器...
+[初始化] 评估模型: openai/gpt-4o-mini
+[初始化] ✓ 评估器初始化成功
+[初始化] API Base: https://openrouter.ai/api/v1
+[初始化] API Key: sk-or-v1-bed1cfa18b9...
+
+============================================================
+从已有问题生成轨迹并进行评估
+============================================================
+本地模型: /workspace/math_science_data/lyc/models/DR-Tulu-8B
+API地址: http://localhost:8007/v1
+并发数: 3
+评估: 启用
+从文件加载问题: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20251231_174422/questions_part_07.jsonl
+✓ 加载了 18 个问题
+
+============================================================
+生成轨迹并评估（并发模式）
+============================================================
+💾 增量保存已启用: ../../pubmed_training_data/pubmed_trajectory_evaluated_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8007_incremental.jsonl
+
+[6] 问题: In neonatal seizures, how does phenobarbital compare with levetiracetam for electrographic seizure control and short-term safety outcomes?
+  正在生成工具调用轨迹...
+
+[9] 问题: In patients with acute myocardial infarction and multivessel coronary artery disease, does complete revascularization compared with culprit-only PCI reduce long-term mortality and recurrent myocardial infarction?
+  正在生成工具调用轨迹...
+
+[12] 问题: In systemic lupus erythematosus, what is the prognostic value of renal biopsy histologic class and activity/chronicity indices for long-term kidney outcomes?
+  正在生成工具调用轨迹...
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(acute myocardial infarction multivessel complete revascularization culprit-only PCI long-term mortality recurrent myocardial infarction meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(neonatal seizures phenobarbital vs levetiracetam electrographic control safety)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(systemic lupus erythematosus nephritis renal biopsy histologic class activity index chronicity long-term outcome)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(acute myocardial infarction complete revascularization culprit-only PCI mortality myocardial infarction TIMI)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(neonatal seizures phenobarbital levetiracetam comparative electrographic control adverse events randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lupus nephritis ISN/RPS histologic class activity index chronicity index ESRD long-term outcome cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(phenobarbital levetiracetam neonatal seizures randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(complete revascularization versus culprit-only PCI acute myocardial infarction multivessel randomized trial meta-analysis mortality recurrent myocardial infarction)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(adult lupus nephritis renal biopsy class IV chronicity index ESRD long-term survival ISN/RPS)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(complete revascularization versus culprit-only PCI acute myocardial infarction multivessel randomized trial meta-analysis mortality recurrent myocardial infarction)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: browse_webpage(https://pubmed.ncbi.nlm.nih.gov/32385134/)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lupus nephritis renal biopsy histologic activity index chronicity index long-term renal outcomes ISN/RPS cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ILUMIEN complete versus culprit PCI randomized multivessel myocardial infarction mortality recurrent myocardial infarction)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(neonatal seizures phenobarbital levetiracetam comparative electrographic control adverse events randomized)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 11906 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.83秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[15] 问题: In patients with chronic coronary syndrome, what is the prognostic value of coronary CT angiography-derived plaque features (e.g., low-attenuation plaque, positive remodeling) for predicting future myocardial infarction beyond stenosis severity?
+  正在生成工具调用轨迹...
+
+📊 进度: 1/18 (5.6%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6120 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.74秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[2] 问题: In locally advanced head and neck squamous cell carcinoma, does adding cetuximab to definitive radiotherapy provide comparable overall survival and toxicity to concurrent cisplatin-based chemoradiotherapy?
+  正在生成工具调用轨迹...
+
+📊 进度: 2/18 (11.1%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(coronary CT angiography plaque features prognosis myocardial infarction beyond stenosis severity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(RTOG 05-29 cetuximab radiotherapy concurrent cisplatin head and neck overall survival toxicity)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(chronic coronary syndrome coronary CT angiography low-attenuation plaque positive remodeling prognosis myocardial infarction)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(RTOG 05-29 overall survival toxicity head and neck cancer radiotherapy cetuximab)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9034 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.80秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[18] 问题: In CAR-T cell manufacturing, how does CRISPR-mediated TRAC locus knock-in compare with random viral integration for CAR expression in terms of T-cell exhaustion markers and antitumor potency?
+  正在生成工具调用轨迹...
+
+📊 进度: 3/18 (16.7%) | 成功: 3 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR TRAC locus knock-in CAR T exhaustion markers antitumor potency)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(coronary CT angiography chronic coronary syndrome prognosis low-attenuation plaque positive remodeling)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(head and neck cancer cetuximab radiotherapy randomized trial overall survival toxicity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR TRAC knock-in CAR T exhaustion markers antitumor potency)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(prognostic value of coronary CT angiography plaque features chronic coronary syndrome myocardial infarction)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Bonner NEJM 2006 radiotherapy plus cetuximab head and neck overall survival toxicity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR TRAC knock-in CAR T exhaustion markers antitumor potency)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(chronic coronary syndrome low-attenuation plaque positive remodeling prognosis myocardial infarction CCTA)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(head and neck cancer definitive radiotherapy plus cetuximab overall survival toxicity randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR TRAC knock-in CAR T exhaustion markers antitumor potency)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR TRAC knock-in CAR T exhaustion markers antitumor potency)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 7189 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.76秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[5] 问题: In rheumatoid arthritis, what is the relationship between mucosal dysbiosis (oral or gut microbiome changes) and development of autoantibodies such as ACPA before clinical disease onset?
+  正在生成工具调用轨迹...
+
+📊 进度: 4/18 (22.2%) | 成功: 4 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis ACPA microbiome dysbiosis onset)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 8082 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.83秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[8] 问题: In metastatic colorectal cancer, how does anti-EGFR therapy efficacy differ between left-sided and right-sided primary tumors in RAS wild-type disease with respect to response rate and overall survival?
+  正在生成工具调用轨迹...
+
+📊 进度: 5/18 (27.8%) | 成功: 5 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(metastatic colorectal cancer left-sided right-sided anti-EGFR response rate overall survival RAS wild-type cetuximab panitumumab)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(gut microbiome dysbiosis rheumatoid arthritis ACPA onset cohort)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 5817 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.92秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[11] 问题: How do autoimmune encephalitis–related epilepsies respond to immunotherapy compared with antiseizure medications alone in terms of seizure remission rates?
+  正在生成工具调用轨迹...
+
+📊 进度: 6/18 (33.3%) | 成功: 6 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(metastatic colorectal cancer left-sided right-sided anti-EGFR cetuximab panitumumab TAILOR CRYSTAL PRIME subgroup response rate overall survival RAS wild-type)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(autoimmune encephalitis epilepsy immunotherapy seizure remission antiseizure medications)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis ACPA periodontitis Porphyromonas gingivalis citrullination autoantibodies)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(metastatic colorectal cancer left-sided right-sided anti-EGFR response rate overall survival RAS wild-type pooled analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(autoimmune epilepsy immunotherapy seizure remission rate antiseizure medications comparison cohort review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(gut microbiome rheumatoid arthritis ACPA predisease onset)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(metastatic colorectal cancer left-sided right-sided anti-EGFR response rate overall survival RAS wild-type pooled analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(autoimmune encephalitis epilepsy immunotherapy antiepileptic drugs seizure control remission rates cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(autoimmune encephalitis immunotherapy seizure remission antiepileptic drugs outcomes cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(metastatic colorectal cancer left-sided right-sided anti-EGFR response rate overall survival RAS wild-type CRYSTAL FIRE-3 PRIME PEAK TAILOR subgroup)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(early rheumatoid arthritis gut microbiome ACPA onset cohort)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(autoimmune encephalitis immunotherapy seizure remission antiepileptic drugs outcomes cohort)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6544 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.86秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[14] 问题: In HIV therapy, how does the use of proton pump inhibitors impact virologic suppression rates in patients taking oral antiretrovirals with pH-dependent absorption, and what mitigation strategies are supported by clinical evidence?
+  正在生成工具调用轨迹...
+
+📊 进度: 7/18 (38.9%) | 成功: 7 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9153 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.81秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[1] 问题: After acute coronary syndrome, how do PCSK9 inhibitors compare with ezetimibe when added to high-intensity statins in achieving LDL-C reduction and reducing recurrent cardiovascular events?
+  正在生成工具调用轨迹...
+
+📊 进度: 8/18 (44.4%) | 成功: 8 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(proton pump inhibitor HIV protease inhibitor absorption viral suppression)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ODYSSEY OUTCOMES alirocumab acute coronary syndrome LDL-C reduction cardiovascular events)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(omeprazole ritonavir lopinavir absorption bioavailability HIV protease inhibitor)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(evolocumab SPIRE trial acute coronary syndrome outcomes LDL-C reduction)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 8265 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.88秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[17] 问题: Across autoimmune diseases such as rheumatoid arthritis, systemic lupus erythematosus, and multiple sclerosis, how does female sex hormone exposure (pregnancy or postpartum period) influence disease activity trajectories?
+  正在生成工具调用轨迹...
+
+📊 进度: 9/18 (50.0%) | 成功: 9 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(systemic lupus erythematosus pregnancy postpartum flare relapse disease activity cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(non-statin therapy after acute coronary syndrome ezetimibe outcomes randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(omeprazole antiretroviral absorption HIV protease inhibitor lopinavir ritonavir bioavailability)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis pregnancy parity postpartum flare remission menopausal hormone therapy disease activity cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(non-statin therapy after acute coronary syndrome ezetimibe outcomes randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(proton pump inhibitor HIV therapy virologic suppression protease inhibitor absorption)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(multiple sclerosis pregnancy postpartum relapse remission disease activity cohort hormones)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ORION-10 ACS alirocumab ezetimibe comparison outcomes LDL-C)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(indinavir proton pump inhibitor omeprazole absorption bioavailability virologic suppression)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis pregnancy postpartum relapse remission pseudoremission lactational menopausal hormone therapy cohort)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(sex hormones estrogen progesterone pregnancy postpartum systemic lupus erythematosus disease activity flares immunomodulation review)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 8270 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.88秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[4] 问题: In retinal inherited dystrophies, how do subretinal AAV gene augmentation approaches compare with gene editing strategies regarding visual function outcomes and ocular inflammatory complications?
+  正在生成工具调用轨迹...
+
+📊 进度: 10/18 (55.6%) | 成功: 10 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 10155 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.82秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[7] 问题: What are the dominant molecular mechanisms driving colistin resistance in Klebsiella pneumoniae, and how do plasmid-mediated mcr genes compare with chromosomal modifications in contributing to resistance levels?
+  正在生成工具调用轨迹...
+
+📊 进度: 11/18 (61.1%) | 成功: 11 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(in vivo CRISPR retinal dystrophy nonhuman primate visual function inflammation)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Klebsiella pneumoniae colistin resistance mechanisms review mcr PhoQ PmrA PmrD Eber lpxA lpxC 2018..2024)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV gene therapy retinal dystrophy clinical trial visual function safety inflammation RPE65 CAP-1001)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Klebsiella pneumoniae colistin resistance mcr-1 plasmid chromosomal PhoQ PhoP PmrA PmrD Eber review 2018..2025)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 8022 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.87秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[10] 问题: In hospitalized adults receiving broad-spectrum antibiotics, how effective are antimicrobial stewardship interventions in reducing Clostridioides difficile infection incidence without increasing mortality or readmissions?
+  正在生成工具调用轨迹...
+
+📊 进度: 12/18 (66.7%) | 成功: 12 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antimicrobial stewardship reduce Clostridioides difficile infection hospitalized adults broad-spectrum antibiotics)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR retinal dystrophy nonhuman primate vision immune inflammation)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Klebsiella pneumoniae colistin resistance mechanisms review 2018..2025)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antimicrobial stewardship Clostridioides difficile incidence hospitalized adults systematic review meta-analysis mortality readmissions)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(RPE65 gene therapy clinical trial visual acuity electroretinogram safety long-term follow-up)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antimicrobial stewardship Clostridioides difficile hospital cohort broad-spectrum antibiotics readmission mortality)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Klebsiella pneumoniae colistin resistance mechanisms review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(RPE65 gene therapy subretinal clinical trial visual function safety inflammation)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(reduce Clostridioides difficile readmissions antimicrobial stewardship cohort hospitalized adults broad-spectrum antibiotics mortality)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Klebsiella pneumoniae colistin resistance mcr-1 mcr-9 plasmid conjugative transposon IncFII IncX4 review 2015..2025)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antimicrobial stewardship program Clostridioides difficile incidence adult hospital cohort readmission mortality)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6718 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.85秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[13] 问题: What is the association between long-term antiseizure medication use and bone health outcomes (osteopenia, osteoporosis, fractures) in adults with epilepsy?
+  正在生成工具调用轨迹...
+
+📊 进度: 13/18 (72.2%) | 成功: 13 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(epilepsy antiseizure medication bone mineral density osteopenia osteoporosis fracture adults)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 8381 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.91秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[16] 问题: In Duchenne muscular dystrophy, what evidence supports exon skipping via genome editing versus micro-dystrophin gene transfer in improving muscle function, and how do their safety profiles differ?
+  正在生成工具调用轨迹...
+
+📊 进度: 14/18 (77.8%) | 成功: 14 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Duchenne muscular dystrophy exon skipping genome editing CRISPR microdystrophin gene transfer comparison review)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antiepileptic drugs bone mineral density epilepsy cohort osteopenia osteoporosis)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 8162 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.89秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[3] 问题: In patients with atrial fibrillation receiving a direct oral anticoagulant, how does concomitant amiodarone or verapamil use affect bleeding risk compared with no P-glycoprotein/CYP3A4 inhibitor co-therapy?
+  正在生成工具调用轨迹...
+
+📊 进度: 15/18 (83.3%) | 成功: 15 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(atrial fibrillation direct oral anticoagulant amiodarone bleeding risk)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR exon skipping Duchenne muscular dystrophy mdx dystrophin restoration fiber type function)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(epilepsy antiepileptic drugs bone health vitamin D deficiency adults)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Duchenne muscular dystrophy exon skipping genome editing evidence mdx dystrophin)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(atrial fibrillation direct oral anticoagulant amiodarone bleeding risk)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(epilepsy long-term antiseizure medication bone mineral density fracture risk adults cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Duchenne muscular dystrophy exon skipping micro-dystrophin gene transfer randomized trial mdx)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(verapamil P-glycoprotein inhibitor direct oral anticoagulant bleeding risk atrial fibrillation)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR exon skipping Duchenne muscular dystrophy mdx dystrophin restoration fiber type function)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(verapamil P-glycoprotein inhibitor direct oral anticoagulant bleeding risk atrial fibrillation)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(verapamil P-glycoprotein inhibitor direct oral anticoagulant bleeding risk atrial fibrillation)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 7191 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.83秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 16/18 (88.9%) | 成功: 16 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 14803 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.90秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 17/18 (94.4%) | 成功: 17 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9223 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.86秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 18/18 (100.0%) | 成功: 18 | 失败: 0 | 成功率: 100.0%
+
+✓ 完成！共生成 18 个样本
+💾 所有样本已增量保存到: ../../pubmed_training_data/pubmed_trajectory_evaluated_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8007_incremental.jsonl
+✓ 保存统计: ../../pubmed_training_data/trajectory_evaluated_stats_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8007.json
+
+============================================================
+数据生成完成！
+============================================================

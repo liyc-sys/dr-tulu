@@ -1,0 +1,38 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Huntington's disease": 2,
+    "Diabetic kidney disease prognosis": 1,
+    "Epilepsy": 2,
+    "COVID-19 virology": 1,
+    "Rheumatoid arthritis / Systemic lupus erythematosus / Multiple sclerosis": 2,
+    "COVID-19 immunomodulators": 1,
+    "Tumor microenvironment and checkpoint resistance": 1,
+    "Chemotherapy resistance mechanisms (pancreatic cancer)": 1,
+    "Coronary artery disease (inflammation mechanisms)": 1,
+    "Gestational diabetes outcomes": 1,
+    "Coronary artery disease (diabetes therapies)": 1,
+    "Pediatric MASLD/NAFLD epidemiology": 1,
+    "Biomarkers of checkpoint response": 1,
+    "Combination immunotherapy/targeted therapy (RCC)": 1,
+    "MS phase III comparative therapeutics": 1,
+    "COVID-19 clinical outcomes": 1,
+    "Mechanisms of acquired resistance": 1,
+    "Amyotrophic lateral sclerosis (ALS)": 1,
+    "Immunotherapy toxicity and outcomes": 1,
+    "Atrial fibrillation (subclinical AF)": 1,
+    "IBD phase III trials and safety signals": 1,
+    "Gene therapy; hematology; CRISPR vs viral gene addition": 1
+  },
+  "question_types": {
+    "mechanism": 6,
+    "prognosis": 7,
+    "efficacy_comparison": 7,
+    "epidemiology": 3,
+    "review": 2
+  },
+  "avg_tool_calls": 4.96,
+  "generation_time": "2025-12-20T05:43:31.832665",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.3xjKm2ErVx/questions_part_02.jsonl"
+}

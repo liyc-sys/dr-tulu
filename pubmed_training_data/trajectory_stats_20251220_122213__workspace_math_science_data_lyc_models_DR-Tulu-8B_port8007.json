@@ -1,0 +1,36 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "COVID-19 long COVID": 1,
+    "Epilepsy": 3,
+    "Immunosuppression and checkpoint efficacy": 1,
+    "Obesity pharmacotherapy": 1,
+    "Parkinson's disease": 1,
+    "CDK4/6 inhibitor resistance in breast cancer": 1,
+    "Atrial fibrillation (AF)": 1,
+    "Diabetic kidney disease": 1,
+    "Clinical trial design (DDI-driven eligibility/generalizability)": 1,
+    "Systemic lupus erythematosus": 3,
+    "Biomarkers for checkpoint response": 1,
+    "ALS": 1,
+    "Microbiome-modulating drugs and checkpoint outcomes": 1,
+    "Heart failure with AF": 1,
+    "Oncology clinical trials (concomitant medication effect)": 1,
+    "COVID-19 monoclonal antibodies": 1,
+    "Huntington's disease": 2,
+    "Antiangiogenic therapy in ovarian cancer": 1,
+    "Oncology clinical trials (biomarker-driven therapy outcomes)": 1,
+    "COVID-19 virology and outcomes": 1
+  },
+  "question_types": {
+    "epidemiology": 4,
+    "efficacy_comparison": 11,
+    "prognosis": 6,
+    "mechanism": 2,
+    "review": 2
+  },
+  "avg_tool_calls": 4.88,
+  "generation_time": "2025-12-20T13:10:20.306256",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.CtqIdevgp6/questions_part_07.jsonl"
+}

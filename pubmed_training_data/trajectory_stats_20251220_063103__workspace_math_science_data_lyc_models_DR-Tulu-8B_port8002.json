@@ -1,0 +1,40 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Rheumatoid arthritis and systemic lupus erythematosus": 1,
+    "HIV prevention (PrEP)": 1,
+    "Acquired resistance to checkpoint therapy": 1,
+    "Phase III efficacy comparison (metabolic disease)": 1,
+    "HIV reservoir biology": 1,
+    "Nutrition epidemiology": 1,
+    "Dietary risk factors for diabetes": 1,
+    "Tumor-intrinsic pathways shaping immune exclusion": 1,
+    "Alzheimer's disease": 1,
+    "ALK inhibitors and CNS control": 1,
+    "CDK4/6 inhibitor resistance": 1,
+    "Huntington's disease": 2,
+    "Ectopic fat and beta-cell dysfunction": 1,
+    "Heart failure (HFrEF)": 1,
+    "Parkinson's disease": 1,
+    "HSC gene therapy; clonal hematopoiesis": 1,
+    "Gene therapy pharmacokinetics; biodistribution": 1,
+    "Precision therapy in prostate cancer": 1,
+    "Resistance mechanisms to checkpoint therapy": 1,
+    "Systemic lupus erythematosus": 1,
+    "HIV care delivery": 1,
+    "Stem cell therapy; inflammatory bowel disease": 1,
+    "Biomarkers for immunotherapy response": 1,
+    "Phase III efficacy comparison (oncology)": 1
+  },
+  "question_types": {
+    "epidemiology": 3,
+    "efficacy_comparison": 11,
+    "mechanism": 7,
+    "prognosis": 3,
+    "review": 1
+  },
+  "avg_tool_calls": 4.92,
+  "generation_time": "2025-12-20T07:16:23.397232",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.5yJsahY0Zc/questions_part_02.jsonl"
+}

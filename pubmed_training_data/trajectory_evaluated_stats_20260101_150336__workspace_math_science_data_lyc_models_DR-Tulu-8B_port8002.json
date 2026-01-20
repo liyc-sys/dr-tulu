@@ -1,0 +1,33 @@
+{
+  "total_samples": 18,
+  "topics": {
+    "Immunotherapy maintenance strategy (urothelial cancer)": 1,
+    "Rheumatoid arthritis": 1,
+    "ALS": 3,
+    "Resistance mechanisms; checkpoint blockade": 1,
+    "Obesity-related insulin resistance": 1,
+    "COVID-19 therapeutics": 1,
+    "Immunotherapy resistance mechanisms": 1,
+    "NAFLD pathophysiology": 1,
+    "NAFLD lifestyle therapy": 1,
+    "COVID-19 immunomodulation": 1,
+    "Clinical trial methodology / Phase III design and multiplicity control": 1,
+    "Drug development / Food–drug interaction evidence from pivotal programs": 1,
+    "Multiple myeloma; BCMA immunotherapy": 1,
+    "Safety; immune-related adverse events": 1,
+    "Immunotherapy plus anti-angiogenic therapy (HCC)": 1,
+    "Safety epidemiology in gene-edited cell therapy": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 7,
+    "epidemiology": 3,
+    "mechanism": 5,
+    "prognosis": 1,
+    "review": 2
+  },
+  "avg_tool_calls": 0.0,
+  "generation_time": "2026-01-01T15:03:37.572427",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150335/questions_part_02.jsonl",
+  "evaluation_enabled": false
+}

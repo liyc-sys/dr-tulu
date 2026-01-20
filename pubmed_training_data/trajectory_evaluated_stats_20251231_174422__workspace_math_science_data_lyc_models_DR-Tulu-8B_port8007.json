@@ -1,0 +1,36 @@
+{
+  "total_samples": 18,
+  "topics": {
+    "Systemic lupus erythematosus": 1,
+    "Coronary artery disease / PCI": 1,
+    "Epilepsy": 3,
+    "Coronary artery disease / imaging": 1,
+    "Targeted therapy vs chemoradiation (HNSCC)": 1,
+    "Genome-edited cellular immunotherapy": 1,
+    "Targeted therapy (colorectal cancer)": 1,
+    "Rheumatoid arthritis": 1,
+    "Drug–drug interaction affecting efficacy / Antiretroviral pharmacology": 1,
+    "Coronary artery disease / secondary prevention": 1,
+    "Autoimmune diseases (cross-disease)": 1,
+    "Ocular gene and gene-editing therapies": 1,
+    "Antibiotic resistance mechanisms": 1,
+    "Antimicrobial stewardship": 1,
+    "Gene therapy strategies for muscular dystrophy": 1,
+    "Clinical drug–drug interactions / Safety outcomes": 1
+  },
+  "question_types": {
+    "prognosis": 2,
+    "efficacy_comparison": 8,
+    "epidemiology": 4,
+    "mechanism": 2,
+    "review": 2
+  },
+  "avg_tool_calls": 4.888888888888889,
+  "generation_time": "2025-12-31T18:24:43.621778",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20251231_174422/questions_part_07.jsonl",
+  "evaluation_enabled": true,
+  "avg_score": 0.0,
+  "min_score": 0.0,
+  "max_score": 0.0
+}

@@ -1,0 +1,30 @@
+{
+  "total_samples": 18,
+  "topics": {
+    "Parkinson's disease": 3,
+    "Rheumatoid arthritis": 1,
+    "Huntington's disease": 2,
+    "Systemic lupus erythematosus": 3,
+    "HCC; combination immunotherapy": 1,
+    "Tumor microenvironment; immunosuppression": 1,
+    "COVID-19 in pregnancy": 1,
+    "HIV antiretroviral therapy": 1,
+    "Gestational diabetes outcomes": 1,
+    "Long COVID": 1,
+    "NASH prognosis and risk stratification": 1,
+    "ALS and Huntington's disease": 1,
+    "RCC; regimen comparison": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 7,
+    "review": 2,
+    "mechanism": 2,
+    "prognosis": 2,
+    "epidemiology": 5
+  },
+  "avg_tool_calls": 0.0,
+  "generation_time": "2026-01-01T15:03:37.569756",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150335/questions_part_04.jsonl",
+  "evaluation_enabled": false
+}

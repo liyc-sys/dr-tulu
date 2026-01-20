@@ -1,0 +1,37 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Rheumatoid arthritis": 3,
+    "Predictive biomarkers for immunotherapy": 1,
+    "NAFLD diagnostics and monitoring": 1,
+    "Coronary artery disease (CAD)": 2,
+    "Immunotherapy combinations in MSI-H colorectal cancer": 1,
+    "Heart failure (HFpEF)": 1,
+    "Hematology; HSC Gene Editing; Outcomes": 1,
+    "Alzheimer's disease": 1,
+    "ALS": 2,
+    "First-line systemic therapy in renal cell carcinoma": 1,
+    "Heart failure (HFrEF)": 1,
+    "NAFLD prognosis and risk stratification": 1,
+    "Infectious disease clinical trials (ART regimen comparison)": 1,
+    "Drug development (interaction with acid suppression)": 1,
+    "PD-1/PD-L1 inhibitors in NSCLC": 1,
+    "Targeted therapy resistance in melanoma": 1,
+    "Parkinson's disease": 1,
+    "Prediabetes prognosis": 1,
+    "Infectious disease/hepatology (DDI management)": 1,
+    "Oncology; Cell Therapy; Prognostic Biomarkers": 1,
+    "COVID-19 therapeutics": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 13,
+    "review": 4,
+    "prognosis": 6,
+    "epidemiology": 1,
+    "mechanism": 1
+  },
+  "avg_tool_calls": 5.0,
+  "generation_time": "2025-12-20T13:10:00.373445",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.CtqIdevgp6/questions_part_05.jsonl"
+}

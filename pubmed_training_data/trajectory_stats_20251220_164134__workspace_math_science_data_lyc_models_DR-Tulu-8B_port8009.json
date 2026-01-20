@@ -1,0 +1,32 @@
+{
+  "total_samples": 24,
+  "topics": {
+    "Immunotherapy - microbiome biomarkers": 1,
+    "p53 response to genome editing": 1,
+    "Immunogenicity mitigation strategies": 1,
+    "Epilepsy": 2,
+    "COVID-19": 3,
+    "Atrial fibrillation": 2,
+    "ALS": 3,
+    "Pediatric obesity / epidemiology / diabetes risk": 1,
+    "Chemotherapy resistance - ovarian cancer": 1,
+    "Drug Development/Clinical Trials": 4,
+    "Neuroregenerative therapies": 1,
+    "Alzheimer's disease": 1,
+    "Parkinson's disease": 1,
+    "NAFLD / nutritional therapy / efficacy": 1,
+    "CAR-T therapy vs standard therapy in hematologic malignancy": 1
+  },
+  "question_types": {
+    "prognosis": 4,
+    "mechanism": 5,
+    "review": 3,
+    "efficacy_comparison": 8,
+    "epidemiology": 3,
+    "drug_interactions": 1
+  },
+  "avg_tool_calls": 4.958333333333333,
+  "generation_time": "2025-12-20T17:26:27.494287",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.ApUd2X1dZ9/questions_part_03.jsonl"
+}

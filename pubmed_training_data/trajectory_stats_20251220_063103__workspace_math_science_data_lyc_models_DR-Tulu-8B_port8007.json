@@ -1,0 +1,38 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Epilepsy": 1,
+    "MASLD/MASH therapy": 1,
+    "Phase III efficacy comparison (respiratory therapeutics)": 1,
+    "Systemic lupus erythematosus": 3,
+    "Checkpoint inhibitors with chemoradiation": 1,
+    "Atrial fibrillation": 1,
+    "Heart failure (HFrEF)": 1,
+    "Phase III trial design factor (infectious diseases)": 1,
+    "Cystic fibrosis": 2,
+    "Immunotherapy vs chemo-immunotherapy in NSCLC": 1,
+    "Diabetes prevention": 1,
+    "Parkinson's disease": 1,
+    "CRISPR safety; off-target assessment": 1,
+    "Checkpoint blockade combinations in melanoma": 1,
+    "COVID-19 vaccines": 1,
+    "Long COVID epidemiology": 1,
+    "Multiple sclerosis": 1,
+    "Phase III efficacy comparison (psychiatry)": 1,
+    "Diabetes technology": 1,
+    "COVID-19 in immunocompromised hosts": 1,
+    "Biomarker-selected immunotherapy in colorectal cancer": 1,
+    "Base editing; genome integrity": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 13,
+    "mechanism": 2,
+    "prognosis": 5,
+    "epidemiology": 4,
+    "review": 1
+  },
+  "avg_tool_calls": 4.84,
+  "generation_time": "2025-12-20T07:16:14.787969",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.5yJsahY0Zc/questions_part_07.jsonl"
+}

@@ -1,0 +1,664 @@
+本地模型: /workspace/math_science_data/lyc/models/DR-Tulu-8B
+API地址: http://localhost:8001/v1
+问题文件: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20251231_174422/questions_part_01.jsonl
+并发数: 3
+评估: 启用
+
+[初始化] 尝试初始化评估器...
+[初始化] 评估模型: openai/gpt-4o-mini
+[初始化] ✓ 评估器初始化成功
+[初始化] API Base: https://openrouter.ai/api/v1
+[初始化] API Key: sk-or-v1-bed1cfa18b9...
+
+============================================================
+从已有问题生成轨迹并进行评估
+============================================================
+本地模型: /workspace/math_science_data/lyc/models/DR-Tulu-8B
+API地址: http://localhost:8001/v1
+并发数: 3
+评估: 启用
+从文件加载问题: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20251231_174422/questions_part_01.jsonl
+✓ 加载了 18 个问题
+
+============================================================
+生成轨迹并评估（并发模式）
+============================================================
+💾 增量保存已启用: ../../pubmed_training_data/pubmed_trajectory_evaluated_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8001_incremental.jsonl
+
+[4] 问题: In nonalcoholic steatohepatitis (NASH), how do GLP-1 receptor agonists compare with pioglitazone in histologic resolution of steatohepatitis and improvement in fibrosis stage?
+  正在生成工具调用轨迹...
+
+[7] 问题: What clinical and manufacturing factors predict loss of transgene expression over time after AAV liver gene therapy, including vector dose, pre-existing neutralizing antibodies, and capsid-specific T-cell responses?
+  正在生成工具调用轨迹...
+
+[10] 问题: In patients treated with immune checkpoint inhibitors, what is the effect of baseline systemic corticosteroid use on overall survival and response rates, based on clinical trial subgroup analyses and real-world cohorts?
+  正在生成工具调用轨迹...
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(GLP-1 receptor agonist NASH histologic resolution fibrosis stage randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(baseline corticosteroid use immune checkpoint inhibitor overall survival response rate subgroup)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV liver gene therapy loss of transgene expression factors durability neutralizing antibodies T cell)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(pioglitazone PIVOTAL NASH histologic resolution fibrosis stage randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(baseline corticosteroids nivolumab ORR overall survival subgroup KEYNOTE-024 066 189 407 CheckMate 067 239 227)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV hemophilia B liver transduction loss of transgene expression neutralizing antibodies T cell responses dose durability)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(pioglitazone randomized trial NASH histologic improvement fibrosis stage)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(baseline corticosteroid use baseline steroids baseline dexamethasone immune checkpoint inhibitor overall survival response rate subgroup)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV gene therapy liver transgene expression durability loss of function immunogenicity neutralizing antibodies T cell capsid)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(pioglitazone PIVENS trial histologic resolution of steatohepatitis fibrosis improvement NASH)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(baseline corticosteroids baseline steroids baseline dexamethasone pembrolizumab nivolumab overall survival response rate subgroup)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV capsid pre-existing neutralizing antibodies transgene expression durability liver gene therapy)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(GLP-1 receptor agonist pioglitazone head-to-head histologic resolution fibrosis NASH network meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(pembrolizumab baseline corticosteroids subgroup overall survival objective response rate)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV liver gene therapy loss of transgene expression durability immunogenicity neutralizing antibodies T cell)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 5923 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.85秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[13] 问题: In solid tumors treated with immune checkpoint inhibitors, how does antibiotic exposure near treatment initiation affect objective response rate and overall survival?
+  正在生成工具调用轨迹...
+
+📊 进度: 1/18 (5.6%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antibiotic exposure peri-treatment immune checkpoint inhibitor solid tumors objective response rate overall survival)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9054 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.90秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[17] 问题: Among patients hospitalized with acute decompensated heart failure, what is the prognostic performance of natriuretic peptides versus high-sensitivity troponin for predicting 30-day and 1-year mortality?
+  正在生成工具调用轨迹...
+
+📊 进度: 2/18 (11.1%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(acute decompensated heart failure natriuretic peptide vs troponin 30-day mortality hs-cTn prognostic)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 14583 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.85秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[16] 问题: In inherited metabolic liver diseases, how does ex vivo gene-corrected hepatocyte transplantation compare with in vivo gene therapy in terms of metabolic correction and long-term engraftment?
+  正在生成工具调用轨迹...
+
+📊 进度: 3/18 (16.7%) | 成功: 3 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(inherited metabolic liver disease ex vivo gene-corrected hepatocyte transplantation vs in vivo gene therapy metabolic correction engraftment)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antibiotic exposure immune checkpoint inhibitors solid tumors nivolumab pembrolizumab microbiome outcomes ORR OS)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(hospitalized heart failure acute decompensated natriuretic peptide NT-proBNP vs high-sensitivity troponin 30-day 1-year mortality cohort prognostic)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ex vivo gene-corrected hepatocyte transplantation metabolic correction long-term engraftment liver)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(recent antibiotic use PD-1 PD-L1 solid tumors overall survival objective response)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(decompensated heart failure natriuretic peptide prognostic 30-day mortality troponin comparison)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(G6PD deficiency ex vivo gene-corrected hepatocyte transplantation engraftment metabolic correction)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(recent antibiotic use cancer immunotherapy PD-1 PD-L1 overall survival response rate)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(hospitalized acute decompensated heart failure natriuretic peptide troponin 30-day 1-year mortality prognostic)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(hepatocyte transplantation metabolic correction long-term engraftment liver disease)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antibiotic exposure within 90 days nivolumab pembrolizumab overall survival objective response solid tumors cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(hospitalized acute decompensated heart failure NT-proBNP vs troponin 30-day 1-year mortality cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(in vivo liver gene therapy long-term engraftment transgene expression metabolic correction inherited metabolic liver disease)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 4518 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.77秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[3] 问题: In rheumatoid arthritis with inadequate response to methotrexate, how do rates of major adverse cardiovascular events and venous thromboembolism compare between JAK inhibitors and TNF inhibitors in randomized and post-marketing comparative studies?
+  正在生成工具调用轨迹...
+
+📊 进度: 4/18 (22.2%) | 成功: 4 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis JAK inhibitor TNF inhibitor cardiovascular events venous thromboembolism comparative)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6704 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.78秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[6] 问题: In cystic fibrosis with chronic Pseudomonas infection, how does inhaled tobramycin compare with inhaled aztreonam in reducing exacerbation frequency and improving quality of life?
+  正在生成工具调用轨迹...
+
+📊 进度: 5/18 (27.8%) | 成功: 5 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis chronic Pseudomonas infection inhaled aztreonam tobramycin exacerbation frequency quality of life randomized)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 11228 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.89秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[9] 问题: What is the association between specific CFTR genotypes and risk of cystic fibrosis–related diabetes, and how does this impact clinical outcomes?
+  正在生成工具调用轨迹...
+
+📊 进度: 6/18 (33.3%) | 成功: 6 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CFTR genotype cystic fibrosis diabetes risk)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis tofacitinib etanercept randomized trial thromboembolism cardiovascular events methotrexate inadequate response)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis chronic Pseudomonas inhaled aztreonam tobramycin randomized trial exacerbation quality of life)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(RA rheumatoid arthritis JAK inhibitor TNF inhibitor venous thromboembolism risk randomized trial comparative)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CFTR ΔF508del cystic fibrosis diabetes risk mortality)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis chronic Pseudomonas inhaled aztreonam tobramycin randomized trial exacerbation quality of life)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ORAL Surveillance tofacitinib randomized trial adalimumab etanercept methotrexate rheumatoid arthritis major adverse cardiovascular venous thromboembolism)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis-related diabetes CFTR genotype G551D risk)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis chronic Pseudomonas inhaled aztreonam tobramycin randomized trial exacerbation quality of life)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ORAL Surveillance trial tofacitinib adalimumab etanercept rheumatoid arthritis major adverse cardiovascular events venous thromboembolism)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis-related diabetes CFTR genotype class predicts risk outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis chronic Pseudomonas inhaled aztreonam tobramycin randomized trial exacerbation quality of life)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis-related diabetes CFTR genotype severity mortality complications)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 4228 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.97秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[12] 问题: In adults with prediabetes, how effective are structured lifestyle interventions compared with metformin in preventing progression to type 2 diabetes over at least 2 years of follow-up?
+  正在生成工具调用轨迹...
+
+📊 进度: 7/18 (38.9%) | 成功: 7 | 失败: 0 | 成功率: 100.0%
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(prediabetes lifestyle intervention metformin prevention diabetes randomized trial)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 7780 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.88秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[15] 问题: In individuals with ALS, how do antisense oligonucleotide therapies targeting known ALS genes compare with standard of care in slowing functional decline as measured by ALSFRS-R?
+  正在生成工具调用轨迹...
+
+📊 进度: 8/18 (44.4%) | 成功: 8 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 12680 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.95秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[2] 问题: In hospitalized COVID-19 patients receiving corticosteroids, does adding an IL-6 receptor inhibitor reduce mortality compared with corticosteroids alone in randomized phase III trials, and what patient severity strata show the largest effect?
+  正在生成工具调用轨迹...
+
+📊 进度: 9/18 (50.0%) | 成功: 9 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(onasemnogene cembolt trofinetide ALSFRS-R trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TITAN trial tocilizumab hospitalized COVID-19 randomized phase 3 28-day mortality subgroup severity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nusinersen phase 3 ALSFRS-R trial placebo ALS)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Diabetes Prevention Program metformin lifestyle intervention hazard ratio 3-year 5-year prediabetes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TITAN trial tocilizumab hospitalized COVID-19 randomized phase 3 28-day mortality subgroup severity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(prediabetes metformin vs lifestyle intervention randomized trial 2-year diabetes incidence)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nusinersen phase 3 ALSFRS-R trial riluzole placebo)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TITAN trial tocilizumab subgroup mortality corticosteroid severe moderate)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antisense oligonucleotide ALS ALSFRS-R trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(COVID-19 randomized phase 3 IL-6 inhibitor tocilizumab sarilumab mortality corticosteroid)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nusinersen ALSFRS-R randomized trial ALS)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(COVID-19 randomized phase 3 IL-6 inhibitor tocilizumab sarilumab mortality corticosteroid)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(impaired glucose regulation lifestyle intervention metformin 2-year diabetes risk randomized trial</call>)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9216 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.86秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[18] 问题: In schizophrenia maintenance treatment, how do relapse prevention and metabolic adverse effect profiles compare between long-acting injectable antipsychotics and their oral counterparts in randomized controlled trials?
+  正在生成工具调用轨迹...
+
+📊 进度: 10/18 (55.6%) | 成功: 10 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 4299 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.83秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[5] 问题: In first-line metastatic melanoma, how do PD-1 inhibitor monotherapy and PD-1 plus CTLA-4 combination therapy compare in long-term survival and immune-related adverse event profiles?
+  正在生成工具调用轨迹...
+
+📊 进度: 11/18 (61.1%) | 成功: 11 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(schizophrenia long-acting injectable vs oral antipsychotic maintenance relapse prevention randomized trial metabolic)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 238 nivolumab ipilimumab first-line metastatic melanoma overall survival immune-related adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Diabetes Prevention Program Outcomes Study metformin lifestyle intervention hazard ratio 3-year 5-year prediabetes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 238 nivolumab ipilimumab first-line metastatic melanoma overall survival immune-related adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(paliperidone palmitate randomized trial relapse hospitalization metabolic weight glucose)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6807 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.93秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[8] 问题: In ovarian cancer treated with platinum-based chemotherapy, what is the association between BRCA1/2 or homologous recombination deficiency status and the likelihood of platinum resistance or sensitivity?
+  正在生成工具调用轨迹...
+
+📊 进度: 12/18 (66.7%) | 成功: 12 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ovarian cancer BRCA1 BRCA2 platinum sensitivity resistance)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Halgren long-acting injection schizophrenia randomized relapse hospitalization metabolic)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 238 nivolumab ipilimumab first-line metastatic melanoma overall survival immune-related adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ovarian cancer homologous recombination deficiency platinum sensitivity randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(olanzapine pamoate long-acting randomized trial schizophrenia relapse prevention metabolic adverse effects)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(KEYNOTE-025 pembrolizumab first-line metastatic melanoma overall survival immune-related adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ovarian cancer BRCA1/2 germline mutation platinum resistance acquisition resistance)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(long-acting injectable vs oral antipsychotic schizophrenia randomized relapse prevention metabolic profile)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(KEYNOTE-052 pembrolizumab monotherapy first-line metastatic melanoma overall survival safety immune-related adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ovarian cancer homologous recombination deficiency platinum resistance predictive biomarker)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 3681 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.78秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[11] 问题: In patients with atrial fibrillation and stable coronary artery disease beyond 12 months after PCI, does oral anticoagulant monotherapy compared with oral anticoagulant plus antiplatelet therapy reduce bleeding without increasing ischemic events?
+  正在生成工具调用轨迹...
+
+📊 进度: 13/18 (72.2%) | 成功: 13 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 5660 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.85秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[14] 问题: Among patients with solid tumors treated with immune checkpoint inhibitors, how strongly do baseline tumor mutational burden and CD8+ T-cell infiltration each predict objective response, and are they additive or overlapping predictors?
+  正在生成工具调用轨迹...
+
+📊 进度: 14/18 (77.8%) | 成功: 14 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(atrial fibrillation after PCI anticoagulant monotherapy bleeding ischemic outcomes randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tumor mutational burden objective response PD-1 monotherapy solid tumors NSCLC melanoma CD8 TILs)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ovarian cancer BRCA1/2 platinum resistance reversion mutation CCNE1 amplification mechanism)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(atrial fibrillation PCI early discontinuation DAPT STOPDAPT-2 SMART-CHOICE outcomes bleeding ischemic 24 months)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(KEYNOTE-158 tumor mutational burden response rate PD-L1 solid tumors)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9984 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.85秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[1] 问题: For patients with heart failure and iron deficiency, how does intravenous iron therapy compared with oral iron affect exercise capacity and heart failure hospitalization rates?
+  正在生成工具调用轨迹...
+
+📊 进度: 15/18 (83.3%) | 成功: 15 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(heart failure iron deficiency intravenous iron oral iron exercise capacity hospitalization randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(oral anticoagulant monotherapy vs anticoagulant plus antiplatelet after PCI atrial fibrillation bleeding ischemic randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NSCLC TMB response rate pembrolizumab KEYNOTE-022)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tumor mutational burden CD8 T cells TILs predictive of response PD-1 monotherapy solid tumors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CONFIRM-HF FAIR-HF EFFECT-HF IRONOUT HF AFFIRM AHF randomized iron deficiency heart failure exercise capacity hospitalization)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(warfarin clopidogrel after PCI atrial fibrillation trial ischemic stroke bleeding randomized</call>)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(IRONOUT HF study oral iron heart failure reduced ejection fraction peak VO2 ferritin randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(KEYNOTE-158 TMB high response rate pembrolizumab pan-cancer)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(MASTER DAPT atrial fibrillation PCI triple therapy vs dual randomized bleeding ischemic)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CONFIRM-HF trial intravenous ferric carboxymaltose exercise capacity hospitalization heart failure randomized)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 7290 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.85秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 16/18 (88.9%) | 成功: 16 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6913 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.87秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 17/18 (94.4%) | 成功: 17 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(heart failure iron deficiency intravenous iron oral iron exercise capacity hospitalization randomized)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6267 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.82秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 18/18 (100.0%) | 成功: 18 | 失败: 0 | 成功率: 100.0%
+
+✓ 完成！共生成 18 个样本
+💾 所有样本已增量保存到: ../../pubmed_training_data/pubmed_trajectory_evaluated_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8001_incremental.jsonl
+✓ 保存统计: ../../pubmed_training_data/trajectory_evaluated_stats_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8001.json
+
+============================================================
+数据生成完成！
+============================================================

@@ -1,0 +1,39 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "MDR Pseudomonas": 1,
+    "Resistance mechanisms to targeted therapy in lung cancer": 1,
+    "Targeted therapy (EGFR) in lung cancer": 1,
+    "Gene Therapy; Epidemiology; AAV Immunity": 1,
+    "Multiple sclerosis": 1,
+    "Atrial fibrillation (risk stratification)": 1,
+    "Diabetes drug mechanisms": 1,
+    "Heart failure (outcomes research)": 1,
+    "Pulmonology clinical trials (biologic selection)": 1,
+    "Gene Delivery; AAV; Liver": 1,
+    "MRSA bacteremia": 1,
+    "Cystic fibrosis": 3,
+    "Coronary artery disease (post-MI prognosis)": 1,
+    "HER2-targeted therapy in breast cancer": 1,
+    "Rheumatoid arthritis / Systemic lupus erythematosus": 1,
+    "Host genomics and immunotherapy toxicity": 1,
+    "Nephrology clinical trials (add-on therapy safety)": 1,
+    "Rheumatoid arthritis / Systemic lupus erythematosus / Multiple sclerosis": 1,
+    "Cardiology clinical trials (combination therapy/interaction)": 1,
+    "CAR-T design and persistence": 1,
+    "Diabetes epidemiology": 1,
+    "Obesity/NAFLD dietary strategies": 1,
+    "Checkpoint combinations in HCC": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 9,
+    "mechanism": 7,
+    "epidemiology": 4,
+    "prognosis": 3,
+    "review": 2
+  },
+  "avg_tool_calls": 4.88,
+  "generation_time": "2025-12-20T13:10:43.638890",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.CtqIdevgp6/questions_part_03.jsonl"
+}

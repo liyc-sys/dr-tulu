@@ -1,0 +1,654 @@
+本地模型: /workspace/math_science_data/lyc/models/DR-Tulu-8B
+API地址: http://localhost:8006/v1
+问题文件: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20251231_174422/questions_part_06.jsonl
+并发数: 3
+评估: 启用
+
+[初始化] 尝试初始化评估器...
+[初始化] 评估模型: openai/gpt-4o-mini
+[初始化] ✓ 评估器初始化成功
+[初始化] API Base: https://openrouter.ai/api/v1
+[初始化] API Key: sk-or-v1-bed1cfa18b9...
+
+============================================================
+从已有问题生成轨迹并进行评估
+============================================================
+本地模型: /workspace/math_science_data/lyc/models/DR-Tulu-8B
+API地址: http://localhost:8006/v1
+并发数: 3
+评估: 启用
+从文件加载问题: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20251231_174422/questions_part_06.jsonl
+✓ 加载了 18 个问题
+
+============================================================
+生成轨迹并评估（并发模式）
+============================================================
+💾 增量保存已启用: ../../pubmed_training_data/pubmed_trajectory_evaluated_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8006_incremental.jsonl
+
+[6] 问题: For drug-resistant focal epilepsy, what is the comparative effectiveness of vagus nerve stimulation versus responsive neurostimulation in reducing seizure frequency over at least 1 year of follow-up?
+  正在生成工具调用轨迹...
+
+[9] 问题: For the treatment of carbapenem-resistant Enterobacterales bloodstream infections, how do ceftazidime-avibactam–based regimens compare with colistin-based regimens in mortality and nephrotoxicity?
+  正在生成工具调用轨迹...
+
+[12] 问题: In patients with stable coronary artery disease, how does adding low-dose rivaroxaban to aspirin compare with aspirin alone for preventing major adverse cardiovascular events and increasing major bleeding risk?
+  正在生成工具调用轨迹...
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(vagus nerve stimulation versus responsive neurostimulation meta-analysis seizure frequency randomized controlled trial epilepsy)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ROCKET-CAD rivaroxaban aspirin stable coronary artery disease trial outcomes bleeding)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ceftazidime-avibactam colistin mortality bloodstream infection Enterobacterales)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(vagus nerve stimulation versus responsive neurostimulation meta-analysis epilepsy randomized responder rate seizure frequency long-term)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ROCKET-CAD coronary artery disease subgroup rivaroxaban 2.5 mg twice daily vs aspirin outcomes bleeding)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ceftazidime-avibactam colistin nephrotoxicity bloodstream infection Enterobacterales cohort propensity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(vagus nerve stimulation versus responsive neurostimulation epilepsy meta-analysis seizure reduction long-term follow-up)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(aspirin plus low-dose rivaroxaban versus aspirin alone outcomes bleeding stable coronary artery disease COMPASS ROCKET-CAD meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(colistin nephrotoxicity compared with ceftazidime-avibactam bloodstream infection carbapenem-resistant Enterobacterales)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(vagus nerve stimulation responsive neurostimulation comparative effectiveness randomized trial epilepsy seizure frequency)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(aspirin plus rivaroxaban stable coronary artery disease outcomes bleeding meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ceftazidime-avibactam colistin mortality nephrotoxicity carbapenem-resistant Enterobacterales bloodstream infection propensity score)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(randomized controlled trial vagus nerve stimulation seizure frequency reduction long-term epilepsy NeuroPace RNS responsive neurostimulation follow-up)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6556 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.78秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[15] 问题: What is the incidence of sudden unexpected death in epilepsy (SUDEP) in adults with refractory epilepsy, and which clinical factors most strongly predict risk in observational studies?
+  正在生成工具调用轨迹...
+
+📊 进度: 1/18 (5.6%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SUDEP incidence refractory epilepsy observational cohort adults)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 9074 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.79秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[2] 问题: In adults with focal epilepsy, how do levetiracetam and lamotrigine compare for seizure freedom and treatment discontinuation due to adverse effects in head-to-head trials or comparative cohorts?
+  正在生成工具调用轨迹...
+
+📊 进度: 2/18 (11.1%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 7616 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.77秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[18] 问题: In progressive multiple sclerosis, how effective are Bruton tyrosine kinase inhibitors compared with placebo in slowing disability progression and reducing MRI measures of chronic active lesions?
+  正在生成工具调用轨迹...
+
+📊 进度: 3/18 (16.7%) | 成功: 3 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(levetiracetam lamotrigine randomized trial focal epilepsy seizure freedom discontinuation adverse effects adults)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(acalabrutinib progressive multiple sclerosis randomized placebo EDSS MRI)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SUDEP incidence observational adults refractory epilepsy predictors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(randomized double-blind trial levetiracetam lamotrigine adjunctive focal epilepsy adults)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(evobrutinib progressive multiple sclerosis randomized placebo trial MRI EDSS)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SUDEP incidence observational adults refractory epilepsy predictors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lamotrigine levetiracetam randomized double-blind partial epilepsy seizure freedom discontinuation adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(bruton tyrosine kinase inhibitor multiple sclerosis progressive placebo randomized trial MRI EDSS)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SUDEP incidence observational adults refractory epilepsy predictors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lamotrigine levetiracetam comparative cohort focal epilepsy seizure freedom treatment discontinuation adverse effects)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Bruton tyrosine kinase inhibitor multiple sclerosis progressive placebo randomized trial EDSS MRI)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SUDEP incidence refractory epilepsy observational cohort adults)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lamotrigine levetiracetam comparative cohort focal epilepsy seizure freedom treatment discontinuation adverse effects)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(fenebrutinib progressive multiple sclerosis randomized placebo trial MRI EDSS TCDP)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 4677 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.77秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[5] 问题: In individuals receiving long-acting injectable cabotegravir for HIV pre-exposure prophylaxis, what are the incidence and clinical characteristics of breakthrough HIV infections and associated resistance patterns?
+  正在生成工具调用轨迹...
+
+📊 进度: 4/18 (22.2%) | 成功: 4 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cabotegravir long-acting breakthrough infection PrEP incidence resistance)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 8051 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.78秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[8] 问题: For patients with symptomatic atrial fibrillation and heart failure, how does early rhythm control (antiarrhythmic drugs or ablation) compare with rate control in improving mortality and heart failure hospitalization?
+  正在生成工具调用轨迹...
+
+📊 进度: 5/18 (27.8%) | 成功: 5 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(RACE II atrial fibrillation heart failure randomized rate control rhythm control hospitalization mortality)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6727 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.83秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[11] 问题: In heart failure with preserved ejection fraction, what is the magnitude of benefit of SGLT2 inhibitors on hospitalization for heart failure and quality-of-life scores in phase III randomized trials, and how consistent are effects across LVEF subgroups?
+  正在生成工具调用轨迹...
+
+📊 进度: 6/18 (33.3%) | 成功: 6 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(DELIVER trial dapagliflozin heart failure preserved ejection fraction hospitalization Kansas City Cardiomyopathy Questionnaire KCCQ subgroup LVEF)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CAB-LAI PrEP breakthrough infection resistance incidence)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(atrial fibrillation heart failure rhythm control versus rate control mortality hospitalization meta-analysis systematic review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(DELIVER trial dapagliflozin preserved ejection fraction KCCQ hospitalization LVEF subgroup)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cabotegravir long-acting PrEP phase 3 randomized trial breakthrough infections resistance rna testing)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(permanent atrial fibrillation heart failure rhythm control rate control mortality hospitalization systematic review meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(DAPA-HF trial empagliflozin heart failure preserved ejection fraction hospitalization event rate KCCQ subgroup LVEF)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ASCENT trial cabotegravir breakthrough infections resistance incidence PrEP)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rate control versus rhythm control atrial fibrillation heart failure mortality hospitalization systematic review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(empagliflozin heart failure preserved ejection fraction randomized trial hospitalization KCCQ DELIVER EMPA-REG HF LVEF subgroup)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(INGOT-1 INGOT-2 cabotegravir breakthrough infections resistance incidence)
+本地LLM调用失败: Client error '400 Bad Request' for url 'http://localhost:8006/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 204498 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 2.39秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[14] 问题: In methicillin-resistant Staphylococcus aureus (MRSA) bacteremia, does early switch from vancomycin to daptomycin improve clinical outcomes compared with continued vancomycin therapy?
+  正在生成工具调用轨迹...
+
+📊 进度: 7/18 (38.9%) | 成功: 7 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(DELIVER trial dapagliflozin preserved ejection fraction KCCQ Kansas City Cardiomyopathy Questionnaire hospitalization LVEF subgroup)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(MRSA bacteremia early switch daptomycin vancomycin outcomes)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(randomized trial daptomycin vancomycin switch MRSA bacteremia)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 6011 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.75秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[1] 问题: In in vivo liver-directed gene editing, how do AAV-delivered editors compare with lipid nanoparticle delivery in terms of hepatocyte editing efficiency, off-target profiles, and innate immune activation?
+  正在生成工具调用轨迹...
+
+📊 进度: 8/18 (44.4%) | 成功: 8 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 11770 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.81秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[17] 问题: In metastatic melanoma, how does combined PD-1 plus CTLA-4 blockade compare with PD-1 inhibitor monotherapy in long-term overall survival and incidence of grade 3–4 immune-related adverse events?
+  正在生成工具调用轨迹...
+
+📊 进度: 9/18 (50.0%) | 成功: 9 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV liver in vivo CRISPR hepatocyte editing efficiency hepatocyte transduction)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 238 overall survival 5-year melanoma nivolumab ipilimumab grade 3-4 adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(vancomycin minimum inhibitory concentration MRSA bacteremia daptomycin switch outcomes MIC 1)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lipid nanoparticle CRISPR liver in vivo hepatocyte editing efficiency innate immune dsRNA)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 238 5-year overall survival melanoma ipilimumab nivolumab)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(MRSA bacteremia switch from vancomycin to daptomycin randomized trial outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR lipid nanoparticles liver in vivo hepatocyte editing efficiency)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 067 overall survival 2-year melanoma nivolumab ipilimumab grade 3-4 adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV liver in vivo CRISPR off-target hepatocyte AAV9 hepatocyte-specific promoter off-target)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 067 2-year overall survival melanoma nivolumab ipilimumab)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(guideline switching antibiotics MRSA bacteremia within 3 days daptomycin vancomycin)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(in vivo CRISPR lipid nanoparticle innate immune activation dsRNA PKR MDA5 liver)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 067 grade 3-4 adverse events nivolumab ipilimumab melanoma)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 7843 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.79秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[4] 问题: In type 2 diabetes, how do cardiovascular and renal outcomes compare between SGLT2 inhibitors and GLP-1 receptor agonists among patients with established atherosclerotic cardiovascular disease in large outcome trials?
+  正在生成工具调用轨迹...
+
+📊 进度: 10/18 (55.6%) | 成功: 10 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(type 2 diabetes SGLT2 inhibitors GLP-1 receptor agonists cardiovascular renal outcomes ASCVD large outcome trials review)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 5435 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.77秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[7] 问题: In clinically isolated syndrome, does early initiation of disease-modifying therapy reduce conversion to clinically definite multiple sclerosis compared with delayed treatment?
+  正在生成工具调用轨迹...
+
+📊 进度: 11/18 (61.1%) | 成功: 11 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(clinically isolated syndrome early initiation disease-modifying therapy delayed treatment conversion to clinically definite multiple sclerosis)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 14071 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.88秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[10] 问题: In EGFR-mutant non-small cell lung cancer, what molecular mechanisms most commonly drive acquired resistance to third-generation EGFR inhibitors, and how frequently are they observed across clinical cohorts?
+  正在生成工具调用轨迹...
+
+📊 进度: 12/18 (66.7%) | 成功: 12 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(osimertinib resistance mechanisms frequency cohort EGFR-mutant non-small cell lung cancer)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(type 2 diabetes SGLT2 inhibitors GLP-1 receptor agonists cardiovascular renal outcomes ASCVD large outcome trials review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CHAMPS trial interferon beta clinically isolated syndrome conversion to clinically definite multiple sclerosis hazard ratio)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(EGFR exon 20 insertion frequency osimertinib resistance cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SGLT2 inhibitors cardiovascular renal outcomes large outcome trials type 2 diabetes CANVAS DECLARE EMPA-REG CANVAS2)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CHAMPS trial interferon beta clinically isolated syndrome conversion to clinically definite multiple sclerosis hazard ratio)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(MET amplification frequency osimertinib resistance EGFR-mutant NSCLC cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(type 2 diabetes GLP-1 receptor agonists cardiovascular outcomes large trials ASCVD noninferiority superiority cardiometabolic outcomes renal outcomes CANVAS DECLARE-TIMI 58 EMPA-REG OUTCOME)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CHAMPS trial hazard ratio conversion to clinically definite multiple sclerosis interferon beta)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(EGFR T790M loss frequency osimertinib resistance cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SGLT2 inhibitors cardiovascular renal outcomes large outcome trials type 2 diabetes CANVAS DECLARE EMPA-REG CANVAS2 DAPA-CKD DAPA-HF CREDENCE EMPEROR renal outcomes prior cardiovascular disease eGFR inclusion criteria)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CHAMPS trial interferon beta CIS conversion hazard ratio)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(EGFR exon 20 insertion frequency osimertinib resistance cohort)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 7645 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.79秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[13] 问题: What molecular mechanisms drive p53 pathway activation and clonal selection after CRISPR-Cas9 editing in human hematopoietic stem and progenitor cells?
+  正在生成工具调用轨迹...
+
+📊 进度: 13/18 (72.2%) | 成功: 13 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR Cas9 p53 activation hematopoietic stem progenitor cells)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 12416 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.92秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[16] 问题: In acute ischemic stroke treated with intravenous thrombolysis, does prior use of direct oral anticoagulants increase the risk of symptomatic intracranial hemorrhage compared with no anticoagulant exposure, based on observational and trial-adjacent evidence?
+  正在生成工具调用轨迹...
+
+📊 进度: 14/18 (77.8%) | 成功: 14 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(direct oral anticoagulant intravenous thrombolysis symptomatic intracranial hemorrhage observational study)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 10509 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.88秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+[3] 问题: In multiple sclerosis, what evidence supports Epstein-Barr virus exposure or reactivation as a causal or contributing factor in disease onset and progression?
+  正在生成工具调用轨迹...
+
+📊 进度: 15/18 (83.3%) | 成功: 15 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Epstein-Barr virus multiple sclerosis seroprevalence risk cohort review Nature 2019..2024)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(GET trial DOAC intravenous thrombolysis symptomatic intracranial hemorrhage)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(hematopoietic stem progenitor cells CRISPR p53 ATM ATR clonal selection cytokinesis I-SceI)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Epstein-Barr virus multiple sclerosis seroprevalence cohort latency oligodendrocyte)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(guideline position DOAC intravenous thrombolysis symptomatic intracranial hemorrhage risk)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(p53 activation CRISPR hematopoietic stem cells double-strand breaks ATM Chk2 clonal selection)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Epstein-Barr virus multiple sclerosis seroprevalence cohort latency oligodendrocyte)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(trial-adjacent observational DOAC intravenous thrombolysis hemorrhagic transformation risk)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(HSPC CRISPR p53 DNA damage response clonal evolution selection hematopoietic stem)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(multiple sclerosis Epstein-Barr virus seroprevalence cohort onset progression review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR HSPC p53 activation deletion clone selection ATM Chk2)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(multiple sclerosis Epstein-Barr virus seroprevalence cohort onset progression review)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 8242 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.87秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 16/18 (88.9%) | 成功: 16 | 失败: 0 | 成功率: 100.0%
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 11190 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.87秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 17/18 (94.4%) | 成功: 17 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 正在评估轨迹质量...
+  [评估] 评估器状态: 已初始化
+  [评估] 使用模型: openai/gpt-4o-mini
+  [评估] Rubrics提供: 否
+  [评估] 开始调用评估API...
+    [API] 准备调用 openai/gpt-4o-mini
+    [API] API Base: https://openrouter.ai/api/v1
+    [API] Prompt长度: 5993 字符
+    [API] 发送请求...
+    [API] 收到响应 (耗时: 0.90秒)
+    [API] HTTP状态码: 200
+    [API] ✗ 未知错误: Expecting value: line 1 column 1 (char 0)
+  ⚠ 评分失败: Expecting value: line 1 column 1 (char 0)
+  [评估] ✓ 评估完成
+  [评估] 得分: 0.0
+  [评估] ⚠ 包含错误信息: Expecting value: line 1 column 1 (char 0)
+  [评估] 评估理由: 评分过程出错
+
+📊 进度: 18/18 (100.0%) | 成功: 18 | 失败: 0 | 成功率: 100.0%
+
+✓ 完成！共生成 18 个样本
+💾 所有样本已增量保存到: ../../pubmed_training_data/pubmed_trajectory_evaluated_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8006_incremental.jsonl
+✓ 保存统计: ../../pubmed_training_data/trajectory_evaluated_stats_20251231_174422__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8006.json
+
+============================================================
+数据生成完成！
+============================================================

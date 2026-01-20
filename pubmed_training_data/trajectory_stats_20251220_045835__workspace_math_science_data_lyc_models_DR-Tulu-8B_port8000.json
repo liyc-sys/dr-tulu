@@ -1,0 +1,36 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Heart failure (acute decompensation)": 1,
+    "Parkinson's disease": 2,
+    "Checkpoint inhibitor combinations in melanoma": 1,
+    "Mitochondrial therapy; genome editing; translation": 1,
+    "Hematology; gene-modified HSC; durability and safety": 1,
+    "Amyotrophic lateral sclerosis (ALS)": 3,
+    "Obesity inflammation and insulin resistance": 1,
+    "Atrial fibrillation (pathophysiology)": 1,
+    "Microbiome and metabolic disease": 1,
+    "Targeted therapy comparison (HER2+ breast cancer)": 1,
+    "Atrial fibrillation (anticoagulation in CKD)": 1,
+    "Epilepsy": 1,
+    "Multiple sclerosis": 3,
+    "Antibiotic stewardship": 1,
+    "CAR-T therapy in lymphoma": 1,
+    "Delivery systems; LNP vs viral vectors; liver editing": 1,
+    "Immuno-oncology phase III efficacy and safety": 1,
+    "Targeted therapy (BRAF V600E colorectal cancer)": 1,
+    "Diabetic kidney disease mechanisms": 1,
+    "PD-1 blockade in MSI-H/dMMR colorectal cancer": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 11,
+    "epidemiology": 2,
+    "review": 3,
+    "prognosis": 3,
+    "mechanism": 6
+  },
+  "avg_tool_calls": 4.92,
+  "generation_time": "2025-12-20T05:42:30.607962",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.3xjKm2ErVx/questions_part_00.jsonl"
+}

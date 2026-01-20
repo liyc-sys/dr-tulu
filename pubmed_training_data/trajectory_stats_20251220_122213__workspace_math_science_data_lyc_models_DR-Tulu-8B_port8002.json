@@ -1,0 +1,38 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Cardiovascular/neurology clinical trials (antithrombotic strategy)": 1,
+    "Microbiome and metabolic disease": 1,
+    "Cystic fibrosis": 2,
+    "HIV prevention (PrEP)": 1,
+    "Genome Stability; CRISPR Safety": 1,
+    "Multiple sclerosis": 2,
+    "Atrial fibrillation (population health)": 1,
+    "Genome Editing; Base Editing": 1,
+    "Management of immune-related adverse events": 1,
+    "HIV drug resistance": 1,
+    "Macrophages in the tumor microenvironment": 1,
+    "Epilepsy": 2,
+    "Combination immunotherapy strategies in RCC": 1,
+    "Immunology; Allogeneic Cell Therapy; CRISPR": 1,
+    "Antibiotic-resistant Gram-negative infections": 1,
+    "Genome Editing; HSPC": 1,
+    "Obesity inflammation mechanisms": 1,
+    "Coronary artery disease (risk factors)": 1,
+    "Parkinson's disease": 1,
+    "Heart failure (comorbidities)": 1,
+    "Cardiovascular clinical trials (drug–drug interaction/combination strategy)": 1,
+    "Endocrinology clinical trials (CV outcomes)": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 9,
+    "mechanism": 7,
+    "review": 2,
+    "prognosis": 3,
+    "epidemiology": 4
+  },
+  "avg_tool_calls": 4.96,
+  "generation_time": "2025-12-20T13:09:16.946275",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.CtqIdevgp6/questions_part_02.jsonl"
+}

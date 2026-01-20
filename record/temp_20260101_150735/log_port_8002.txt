@@ -1,0 +1,370 @@
+本地模型: /workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0
+API地址: http://localhost:8002/v1
+问题文件: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_02.jsonl
+并发数: 3
+评估: 禁用
+  评估模型: openai/gpt-5-mini
+
+[初始化] 评估功能已禁用
+
+============================================================
+从已有问题生成轨迹并进行评估
+============================================================
+本地模型: /workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0
+API地址: http://localhost:8002/v1
+并发数: 3
+评估: 禁用
+从文件加载问题: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_02.jsonl
+✓ 加载了 18 个问题
+
+============================================================
+生成轨迹并评估（并发模式）
+============================================================
+💾 增量保存已启用: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8002_incremental.jsonl
+
+[10] 问题: In metastatic urothelial carcinoma, does maintenance avelumab after response or stable disease on platinum chemotherapy improve overall survival compared with observation or best supportive care?
+  正在生成工具调用轨迹...
+
+[13] 问题: What is the incidence and prevalence of ALS in different geographic regions, and how do age, sex, and ancestry influence observed epidemiologic patterns?
+  正在生成工具调用轨迹...
+
+[16] 问题: In rheumatoid arthritis with inadequate response to methotrexate, how do JAK inhibitors compare with TNF inhibitors in achieving sustained clinical remission and in rates of serious infections?
+  正在生成工具调用轨迹...
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS epidemiology incidence prevalence geographic variation registry systematic review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(EV-302 avelumab maintenance overall survival platinum responsive urothelial carcinoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SELECT-CRITERIA tofacitinib remission infections methotrexate inadequate response)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS incidence prevalence registry systematic review global)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(EV-302 avelumab maintenance overall survival platinum responsive urothelial carcinoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS incidence age sex differences global regional registry)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis methotrexate inadequate response tofacitinib remission ACR7 remission infections vs TNF inhibitor)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(avelumab maintenance after response or stable disease on platinum chemotherapy overall survival metastatic urothelial carcinoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS incidence prevalence registry Europe United States Canada Asia cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SELECT-CRITERIA tofacitinib remission infections methotrexate inadequate response)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(avelumab maintenance after response or stable disease on platinum chemotherapy overall survival metastatic urothelial carcinoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS incidence prevalence ancestry race ethnicity geographic variation population-based registry)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SELECT-MRA tofacitinib adalimumab etanercept golimumab rheumatoid arthritis remission ACR7 infections serious adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(BIRCH trial avelumab maintenance after platinum chemotherapy metastatic urothelial carcinoma overall survival)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SELECT-MRA tofacitinib adalimumab etanercept golimumab rheumatoid arthritis remission ACR7 infections serious adverse events)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[3] 问题: What mechanisms of primary resistance to PD-1/PD-L1 blockade are most consistently supported in human tumor studies, particularly involving antigen presentation defects and interferon signaling alterations?
+  正在生成工具调用轨迹...
+
+📊 进度: 1/18 (5.6%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[6] 问题: What mechanisms explain how visceral adiposity drives insulin resistance through adipokines, inflammation, and ectopic lipid deposition in liver and muscle?
+  正在生成工具调用轨迹...
+
+📊 进度: 2/18 (11.1%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(primary resistance PD-1 PD-L1 blockade human tumors antigen presentation interferon signaling)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(visceral adipose tissue insulin resistance mechanisms adipokines inflammation ectopic fat liver muscle review)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(HLA loss antigen processing defects PD-1 resistance human tumors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(visceral adipose tissue adipokines omentin PAI-1 visfatin leptin adiponectin insulin resistance macrophage inflammation review)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[9] 问题: In ALS patients, how does neurofilament light chain level (serum or CSF) predict survival and rate of functional decline across different disease stages?
+  正在生成工具调用轨迹...
+
+📊 进度: 3/18 (16.7%) | 成功: 3 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS neurofilament light chain survival prognosis cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(STAT1 loss-of-function mutations interferon signaling resistance PD-1 PD-L1 human tumors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(visceral adipose tissue inflammation macrophage infiltration adipokines insulin resistance review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS cerebrospinal fluid neurofilament light chain survival prognosis ALSFRS-R)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 resistance antigen presentation defects interferon signaling human melanoma Merkel cell carcinoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ectopic hepatic lipid deposition insulin resistance mechanisms lipotoxicity DAG PKC liver free fatty acids review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS neurofilament light chain longitudinal decline rate ALSFRS-R cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(HLA loss antigen presentation PD-1 primary resistance human melanoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(skeletal muscle ectopic lipid deposition insulin resistance mechanisms DAG PKC KATP AMPK review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS neurofilament light chain longitudinal cohort survival ALSFRS-R decline)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[12] 问题: In non-hospitalized adults with early mild-to-moderate COVID-19, how does nirmatrelvir/ritonavir compare with molnupiravir in reducing hospitalization or death, and how do their adverse event profiles differ?
+  正在生成工具调用轨迹...
+
+📊 进度: 4/18 (22.2%) | 成功: 4 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nirmatrelvir ritonavir molnupiravir head-to-head randomized COVID-19)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[15] 问题: Across multiple tumor types treated with PD-1/PD-L1 inhibitors, which tumor-intrinsic mechanisms (such as loss of antigen presentation or interferon signaling defects) are most consistently linked to primary resistance?
+  正在生成工具调用轨迹...
+
+📊 进度: 5/18 (27.8%) | 成功: 5 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 PD-L1 primary resistance tumor-intrinsic mechanisms non-inflamed)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[17] 问题: How do hepatic de novo lipogenesis and adipose tissue lipolysis each contribute to intrahepatic triglyceride accumulation in NAFLD, and what biomarkers best reflect these pathways in humans?
+  正在生成工具调用轨迹...
+
+📊 进度: 6/18 (33.3%) | 成功: 6 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD intrahepatic triglyceride de novo lipogenesis adipose lipolysis biomarkers humans)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nirmatrelvir vs molnupiravir head-to-head outcomes hospitalization death real-world)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(non-inflamed PD-1 resistance tumor intrinsic TCGA)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD hepatic steatosis adipose lipolysis NEFA de novo lipogenesis biomarkers adiponectin PAI-1 VLDL)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(COVID-101 nirmatrelvir/ritonavir molnupiravir randomized trial outcomes hospitalization death)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 PD-L1 primary resistance tumor-intrinsic antigen presentation interferon signaling)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD de novo lipogenesis exogenous lipid intrahepatic triglyceride stable isotope humans)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nirmatrelvir adverse events hepatotoxicity liver enzyme elevation Paxlovid teratogenicity myalgia headache real world VA)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antigen processing pathway alterations interferon gamma resistance PD-1 PD-L1 cross tumor TCGA)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD hepatic steatosis adipose lipolysis NEFA de novo lipogenesis biomarkers adiponectin PAI-1 VLDL)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Paxlovid adverse events myalgia headache gastrointestinal hepatotoxicity teratogenic warning lactate dehydrogenase increase)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 blockade primary resistance tumor-intrinsic interferon signaling antigen presentation TCGA cross-cancer)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD intrahepatic triglyceride de novo lipogenesis adipose lipolysis biomarkers humans)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[2] 问题: In patients with NAFLD, what is the comparative impact of Mediterranean diet versus low-carbohydrate diet on hepatic steatosis measured by imaging and on liver enzymes?
+  正在生成工具调用轨迹...
+
+📊 进度: 7/18 (38.9%) | 成功: 7 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD randomized Mediterranean diet low carbohydrate diet comparison steatosis ALT AST ultrasound MRI-PDFF)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[18] 问题: Among hospitalized patients with severe COVID-19 requiring oxygen, what is the comparative effectiveness of tocilizumab versus baricitinib when added to corticosteroids for reducing mortality and progression to mechanical ventilation?
+  正在生成工具调用轨迹...
+
+📊 进度: 8/18 (44.4%) | 成功: 8 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tocilizumab baricitinib comparative effectiveness COVID-19 hospitalized oxygen mortality ventilation)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[5] 问题: In oncology phase III trials, what trial design and statistical strategies are most commonly used to control type I error when multiple endpoints and interim analyses are planned, and how do these choices impact interpretability of results?
+  正在生成工具调用轨迹...
+
+📊 进度: 9/18 (50.0%) | 成功: 9 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(oncology phase III trial multiple endpoints interim analyses type I error control design)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD randomized controlled trial Mediterranean diet versus low carbohydrate ketogenic steatosis ALT AST ultrasound MRI-PDFF)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tocilizumab baricitinib randomized trial COVID-19 corticosteroids oxygen intubation mortality)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ICH E9 multiple endpoints multiplicity oncology trial type I error regulatory guidance)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD randomized Mediterranean diet low carbohydrate diet comparison steatosis ALT AST ultrasound MRI-PDFF)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(COVID-19 tocilizumab baricitinib comparative mortality ventilation meta-analysis observational cohorts corticosteroids)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(group sequential boundaries Pocock alpha spending function oncology phase III trial interim analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD randomized controlled trial Mediterranean diet versus low carbohydrate ketogenic steatosis ALT AST ultrasound MRI-PDFF)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(baricitinib tocilizumab COVID-19 tocilizumab vs baricitinib outcomes mortality ventilation corticosteroids)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(adaptive seamless phase II/III oncology design type I error control multiple endpoints interim analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD randomized Mediterranean diet low carbohydrate diet comparison steatosis ALT AST ultrasound MRI-PDFF)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(COVID-19 tocilizumab baricitinib comparative effectiveness corticosteroids oxygen requirement intubation mortality observational study)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ICH E9 multiplicity multiple endpoints oncology guidance type I error)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[8] 问题: Across phase III randomized trials of oral small-molecule therapies, how frequently do clinically significant food effects (fed vs fasting) alter exposure and toxicity, and what labeling or dosing strategies are supported by the evidence?
+  正在生成工具调用轨迹...
+
+📊 进度: 10/18 (55.6%) | 成功: 10 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(clinically significant food effect phase III randomized oral small molecule exposure toxicity labeling dosing)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[11] 问题: In multiple myeloma, how do response durability and rates of cytokine release syndrome compare between BCMA-directed CAR-T products and BCMA-directed bispecific T-cell engagers?
+  正在生成工具调用轨迹...
+
+📊 进度: 11/18 (61.1%) | 成功: 11 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ide-cel selencamab multiple myeloma durability progression-free survival overall survival cytokine release syndrome grade 3)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[14] 问题: What is the incidence of immune checkpoint inhibitor–associated myocarditis across tumor types, and which clinical risk factors are most consistently associated with its development?
+  正在生成工具调用轨迹...
+
+📊 进度: 12/18 (66.7%) | 成功: 12 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(immune checkpoint inhibitor myocarditis incidence meta-analysis pooled incidence)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(food effect randomized phase III oral small molecule exposure toxicity labeling dosing)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(teclistamab MagnetisMM-3 multiple myeloma progression-free survival overall survival duration of response cytokine release syndrome)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(immune checkpoint inhibitor myocarditis incidence tumor types meta-analysis cohort risk factors baseline cardiovascular disease hypertension age sex radiation smoking chemotherapy tyrosine kinase inhibitor)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(food effect exposure randomized trial oral oncology drug fed fasting pharmacokinetics safety labeling)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(amg 757 AMG757 MM-304 cytokine release syndrome mortality progression-free survival overall survival)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ICI-induced myocarditis risk factors baseline cardiovascular disease hypertension age chemotherapy radiation hypothyroidism diabetes smoking cohort multicenter)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(phase III randomized trial food effect label dosing recommendation oral anticancer drug fed fasting exposure toxicity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(belantamab margeti tafasitamab cilta-cel BCMA bispecific T cell engager CRS grade 3 neurotoxicity myeloma registry durability)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(immune checkpoint inhibitor myocarditis risk factors baseline cardiovascular disease hypertension age chemotherapy radiation hypothyroidism diabetes smoking cohort multicenter)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(labeling food effect oral anticancer drug dosing recommendation fed fasting exposure safety randomized phase III)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(belantamab margeti T-cell engager multiple myeloma phase 1 2 cytokine release syndrome grade 3 neurologic toxicity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(immune checkpoint inhibitor myocarditis risk factors baseline cardiovascular disease hypertension age chemotherapy radiation hypothyroidism diabetes smoking cohort multicenter)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[1] 问题: In hepatocellular carcinoma, how does first-line atezolizumab plus bevacizumab compare with tyrosine kinase inhibitor therapy in overall survival, progression-free survival, and bleeding risk?
+  正在生成工具调用轨迹...
+
+📊 进度: 13/18 (72.2%) | 成功: 13 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[4] 问题: In ALS, what mechanistic links have been identified between TDP-43 pathology and nucleocytoplasmic transport defects in motor neurons?
+  正在生成工具调用轨迹...
+
+📊 进度: 14/18 (77.8%) | 成功: 14 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(IMbrave150 atezolizumab bevacizumab sorafenib overall survival progression-free survival bleeding hepatocellular carcinoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TDP-43 nucleocytoplasmic transport nuclear pore motor neurons ALS mechanism)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[7] 问题: What are the reported frequencies and clinical consequences of cytokine release syndrome and neurotoxicity in gene-edited allogeneic CAR-T cell therapies compared with autologous CAR-T approaches?
+  正在生成工具调用轨迹...
+
+📊 进度: 15/18 (83.3%) | 成功: 15 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cytokine release syndrome neurotoxicity comparison autologous versus allogeneic CAR-T incidence mortality review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(IMbrave150 atezolizumab bevacizumab sorafenib overall survival progression-free survival bleeding hepatocellular carcinoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TDP-43 nuclear export Gle1 hGle1 nuclear pore motor neurons ALS RNA export Ran)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cytokine release syndrome neurotoxicity comparison autologous versus allogeneic CAR-T incidence mortality review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(IMbrave150 atezolizumab bevacizumab sorafenib overall survival progression-free survival bleeding hepatocellular carcinoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TDP-43 nuclear pore Nup155 Nup98 Ran GTPase nuclear import export ALS motor neurons)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(allogeneic CAR-T cytokine release syndrome incidence neurotoxicity compared autologous CAR-T review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS TDP-43 nuclear pore complex Ran importin nuclear export motor neurons)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(IMbrave150 atezolizumab bevacizumab sorafenib overall survival progression-free survival bleeding hepatocellular carcinoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(allogeneic CAR-T cytokine release syndrome incidence neurotoxicity compared autologous CAR-T review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(allogeneic CAR-T cytokine release syndrome incidence neurotoxicity compared autologous CAR-T review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TDP-43 nuclear export hGle1 Gle2 Ran importin motor neurons ALS nuclear pore)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(IMbrave150 independent review progression-free survival atezolizumab bevacizumab sorafenib hepatocellular carcinoma)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 16/18 (88.9%) | 成功: 16 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 17/18 (94.4%) | 成功: 17 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 18/18 (100.0%) | 成功: 18 | 失败: 0 | 成功率: 100.0%
+
+✓ 完成！共生成 18 个样本
+💾 所有样本已增量保存到: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8002_incremental.jsonl
+✓ 保存统计: ../../pubmed_training_data/trajectory_evaluated_stats_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8002.json
+
+============================================================
+数据生成完成！
+============================================================

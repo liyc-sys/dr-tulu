@@ -1,0 +1,33 @@
+{
+  "total_samples": 18,
+  "topics": {
+    "Epilepsy": 3,
+    "Coronary artery disease": 1,
+    "Antibiotic-resistant infections": 2,
+    "Multiple sclerosis": 3,
+    "Atrial fibrillation + heart failure": 1,
+    "Cardiology drug development / Phase III subgroup consistency": 1,
+    "HIV prevention (PrEP)": 1,
+    "Immunotherapy (melanoma)": 1,
+    "In vivo gene editing delivery platforms": 1,
+    "Metabolic/CV outcomes trials / Comparative effectiveness": 1,
+    "Chemotherapy/targeted resistance mechanisms (EGFR)": 1,
+    "Drug–drug/therapy interaction risk in acute care": 1,
+    "CRISPR editing safety mechanisms": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 10,
+    "epidemiology": 3,
+    "review": 2,
+    "prognosis": 1,
+    "mechanism": 2
+  },
+  "avg_tool_calls": 4.777777777777778,
+  "generation_time": "2025-12-31T18:12:02.214041",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20251231_174422/questions_part_06.jsonl",
+  "evaluation_enabled": true,
+  "avg_score": 0.0,
+  "min_score": 0.0,
+  "max_score": 0.0
+}

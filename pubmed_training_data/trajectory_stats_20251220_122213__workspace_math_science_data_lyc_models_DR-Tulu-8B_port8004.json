@@ -1,0 +1,37 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "NAFLD epidemiology": 1,
+    "Maintenance immunotherapy strategies": 1,
+    "NAFLD and cardiovascular risk": 1,
+    "Cystic fibrosis": 3,
+    "ALS": 1,
+    "Alzheimer's disease": 3,
+    "Antibiotic resistance mechanisms": 1,
+    "Invasive fungal infections": 1,
+    "Drug development (drug–drug interactions/pharmacokinetics)": 1,
+    "Gene Therapy Safety; Hepatology": 1,
+    "Neurology; Gene Replacement; Safety Epidemiology": 1,
+    "Nutrition epidemiology": 1,
+    "Systemic inflammation biomarkers in immunotherapy": 1,
+    "Pulmonology clinical trials (inhaled regimen comparison)": 1,
+    "Microbiome and immunotherapy mechanisms": 1,
+    "Antimicrobial stewardship": 1,
+    "Neurology clinical trials (disease-modifying therapy comparison)": 1,
+    "Targeted therapy vs immunotherapy in melanoma": 1,
+    "C. difficile infection": 1,
+    "Hematology; Gene Editing Candidacy": 1,
+    "Biomarkers guiding targeted therapy in colorectal cancer": 1
+  },
+  "question_types": {
+    "epidemiology": 7,
+    "efficacy_comparison": 8,
+    "prognosis": 4,
+    "mechanism": 4,
+    "review": 2
+  },
+  "avg_tool_calls": 4.96,
+  "generation_time": "2025-12-20T13:07:20.534694",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.CtqIdevgp6/questions_part_04.jsonl"
+}

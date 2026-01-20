@@ -1,0 +1,13 @@
+{
+  "total_samples": 1,
+  "topics": {
+    "Drug development/Phase III trials (Diabetes)": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 1
+  },
+  "avg_tool_calls": 0.0,
+  "generation_time": "2025-12-20T02:03:42.258404",
+  "model": "DR-Tulu-8B",
+  "source_file": "/workspace/math_science_data/lyc/1205/dr-tulu/pubmed_training_data/questions_20251217_033030_no_rubrics_incremental.jsonl"
+}

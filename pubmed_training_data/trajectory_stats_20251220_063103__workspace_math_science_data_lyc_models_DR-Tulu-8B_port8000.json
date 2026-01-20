@@ -1,0 +1,36 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "ALS": 3,
+    "COVID-19 complications": 1,
+    "CAR-T therapy in lymphoma": 1,
+    "Coronary artery disease / Heart failure": 1,
+    "Metabolomics and diabetes mechanisms": 1,
+    "Phase III efficacy comparison (hepatology)": 1,
+    "T-cell redirection in myeloma": 1,
+    "Immune-related adverse events": 1,
+    "Mechanisms of EGFR TKI resistance": 1,
+    "Targeted therapy vs immunotherapy in melanoma": 1,
+    "Neuromuscular gene therapy; pediatric outcomes": 1,
+    "MASLD/MASH and incretin therapy": 1,
+    "Multiple sclerosis": 3,
+    "Atrial fibrillation": 1,
+    "AAV immunology; patient eligibility": 1,
+    "Obesity inflammation and insulin resistance": 1,
+    "Combination therapy mechanisms and safety (oncology)": 1,
+    "HER2 therapies and CNS disease": 1,
+    "COVID-19 corticosteroids": 1,
+    "Alzheimer's disease": 1,
+    "HIV antiretroviral therapy": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 13,
+    "epidemiology": 4,
+    "mechanism": 6,
+    "prognosis": 2
+  },
+  "avg_tool_calls": 4.8,
+  "generation_time": "2025-12-20T07:05:09.863611",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.5yJsahY0Zc/questions_part_00.jsonl"
+}

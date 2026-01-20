@@ -1,0 +1,36 @@
+{
+  "total_samples": 18,
+  "topics": {
+    "Parkinson's disease": 2,
+    "Systemic lupus erythematosus": 1,
+    "Atrial fibrillation": 1,
+    "Multiple sclerosis": 1,
+    "Gene therapy prognostic factors in thalassemia": 1,
+    "Type 2 diabetes prognosis": 1,
+    "Treatment discontinuation; durability": 1,
+    "Rechallenge; immune-related adverse events": 1,
+    "HIV drug resistance": 1,
+    "Gene therapy for hemoglobinopathies": 1,
+    "Heart failure (HFpEF)": 1,
+    "Targeted therapy (HER2-positive breast cancer)": 1,
+    "Heart failure (HFrEF)": 1,
+    "HIV first-line therapy": 1,
+    "Diet timing; diabetes; NAFLD": 1,
+    "Oncology drug development / Phase III efficacy and safety comparison": 1,
+    "Targeted therapy (EGFR-mutant NSCLC)": 1
+  },
+  "question_types": {
+    "prognosis": 4,
+    "mechanism": 3,
+    "efficacy_comparison": 8,
+    "review": 3
+  },
+  "avg_tool_calls": 4.944444444444445,
+  "generation_time": "2025-12-31T18:23:00.408327",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20251231_174422/questions_part_05.jsonl",
+  "evaluation_enabled": true,
+  "avg_score": 0.0,
+  "min_score": 0.0,
+  "max_score": 0.0
+}

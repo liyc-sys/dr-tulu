@@ -1,0 +1,35 @@
+{
+  "total_samples": 24,
+  "topics": {
+    "Cystic fibrosis": 2,
+    "Immunotherapy - biomarker prognosis": 1,
+    "Antigen presentation defects and checkpoint inhibitor durability": 1,
+    "Prime editing preclinical evidence": 1,
+    "Drug Development/Clinical Trials": 3,
+    "Parkinson's disease": 1,
+    "Autoimmune diseases (RA, SLE, MS)": 2,
+    "Diabetes / NAFLD / pharmacotherapy": 1,
+    "CRISPRi epigenetic mechanisms": 1,
+    "Epilepsy": 1,
+    "COVID-19": 1,
+    "Coronary artery disease": 2,
+    "Alzheimer's disease": 1,
+    "Gene editing approaches for retinal disease": 1,
+    "Targeted therapy - hematologic oncology epidemiology": 1,
+    "Rheumatoid arthritis": 1,
+    "Obesity / prognosis / surgery outcomes": 1,
+    "Obesity / mechanism / inflammation": 1,
+    "Strategies to reduce CRS in CAR-T therapy": 1
+  },
+  "question_types": {
+    "review": 4,
+    "prognosis": 4,
+    "efficacy_comparison": 5,
+    "mechanism": 7,
+    "epidemiology": 4
+  },
+  "avg_tool_calls": 4.916666666666667,
+  "generation_time": "2025-12-20T17:24:28.711246",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.ApUd2X1dZ9/questions_part_01.jsonl"
+}

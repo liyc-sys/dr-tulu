@@ -1,0 +1,37 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Parkinson's disease": 2,
+    "Systemic lupus erythematosus": 3,
+    "Heart failure (HFpEF)": 1,
+    "Antibiotic resistance mechanisms": 1,
+    "Coronary artery disease (secondary prevention)": 1,
+    "Cell therapy; CRISPR T cells; prognostic biomarkers": 1,
+    "Retinal gene therapy; long-term outcomes": 1,
+    "C. difficile infection": 1,
+    "Prediabetes prevention": 1,
+    "Targeted therapy biomarkers (prostate cancer)": 1,
+    "Clinical trial safety and drug interaction mechanisms (QT prolongation)": 1,
+    "Diabetes technology": 1,
+    "Cystic fibrosis": 2,
+    "Antimicrobial resistance epidemiology": 1,
+    "Coronary artery disease (antiplatelet therapy)": 1,
+    "Targeted therapy toxicity/efficacy (breast cancer)": 1,
+    "Psychiatry phase III/late-phase comparative strategies": 1,
+    "PD-1/PD-L1 inhibitors in NSCLC": 1,
+    "Amyotrophic lateral sclerosis (ALS)": 1,
+    "NAFLD pathophysiology": 1,
+    "Multiple sclerosis": 1
+  },
+  "question_types": {
+    "prognosis": 5,
+    "efficacy_comparison": 13,
+    "mechanism": 5,
+    "review": 1,
+    "epidemiology": 1
+  },
+  "avg_tool_calls": 4.76,
+  "generation_time": "2025-12-20T05:41:10.827994",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.3xjKm2ErVx/questions_part_07.jsonl"
+}

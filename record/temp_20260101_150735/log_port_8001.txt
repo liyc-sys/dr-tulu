@@ -1,0 +1,370 @@
+本地模型: /workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0
+API地址: http://localhost:8001/v1
+问题文件: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_01.jsonl
+并发数: 3
+评估: 禁用
+  评估模型: openai/gpt-5-mini
+
+[初始化] 评估功能已禁用
+
+============================================================
+从已有问题生成轨迹并进行评估
+============================================================
+本地模型: /workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0
+API地址: http://localhost:8001/v1
+并发数: 3
+评估: 禁用
+从文件加载问题: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_01.jsonl
+✓ 加载了 18 个问题
+
+============================================================
+生成轨迹并评估（并发模式）
+============================================================
+💾 增量保存已启用: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8001_incremental.jsonl
+
+[4] 问题: In nonalcoholic steatohepatitis (NASH), how do GLP-1 receptor agonists compare with pioglitazone in histologic resolution of steatohepatitis and improvement in fibrosis stage?
+  正在生成工具调用轨迹...
+
+[7] 问题: What clinical and manufacturing factors predict loss of transgene expression over time after AAV liver gene therapy, including vector dose, pre-existing neutralizing antibodies, and capsid-specific T-cell responses?
+  正在生成工具调用轨迹...
+
+[10] 问题: In patients treated with immune checkpoint inhibitors, what is the effect of baseline systemic corticosteroid use on overall survival and response rates, based on clinical trial subgroup analyses and real-world cohorts?
+  正在生成工具调用轨迹...
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(baseline corticosteroid use immune checkpoint inhibitor overall survival response rate subgroup analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(semaglutide nonalcoholic steatohepatitis randomized biopsy resolution fibrosis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV liver gene therapy loss of transgene expression durability neutralizing antibodies T cell responses dose split dose)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(pioglitazone nonalcoholic steatohepatitis randomized biopsy resolution fibrosis improvement)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(baseline corticosteroids immune checkpoint inhibitor overall survival response rate subgroup KEYNOTE-024 KEYNOTE-052 CheckMate 227 017 043 IMvigor130 nivolumab LC301)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV liver transgene silencing durability loss of expression gene therapy)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(corticosteroid baseline use immune checkpoint inhibitor outcomes overall survival response real-world cohort subgroup)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(GLP-1 receptor agonists pioglitazone NASH histologic resolution fibrosis improvement randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV liver transgene silencing durability loss of expression gene therapy)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(baseline steroids corticosteroids on immune checkpoint inhibitor efficacy response survival subgroup analysis real-world)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(liraglutide nonalcoholic steatohepatitis randomized trial biopsy fibrosis improvement)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV liver gene therapy durability loss of transgene expression neutralizing antibodies T cell AAV201 ATB400 CTX4302)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(vitamin E pioglitazone randomized trial NASH biopsy fibrosis resolution)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(baseline corticosteroid use impact on nivolumab or pembrolizumab outcomes overall survival response rate subgroup real-world)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV liver gene therapy durability loss of transgene expression neutralizing antibodies T cell AAV201 ATB400 CTX4302)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[13] 问题: In solid tumors treated with immune checkpoint inhibitors, how does antibiotic exposure near treatment initiation affect objective response rate and overall survival?
+  正在生成工具调用轨迹...
+
+📊 进度: 1/18 (5.6%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antibiotic exposure peri immune checkpoint inhibitor objective response overall survival solid tumors)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[17] 问题: Among patients hospitalized with acute decompensated heart failure, what is the prognostic performance of natriuretic peptides versus high-sensitivity troponin for predicting 30-day and 1-year mortality?
+  正在生成工具调用轨迹...
+
+📊 进度: 2/18 (11.1%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(acute decompensated heart failure natriuretic peptide high-sensitivity troponin mortality comparison)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[16] 问题: In inherited metabolic liver diseases, how does ex vivo gene-corrected hepatocyte transplantation compare with in vivo gene therapy in terms of metabolic correction and long-term engraftment?
+  正在生成工具调用轨迹...
+
+📊 进度: 3/18 (16.7%) | 成功: 3 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(inherited metabolic liver disease ex vivo gene-corrected hepatocyte transplantation vs in vivo gene therapy long-term engraftment metabolic correction)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antibiotic exposure peri-treatment nivolumab pembrolizumab objective response rate overall survival solid tumors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NT-proBNP vs hs-cTn 30-day 1-year mortality acute decompensated heart failure)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ornithine transcarbamylase deficiency ex vivo hepatocyte transplantation gene-corrected long-term engraftment metabolic correction vs in vivo AAV gene therapy)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(high-sensitivity troponin prognostic 30-day mortality acute decompensated heart failure)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(recent antibiotic use immune checkpoint inhibitor overall survival solid tumors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAGLU gene therapy hepatocyte transplantation MPSII engraftment survival metabolic correction)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(acute decompensated heart failure 30-day mortality troponin BNP meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antibiotic exposure objective response rate immune checkpoint inhibitors solid tumors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(alpha-1 antitrypsin deficiency ex vivo hepatocyte transplantation gene-corrected long-term engraftment vs in vivo gene therapy)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(prognostic value NT-proBNP vs troponin 30-day mortality heart failure)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antibiotic exposure objective response rate immune checkpoint inhibitors solid tumors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Hurler syndrome ex vivo hepatocyte transplantation gene-corrected vs in vivo AAV gene therapy metabolic correction engraftment long-term)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[3] 问题: In rheumatoid arthritis with inadequate response to methotrexate, how do rates of major adverse cardiovascular events and venous thromboembolism compare between JAK inhibitors and TNF inhibitors in randomized and post-marketing comparative studies?
+  正在生成工具调用轨迹...
+
+📊 进度: 4/18 (22.2%) | 成功: 4 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis tofacitinib adalimumab cardiovascular events randomized trial methotrexate)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[6] 问题: In cystic fibrosis with chronic Pseudomonas infection, how does inhaled tobramycin compare with inhaled aztreonam in reducing exacerbation frequency and improving quality of life?
+  正在生成工具调用轨迹...
+
+📊 进度: 5/18 (27.8%) | 成功: 5 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[9] 问题: What is the association between specific CFTR genotypes and risk of cystic fibrosis–related diabetes, and how does this impact clinical outcomes?
+  正在生成工具调用轨迹...
+
+📊 进度: 6/18 (33.3%) | 成功: 6 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis chronic Pseudomonas inhaled tobramycin aztreonam exacerbation quality of life)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CFTR genotype cystic fibrosis diabetes risk CFRD)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ORAL-Switch RA randomized tofacitinib adalimumab etanercept major adverse cardiovascular events venous thromboembolism)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tobramycin inhalation solution cystic fibrosis randomized exacerbations CFQ trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis-related diabetes genotype pancreatic insufficiency G551D G1244A risk onset trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(RA tofacitinib adalimumab etanercept cardiovascular events randomized trial methotrexate)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis chronic Pseudomonas tobramycin inhalation solution exacerbations CFQ randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis-related diabetes CFTR mutation G551D G1244A R117H diabetes risk age of onset trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: google_search(RA ORAL-Switch trial tofacitinib adalimumab etanercept cardiovascular venous thromboembolism)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tobramycin inhalation solution exacerbation rate cystic fibrosis randomized trial CFQ quality of life)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CFTR pancreatic secretion genotype diabetes risk cystic fibrosis-related diabetes modifier)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis tofacitinib adalimumab etanercept cardiovascular events randomized trial methotrexate)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tobramycin inhalation solution cystic fibrosis randomized exacerbations CFQ trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(G551D cystic fibrosis diabetes CFRD)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[12] 问题: In adults with prediabetes, how effective are structured lifestyle interventions compared with metformin in preventing progression to type 2 diabetes over at least 2 years of follow-up?
+  正在生成工具调用轨迹...
+
+📊 进度: 7/18 (38.9%) | 成功: 7 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Diabetes Prevention Program Outcomes Study metformin lifestyle intervention type 2 diabetes hazard ratio 3 years prediabetes)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[15] 问题: In individuals with ALS, how do antisense oligonucleotide therapies targeting known ALS genes compare with standard of care in slowing functional decline as measured by ALSFRS-R?
+  正在生成工具调用轨迹...
+
+📊 进度: 8/18 (44.4%) | 成功: 8 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(onasemnogene cembta ALSFRS-R randomized trial riluzole)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[2] 问题: In hospitalized COVID-19 patients receiving corticosteroids, does adding an IL-6 receptor inhibitor reduce mortality compared with corticosteroids alone in randomized phase III trials, and what patient severity strata show the largest effect?
+  正在生成工具调用轨迹...
+
+📊 进度: 9/18 (50.0%) | 成功: 9 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tocilizumab corticosteroids randomized phase III hospitalized COVID-19 mortality severe critical)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Diabetes Prevention Program Outcomes Study metformin lifestyle intervention type 2 diabetes hazard ratio 3 years prediabetes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nusinersen EMMB-4 ALSFRS-R riluzole randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tocilizumab corticosteroids randomized phase III hospitalized COVID-19 mortality severe critical)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Diabetes Prevention Program Outcomes Study metformin lifestyle hazard ratio 3 years prediabetes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(EMMB-4 nusinersen ALSFRS-R riluzole trial outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tocilizumab randomized trial hospitalized COVID-19)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antisense oligonucleotide ALS ALSFRS-R trial riluzole placebo)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lifestyle intervention vs metformin prediabetes progression to diabetes 3 year randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(sarilumab randomized phase III hospitalized COVID-19 mortality corticosteroids)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nusinersen ALSFRS-R trial outcomes EMMB-2 EMMB-3)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(sarilumab randomized phase 3 hospitalized COVID-19 mortality)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Diabetes Prevention Program randomized trial metformin lifestyle intervention risk of diabetes 3 years prediabetes)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[18] 问题: In schizophrenia maintenance treatment, how do relapse prevention and metabolic adverse effect profiles compare between long-acting injectable antipsychotics and their oral counterparts in randomized controlled trials?
+  正在生成工具调用轨迹...
+
+📊 进度: 10/18 (55.6%) | 成功: 10 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(risperidone long-acting injectable vs oral randomized controlled trial schizophrenia maintenance relapse weight metabolic)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[5] 问题: In first-line metastatic melanoma, how do PD-1 inhibitor monotherapy and PD-1 plus CTLA-4 combination therapy compare in long-term survival and immune-related adverse event profiles?
+  正在生成工具调用轨迹...
+
+📊 进度: 11/18 (61.1%) | 成功: 11 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 238 nivolumab ipilimumab first-line metastatic melanoma overall survival progression-free duration of response immune-related adverse events)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[8] 问题: In ovarian cancer treated with platinum-based chemotherapy, what is the association between BRCA1/2 or homologous recombination deficiency status and the likelihood of platinum resistance or sensitivity?
+  正在生成工具调用轨迹...
+
+📊 进度: 12/18 (66.7%) | 成功: 12 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ovarian cancer BRCA1/2 platinum sensitivity resistance high-grade serous)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 238 nivolumab ipilimumab first-line metastatic melanoma overall survival progression-free)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(risperidone long-acting injectable vs oral randomized controlled trial schizophrenia maintenance relapse weight metabolic)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ovarian cancer BRCA1/2 homologous recombination deficiency platinum resistance sensitivity high-grade serous cohort maintenance)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(schizophrenia long-acting injectable vs oral antipsychotic randomized relapse prevention metabolic adverse effects)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 238 nivolumab ipilimumab first-line metastatic melanoma overall survival progression-free)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ovarian cancer BRCA1 BRCA2 platinum resistance sensitivity high-grade serous)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(paliperidone long-acting injectable vs oral risperidone randomized trial schizophrenia maintenance relapse weight metabolic)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ovarian cancer homologous recombination deficiency platinum sensitivity BRCA1/2 cohort study)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 238 nivolumab ipilimumab first-line metastatic melanoma overall survival progression-free duration of response immune-related adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(paliperideone lai vs oral randomized trial schizophrenia relapse prevention metabolic weight)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 238 nivolumab ipilimumab first-line metastatic melanoma overall survival progression-free duration of response immune-related adverse events)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[11] 问题: In patients with atrial fibrillation and stable coronary artery disease beyond 12 months after PCI, does oral anticoagulant monotherapy compared with oral anticoagulant plus antiplatelet therapy reduce bleeding without increasing ischemic events?
+  正在生成工具调用轨迹...
+
+📊 进度: 13/18 (72.2%) | 成功: 13 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PIONEER AF-PCI dabigatran 110 vs 150 mg outcomes bleeding ischemic events)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[14] 问题: Among patients with solid tumors treated with immune checkpoint inhibitors, how strongly do baseline tumor mutational burden and CD8+ T-cell infiltration each predict objective response, and are they additive or overlapping predictors?
+  正在生成工具调用轨迹...
+
+📊 进度: 14/18 (77.8%) | 成功: 14 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tumor mutational burden objective response immune checkpoint inhibitors solid tumors)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[1] 问题: For patients with heart failure and iron deficiency, how does intravenous iron therapy compared with oral iron affect exercise capacity and heart failure hospitalization rates?
+  正在生成工具调用轨迹...
+
+📊 进度: 15/18 (83.3%) | 成功: 15 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(DAPT-ABSORB DAPT-ABSORB trial dual antiplatelet vs single antiplatelet after PCI atrial fibrillation bleeding ischemic outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(heart failure iron deficiency intravenous iron versus oral randomized exercise capacity hospitalization)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CD8 tumor-infiltrating lymphocytes predict objective response immune checkpoint inhibitors solid tumors quantitative)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PIONEER AF-PCI dabigatran 110 vs 150 mg outcomes bleeding ischemic events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(IRON-HF randomized trial oral versus intravenous iron heart failure exercise capacity hospitalization)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(immune microenvironment predicts response to PD-1 blockade across solid tumors CD8 T-cell density PD-L1)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ferric carboxymaltose randomized trial heart failure exercise capacity NYHA class hospitalization)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(predictive biomarkers CD8 density PD-L1 tumor infiltrating lymphocytes response to PD-1 blockade solid tumors meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(REDUCE PCI rivaroxaban 2.5 vs 5 mg aspirin outcomes bleeding stroke myocardial infarction post-PCI atrial fibrillation)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(IV iron versus oral iron heart failure randomized exercise capacity 6-min walk hospitalization mortality)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tumor mutational burden CD8 T-cell infiltration immune checkpoint inhibitors additive overlapping predictors solid tumors response)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PIONEER AF-PCI dabigatran 110 vs 150 outcomes bleeding stroke myocardial infarction post-PCI atrial fibrillation)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Ferric carboxymaltose randomized trial heart failure 6-min walk distance NYHA class hospitalization)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 16/18 (88.9%) | 成功: 16 | 失败: 0 | 成功率: 100.0%
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 17/18 (94.4%) | 成功: 17 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 18/18 (100.0%) | 成功: 18 | 失败: 0 | 成功率: 100.0%
+
+✓ 完成！共生成 18 个样本
+💾 所有样本已增量保存到: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8001_incremental.jsonl
+✓ 保存统计: ../../pubmed_training_data/trajectory_evaluated_stats_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8001.json
+
+============================================================
+数据生成完成！
+============================================================

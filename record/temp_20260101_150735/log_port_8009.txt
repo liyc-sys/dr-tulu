@@ -1,0 +1,370 @@
+本地模型: /workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0
+API地址: http://localhost:8009/v1
+问题文件: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_03.jsonl
+并发数: 3
+评估: 禁用
+  评估模型: openai/gpt-5-mini
+
+[初始化] 评估功能已禁用
+
+============================================================
+从已有问题生成轨迹并进行评估
+============================================================
+本地模型: /workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0
+API地址: http://localhost:8009/v1
+并发数: 3
+评估: 禁用
+从文件加载问题: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_03.jsonl
+✓ 加载了 18 个问题
+
+============================================================
+生成轨迹并评估（并发模式）
+============================================================
+💾 增量保存已启用: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8009_incremental.jsonl
+
+[10] 问题: How does brown adipose tissue activation influence energy expenditure and insulin sensitivity in humans, and what evidence supports pharmacologic or cold-induced activation as a therapeutic strategy?
+  正在生成工具调用轨迹...
+
+[13] 问题: In Huntington's disease, how do different approaches to lowering huntingtin (e.g., antisense oligonucleotides or RNA interference) compare in their effects on clinical progression and biomarker changes?
+  正在生成工具调用轨迹...
+
+[16] 问题: What mechanisms connect mutant huntingtin to mitochondrial dysfunction and oxidative stress in neuronal cells, and which pathways are most consistently implicated?
+  正在生成工具调用轨迹...
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(huntington disease mutant huntingtin mitochondrial dysfunction oxidative stress neurons)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tominersen Huntington antisense oligonucleotide UHDRS biomarkers HTT levels)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cold exposure brown adipose tissue humans energy expenditure insulin sensitivity randomized crossover)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Huntington disease lowering HTT antisense RNAi biomarkers UPDRS plasma CSF htt protein)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(huntington disease mutant huntingtin mitochondria complex I reactive oxygen species neurons)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Matsuzaki cold exposure brown adipose tissue humans glucose disposal rate insulin sensitivity PET calorimetry)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(huntington disease mutant huntingtin mitochondria ROS mitochondrial DNA oxidative stress neurons)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tominersen Huntington antisense oligonucleotide UHDRS biomarkers HTT levels)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(β3-adrenergic agonist CL316243 human study glucose disposal insulin sensitivity brown adipose tissue)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(huntington disease mutant huntingtin mitochondria complex I inhibition NADH ubiquinone neurons)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Huntington antisense oligonucleotide IONIS-HTTRx tominersen UHDRS biomarker CSF plasma htt protein)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Matsuzaki cold exposure brown adipose tissue humans glucose disposal rate insulin sensitivity PET calorimetry)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(huntington disease mHTT mitochondria cristae permeability transition pore oxidative stress neurons)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Huntington disease IONIS-HTTRx tominersen randomized trial UHDRS biomarker huntingtin levels)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Matsuzaki cold exposure supraclavicular adipose tissue glucose disposal rate insulin sensitivity PET calorimetry humans)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[3] 问题: In COVID-19 patients at high risk of thromboembolism, what is the net clinical benefit of therapeutic-dose anticoagulation compared with prophylactic-dose anticoagulation in preventing thrombotic events without increasing major bleeding?
+  正在生成工具调用轨迹...
+
+📊 进度: 1/18 (5.6%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(COVID-19 therapeutic anticoagulation vs prophylactic rivaroxaban randomized trial RECOVERY COVACT-a)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[6] 问题: In rheumatoid arthritis, does initiating combination conventional DMARD therapy (methotrexate plus sulfasalazine and hydroxychloroquine) result in better radiographic progression outcomes than methotrexate monotherapy in early disease?
+  正在生成工具调用轨迹...
+
+📊 进度: 2/18 (11.1%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[9] 问题: What is the global prevalence of NAFLD in adults, and how does it vary by region, sex, and presence of type 2 diabetes or obesity?
+  正在生成工具调用轨迹...
+
+📊 进度: 3/18 (16.7%) | 成功: 3 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TREAT trial rheumatoid arthritis 6 weeks radiographic Sharp methotrexate sulfasalazine hydroxychloroquine)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(global prevalence NAFLD adults meta-analysis 2020..2024)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(COVID-19 therapeutic anticoagulation vs prophylactic randomized trial LMWH rivaroxaban)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TEAR trial radiographic progression modified Sharp methotrexate monotherapy combination sulfasalazine hydroxychloroquine)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(global prevalence hepatic steatosis adults meta-analysis population-based 2020..2024)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(COVID-19 therapeutic anticoagulation vs prophylactic randomized trial LMWH rivaroxaban)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(triple therapy methotrexate sulfasalazine hydroxychloroquine radiographic progression early rheumatoid arthritis randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NAFLD prevalence global adults meta-analysis 2020..2024)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(COVID-19 therapeutic anticoagulation vs prophylactic randomized trial LMWH rivaroxaban)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(methotrexate triple therapy sulfasalazine hydroxychloroquine radiographic progression early rheumatoid arthritis randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(global prevalence NAFLD adults meta-analysis worldwide population-based)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(COVID-19 therapeutic anticoagulation vs prophylactic randomized trial LMWH rivaroxaban)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(methotrexate triple therapy sulfasalazine hydroxychloroquine radiographic progression early rheumatoid arthritis randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: google_search(Global Liver Initiative NAFLD prevalence consensus worldwide adults)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[12] 问题: In rheumatoid arthritis, what is the evidence that anti-citrullinated protein antibody (ACPA) status predicts response to rituximab compared with other biologic DMARDs?
+  正在生成工具调用轨迹...
+
+📊 进度: 4/18 (22.2%) | 成功: 4 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis ACPA rituximab response ACR20)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ACPA rituximab rheumatoid arthritis ACR20 ACR50 cohort)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[15] 问题: Among patients with early Alzheimer’s disease, what is the association between baseline plasma phosphorylated tau levels and subsequent rate of cognitive decline over longitudinal follow-up?
+  正在生成工具调用轨迹...
+
+📊 进度: 5/18 (27.8%) | 成功: 5 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[17] 问题: How do APOE ε4 carrier status and amyloid-lowering therapy relate to the risk of amyloid-related imaging abnormalities in Alzheimer’s disease populations?
+  正在生成工具调用轨迹...
+
+📊 进度: 6/18 (33.3%) | 成功: 6 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(plasma phosphorylated tau longitudinal cognitive decline Alzheimer's disease baseline)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(APOE ε4 amyloid-related imaging abnormalities Alzheimer's)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis ACPA rituximab response predictors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(plasma p-tau181 longitudinal cognitive decline MCI early Alzheimer's cohort MMSE PACC)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(APOE ε4 ARIA risk lecanemab donanemab gantenerumab hazard ratio odds ratio Alzheimer)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis ACPA rituximab nonresponse predictors ACPA negative)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(p-Tau217 plasma longitudinal cognitive decline early Alzheimer disease MMSE PACC cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(donanemab APOE ε4 ARIA risk factors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(longitudinal plasma phosphorylated tau cognitive decline Alzheimer's cohort MMSE p-Tau217 p-Tau181)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ACPA rituximab nonresponse predictors ACPA negative rheumatoid arthritis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(amyloid-related imaging abnormalities risk factors APOE epsilon4 lecanemab gantenerumab donanemab odds ratio hazard ratio)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(p-tau217 plasma early symptomatic Alzheimer disease longitudinal cognitive decline MMSE cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lecanemab ARIA risk factors apolipoprotein E4 homozygous hazard ratio Clarity AD)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[2] 问题: In ALS, how does noninvasive ventilation compare with diaphragm pacing or usual care in extending survival and improving quality of life?
+  正在生成工具调用轨迹...
+
+📊 进度: 7/18 (38.9%) | 成功: 7 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS noninvasive ventilation diaphragm pacing randomized trial survival quality of life)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[18] 问题: What is the association between nasopharyngeal SARS-CoV-2 viral load (or PCR cycle threshold values) at presentation and subsequent clinical outcomes such as hospitalization, ICU admission, or mortality?
+  正在生成工具调用轨迹...
+
+📊 进度: 8/18 (44.4%) | 成功: 8 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(nasopharyngeal SARS-CoV-2 viral load Ct hospitalization ICU mortality)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS noninvasive ventilation randomized controlled trial survival quality of life early initiation Cochrane)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SARS-CoV-2 nasopharyngeal Ct hospitalization ICU risk)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(diaphragm pacing ALS randomized trial survival quality of life phrenic nerve stimulation)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[5] 问题: What mechanisms underlie immune responses to AAV capsid and transgene products in gene therapy, and which immunomodulatory strategies show evidence for improving durability of expression?
+  正在生成工具调用轨迹...
+
+📊 进度: 9/18 (50.0%) | 成功: 9 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SARS-CoV-2 nasopharyngeal viral load cycle threshold hospitalization ICU mortality adults)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(noninvasive ventilation ALS meta-analysis survival quality of life randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV immune responses capsid transgene durability expression review 2018..2024)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ALS noninvasive ventilation meta-analysis 2018-2024 randomized survival quality of life)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV capsid immunogenicity pre-existing neutralizing antibodies innate immune response 2018..2024)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SARS-CoV-2 nasopharyngeal viral load cycle threshold hospitalization ICU mortality adults</call><think>)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV gene therapy immune mechanisms Fc receptor complement interferon AAV2/9 AAV-PHP.B 2018..2024)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[8] 问题: How does the gut microbiome composition relate to clinical response and immune-related toxicity in patients treated with PD-1/PD-L1 inhibitors across solid tumors?
+  正在生成工具调用轨迹...
+
+📊 进度: 10/18 (55.6%) | 成功: 10 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SARS-CoV-2 meta-analysis nasopharyngeal viral load cycle threshold severity hospitalization ICU mortality)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(gut microbiome PD-1 PD-L1 inhibitors response solid tumors review multi-cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV capsid immune response T cell B cell neutralizing antibodies transgene expression durability)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(gut microbiome PD-1 response checkpoint inhibitors colorectal melanoma multi-cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV gene therapy innate immune mechanisms TLR cGAS STING interferon 2018..2024)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[11] 问题: How do SARS-CoV-2 Omicron sublineages differ from earlier variants in their ability to evade neutralizing antibodies induced by vaccination or prior infection, based on in vitro neutralization studies?
+  正在生成工具调用轨迹...
+
+📊 进度: 11/18 (61.1%) | 成功: 11 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Omicron neutralization vaccine sera pseudovirus BA.1 BA.2 Delta)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(gut microbiome immune checkpoint inhibitors response toxicity adverse events solid tumors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(BA.2.12.1 BA.4 BA.5 neutralization pseudovirus vaccine sera breakthrough infection VSV SARS-CoV-2)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[14] 问题: In resected stage III melanoma, what is the magnitude of recurrence-free survival benefit with adjuvant anti-PD-1 therapy compared with observation or other adjuvant systemic options?
+  正在生成工具调用轨迹...
+
+📊 进度: 12/18 (66.7%) | 成功: 12 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(KEYNOTE-054 adjuvant pembrolizumab recurrence-free survival stage III melanoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(gut microbiome PD-1 PD-L1 inhibitors response solid tumors review multi-cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(omicron sublineages neutralization vaccine sera pseudovirus BA.1 BA.2 BA.4 BA.5 BA.2.12.1)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(adjuvant encorafenib cobimetinib stage III melanoma recurrence-free survival CheckMate 9ER)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PD-1 checkpoint inhibitor gut microbiome response diarrhea colitis multi-center study solid tumors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(omicron neutralization vaccine sera pseudovirus BA.1 BA.2)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 9ER adjuvant nivolumab ipilimumab recurrence-free survival stage III melanoma)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(omicron BA.2.12.1 neutralization pseudovirus vaccine sera)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(EORTC 1325-MG KEYNOTE-054 pembrolizumab placebo resected stage III melanoma recurrence-free survival distant metastasis-free survival)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[1] 问题: In patients receiving CAR-T therapy, what baseline inflammatory markers (such as ferritin, CRP, IL-6) best predict grade 3–4 cytokine release syndrome and immune effector cell–associated neurotoxicity syndrome?
+  正在生成工具调用轨迹...
+
+📊 进度: 13/18 (72.2%) | 成功: 13 | 失败: 0 | 成功率: 100.0%
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CAR-T cytokine release syndrome predictors ferritin IL-6 CRP baseline)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(adjuvant nivolumab ipilimumab stage III melanoma recurrence-free survival EORTC 1325-NO/CheckMate 9ER)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CAR T cytokine release syndrome grade 3 predictors ferritin IL-6 CRP baseline)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[4] 问题: In mild cognitive impairment due to Alzheimer’s disease, how do monoclonal antibodies targeting amyloid-beta compare in efficacy and adverse event profiles versus placebo across randomized controlled trials?
+  正在生成工具调用轨迹...
+
+📊 进度: 14/18 (77.8%) | 成功: 14 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(aducanumab mild cognitive impairment randomized trial NEJM EMERGE)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[7] 问题: What is the role of gut microbiome-derived metabolites (such as short-chain fatty acids and bile acids) in modulating glucose homeostasis and NAFLD severity in adults?
+  正在生成工具调用轨迹...
+
+📊 进度: 15/18 (83.3%) | 成功: 15 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(short-chain fatty acids insulin sensitivity adults randomized crossover)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cytokine release syndrome predictors ferritin IL-6 CRP baseline CAR-T)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(monoclonal antibody amyloid beta mild Alzheimer randomized placebo NEJM)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(bile acids FXR TGR5 glucose insulin NAFLD adults human randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(immune effector cell-associated neurotoxicity syndrome predictors ferritin IL-6 CRP baseline CAR T)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(aducanumab phase 3 randomized NEJM amyloid edema trial ENGAGE TRAILBLAZER-ALZ 2)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(bile acids NAFLD severity adults randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CAR-T ICANS predictors ferritin CRP IL-6 baseline neurotoxicity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(gut microbiome glucose homeostasis adults review mechanisms)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(aducanumab ENGAGE trial NEJM amyloid-related imaging abnormalities edema)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 16/18 (88.9%) | 成功: 16 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(aducanumab ENGAGE trial NEJM amyloid-related imaging abnormalities edema)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 17/18 (94.4%) | 成功: 17 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 18/18 (100.0%) | 成功: 18 | 失败: 0 | 成功率: 100.0%
+
+✓ 完成！共生成 18 个样本
+💾 所有样本已增量保存到: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8009_incremental.jsonl
+✓ 保存统计: ../../pubmed_training_data/trajectory_evaluated_stats_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8009.json
+
+============================================================
+数据生成完成！
+============================================================

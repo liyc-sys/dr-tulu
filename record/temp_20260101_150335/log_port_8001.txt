@@ -1,0 +1,211 @@
+本地模型: /workspace/math_science_data/lyc/models/DR-Tulu-8B
+API地址: http://localhost:8001/v1
+问题文件: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150335/questions_part_01.jsonl
+并发数: 3
+评估: 禁用
+  评估模型: openai/gpt-5-mini
+
+[初始化] 评估功能已禁用
+
+============================================================
+从已有问题生成轨迹并进行评估
+============================================================
+本地模型: /workspace/math_science_data/lyc/models/DR-Tulu-8B
+API地址: http://localhost:8001/v1
+并发数: 3
+评估: 禁用
+从文件加载问题: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150335/questions_part_01.jsonl
+✓ 加载了 18 个问题
+
+============================================================
+生成轨迹并评估（并发模式）
+============================================================
+💾 增量保存已启用: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150336__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8001_incremental.jsonl
+
+[4] 问题: In nonalcoholic steatohepatitis (NASH), how do GLP-1 receptor agonists compare with pioglitazone in histologic resolution of steatohepatitis and improvement in fibrosis stage?
+  正在生成工具调用轨迹...
+
+[7] 问题: What clinical and manufacturing factors predict loss of transgene expression over time after AAV liver gene therapy, including vector dose, pre-existing neutralizing antibodies, and capsid-specific T-cell responses?
+  正在生成工具调用轨迹...
+
+[10] 问题: In patients treated with immune checkpoint inhibitors, what is the effect of baseline systemic corticosteroid use on overall survival and response rates, based on clinical trial subgroup analyses and real-world cohorts?
+  正在生成工具调用轨迹...
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[13] 问题: In solid tumors treated with immune checkpoint inhibitors, how does antibiotic exposure near treatment initiation affect objective response rate and overall survival?
+  正在生成工具调用轨迹...
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+📊 进度: 1/18 (5.6%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[17] 问题: Among patients hospitalized with acute decompensated heart failure, what is the prognostic performance of natriuretic peptides versus high-sensitivity troponin for predicting 30-day and 1-year mortality?
+  正在生成工具调用轨迹...
+
+[16] 问题: In inherited metabolic liver diseases, how does ex vivo gene-corrected hepatocyte transplantation compare with in vivo gene therapy in terms of metabolic correction and long-term engraftment?
+  正在生成工具调用轨迹...
+
+📊 进度: 2/18 (11.1%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
+
+📊 进度: 3/18 (16.7%) | 成功: 3 | 失败: 0 | 成功率: 100.0%
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[3] 问题: In rheumatoid arthritis with inadequate response to methotrexate, how do rates of major adverse cardiovascular events and venous thromboembolism compare between JAK inhibitors and TNF inhibitors in randomized and post-marketing comparative studies?
+  正在生成工具调用轨迹...
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+📊 进度: 4/18 (22.2%) | 成功: 4 | 失败: 0 | 成功率: 100.0%
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[6] 问题: In cystic fibrosis with chronic Pseudomonas infection, how does inhaled tobramycin compare with inhaled aztreonam in reducing exacerbation frequency and improving quality of life?
+  正在生成工具调用轨迹...
+
+[9] 问题: What is the association between specific CFTR genotypes and risk of cystic fibrosis–related diabetes, and how does this impact clinical outcomes?
+  正在生成工具调用轨迹...
+
+📊 进度: 5/18 (27.8%) | 成功: 5 | 失败: 0 | 成功率: 100.0%
+
+📊 进度: 6/18 (33.3%) | 成功: 6 | 失败: 0 | 成功率: 100.0%
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[12] 问题: In adults with prediabetes, how effective are structured lifestyle interventions compared with metformin in preventing progression to type 2 diabetes over at least 2 years of follow-up?
+  正在生成工具调用轨迹...
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+📊 进度: 7/18 (38.9%) | 成功: 7 | 失败: 0 | 成功率: 100.0%
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[15] 问题: In individuals with ALS, how do antisense oligonucleotide therapies targeting known ALS genes compare with standard of care in slowing functional decline as measured by ALSFRS-R?
+  正在生成工具调用轨迹...
+
+[2] 问题: In hospitalized COVID-19 patients receiving corticosteroids, does adding an IL-6 receptor inhibitor reduce mortality compared with corticosteroids alone in randomized phase III trials, and what patient severity strata show the largest effect?
+  正在生成工具调用轨迹...
+
+📊 进度: 8/18 (44.4%) | 成功: 8 | 失败: 0 | 成功率: 100.0%
+
+📊 进度: 9/18 (50.0%) | 成功: 9 | 失败: 0 | 成功率: 100.0%
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[18] 问题: In schizophrenia maintenance treatment, how do relapse prevention and metabolic adverse effect profiles compare between long-acting injectable antipsychotics and their oral counterparts in randomized controlled trials?
+  正在生成工具调用轨迹...
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+📊 进度: 10/18 (55.6%) | 成功: 10 | 失败: 0 | 成功率: 100.0%
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[5] 问题: In first-line metastatic melanoma, how do PD-1 inhibitor monotherapy and PD-1 plus CTLA-4 combination therapy compare in long-term survival and immune-related adverse event profiles?
+  正在生成工具调用轨迹...
+
+[8] 问题: In ovarian cancer treated with platinum-based chemotherapy, what is the association between BRCA1/2 or homologous recombination deficiency status and the likelihood of platinum resistance or sensitivity?
+  正在生成工具调用轨迹...
+
+📊 进度: 11/18 (61.1%) | 成功: 11 | 失败: 0 | 成功率: 100.0%
+
+📊 进度: 12/18 (66.7%) | 成功: 12 | 失败: 0 | 成功率: 100.0%
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[11] 问题: In patients with atrial fibrillation and stable coronary artery disease beyond 12 months after PCI, does oral anticoagulant monotherapy compared with oral anticoagulant plus antiplatelet therapy reduce bleeding without increasing ischemic events?
+  正在生成工具调用轨迹...
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+📊 进度: 13/18 (72.2%) | 成功: 13 | 失败: 0 | 成功率: 100.0%
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[14] 问题: Among patients with solid tumors treated with immune checkpoint inhibitors, how strongly do baseline tumor mutational burden and CD8+ T-cell infiltration each predict objective response, and are they additive or overlapping predictors?
+  正在生成工具调用轨迹...
+
+[1] 问题: For patients with heart failure and iron deficiency, how does intravenous iron therapy compared with oral iron affect exercise capacity and heart failure hospitalization rates?
+  正在生成工具调用轨迹...
+
+📊 进度: 14/18 (77.8%) | 成功: 14 | 失败: 0 | 成功率: 100.0%
+
+📊 进度: 15/18 (83.3%) | 成功: 15 | 失败: 0 | 成功率: 100.0%
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+本地LLM调用失败: Client error '404 Not Found' for url 'http://localhost:8001/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+📊 进度: 16/18 (88.9%) | 成功: 16 | 失败: 0 | 成功率: 100.0%
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 0 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 17/18 (94.4%) | 成功: 17 | 失败: 0 | 成功率: 100.0%
+
+📊 进度: 18/18 (100.0%) | 成功: 18 | 失败: 0 | 成功率: 100.0%
+
+✓ 完成！共生成 18 个样本
+💾 所有样本已增量保存到: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150336__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8001_incremental.jsonl
+✓ 保存统计: ../../pubmed_training_data/trajectory_evaluated_stats_20260101_150336__workspace_math_science_data_lyc_models_DR-Tulu-8B_port8001.json
+
+============================================================
+数据生成完成！
+============================================================

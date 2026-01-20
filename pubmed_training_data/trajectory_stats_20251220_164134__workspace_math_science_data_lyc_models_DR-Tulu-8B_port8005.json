@@ -1,0 +1,32 @@
+{
+  "total_samples": 24,
+  "topics": {
+    "Drug Development/Clinical Trials": 3,
+    "Tumor microenvironment barriers to CAR-T": 1,
+    "HIV": 3,
+    "Huntington's disease": 3,
+    "Combination immunotherapy in renal cell carcinoma": 1,
+    "Epidemiology of NAFLD": 1,
+    "Rheumatoid arthritis": 3,
+    "Targeted therapy - resistance mechanisms": 1,
+    "Atrial fibrillation": 1,
+    "Antibiotic-resistant infections": 1,
+    "NAFLD / diabetes": 1,
+    "Heart failure": 1,
+    "Immunotherapy - safety epidemiology": 1,
+    "Coronary artery disease": 2,
+    "Systemic lupus erythematosus": 1
+  },
+  "question_types": {
+    "mechanism": 6,
+    "prognosis": 4,
+    "efficacy_comparison": 5,
+    "epidemiology": 6,
+    "review": 2,
+    "drug_interactions": 1
+  },
+  "avg_tool_calls": 5.0,
+  "generation_time": "2025-12-20T17:25:24.108950",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.ApUd2X1dZ9/questions_part_05.jsonl"
+}

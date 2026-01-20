@@ -1,0 +1,38 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Immune-related cardiotoxicity": 1,
+    "Radiotherapy plus checkpoint blockade": 1,
+    "Multiple sclerosis": 2,
+    "NAFLD exercise intervention": 1,
+    "Resistance to cellular and T-cell engager therapies": 1,
+    "Clinical modifiers of immunotherapy efficacy": 1,
+    "Oncology clinical trials (Phase III efficacy/safety)": 1,
+    "HIV cure research": 1,
+    "HIV long-acting ART": 1,
+    "Chemotherapy regimen comparison in pancreatic cancer": 1,
+    "Alzheimer's disease": 2,
+    "Heart failure pharmacology": 1,
+    "Systemic lupus erythematosus": 2,
+    "Endocrinology; Stem Cells; Cell Therapy": 1,
+    "Dermatology clinical trials (biologic efficacy/safety)": 1,
+    "Coronary microvascular disease": 1,
+    "Oncology; CAR-T; Gene Editing": 1,
+    "HIV/HBV co-infection": 1,
+    "NAFLD pathophysiology": 1,
+    "Oncology clinical trials (ADC comparisons)": 1,
+    "Atrial fibrillation (pathophysiology)": 1,
+    "Parkinson's disease": 1
+  },
+  "question_types": {
+    "epidemiology": 3,
+    "efficacy_comparison": 12,
+    "mechanism": 6,
+    "prognosis": 3,
+    "review": 1
+  },
+  "avg_tool_calls": 4.84,
+  "generation_time": "2025-12-20T13:06:49.634673",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.CtqIdevgp6/questions_part_01.jsonl"
+}

@@ -1,0 +1,35 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Lean MASLD epidemiology": 1,
+    "CAR-T safety epidemiology": 1,
+    "Phase III efficacy comparison (cardiovascular pharmacotherapy)": 1,
+    "Phase III efficacy comparison (pulmonology)": 1,
+    "Coronary artery disease": 3,
+    "Parkinson's disease": 1,
+    "Cystic fibrosis": 1,
+    "Type 2 diabetes complications (cardiorenal outcomes)": 1,
+    "TKI resistance in CML": 1,
+    "C. difficile treatment": 1,
+    "C. difficile pathogenesis": 1,
+    "Epilepsy": 3,
+    "Rheumatoid arthritis": 3,
+    "Second-line HER2 targeting in gastric cancer": 1,
+    "Next-generation incretin therapies": 1,
+    "Cell therapy vs standard of care in lymphoma": 1,
+    "Predictors of CAR-T neurotoxicity": 1,
+    "Phase III efficacy comparison (dermatology/immunology)": 1,
+    "CRISPR gene editing; hematopoietic stem cell therapy; hemoglobinopathies": 1
+  },
+  "question_types": {
+    "epidemiology": 2,
+    "efficacy_comparison": 17,
+    "mechanism": 2,
+    "prognosis": 3,
+    "review": 1
+  },
+  "avg_tool_calls": 4.92,
+  "generation_time": "2025-12-20T07:16:50.734097",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.5yJsahY0Zc/questions_part_04.jsonl"
+}

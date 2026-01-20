@@ -1,0 +1,37 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Maintenance therapy in ovarian cancer": 1,
+    "Predictive biomarkers for immunotherapy in colorectal cancer": 1,
+    "Coronary artery disease": 1,
+    "HIV long-acting therapy": 1,
+    "CNS gene therapy; neurodegeneration": 1,
+    "Alzheimer's disease": 3,
+    "Heart failure": 1,
+    "Cross-disease autoimmunity": 1,
+    "Tumor microenvironment biomarkers": 1,
+    "ALS": 3,
+    "Host factors affecting checkpoint efficacy": 1,
+    "Liver lipid metabolism in MASLD/MASH": 1,
+    "Atrial fibrillation": 1,
+    "Gene therapy safety; population-level adverse events": 1,
+    "HIV complications": 1,
+    "Multiple sclerosis": 1,
+    "Microbiome–metabolism signaling": 1,
+    "Allogeneic cell therapy; multiplex CRISPR editing": 1,
+    "Ophthalmic gene therapy; in vivo editing": 1,
+    "Predictive biomarkers for checkpoint blockade": 1,
+    "Phase III efficacy comparison (cardiology)": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 6,
+    "epidemiology": 4,
+    "mechanism": 6,
+    "review": 2,
+    "prognosis": 7
+  },
+  "avg_tool_calls": 4.88,
+  "generation_time": "2025-12-20T07:13:57.373221",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.5yJsahY0Zc/questions_part_01.jsonl"
+}

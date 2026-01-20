@@ -1,0 +1,370 @@
+本地模型: /workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0
+API地址: http://localhost:8007/v1
+问题文件: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_07.jsonl
+并发数: 3
+评估: 禁用
+  评估模型: openai/gpt-5-mini
+
+[初始化] 评估功能已禁用
+
+============================================================
+从已有问题生成轨迹并进行评估
+============================================================
+本地模型: /workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0
+API地址: http://localhost:8007/v1
+并发数: 3
+评估: 禁用
+从文件加载问题: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_07.jsonl
+✓ 加载了 18 个问题
+
+============================================================
+生成轨迹并评估（并发模式）
+============================================================
+💾 增量保存已启用: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8007_incremental.jsonl
+
+[6] 问题: In neonatal seizures, how does phenobarbital compare with levetiracetam for electrographic seizure control and short-term safety outcomes?
+  正在生成工具调用轨迹...
+
+[9] 问题: In patients with acute myocardial infarction and multivessel coronary artery disease, does complete revascularization compared with culprit-only PCI reduce long-term mortality and recurrent myocardial infarction?
+  正在生成工具调用轨迹...
+
+[12] 问题: In systemic lupus erythematosus, what is the prognostic value of renal biopsy histologic class and activity/chronicity indices for long-term kidney outcomes?
+  正在生成工具调用轨迹...
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(neonatal seizures phenobarbital levetiracetam comparative randomized EEG control)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Oxford classification SLE nephritis renal biopsy histologic class activity index chronicity index long-term outcomes ESRD renal survival)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(acute myocardial infarction multivessel coronary disease complete revascularization culprit-only PCI mortality recurrent myocardial infarction randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(neonatal seizures randomized trial phenobarbital levetiracetam electrographic seizure control continuous EEG Ben-Ari NEJM)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Oxford MEST-C SLE nephritis histologic class activity index chronicity index prognosis ESRD renal survival)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(complete revascularization culprit-only PCI multivessel myocardial infarction randomized trial mortality recurrent myocardial infarction NOBLE ULTIMATE)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(neonatal seizures phenobarbital levetiracetam randomized trial electrographic seizure control continuous EEG)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(complete revascularization versus culprit-only PCI multivessel coronary disease myocardial infarction randomized trial mortality recurrent myocardial infarction)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(neonatal seizures phenobarbital levetiracetam randomized trial electrographic seizure control continuous EEG)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(systemic lupus erythematosus nephritis renal biopsy histologic class activity index chronicity index prognosis ESRD survival</call>)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(non-ST-elevation myocardial infarction multivessel disease complete revascularization culprit-only PCI randomized trial mortality recurrent myocardial infarction)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(neonatal seizures phenobarbital levetiracetam randomized trial electrographic seizure control continuous EEG)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(non-ST-elevation myocardial infarction complete revascularization multivessel culprit-only PCI randomized trial mortality recurrent myocardial infarction)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(systemic lupus erythematosus nephritis renal biopsy histologic class activity index chronicity index prognosis ESRD survival)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[15] 问题: In patients with chronic coronary syndrome, what is the prognostic value of coronary CT angiography-derived plaque features (e.g., low-attenuation plaque, positive remodeling) for predicting future myocardial infarction beyond stenosis severity?
+  正在生成工具调用轨迹...
+
+📊 进度: 1/18 (5.6%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Oxford MEST-C lupus nephritis class chronicity index ESRD survival renal outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(coronary CT angiography plaque features prognosis myocardial infarction beyond stenosis severity chronic coronary syndrome)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[2] 问题: In locally advanced head and neck squamous cell carcinoma, does adding cetuximab to definitive radiotherapy provide comparable overall survival and toxicity to concurrent cisplatin-based chemoradiotherapy?
+  正在生成工具调用轨迹...
+
+📊 进度: 2/18 (11.1%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(RTOG 05-29 cisplatin cetuximab radiotherapy head and neck overall survival toxicity)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(low-attenuation plaque coronary CT angiography myocardial infarction chronic coronary syndrome prognosis)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[18] 问题: In CAR-T cell manufacturing, how does CRISPR-mediated TRAC locus knock-in compare with random viral integration for CAR expression in terms of T-cell exhaustion markers and antitumor potency?
+  正在生成工具调用轨迹...
+
+📊 进度: 3/18 (16.7%) | 成功: 3 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR TRAC knock-in CAR T cell exhaustion markers antitumor potency)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cetuximab radiotherapy head and neck randomized trial overall survival toxicity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(positive remodeling coronary CT angiography myocardial infarction chronic coronary syndrome prognosis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(RTOG 05-29 head and neck cetuximab radiotherapy cisplatin overall survival toxicity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TCR alpha locus integration CAR T exhaustion markers antitumor potency)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(coronary CT angiography non-calcified plaque positive remodeling prognosis myocardial infarction chronic coronary syndrome)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(head and neck cancer definitive radiotherapy plus cetuximab overall survival toxicity randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(genomic integration CAR T TRAC knock-in site-specific exhaustion potency)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CTA coronary low-attenuation plaque non-calcified positive remodeling chronic coronary syndrome future myocardial infarction)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR TRAC knock-in T cell exhaustion PD-1 TIM-3)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CHART-03 randomized trial cetuximab cisplatin radiotherapy head and neck overall survival toxicity)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[5] 问题: In rheumatoid arthritis, what is the relationship between mucosal dysbiosis (oral or gut microbiome changes) and development of autoantibodies such as ACPA before clinical disease onset?
+  正在生成工具调用轨迹...
+
+📊 进度: 4/18 (22.2%) | 成功: 4 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(viral CAR T random integration exhaustion PD-1 TIM-3 potency retroviral gamma retroviral)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis ACPA microbiome dysbiosis preclinical seroconversion)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[8] 问题: In metastatic colorectal cancer, how does anti-EGFR therapy efficacy differ between left-sided and right-sided primary tumors in RAS wild-type disease with respect to response rate and overall survival?
+  正在生成工具调用轨迹...
+
+📊 进度: 5/18 (27.8%) | 成功: 5 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(metastatic colorectal cancer left-sided right-sided anti-EGFR response rate overall survival RAS wild-type)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(gut microbiome ACPA preclinical rheumatoid arthritis seroconversion onset)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(TAILOR trial left-sided right-sided cetuximab panitumumab overall survival response rate RAS wild-type)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[11] 问题: How do autoimmune encephalitis–related epilepsies respond to immunotherapy compared with antiseizure medications alone in terms of seizure remission rates?
+  正在生成工具调用轨迹...
+
+📊 进度: 6/18 (33.3%) | 成功: 6 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(autoimmune encephalitis epilepsy immunotherapy seizure remission controlled antiseizure medications)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis ACPA microbiome dysbiosis preclinical seroconversion onset)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRYSTAL trial left-sided right-sided cetuximab response rate overall survival RAS wild-type)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(anti-NMDAR encephalitis epilepsy immunotherapy seizure remission rate corticosteroid IVIG cyclophosphamide seizure control)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis ACPA oral microbiome dysbiosis autoantibodies onset)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(right-sided metastatic colorectal cancer anti-EGFR response rate overall survival RAS wild-type)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(autoimmune encephalitis epilepsy immunotherapy seizure remission controlled antiseizure medications)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis ACPA microbiome dysbiosis preclinical seroconversion onset)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(metastatic colorectal cancer left-sided right-sided anti-EGFR response rate overall survival RAS wild-type)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(autoimmune encephalitis epilepsy immunotherapy seizure remission antiseizure medications)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[14] 问题: In HIV therapy, how does the use of proton pump inhibitors impact virologic suppression rates in patients taking oral antiretrovirals with pH-dependent absorption, and what mitigation strategies are supported by clinical evidence?
+  正在生成工具调用轨迹...
+
+📊 进度: 7/18 (38.9%) | 成功: 7 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(proton pump inhibitor antiretroviral absorption protease inhibitor pH-dependent viral suppression)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(autoimmune epilepsy seizure remission immunotherapy antiepileptic drugs outcomes antibody types)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(proton pump inhibitor antiretroviral absorption protease inhibitor pH-dependent viral suppression)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[1] 问题: After acute coronary syndrome, how do PCSK9 inhibitors compare with ezetimibe when added to high-intensity statins in achieving LDL-C reduction and reducing recurrent cardiovascular events?
+  正在生成工具调用轨迹...
+
+📊 进度: 8/18 (44.4%) | 成功: 8 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(proton pump inhibitors antiretroviral absorption reduced efficacy gastrointestinal pH HIV treatment)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PCSK9 inhibitors post-acute coronary syndrome randomized trial LDL-C outcomes ezetimibe)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[17] 问题: Across autoimmune diseases such as rheumatoid arthritis, systemic lupus erythematosus, and multiple sclerosis, how does female sex hormone exposure (pregnancy or postpartum period) influence disease activity trajectories?
+  正在生成工具调用轨迹...
+
+📊 进度: 9/18 (50.0%) | 成功: 9 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(multiple sclerosis pregnancy relapse rate postpartum lactation cohort registry)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(proton pump inhibitor HIV antiretroviral absorption pH-dependent)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(acute coronary syndrome non-ST elevation myocardial infarction ezetimibe PCSK9 inhibitor randomized LDL-C cardiovascular events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(multiple sclerosis pregnancy relapse)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(proton pump inhibitor HIV antiretroviral absorption pH-dependent)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PCSK9 inhibitors acute coronary syndrome randomized trial LDL-C cardiovascular outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(pregnancy relapse rate rheumatoid arthritis postpartum flare lactation cohort)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: google_search(ezetimibe after acute coronary syndrome randomized trial LDL-C outcomes)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[4] 问题: In retinal inherited dystrophies, how do subretinal AAV gene augmentation approaches compare with gene editing strategies regarding visual function outcomes and ocular inflammatory complications?
+  正在生成工具调用轨迹...
+
+📊 进度: 10/18 (55.6%) | 成功: 10 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(retinal CRISPR activation AAV RPE65 mouse vision function inflammation)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rheumatoid arthritis pregnancy relapse postpartum flare cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR retina vision function RPE65 activation CNGA3 CNGB1 safety inflammation)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Ezetimibe after acute coronary syndrome NEJM 2015 Cannon randomized outcomes LDL-C)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(systemic lupus erythematosus pregnancy flare postpartum relapse cohort)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV gene augmentation RPE65 subretinal vision outcomes safety inflammation)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV RPE65 subretinal injection vision outcomes inflammation safety randomized trial)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[7] 问题: What are the dominant molecular mechanisms driving colistin resistance in Klebsiella pneumoniae, and how do plasmid-mediated mcr genes compare with chromosomal modifications in contributing to resistance levels?
+  正在生成工具调用轨迹...
+
+📊 进度: 11/18 (61.1%) | 成功: 11 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[10] 问题: In hospitalized adults receiving broad-spectrum antibiotics, how effective are antimicrobial stewardship interventions in reducing Clostridioides difficile infection incidence without increasing mortality or readmissions?
+  正在生成工具调用轨迹...
+
+📊 进度: 12/18 (66.7%) | 成功: 12 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Klebsiella pneumoniae colistin resistance mechanisms mcr chromosomal pmr lps mutations)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antimicrobial stewardship Clostridioides difficile hospital adults incidence meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Klebsiella pneumoniae colistin resistance mcr-1 pmrB mutation lipid A)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(RPE65 AAV subretinal trial visual function safety inflammation Luxturna)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antimicrobial stewardship program reduce Clostridioides difficile adults randomized audit feedback)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Klebsiella pneumoniae colistin resistance mcr-1 plasmid-mediated prevalence mechanisms)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antimicrobial stewardship reduce Clostridioides difficile readmission mortality cohort hospital)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[13] 问题: What is the association between long-term antiseizure medication use and bone health outcomes (osteopenia, osteoporosis, fractures) in adults with epilepsy?
+  正在生成工具调用轨迹...
+
+📊 进度: 13/18 (72.2%) | 成功: 13 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Klebsiella pneumoniae colistin resistance chromosomal mutations pmrA pmrB mgrB phoP phoQ lipid A 4-amino-4-deoxy-l-arabinose)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(epilepsy long-term antiseizure medication bone mineral density osteopenia osteoporosis fracture adults)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CDI stewardship bundle reduce incidence hospital cohort antibiotics)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Klebsiella pneumoniae colistin resistance mcr-1 mcr-2 mcr-3 mcr-4 mcr-5 mcr-6 mcr-7 mcr-8 review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(carbamazepine bone mineral density adults epilepsy osteoporosis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(antimicrobial stewardship programs Clostridioides difficile incidence meta-analysis randomized controlled trial adults hospital)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(valproate bone mineral density adults epilepsy osteoporosis fracture)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[16] 问题: In Duchenne muscular dystrophy, what evidence supports exon skipping via genome editing versus micro-dystrophin gene transfer in improving muscle function, and how do their safety profiles differ?
+  正在生成工具调用轨迹...
+
+📊 进度: 14/18 (77.8%) | 成功: 14 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(epilepsy antiseizure medication fracture risk adults meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Duchenne muscular dystrophy exon skipping genome editing microdystrophin gene transfer comparison safety function)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[3] 问题: In patients with atrial fibrillation receiving a direct oral anticoagulant, how does concomitant amiodarone or verapamil use affect bleeding risk compared with no P-glycoprotein/CYP3A4 inhibitor co-therapy?
+  正在生成工具调用轨迹...
+
+📊 进度: 15/18 (83.3%) | 成功: 15 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(amiodarone DOAC bleeding risk atrial fibrillation)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Duchenne muscular dystrophy microdystrophin microSADR exon skipping comparison functional outcomes safety AAV)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(epilepsy fracture risk meta-analysis adults antiepileptic drugs)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(verapamil direct oral anticoagulant bleeding atrial fibrillation)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Duchenne muscular dystrophy microdystrophin microSADR exon 45 clinical trial safety function)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(amiodarone P-glycoprotein CYP3A4 inhibitor DOAC bleeding risk atrial fibrillation)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 16/18 (88.9%) | 成功: 16 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Duchenne muscular dystrophy exon skipping CRISPR genome editing dystrophin restoration mdx mouse)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(verapamil P-glycoprotein inhibitor DOAC bleeding risk atrial fibrillation meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Duchenne muscular dystrophy microdystrophin microSADR exon 45 clinical trial dystrophin production function safety AAV)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 17/18 (94.4%) | 成功: 17 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 18/18 (100.0%) | 成功: 18 | 失败: 0 | 成功率: 100.0%
+
+✓ 完成！共生成 18 个样本
+💾 所有样本已增量保存到: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8007_incremental.jsonl
+✓ 保存统计: ../../pubmed_training_data/trajectory_evaluated_stats_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8007.json
+
+============================================================
+数据生成完成！
+============================================================

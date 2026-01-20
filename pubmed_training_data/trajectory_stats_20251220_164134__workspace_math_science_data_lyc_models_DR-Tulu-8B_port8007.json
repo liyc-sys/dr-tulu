@@ -1,0 +1,37 @@
+{
+  "total_samples": 24,
+  "topics": {
+    "COVID-19": 1,
+    "CAR‑T cell therapy durability": 1,
+    "Drug Development/Clinical Trials": 2,
+    "Microbiome and checkpoint inhibitor response": 1,
+    "Targeted therapy - biomarkers prognosis": 1,
+    "Parkinson's disease": 1,
+    "Vector safety / insertional oncogenesis": 1,
+    "DNA repair in pluripotent stem cells": 1,
+    "NAFLD / genetics / mechanism": 1,
+    "Alzheimer's disease": 2,
+    "Obesity / gestational diabetes": 1,
+    "CAR-T design co-stimulatory domains": 1,
+    "Atrial fibrillation": 2,
+    "Heart failure": 1,
+    "Systemic lupus erythematosus": 1,
+    "Multiple sclerosis": 1,
+    "Chemotherapy resistance - tumor microenvironment": 1,
+    "Immunotherapy - resistance epidemiology": 1,
+    "Antibiotic-resistant infections": 1,
+    "Epilepsy": 1,
+    "CNS gene delivery": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 6,
+    "prognosis": 3,
+    "epidemiology": 4,
+    "mechanism": 7,
+    "review": 4
+  },
+  "avg_tool_calls": 4.916666666666667,
+  "generation_time": "2025-12-20T17:26:09.388179",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.ApUd2X1dZ9/questions_part_07.jsonl"
+}

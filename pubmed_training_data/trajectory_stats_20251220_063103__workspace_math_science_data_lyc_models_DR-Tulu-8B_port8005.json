@@ -1,0 +1,37 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Drug interaction and clinical outcomes (cardiology)": 1,
+    "CAR-T optimization and exhaustion": 1,
+    "Genomic predictors of immunotherapy outcomes in NSCLC": 1,
+    "Alzheimer's disease": 1,
+    "Heart failure": 1,
+    "Epilepsy": 2,
+    "COVID-19 therapeutics": 1,
+    "Endocrine resistance and targeted endocrine therapy": 1,
+    "Immunotherapy resistance mechanisms in pancreatic cancer": 1,
+    "Drug–drug interactions (PK/clinical relevance)": 1,
+    "Cystic fibrosis": 3,
+    "Systemic lupus erythematosus": 1,
+    "Rheumatoid arthritis": 1,
+    "Coronary artery disease": 2,
+    "AAV toxicity; immunology; liver-directed gene therapy": 1,
+    "Liquid biopsy for immunotherapy monitoring": 1,
+    "AAV gene therapy; neuromuscular disease": 1,
+    "Phase III efficacy comparison (thrombosis/geriatrics)": 1,
+    "Atrial fibrillation / Heart failure": 1,
+    "Gene therapy; gene editing; thalassemia": 1,
+    "COVID-19 immunomodulators": 1
+  },
+  "question_types": {
+    "mechanism": 6,
+    "review": 3,
+    "prognosis": 4,
+    "efficacy_comparison": 11,
+    "epidemiology": 1
+  },
+  "avg_tool_calls": 4.92,
+  "generation_time": "2025-12-20T07:11:30.542073",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.5yJsahY0Zc/questions_part_05.jsonl"
+}

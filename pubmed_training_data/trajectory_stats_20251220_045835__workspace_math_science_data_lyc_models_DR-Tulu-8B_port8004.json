@@ -1,0 +1,39 @@
+{
+  "total_samples": 25,
+  "topics": {
+    "Coronary artery disease (PCI strategies)": 1,
+    "Peripheral blood biomarkers": 1,
+    "Rheumatoid arthritis": 2,
+    "Resistance mechanisms (antibody-drug conjugates)": 1,
+    "Cell therapy; CAR-T; CRISPR allogeneic": 1,
+    "COVID-19 therapeutic phase III comparisons": 1,
+    "Hemophilia; gene transfer vs edited cells": 1,
+    "Cystic fibrosis": 1,
+    "Immune-related adverse events (pulmonary)": 1,
+    "Endocrine therapy interactions and outcomes": 1,
+    "Chemotherapy resistance and biomarker (glioblastoma)": 1,
+    "Targeted therapy (EGFR-mutant NSCLC)": 1,
+    "Management of immune-related colitis": 1,
+    "Surgery for NASH": 1,
+    "HIV/HBV coinfection": 1,
+    "Cardiovascular drug–drug interaction outcomes": 1,
+    "HIV prevention (PrEP)": 1,
+    "Heart failure (arrhythmic risk)": 1,
+    "Type 1 diabetes technology": 1,
+    "CRISPR gene editing; neuromuscular disease; delivery": 1,
+    "Coronary artery disease (post-MI AF)": 1,
+    "Gene editing mechanism; off-target effects": 1,
+    "HIV treatment": 1,
+    "Coronary artery disease (biomarkers)": 1
+  },
+  "question_types": {
+    "efficacy_comparison": 12,
+    "prognosis": 6,
+    "review": 4,
+    "mechanism": 3
+  },
+  "avg_tool_calls": 4.76,
+  "generation_time": "2025-12-20T05:35:23.735637",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.3xjKm2ErVx/questions_part_04.jsonl"
+}

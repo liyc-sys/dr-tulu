@@ -1,0 +1,364 @@
+本地模型: /workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0
+API地址: http://localhost:8000/v1
+问题文件: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_00.jsonl
+并发数: 3
+评估: 禁用
+  评估模型: openai/gpt-5-mini
+
+[初始化] 评估功能已禁用
+
+============================================================
+从已有问题生成轨迹并进行评估
+============================================================
+本地模型: /workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0
+API地址: http://localhost:8000/v1
+并发数: 3
+评估: 禁用
+从文件加载问题: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_00.jsonl
+✓ 加载了 18 个问题
+
+============================================================
+生成轨迹并评估（并发模式）
+============================================================
+💾 增量保存已启用: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8000_incremental.jsonl
+
+[13] 问题: In metastatic castration-resistant prostate cancer, how does sequencing an androgen receptor pathway inhibitor before versus after docetaxel influence subsequent treatment response and survival?
+  正在生成工具调用轨迹...
+
+[2] 问题: In adults with type 2 diabetes and established atherosclerotic cardiovascular disease, how do GLP-1 receptor agonists compare with SGLT2 inhibitors in reducing major adverse cardiovascular events and all-cause mortality?
+  正在生成工具调用轨迹...
+
+[16] 问题: Among adults with obesity without diabetes, how does semaglutide compare with tirzepatide for achieving at least 10% total body weight loss and improving cardiometabolic risk markers?
+  正在生成工具调用轨迹...
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(semaglutide tirzepatide head-to-head weight loss obesity randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(enzalutamide docetaxel sequencing metastatic castration-resistant prostate cancer PROSPER overall survival progression-free)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(GLP-1 receptor agonist vs SGLT2 inhibitor cardiovascular outcomes type 2 diabetes atherosclerotic cardiovascular disease trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(enzalutamide docetaxel sequencing metastatic castration-resistant prostate cancer PROSPER CHAARTED)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tirzepatide semaglutide cardiometabolic risk markers non-diabetic randomized HbA1c blood pressure lipids head-to-head)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(head-to-head trial GLP-1 receptor agonist SGLT2 inhibitor cardiovascular outcomes trial type 2 diabetes ASCVD)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(docetaxel enzalutamide sequencing metastatic castration-resistant prostate cancer survival PROSPER CHAARTED)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SURMOUNT-1 non-diabetic cardiometabolic outcomes tirzepatide 15 mg)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(empagliflozin exenatide head-to-head cardiovascular outcomes trial type 2 diabetes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(metastatic castration-resistant prostate cancer sequencing docetaxel abiraterone enzalutamide survival)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(non-diabetic adults semaglutide cardiovascular risk markers lipids blood pressure triglycerides randomized)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(sofa trial exenatide cardiovascular outcomes heart attack diabetes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PROSPER trial enzalutamide abiraterone prednisone overall survival metastatic castration-resistant prostate cancer)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(tirzepatide non-diabetic randomized cardiometabolic outcomes HbA1c blood pressure lipids)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(sofa trial exenatide outcomes)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[3] 问题: Across clinical studies of Alzheimer’s disease, how do microglial activation markers measured by PET imaging relate to cognitive trajectory and neurodegeneration biomarkers?
+  正在生成工具调用轨迹...
+
+📊 进度: 1/18 (5.6%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Alzheimer microglial activation PET PBR28 DPA-714 cognition longitudinal amyloid tau biomarkers)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[6] 问题: In Parkinson disease models, how do dopaminergic neuron replacement strategies using iPSC-derived cells compare with in vivo gene therapy approaches targeting dopamine synthesis in terms of motor outcomes and graft-related risks?
+  正在生成工具调用轨迹...
+
+📊 进度: 2/18 (11.1%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[9] 问题: In hormone receptor–positive, HER2-negative metastatic breast cancer, how do CDK4/6 inhibitors differ in rates of neutropenia, diarrhea, and QT prolongation when combined with endocrine therapy?
+  正在生成工具调用轨迹...
+
+📊 进度: 3/18 (16.7%) | 成功: 3 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(iPSC dopaminergic neuron transplantation Parkinson model rat primate ReN04 ReNcell)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(palbociclib ribociclib abemaciclib endocrine therapy neutropenia diarrhea QT prolongation metastatic breast cancer)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(PBR28 T807 microglial activation PET Alzheimer cognition longitudinal)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(iPSC dopaminergic transplantation Parkinson rat primate ReN04 ReNcell motor outcomes risk tumor dysregulation AAV gene therapy GAD65 TH)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(palbociclib ribociclib abemaciclib endocrine therapy neutropenia diarrhea QT prolongation metastatic breast cancer)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Alzheimer microglial activation PET PBR28 DPA-714 cognition longitudinal amyloid tau biomarkers)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(palbociclib neutropenia diarrhea QT prolongation MONALEESA MONARCH breast cancer label safety)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(iPSC-derived dopaminergic neuron transplantation Parkinson rat primate ReN04 ReNcell motor outcomes risks dysregulation teratoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Alzheimer microglial activation PET PBR28 DPA-714 cognition longitudinal amyloid tau biomarkers)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(palbociclib neutropenia diarrhea)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(iPSC-derived dopaminergic neuron transplantation Parkinson rat primate ReN04 ReNcell motor outcomes risks dysregulation teratoma)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(18F-T807 TSPO microglial activation Alzheimer longitudinal cognition hippocampal atrophy amyloid PET)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ReN04 ReNcell iPSC-derived dopaminergic neurons Parkinson rat primate transplantation motor function teratoma safety)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ribociclib neutropenia diarrhea QT prolongation MONARCH trial endocrine therapy)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[12] 问题: In coronary artery disease, how do elevated lipoprotein(a) levels contribute to atherosclerotic risk through pro-inflammatory or pro-thrombotic mechanisms, and how consistent is the association across cohorts?
+  正在生成工具调用轨迹...
+
+📊 进度: 4/18 (22.2%) | 成功: 4 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lipoprotein(a) coronary artery disease atherosclerosis risk pro-inflammatory pro-thrombotic review meta-analysis)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[1] 问题: In cystic fibrosis, what is the effect of CFTR modulator therapy on the airway microbiome composition and chronic Pseudomonas aeruginosa colonization over time?
+  正在生成工具调用轨迹...
+
+📊 进度: 5/18 (27.8%) | 成功: 5 | 失败: 0 | 成功率: 100.0%
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis CFTR modulator microbiome Pseudomonas aeruginosa longitudinal)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[15] 问题: In patients with type 2 diabetes and chronic kidney disease, what is the comparative effect of finerenone versus SGLT2 inhibitors on progression to end-stage kidney disease and albuminuria reduction?
+  正在生成工具调用轨迹...
+
+📊 进度: 6/18 (33.3%) | 成功: 6 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(FINE-REAL finerenone albuminuria kidney outcomes end-stage kidney disease type 2 diabetes chronic kidney disease)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lipoprotein(a) coronary artery disease inflammation thrombosis apoprotein(a) mechanism)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(FINE-REAL finerenone albuminuria kidney outcomes end-stage kidney disease type 2 diabetes chronic kidney disease)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lipoprotein(a) apolipoprotein(a) coronary artery disease inflammation CRP MCP-1 IL-6 thrombosis myocardial infarction mechanism cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(FINE-REAL finerenone randomized trial albuminuria kidney outcomes end-stage renal disease type 2 diabetes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lipoprotein(a) coronary heart disease risk prothrombotic inflammatory mechanism cohort study)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 1 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[18] 问题: In advanced non-small cell lung cancer, what is the comparative efficacy of anti-PD-1 versus anti-PD-L1 monotherapy when stratified by tumor PD-L1 expression levels?
+  正在生成工具调用轨迹...
+
+📊 进度: 7/18 (38.9%) | 成功: 7 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(finerenone randomized trial FINE-REAL FIDELIO-DKD FIGARO-DKD albuminuria eGFR end-stage kidney disease)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(pembrolizumab monotherapy PD-L1 CPS 024 052 overall survival progression-free response advanced non-small cell lung cancer)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lipoprotein(a) coronary artery disease atherosclerosis risk pro-inflammatory pro-thrombotic mechanism cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(finerenone randomized trial outcomes albuminuria ESKD CKD type 2 diabetes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(pembrolizumab atezolizumab monotherapy PD-L1 CPS overall survival response rate advanced non-small cell lung cancer)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[5] 问题: In heart failure, what mechanistic roles do NLRP3 inflammasome activation and interleukin-1 signaling play in adverse remodeling, and how does targeting these pathways affect cardiac function in clinical or translational studies?
+  正在生成工具调用轨迹...
+
+📊 进度: 8/18 (44.4%) | 成功: 8 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NLRP3 inflammasome heart failure adverse remodeling IL-1 signaling)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(KEYNOTE-024 pembrolizumab monotherapy PD-L1 CPS 50 overall survival response rate)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[8] 问题: In relapsed or refractory diffuse large B-cell lymphoma, how do outcomes and severe toxicity rates compare between CD19-directed CAR-T therapy and bispecific CD20xCD3 antibody therapy?
+  正在生成工具调用轨迹...
+
+📊 进度: 9/18 (50.0%) | 成功: 9 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(diffuse large B-cell lymphoma relapsed refractory CD19 CAR-T vs CD20 CD3 bispecific outcomes toxicity blinatumomab mosunetuzumab glofitamab)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NLRP3 inflammasome heart failure review adverse remodeling IL-1β canakinumab anakinra clinical trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(non-small cell lung cancer PD-L1 CPS monotherapy PD-1 versus PD-L1 meta-analysis overall survival progression-free)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ZUMA-5 axicabtagene diffuse large B-cell lymphoma outcomes toxicity response rate cytokine release syndrome)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NLRP3 inflammasome heart failure IL-1 signaling adverse remodeling fibrosis hypertrophy review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(KEYNOTE-024 pembrolizumab monotherapy PD-L1 CPS 50 overall survival response rate)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(diffuse large B-cell lymphoma relapsed refractory CD19 CAR-T vs CD20 CD3 bispecific outcomes toxicity blinatumomab mosunetuzumab glofitamab)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(canakinumab heart failure IL-1β adverse remodeling functional capacity)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(diffuse large B-cell lymphoma relapsed refractory CD19 CAR-T vs CD20 CD3 bispecific outcomes toxicity blinatumomab mosunetuzumab glofitamab)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[11] 问题: Among people with cystic fibrosis, how does early initiation of CFTR modulators in childhood influence long-term trajectories of lung function decline compared with later initiation?
+  正在生成工具调用轨迹...
+
+📊 进度: 10/18 (55.6%) | 成功: 10 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis early initiation CFTR modulator lung function decline childhood longitudinal trajectory FVC FEV1)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NLRP3 inflammasome heart failure review adverse remodeling IL-1β MCC950 anakinra canakinumab)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis early versus late initiation CFTR modulator longitudinal FVC FEV1 trajectory children elexacaftor tezacaftor ivacaftor VX-445 MK-7829 KAL-7829)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(diffuse large B-cell lymphoma relapsed refractory CD19 CAR-T vs CD20 CD3 bispecific outcomes toxicity blinatumomab mosunetuzumab glofitamab)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis early CFTR modulator initiation lung function decline longitudinal FVC FEV1 children)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[14] 问题: What is the rate and spectrum of unintended large deletions, chromosomal rearrangements, or translocations after CRISPR editing in primary human T cells, and which detection methods are most sensitive in published studies?
+  正在生成工具调用轨迹...
+
+📊 进度: 11/18 (61.1%) | 成功: 11 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR T cells large deletions rearrangements translocations primary human)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[17] 问题: In hemophilia A or B, how do AAV-mediated liver-directed gene therapies differ in durability of factor expression and risk of transaminitis across serotypes and promoter designs?
+  正在生成工具调用轨迹...
+
+📊 进度: 12/18 (66.7%) | 成功: 12 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(hemophilia gene therapy AAV liver transaminase durability factor IX factor VIII review 2020..2024)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis early CFTR modulator initiation longitudinal lung function FVC FEV1 trajectory children</call><think>)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(T cell CRISPR off-target translocation deletion rearrangement primary human HIV-1 integrase cleavage VDR-ASA)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ROX-005 transaminase ALT AST hemophilia B AAV9 promoter)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cystic fibrosis early initiation CFTR modulator lung function decline longitudinal FVC FEV1 trajectory children</call><think>)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR T cell genome integrity large deletion rearrangement translocation off-target)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ROX-005 transaminase ALT AST hemophilia B AAV9 promoter LP1)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[4] 问题: In BRAF V600-mutant melanoma, what evidence supports intermittent versus continuous dosing of BRAF/MEK inhibitors in delaying resistance and improving tolerability?
+  正在生成工具调用轨迹...
+
+📊 进度: 13/18 (72.2%) | 成功: 13 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(intermittent dosing BRAF/MEK melanoma resistance)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR primary human T cells large deletions chromosomal rearrangements translocations off-target)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(hemophilia AAV9 AAV8 AAV2 hepatocyte promoter LP1 CAG liver transgene expression transaminase ALT AST durability)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(dabrafenib trametinib intermittent randomized phase 2 INTERIM Nature Medicine continuous vs intermittent)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR primary human T cells large deletions chromosomal rearrangements translocations off-target)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(hemophilia gene therapy AAV liver transaminase ALT AST durability factor IX factor VIII review 2020..2024)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(dabrafenib trametinib intermittent randomized phase 2 INTERIM melanoma)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(intermittent dosing BRAF/MEK melanoma resistance review tolerability)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[7] 问题: In chronic kidney disease with albuminuria, what is the incremental benefit and hyperkalemia risk of adding a nonsteroidal mineralocorticoid receptor antagonist to standard renin–angiotensin system blockade in phase III trials?
+  正在生成工具调用轨迹...
+
+📊 进度: 14/18 (77.8%) | 成功: 14 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[10] 问题: What is the association between subclinical atrial fibrillation detected by implanted devices and subsequent ischemic stroke risk, and how does risk vary by atrial high-rate episode duration?
+  正在生成工具调用轨迹...
+
+📊 进度: 15/18 (83.3%) | 成功: 15 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(subclinical atrial fibrillation implantable cardiac device ischemic stroke risk atrial high-rate episodes duration)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(finerenone FIGARO-4 FIGARO-5 trial albuminuria hyperkalemia eGFR cardiovascular outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Nature Medicine intermittent versus continuous BRAF MEK inhibitor melanoma randomized trial tolerability resistance)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(atrial high-rate episodes duration ischemic stroke implantable cardiac monitor cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(FIGARO-4 FIGARO-5 finerenone albuminuria eGFR hyperkalemia outcomes)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(implantable loop recorder atrial high rate episodes ischemic stroke risk duration)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(spironolactone nonsteroidal mineralocorticoid receptor antagonist albuminuria randomized trial chronic kidney disease add-on to RAAS blockade outcomes hyperkalemia)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 16/18 (88.9%) | 成功: 16 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(NOAH trial subclinical atrial fibrillation stroke risk implantable cardiac monitor)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(aldosterone antagonist nonsteroidal mineralocorticoid receptor antagonist CKD albuminuria add-on to RAAS blockade randomized trial hyperkalemia outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(subclinical atrial fibrillation implantable cardiac device ischemic stroke risk atrial high-rate episodes duration)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(non-steroidal mineralocorticoid receptor antagonist CKD albuminuria add-on to ACEi ARB randomized hyperkalemia finerenone FIGARO FIDELIO trial outcomes)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 17/18 (94.4%) | 成功: 17 | 失败: 0 | 成功率: 100.0%
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 18/18 (100.0%) | 成功: 18 | 失败: 0 | 成功率: 100.0%
+
+✓ 完成！共生成 18 个样本
+💾 所有样本已增量保存到: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8000_incremental.jsonl
+✓ 保存统计: ../../pubmed_training_data/trajectory_evaluated_stats_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8000.json
+
+============================================================
+数据生成完成！
+============================================================

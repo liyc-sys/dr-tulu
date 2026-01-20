@@ -1,0 +1,36 @@
+{
+  "total_samples": 24,
+  "topics": {
+    "Atrial fibrillation": 1,
+    "Targeted therapy - NSCLC": 1,
+    "Biomarkers for checkpoint inhibitor response": 1,
+    "Drug Development/Clinical Trials": 3,
+    "Coronary artery disease": 1,
+    "Neurological disorders (cross-cutting: Alzheimer's risk)": 1,
+    "Heart failure": 1,
+    "MSC therapy prognostic factors": 1,
+    "Type 2 diabetes / obesity": 1,
+    "Alzheimer's disease": 1,
+    "Immune checkpoint resistance mechanisms": 1,
+    "CRISPR diagnostics as companion tools": 1,
+    "ALS": 2,
+    "Rheumatoid arthritis": 2,
+    "HIV": 2,
+    "Biosafety and germline risk": 1,
+    "Checkpoint inhibitors in virus-associated cancers": 1,
+    "Huntington's disease": 1,
+    "Tumor microenvironment and immunotherapy outcomes": 1
+  },
+  "question_types": {
+    "prognosis": 5,
+    "efficacy_comparison": 6,
+    "drug_interactions": 1,
+    "epidemiology": 3,
+    "review": 5,
+    "mechanism": 4
+  },
+  "avg_tool_calls": 4.875,
+  "generation_time": "2025-12-20T17:25:51.889640",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.ApUd2X1dZ9/questions_part_04.jsonl"
+}

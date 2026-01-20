@@ -1,0 +1,35 @@
+{
+  "total_samples": 24,
+  "topics": {
+    "ALS": 1,
+    "Parkinson's disease": 1,
+    "Heart failure": 2,
+    "Systemic lupus erythematosus": 1,
+    "Cystic fibrosis": 2,
+    "Alzheimer's disease": 2,
+    "Mechanisms of resistance - EGFR NSCLC": 1,
+    "NAFLD / biomarkers / mechanism": 1,
+    "COVID-19": 2,
+    "Treatment sequencing - renal cell carcinoma": 1,
+    "Checkpoint inhibitors in triple-negative breast cancer": 1,
+    "MSC therapy safety in GVHD": 1,
+    "Coronary artery disease": 1,
+    "Immunotherapy - colorectal cancer": 1,
+    "Drug Development/Clinical Trials": 2,
+    "Prediabetes / exercise interventions": 1,
+    "Immunotherapy - adverse events epidemiology": 1,
+    "Multiple sclerosis": 1,
+    "Off-target effects in HSC editing": 1
+  },
+  "question_types": {
+    "prognosis": 6,
+    "epidemiology": 4,
+    "efficacy_comparison": 6,
+    "mechanism": 3,
+    "review": 5
+  },
+  "avg_tool_calls": 4.833333333333333,
+  "generation_time": "2025-12-20T17:25:52.848765",
+  "model": "/workspace/math_science_data/lyc/models/DR-Tulu-8B",
+  "source_file": "/tmp/tmp.ApUd2X1dZ9/questions_part_02.jsonl"
+}

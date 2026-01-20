@@ -1,0 +1,362 @@
+本地模型: /workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0
+API地址: http://localhost:8006/v1
+问题文件: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_06.jsonl
+并发数: 3
+评估: 禁用
+  评估模型: openai/gpt-5-mini
+
+[初始化] 评估功能已禁用
+
+============================================================
+从已有问题生成轨迹并进行评估
+============================================================
+本地模型: /workspace/math_science_data/lyc/1205/MiroTrain/output/8B_DPO_run1/epoch_0
+API地址: http://localhost:8006/v1
+并发数: 3
+评估: 禁用
+从文件加载问题: /workspace/math_science_data/lyc/1205/dr-tulu/record/temp_20260101_150735/questions_part_06.jsonl
+✓ 加载了 18 个问题
+
+============================================================
+生成轨迹并评估（并发模式）
+============================================================
+💾 增量保存已启用: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8006_incremental.jsonl
+
+[6] 问题: For drug-resistant focal epilepsy, what is the comparative effectiveness of vagus nerve stimulation versus responsive neurostimulation in reducing seizure frequency over at least 1 year of follow-up?
+  正在生成工具调用轨迹...
+
+[9] 问题: For the treatment of carbapenem-resistant Enterobacterales bloodstream infections, how do ceftazidime-avibactam–based regimens compare with colistin-based regimens in mortality and nephrotoxicity?
+  正在生成工具调用轨迹...
+
+[12] 问题: In patients with stable coronary artery disease, how does adding low-dose rivaroxaban to aspirin compare with aspirin alone for preventing major adverse cardiovascular events and increasing major bleeding risk?
+  正在生成工具调用轨迹...
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(vagus nerve stimulation responsive neurostimulation comparative effectiveness seizure reduction focal epilepsy meta-analysis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rivaroxaban aspirin stable coronary artery disease ROCKET-CAD bleeding outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ceftazidime-avibactam colistin bloodstream infection mortality nephrotoxicity Enterobacterales)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(vagus nerve stimulation long-term seizure reduction refractory epilepsy meta-analysis 1 year)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(ROCKET-CAD rivaroxaban warfarin coronary artery disease trial outcomes bleeding)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(KPC bloodstream infection ceftazidime-avibactam colistin mortality nephrotoxicity propensity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(vagus nerve stimulation seizure reduction percent year long-term randomized trial refractory epilepsy)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(aspirin plus low-dose rivaroxaban stable coronary artery disease COMPASS trial major bleeding events site distribution)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRE bloodstream infection ceftazidime-avibactam colistin randomized controlled trial mortality nephrotoxicity)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(vagus nerve stimulation randomized trial seizure reduction percent year refractory epilepsy)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(COMPASS trial rivaroxaban aspirin coronary artery disease major bleeding gastrointestinal intracranial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(colistin nephrotoxicity compared to ceftazidime-avibactam bloodstream infection Enterobacterales)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(vagus nerve stimulation long-term meta-analysis seizure reduction responder rate 1 year refractory epilepsy)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rivaroxaban 2.5 mg twice daily plus aspirin stable coronary artery disease outcomes bleeding site analysis)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[15] 问题: What is the incidence of sudden unexpected death in epilepsy (SUDEP) in adults with refractory epilepsy, and which clinical factors most strongly predict risk in observational studies?
+  正在生成工具调用轨迹...
+
+📊 进度: 1/18 (5.6%) | 成功: 1 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SUDEP incidence refractory epilepsy adults observational cohort)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[2] 问题: In adults with focal epilepsy, how do levetiracetam and lamotrigine compare for seizure freedom and treatment discontinuation due to adverse effects in head-to-head trials or comparative cohorts?
+  正在生成工具调用轨迹...
+
+📊 进度: 2/18 (11.1%) | 成功: 2 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(focal epilepsy lamotrigine levetiracetam randomized trial seizure freedom adverse effects)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[18] 问题: In progressive multiple sclerosis, how effective are Bruton tyrosine kinase inhibitors compared with placebo in slowing disability progression and reducing MRI measures of chronic active lesions?
+  正在生成工具调用轨迹...
+
+📊 进度: 3/18 (16.7%) | 成功: 3 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Bruton tyrosine kinase inhibitor multiple sclerosis progressive placebo)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SUDEP predictors observational cohort generalized seizures nocturnal psychiatric comorbidity substance use seizure frequency adherence adults refractory epilepsy)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(adult focal epilepsy lamotrigine levetiracetam randomized head-to-head seizure freedom adverse effects discontinuation)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(fenebrutinib secondary progressive multiple sclerosis randomized placebo trial MRI lesions)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SUDEP incidence refractory epilepsy adults observational cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(fenobrutinib progressive multiple sclerosis randomized placebo trial MRI)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(lamotrigine levetiracetam comparative cohort seizure freedom adverse effects discontinuation epilepsy adults)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SUDEP incidence annual risk adults generalized tonic-clonic nocturnal epilepsy observational study predictors)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(brodalpirine multiple sclerosis randomized placebo trial MRI)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(randomized trial lamotrigine levetiracetam adjunctive focal epilepsy seizure freedom discontinuation adverse effects)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(SUDEP predictors observational cohort generalized seizures nocturnal psychiatric comorbidity substance use seizure frequency adherence adults refractory epilepsy)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(BTK inhibitor progressive multiple sclerosis trial MRI chronic active lesions)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(adult focal epilepsy lamotrigine levetiracetam randomized double blind seizure freedom adverse effects discontinuation)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[5] 问题: In individuals receiving long-acting injectable cabotegravir for HIV pre-exposure prophylaxis, what are the incidence and clinical characteristics of breakthrough HIV infections and associated resistance patterns?
+  正在生成工具调用轨迹...
+
+📊 进度: 4/18 (22.2%) | 成功: 4 | 失败: 0 | 成功率: 100.0%
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cabotegravir long-acting breakthrough HIV infection incidence resistance PrEP)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[8] 问题: For patients with symptomatic atrial fibrillation and heart failure, how does early rhythm control (antiarrhythmic drugs or ablation) compare with rate control in improving mortality and heart failure hospitalization?
+  正在生成工具调用轨迹...
+
+📊 进度: 5/18 (27.8%) | 成功: 5 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CABIN-HF atrial fibrillation heart failure ablation rate control mortality hospitalization)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[11] 问题: In heart failure with preserved ejection fraction, what is the magnitude of benefit of SGLT2 inhibitors on hospitalization for heart failure and quality-of-life scores in phase III randomized trials, and how consistent are effects across LVEF subgroups?
+  正在生成工具调用轨迹...
+
+📊 进度: 6/18 (33.3%) | 成功: 6 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(DELIVER trial dapagliflozin heart failure preserved ejection fraction hospitalization Kansas City Cardiomyopathy Questionnaire subgroup LVEF)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cabotegravir subcutaneous breakthrough infection resistance IMPACT trial Cabenuva)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(symptomatic atrial fibrillation heart failure rate control vs rhythm control mortality hospitalization randomized trial)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(DELIVER trial dapagliflozin preserved ejection fraction hospitalization KCCQ)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(rate control rhythm control atrial fibrillation heart failure mortality hospitalization systematic review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cabotegravir breakthrough HIV infection PrEP incidence resistance)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(solodetsenko trial empagliflozin preserved ejection fraction heart failure hospitalization KCCQ)
+本地LLM调用失败: Client error '400 Bad Request' for url 'http://localhost:8006/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 3 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[14] 问题: In methicillin-resistant Staphylococcus aureus (MRSA) bacteremia, does early switch from vancomycin to daptomycin improve clinical outcomes compared with continued vancomycin therapy?
+  正在生成工具调用轨迹...
+
+📊 进度: 7/18 (38.9%) | 成功: 7 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(MRSA bacteremia early switch vancomycin daptomycin outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(IMPACT study cabotegravir breakthrough infections resistance Ipergay)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(empagliflozin preserved ejection fraction KCCQ EMPEROR-Preserved Kansas City Cardiomyopathy Questionnaire)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cabotegravir pre-exposure prophylaxis breakthrough infection resistance patterns clinical characteristics)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(randomized trial early switch daptomycin vancomycin MRSA bacteremia outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(canagliflozin preserved ejection fraction CANDLE trial hospitalization KCCQ subgroup LVEF)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(MRSA bacteremia switch from vancomycin to daptomycin randomized trial outcomes)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[1] 问题: In in vivo liver-directed gene editing, how do AAV-delivered editors compare with lipid nanoparticle delivery in terms of hepatocyte editing efficiency, off-target profiles, and innate immune activation?
+  正在生成工具调用轨迹...
+
+📊 进度: 8/18 (44.4%) | 成功: 8 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(vancomycin daptomycin switch MRSA bacteremia randomized trial outcomes mortality MIC)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV liver in vivo CRISPR editing efficiency hepatocyte off-target nonhuman primate)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[17] 问题: In metastatic melanoma, how does combined PD-1 plus CTLA-4 blockade compare with PD-1 inhibitor monotherapy in long-term overall survival and incidence of grade 3–4 immune-related adverse events?
+  正在生成工具调用轨迹...
+
+📊 进度: 9/18 (50.0%) | 成功: 9 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 238 long-term overall survival nivolumab ipilimumab grade 3-4 adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(MRSA bacteremia early switch vancomycin daptomycin outcomes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(liver-targeted CRISPR prime editing base editing AAV vs lipid nanoparticle in vivo)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CheckMate 067 nivolumab ipilimumab metastatic melanoma overall survival grade 3-4 adverse events)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(AAV-delivered CRISPR in liver hepatocyte editing efficiency off-target innate immune activation nonhuman primate)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(KEYNOTE-052 pembrolizumab atezolizumab metastatic melanoma overall survival grade 3-4 adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(liver-directed CRISPR base editing AAV delivery hepatocyte editing efficiency off-target)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[4] 问题: In type 2 diabetes, how do cardiovascular and renal outcomes compare between SGLT2 inhibitors and GLP-1 receptor agonists among patients with established atherosclerotic cardiovascular disease in large outcome trials?
+  正在生成工具调用轨迹...
+
+📊 进度: 10/18 (55.6%) | 成功: 10 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(KEYNOTE-189 pembrolizumab metastatic non-small-cell lung cancer overall survival grade 3-4 adverse events)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(type 2 diabetes SGLT2 inhibitors GLP-1 receptor agonists cardiovascular renal outcomes meta-analysis ASCVD)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(liver-directed CRISPR prime editing base editing AAV vs lipid nanoparticle in vivo)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CANVAS trial ASCVD renal outcomes SGLT2 inhibitor)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[7] 问题: In clinically isolated syndrome, does early initiation of disease-modifying therapy reduce conversion to clinically definite multiple sclerosis compared with delayed treatment?
+  正在生成工具调用轨迹...
+
+📊 进度: 11/18 (61.1%) | 成功: 11 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(clinically isolated syndrome early treatment delayed treatment conversion clinically definite multiple sclerosis randomized trial)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(LEADER trial liraglutide cardiovascular outcomes ASCVD renal outcomes)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[10] 问题: In EGFR-mutant non-small cell lung cancer, what molecular mechanisms most commonly drive acquired resistance to third-generation EGFR inhibitors, and how frequently are they observed across clinical cohorts?
+  正在生成工具调用轨迹...
+
+📊 进度: 12/18 (66.7%) | 成功: 12 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(osimertinib resistance mechanisms frequency cohort EGFR-mutant non-small cell lung cancer)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(teriflunomide clinically isolated syndrome randomized trial conversion clinically definite multiple sclerosis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(sGLT2 inhibitors vs GLP-1 receptor agonists cardiovascular renal outcomes meta-analysis type 2 diabetes)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(osimertinib resistance MET amplification frequency cohort EGFR exon 20 insertion frequency)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(cladribine clinically isolated syndrome first demyelinating event randomized trial conversion clinically definite multiple sclerosis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(EGFR exon 20 insertion resistance osimertinib frequency cohort)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(dimethyl fumarate clinically isolated syndrome randomized trial conversion clinically definite multiple sclerosis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(osimertinib resistance EGFR C797S frequency cohort MET amplification frequency EGFR-mutant NSCLC)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(dimethyl fumarate clinically isolated syndrome randomized trial conversion clinically definite multiple sclerosis)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(osimertinib resistance mechanisms frequency cohort EGFR-mutant NSCLC)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 4 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[13] 问题: What molecular mechanisms drive p53 pathway activation and clonal selection after CRISPR-Cas9 editing in human hematopoietic stem and progenitor cells?
+  正在生成工具调用轨迹...
+
+📊 进度: 13/18 (72.2%) | 成功: 13 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR Cas9 hematopoietic stem progenitor cells p53 activation clonal selection)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR hematopoietic stem progenitor cells p53 ATM ATR clonal evolution)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[16] 问题: In acute ischemic stroke treated with intravenous thrombolysis, does prior use of direct oral anticoagulants increase the risk of symptomatic intracranial hemorrhage compared with no anticoagulant exposure, based on observational and trial-adjacent evidence?
+  正在生成工具调用轨迹...
+
+📊 进度: 14/18 (77.8%) | 成功: 14 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(direct oral anticoagulant intravenous thrombolysis symptomatic intracranial hemorrhage observational study)
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+[3] 问题: In multiple sclerosis, what evidence supports Epstein-Barr virus exposure or reactivation as a causal or contributing factor in disease onset and progression?
+  正在生成工具调用轨迹...
+
+📊 进度: 15/18 (83.3%) | 成功: 15 | 失败: 0 | 成功率: 100.0%
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(EBV multiple sclerosis causality review 2020-2024)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(DNA repair defects p53 activation hematopoietic stem cells CRISPR clonal selection)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(intravenous thrombolysis DOAC symptomatic intracranial hemorrhage SITS ECASS observational registry)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(Epstein-Barr virus multiple sclerosis seroprevalence EBNA1 LMP1 progression cohort twin 2018-2024)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(DNA damage response CRISPR hematopoietic stem cells p53 apoptosis clonal selection)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(DOAC intracranial hemorrhage risk intravenous thrombolysis observational study systematic review)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(EBV multiple sclerosis seroprevalence cohort progression)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(dabigatran apixaban rivaroxaban intravenous thrombolysis symptomatic intracranial hemorrhage observational study)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(multiple sclerosis EBV reactivation EBNA1 progressive relapse cohort prospective)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(CRISPR Cas9 hematopoietic stem progenitor cells p53 activation clonal selection)
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(intravenous thrombolysis DOAC symptomatic intracranial hemorrhage risk observational study Matusevicius Säflund Balestrino)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ⚠ 检测到未闭合的 <call_tool>，自动修复
+  执行工具: pubmed_search(EBV multiple sclerosis causality review 2020-2024)
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 16/18 (88.9%) | 成功: 16 | 失败: 0 | 成功率: 100.0%
+  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案
+  ✓ 获取到最终答案
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 17/18 (94.4%) | 成功: 17 | 失败: 0 | 成功率: 100.0%
+本地LLM调用失败: 
+  ⚠ LLM 无响应，停止生成
+  ✓ 轨迹生成完成: 5 次工具调用
+  [评估] 评估功能已禁用，跳过评分
+
+📊 进度: 18/18 (100.0%) | 成功: 18 | 失败: 0 | 成功率: 100.0%
+
+✓ 完成！共生成 18 个样本
+💾 所有样本已增量保存到: ../../pubmed_training_data/pubmed_trajectory_evaluated_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8006_incremental.jsonl
+✓ 保存统计: ../../pubmed_training_data/trajectory_evaluated_stats_20260101_150736__workspace_math_science_data_lyc_1205_MiroTrain_output_8B_DPO_run1_epoch_0_port8006.json
+
+============================================================
+数据生成完成！
+============================================================
