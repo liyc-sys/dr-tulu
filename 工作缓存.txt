@@ -1,0 +1,55 @@
+# 使用默认路径（--data-file、--output 不写，按脚本位置自动解析）
+python3 scripts/pubmed_data_generator/answer_curebench_with_tools.py \
+    --local-model-url http://localhost:8006/v1 \
+    --model-name 8B_DPO_run1_epoch0 \
+    --instance-id port8007 \
+    --concurrency 1
+
+python3 scripts/pubmed_data_generator/answer_curebench_with_tools.py \
+--local-model-url http://localhost:8002/v1 \
+--model-name DR-Tulu-8B \
+--instance-id port8002 \
+--concurrency 3
+--limit 10
+
+
+CUDA_VISIBLE_DEVICES=2 vllm serve /workspace/math_science_data/lyc/models/DR-Tulu-8B --port 8002 --max-model-len 40960
+
+
+
+工具全集
+一、搜索类 search
+MCP 工具名	作用
+semantic_scholar_search	用 Semantic Scholar 搜学术论文
+semantic_scholar_snippet_search	在论文内容里搜片段
+pubmed_search	PubMed 医学文献检索（pubmed）
+massive_serve_search	基于 massive-serve 的稠密检索
+serper_google_webpage_search	通用网页检索（Serper / Google）
+serper_google_scholar_search	Google 学术检索
+fda_drug_label_search	FDA 药品说明书检索（按药物、关注点）
+medbrowsecomp_search	统一医疗检索：NCT 临床试验、专利、批准、独占期等
+get_trial_info	按 NCT 号查 ClinicalTrials.gov 临床试验
+get_drug_patents	FDA Orange Book 药物专利
+get_drug_approvals	FDA Orange Book 药物批准
+get_drug_exclusivities	FDA Orange Book 药物独占期
+二、浏览类 browse
+MCP 工具名	作用
+serper_fetch_webpage_content	用 Serper 抓取网页正文
+jina_fetch_webpage_content	用 Jina Reader 抓取网页
+crawl4ai_fetch_webpage_content	用本地 Crawl4AI 抓取网页
+crawl4ai_docker_fetch_webpage_content	用 Crawl4AI Docker 服务抓取
+webthinker_fetch_webpage_content	用 WebThinker 解析网页/PDF
+webthinker_fetch_webpage_content_async	同上，异步版
+
+pubmed相关
+pubmed_search、crawl4ai_docker_fetch_webpage_content、serper_google_webpage_search
+
+curebench相关
+fda_drug_label_search	FDA 药品说明书检索（按药物、关注点）
+
+medbrowsecomp相关
+medbrowsecomp_search	统一医疗检索：NCT 临床试验、专利、批准、独占期等
+get_trial_info	按 NCT 号查 ClinicalTrials.gov 临床试验
+get_drug_patents	FDA Orange Book 药物专利
+get_drug_approvals	FDA Orange Book 药物批准
+get_drug_exclusivities	FDA Orange Book 药物独占期

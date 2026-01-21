@@ -1,0 +1,42 @@
+# 备份说明
+# 这是包含所有 4 个工具的配置（pubmed_search, browse_webpage, google_search, fda_drug_search）
+# 当前 answer_curebench_with_tools.py 已修改为只使用 FDA 工具
+# 
+# 如果需要恢复所有工具，修改以下部分：
+#
+# 1. TOOL_MAPPING (约第 132-137 行)
+TOOL_MAPPING = {
+    "pubmed_search": "pubmed_search",
+    "browse_webpage": "crawl4ai_docker_fetch_webpage_content",
+    "google_search": "serper_google_webpage_search",
+    "fda_drug_search": "fda_drug_label_search",
+}
+
+# 2. SYSTEM_PROMPT 中的 Available Tools 部分
+"""
+## Available Tools
+
+1. pubmed_search 
+- Format: <call_tool name="pubmed_search" limit="N">keywords</call_tool>
+- **IMPORTANT: Use 3-6 keywords maximum. Long queries often return 0 results.**
+- Good: <call_tool name="pubmed_search" limit="5">fluoxetine discontinuation adverse effects</call_tool>
+
+2. browse_webpage: <call_tool name="browse_webpage">URL</call_tool>
+3. google_search: <call_tool name="google_search">query</call_tool>
+4. fda_drug_search
+- Format: <call_tool name="fda_drug_search" focus="aspect">drug_name</call_tool>
+- Purpose: Search FDA drug labels for specific information about medications
+- focus parameter: What aspect to focus on (e.g., "adverse reactions", "indications", "dosage", "warnings")
+- Good: <call_tool name="fda_drug_search" focus="adverse reactions">aspirin</call_tool>
+"""
+
+# 3. CRITICAL LIMITS 部分
+"""
+## CRITICAL LIMITS
+- **⚠️ You can call tools AT MOST 5 times in total (including all tools)**
+- **After 5 tool calls, you MUST provide your final answer immediately**
+"""
+
+# 4. 工具调用限制检查 (约第 441 行)
+if total_tool_calls >= 5:
+    reminder = f"{tool_output_text}\n\n⚠️ You have reached the maximum limit of 5 tool calls. You MUST provide your final answer now using the <answer> tag with <choice> inside."
