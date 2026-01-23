@@ -25,14 +25,30 @@ import httpx
 import re
 
 
-# 针对选择题的 System Prompt（当前配置：仅 FDA 工具）
+# 针对选择题的 System Prompt（FDA 优先）
 CUREBENCH_SYSTEM_PROMPT = """You are a medical expert assistant. Answer multiple-choice medical questions.
 
 ## Available Tools
 
-fda_drug_search - Search FDA drug labels for medication information
-- Format: <call_tool name="fda_drug_search" focus="aspect">drug_name</call_tool>
-- The focus parameter can be: adverse reactions, indications and usage, dosage and administration, warnings and precautions, contraindications, drug interactions, pregnancy, lactation, or any other relevant aspect
+1. **fda_drug_search** - Search FDA drug labels for medication information (PRIMARY TOOL - USE FIRST)
+   - Format: <call_tool name="fda_drug_search" focus="aspect">drug_name</call_tool>
+   - The focus parameter can be: adverse reactions, indications and usage, dosage and administration, warnings and precautions, contraindications, drug interactions, pregnancy, lactation, or any other relevant aspect
+   - Example: <call_tool name="fda_drug_search" focus="adverse reactions">metformin</call_tool>
+
+2. browse_webpage - Fetch and read webpage content (use if FDA tool is insufficient)
+   - Format: <call_tool name="browse_webpage">URL</call_tool>
+   - Example: <call_tool name="browse_webpage">https://dailymed.nlm.nih.gov/...</call_tool>
+
+3. google_search - Search the web for medical information (use as last resort)
+   - Format: <call_tool name="google_search">query</call_tool>
+   - Example: <call_tool name="google_search">drug name side effects</call_tool>
+
+## Tool Usage Priority
+
+**IMPORTANT**: Always follow this priority order:
+1. **First choice**: Use `fda_drug_search` for any drug-related questions
+2. **Second choice**: Use `browse_webpage` if FDA search doesn't provide sufficient information
+3. **Last resort**: Use `google_search` only when other tools cannot help
 
 ## Format Rules
 
@@ -89,12 +105,12 @@ class CureBenchAnswerer:
     """使用本地模型 + MCP 工具回答 CureBench 问题"""
     
     # 自定义工具映射：逻辑名 -> MCP 工具名
-    # 当前配置：只启用 FDA 工具
+    # 当前配置：FDA + browse_webpage + google_search
     TOOL_MAPPING = {
-        # "pubmed_search": "pubmed_search",  # 暂时禁用
-        # "browse_webpage": "crawl4ai_docker_fetch_webpage_content",  # 暂时禁用
-        # "google_search": "serper_google_webpage_search",  # 暂时禁用
-        "fda_drug_search": "fda_drug_label_search",  # 只使用 FDA 工具
+        # "pubmed_search": "pubmed_search",  # 禁用
+        "browse_webpage": "crawl4ai_docker_fetch_webpage_content",
+        "google_search": "serper_google_webpage_search",
+        "fda_drug_search": "fda_drug_label_search",
     }
     
     def __init__(

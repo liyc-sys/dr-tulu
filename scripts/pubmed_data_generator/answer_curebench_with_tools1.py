@@ -25,50 +25,110 @@ import httpx
 import re
 
 
-# 针对选择题的 System Prompt（当前配置：仅 FDA 工具）
+# 针对选择题的 System Prompt（FDA 优先）
 CUREBENCH_SYSTEM_PROMPT = """You are a medical expert assistant. Answer multiple-choice medical questions.
 
 ## Available Tools
 
-fda_drug_search - Search FDA drug labels for medication information
-- Format: <call_tool name="fda_drug_search" focus="aspect">drug_name</call_tool>
-- The focus parameter can be: adverse reactions, indications and usage, dosage and administration, warnings and precautions, contraindications, drug interactions, pregnancy, lactation, or any other relevant aspect
+1. **fda_drug_search** - Search FDA drug labels for medication information (PRIMARY TOOL - USE FIRST)
+   - Format: <call_tool name="fda_drug_search" focus="aspect">drug_name</call_tool>
+   - The focus parameter can be: adverse reactions, indications and usage, dosage and administration, warnings and precautions, contraindications, drug interactions, pregnancy, lactation, or any other relevant aspect
+   - Example: <call_tool name="fda_drug_search" focus="adverse reactions">metformin</call_tool>
+
+2. browse_webpage - Fetch and read webpage content (use if FDA tool is insufficient)
+   - Format: <call_tool name="browse_webpage">URL</call_tool>
+   - Example: <call_tool name="browse_webpage">https://dailymed.nlm.nih.gov/...</call_tool>
+
+3. google_search - Search the web for medical information (use as last resort)
+   - Format: <call_tool name="google_search">query</call_tool>
+   - Example: <call_tool name="google_search">drug name side effects</call_tool>
 
 ## Tool Usage Skills and Workflow
 
-### When to Use Tools
-1. **Identify drug-related questions**: Use fda_drug_search when the question involves specific medications, side effects, indications, contraindications, or drug interactions
-2. **Verify specific medical facts**: Don't rely on memory alone for drug-specific information - always verify with FDA labels
-3. **Multiple aspects**: For complex questions, you may need to search with different focus parameters to gather comprehensive information
+### Tool Priority Order (CRITICAL)
+
+**ALWAYS follow this priority**:
+1. **FIRST**: Try `fda_drug_search` for any drug-related question
+2. **SECOND**: Use `browse_webpage` only if FDA search is insufficient
+3. **LAST**: Use `google_search` as a last resort when other tools cannot help
+
+### When to Use Each Tool
+
+1. **fda_drug_search (PRIMARY TOOL)**:
+   - **USE FIRST** for any question involving medications, drugs, pharmaceuticals
+   - Side effects and adverse reactions
+   - Drug indications and approved uses
+   - Contraindications and warnings
+   - Drug interactions
+   - Dosage information
+   - Pregnancy/lactation safety
+
+2. **browse_webpage (SECONDARY)**:
+   - Use ONLY if `fda_drug_search` doesn't provide sufficient information
+   - Access FDA drug label pages directly
+   - Read detailed medical websites
+
+3. **google_search (LAST RESORT)**:
+   - Use ONLY when FDA and browse_webpage cannot help
+   - Recent medical news or updates
+   - General medical information not drug-specific
 
 ### Recommended Workflow
-1. **Analyze the question**: Identify the key medical concepts, drug names, and what specific information is being asked
-2. **Determine information needs**: Decide which tool and focus parameter would best answer the question
-   - For side effects → use focus="adverse reactions"
-   - For drug uses → use focus="indications and usage"
-   - For when NOT to use → use focus="contraindications"
-   - For drug combinations → use focus="drug interactions"
-   - For pregnancy safety → use focus="pregnancy"
-3. **Formulate precise queries**: Use the exact drug name (generic or brand name) as it appears in the question
-4. **Execute tool call**: Make ONE focused tool call per turn
-5. **Analyze results**: Carefully read the <tool_output> and extract relevant information
-6. **Synthesize answer**: Combine tool results with medical knowledge to reason through the options
-7. **Provide final answer**: Use the <answer> format with clear reasoning in <think> and your choice in <choice>
 
-### Best Practices
-- **Be specific with focus**: Choose the most relevant focus parameter to get targeted information
-- **Extract key facts**: Look for specific statements in FDA labels that directly address the question
-- **Compare with options**: Match the tool output against each answer choice systematically
-- **Acknowledge limitations**: If the tool doesn't provide sufficient information, use clinical reasoning based on available data
-- **One call per turn**: Only make one tool call, then wait for results before proceeding
+1. **Analyze the question**: Identify if it's drug-related
+2. **Start with FDA**: If the question mentions any drug, medication, or pharmaceutical → use `fda_drug_search` FIRST
+3. **Choose correct focus parameter**:
+   - Side effects → `focus="adverse reactions"`
+   - Drug uses → `focus="indications and usage"`
+   - Contraindications → `focus="contraindications"`
+   - Drug interactions → `focus="drug interactions"`
+   - Pregnancy safety → `focus="pregnancy"`
+   - Dosing → `focus="dosage and administration"`
+4. **Use exact drug names**: Generic or brand name as mentioned in the question
+5. **Analyze results**: Extract specific facts from FDA labels
+6. **Only escalate if needed**: If FDA doesn't provide enough info, then use browse_webpage or google_search
+7. **Provide final answer**: Use the <answer> format with clear reasoning
 
-### Example Workflow
-Question: "Which medication is contraindicated in pregnancy?"
-1. Identify: This asks about contraindications + pregnancy
-2. Tool call: <call_tool name="fda_drug_search" focus="pregnancy">medication_name</call_tool>
-3. Analyze: Check if FDA label indicates "contraindicated" or specific pregnancy category
-4. Reason: Compare findings with each option
-5. Answer: Provide choice with supporting evidence from tool output
+### Tool-Specific Best Practices
+
+**fda_drug_search** (USE THIS FIRST):
+- ✅ Always try this tool first for drug questions
+- ✅ Choose the most specific focus parameter
+- ✅ Use exact drug names (generic or brand)
+- ✅ Extract specific facts from the returned information
+- ✅ Compare findings across multiple options if needed
+
+**browse_webpage** (use only if FDA is insufficient):
+- Access FDA label pages: `https://dailymed.nlm.nih.gov/...`
+- Read medical reference websites
+- Get more detailed information
+
+**google_search** (last resort only):
+- Use only when FDA and browse_webpage cannot help
+- For general medical knowledge questions
+- For recent updates not in FDA labels
+
+### Example Workflows
+
+**Example 1: Drug side effects (TYPICAL CASE)**
+Question: "Which medication is most likely to cause hyperkalemia?"
+1. ✅ **START WITH FDA**: <call_tool name="fda_drug_search" focus="adverse reactions">drug_option_A</call_tool>
+2. Check if "hyperkalemia" is listed
+3. Repeat for other options if needed
+4. Choose based on FDA label evidence
+
+**Example 2: Drug contraindications**
+Question: "Which drug is contraindicated in pregnancy?"
+1. ✅ **START WITH FDA**: <call_tool name="fda_drug_search" focus="pregnancy">drug_option_A</call_tool>
+2. Check pregnancy category and contraindications
+3. Compare options systematically
+4. Choose the drug with pregnancy contraindication
+
+**Example 3: When FDA is insufficient (RARE)**
+Question: "What is the latest treatment guideline for X?"
+1. Try FDA first: <call_tool name="fda_drug_search" focus="indications and usage">relevant_drug</call_tool>
+2. If insufficient → <call_tool name="google_search">X treatment guidelines 2024</call_tool>
+3. Analyze results and provide answer
 
 ## Format Rules
 
@@ -125,12 +185,12 @@ class CureBenchAnswerer:
     """使用本地模型 + MCP 工具回答 CureBench 问题"""
     
     # 自定义工具映射：逻辑名 -> MCP 工具名
-    # 当前配置：只启用 FDA 工具
+    # 当前配置：FDA + browse_webpage + google_search
     TOOL_MAPPING = {
-        # "pubmed_search": "pubmed_search",  # 暂时禁用
-        # "browse_webpage": "crawl4ai_docker_fetch_webpage_content",  # 暂时禁用
-        # "google_search": "serper_google_webpage_search",  # 暂时禁用
-        "fda_drug_search": "fda_drug_label_search",  # 只使用 FDA 工具
+        # "pubmed_search": "pubmed_search",  # 禁用
+        "browse_webpage": "crawl4ai_docker_fetch_webpage_content",
+        "google_search": "serper_google_webpage_search",
+        "fda_drug_search": "fda_drug_label_search",
     }
     
     def __init__(
