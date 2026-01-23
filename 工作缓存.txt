@@ -5,12 +5,13 @@ python3 scripts/pubmed_data_generator/answer_curebench_with_tools.py \
     --instance-id port8007 \
     --concurrency 1
 
-python3 scripts/pubmed_data_generator/answer_curebench_with_tools.py \
---local-model-url http://localhost:8002/v1 \
---model-name DR-Tulu-8B \
---instance-id port8002 \
---concurrency 3
---limit 10
+uv run --project /workspace/math_science_data/lyc/1205/dr-tulu/rl/open-instruct \
+  python3 /workspace/math_science_data/lyc/1205/dr-tulu/scripts/pubmed_data_generator/answer_curebench_with_tools.py \
+  --local-model-url http://localhost:8002/v1 \
+  --model-name /workspace/math_science_data/lyc/models/DR-Tulu-8B \
+  --instance-id port8002 \
+  --concurrency 3 \
+  --limit 10
 
 
 CUDA_VISIBLE_DEVICES=2 vllm serve /workspace/math_science_data/lyc/models/DR-Tulu-8B --port 8002 --max-model-len 40960
