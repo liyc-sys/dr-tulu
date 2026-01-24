@@ -1,0 +1,1587 @@
+gold,prompt,task_name
+CRIZOTINIB,"For clinical trial NCT01639001. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with C
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+IRINOTECAN HYDROCHLORIDE,"For clinical trial NCT00012389. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with I
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+,"For clinical trial NCT03150875 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"Jun 26, 2035","First, for clinical trial NCT00090051 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+BRISTOL MYERS SQUIBB,"First, for clinical trial NCT01307605 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+HOFFMANN LA ROCHE INC,"First, for clinical trial NCT01667419 among the more effective regimen ingredients, identify which ingredient starts with the letter V.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Jul 14, 2025","For clinical trial NCT01639001 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+PEMETREXED DISODIUM,"For clinical trial NCT01469000. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with P
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+FULVESTRANT,"For clinical trial NCT02340221. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with F
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+ZHUHAI BEIHAI BIOTECH CO LTD,"First, for clinical trial NCT01038661 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+BRISTOL MYERS SQUIBB,"First, for clinical trial NCT01938001 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+,"For clinical trial NCT00262769 among the more effective regimen ingredients, identify which ingredient starts with the letter G.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+FRESENIUS KABI USA LLC,"First, for clinical trial NCT02340221 among the more effective regimen ingredients, identify which ingredient starts with the letter F.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+DOCETAXEL,"For clinical trial NCT01282463. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"Feb 13, 2031","For clinical trial NCT00720512 among the more effective regimen ingredients, identify which ingredient starts with the letter I.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+HORIZON THERAPEUTICS USA INC,"First, for clinical trial NCT00052936 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+CYCLOPHOSPHAMIDE,"For clinical trial NCT00090051. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with C
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+Not_Listed,"For clinical trial NCT00416507, review the more effective regimen ingredients and identify which ingredient starts with the letter G.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+15.140000343322754,"For clinical trial NCT00720512, review the more effective regimen ingredients and identify which ingredient starts with the letter I.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+PEMETREXED DISODIUM,"For clinical trial NCT00190762. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with P
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+Not_Listed,"For clinical trial NCT00052936, review the more effective regimen ingredients and identify which ingredient starts with the letter P.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Jul 12, 2034","First, for clinical trial NCT00003128 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"Nov 3, 2032","First, for clinical trial NCT00417911 among the more effective regimen ingredients, identify which ingredient starts with the letter B.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+ABBVIE INC,"First, for clinical trial NCT02950051 among the more effective regimen ingredients, identify which ingredient starts with the letter V.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+VENETOCLAX,"For clinical trial NCT02950051. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with V
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+Not_Listed,"For clinical trial NCT00033332, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Aug 16, 2041","First, for clinical trial NCT00002870 among the more effective regimen ingredients, identify which ingredient starts with the letter T.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+,"For clinical trial NCT01108445 among the more effective regimen ingredients, identify which ingredient starts with the letter E.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+Not_Listed,"For clinical trial NCT00256776, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+,"For clinical trial NCT02672527 among the more effective regimen ingredients, identify which ingredient starts with the letter T.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+BORTEZOMIB,"For clinical trial NCT00513955. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with B
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"Dec 18, 2037","First, for clinical trial NCT00833833 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+Not_Listed,"For clinical trial NCT00478049, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+DEXCEL PHARMA TECHNOLOGIES LTD,"First, for clinical trial NCT00833833 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+BRISTOL-MYERS SQUIBB CO,"First, for clinical trial NCT00064077 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"May 16, 2036","First, for clinical trial NCT00446225 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+,"For clinical trial NCT00651261 among the more effective regimen ingredients, identify which ingredient starts with the letter M.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+,"For clinical trial NCT00002662 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+BRISTOL-MYERS SQUIBB CO,"First, for clinical trial NCT02898077 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+IPSEN BIOPHARMACEUTICALS INC,"First, for clinical trial NCT00720512 among the more effective regimen ingredients, identify which ingredient starts with the letter I.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Feb 13, 2031","For clinical trial NCT00079274 among the more effective regimen ingredients, identify which ingredient starts with the letter I.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+,"For clinical trial NCT00441922 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+46.72999954223633,"For clinical trial NCT00430365, review the more effective regimen ingredients and identify which ingredient starts with the letter L.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+,"For clinical trial NCT04988295 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+ZHUHAI BEIHAI BIOTECH CO LTD,"First, for clinical trial NCT00003782 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Feb 14, 2034","First, for clinical trial NCT02340221 among the more effective regimen ingredients, identify which ingredient starts with the letter F.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"Jul 1, 2033","First, for clinical trial NCT00445601 among the more effective regimen ingredients, identify which ingredient starts with the letter G.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+,"For clinical trial NCT00064077 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"May 16, 2036","First, for clinical trial NCT03150875 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+Not_Listed,"For clinical trial NCT03150875, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Oct 22, 2026","First, for clinical trial NCT01667419 among the more effective regimen ingredients, identify which ingredient starts with the letter V.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"May 1, 2026","First, for clinical trial NCT01108445 among the more effective regimen ingredients, identify which ingredient starts with the letter E.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+,"For clinical trial NCT01478048 among the more effective regimen ingredients, identify which ingredient starts with the letter B.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+,"For clinical trial NCT00190762 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"Aug 3, 2027","First, for clinical trial NCT01251107 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+Not_Listed,"For clinical trial NCT00376792, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+Not_Listed,"For clinical trial NCT01469000, review the more effective regimen ingredients and identify which ingredient starts with the letter P.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+,"For clinical trial NCT02257736 among the more effective regimen ingredients, identify which ingredient starts with the letter A.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"May 12, 2027","First, for clinical trial NCT01639001 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+Not_Listed,"For clinical trial NCT00002870, review the more effective regimen ingredients and identify which ingredient starts with the letter T.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+20.200000762939453,"For clinical trial NCT01478048, review the more effective regimen ingredients and identify which ingredient starts with the letter B.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Mar 26, 2035","First, for clinical trial NCT01469000 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+Not_Listed,"For clinical trial NCT04538664, review the more effective regimen ingredients and identify which ingredient starts with the letter P.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+Not_Listed,"For clinical trial NCT01776840, review the more effective regimen ingredients and identify which ingredient starts with the letter I.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Aug 24, 2029","For clinical trial NCT01776840 among the more effective regimen ingredients, identify which ingredient starts with the letter I.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+PEMETREXED DISODIUM,"For clinical trial NCT04988295. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with P
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+ASTRAZENECA PHARMACEUTICALS LP,"First, for clinical trial NCT01924533 among the more effective regimen ingredients, identify which ingredient starts with the letter O.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Feb 13, 2031","For clinical trial NCT00012389 among the more effective regimen ingredients, identify which ingredient starts with the letter I.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+ZHUHAI BEIHAI BIOTECH CO LTD,"First, for clinical trial NCT00021255 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+DOCETAXEL,"For clinical trial NCT00376792. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+BRISTOL MYERS SQUIBB,"First, for clinical trial NCT00430365 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+ABBVIE INC,"First, for clinical trial NCT02993523 among the more effective regimen ingredients, identify which ingredient starts with the letter V.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Oct 9, 2028","First, for clinical trial NCT00651261 among the more effective regimen ingredients, identify which ingredient starts with the letter M.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+ZHUHAI BEIHAI BIOTECH CO LTD,"First, for clinical trial NCT00376792 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Apr 27, 2027","First, for clinical trial NCT00430365 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"May 28, 2026","For clinical trial NCT00238238 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+GEMCITABINE HYDROCHLORIDE,"For clinical trial NCT00416507. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with G
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+46.72999954223633,"For clinical trial NCT00238238, review the more effective regimen ingredients and identify which ingredient starts with the letter L.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+68.68279266357422,"For clinical trial NCT00651261, review the more effective regimen ingredients and identify which ingredient starts with the letter M.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+61.45000076293945,"For clinical trial NCT00260689, review the more effective regimen ingredients and identify which ingredient starts with the letter C.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+APALUTAMIDE,"For clinical trial NCT02257736. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with AP
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"May 16, 2036","First, for clinical trial NCT00021255 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+,"For clinical trial NCT00002582 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"May 28, 2026","For clinical trial NCT01938001 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+,"For clinical trial NCT00685646 among the more effective regimen ingredients, identify which ingredient starts with the letter Z.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+PREDNISONE,"For clinical trial NCT00052936. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with P
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+PACLITAXEL,"For clinical trial NCT02898077. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with P
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+BRISTOL MYERS SQUIBB,"First, for clinical trial NCT01718379 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+VENETOCLAX,"For clinical trial NCT02993523. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with V
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+,"For clinical trial NCT00513955 among the more effective regimen ingredients, identify which ingredient starts with the letter B.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"May 16, 2036","First, for clinical trial NCT00003782 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+BORTEZOMIB,"For clinical trial NCT01478048. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with B
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+,"For clinical trial NCT00002870 among the more effective regimen ingredients, identify which ingredient starts with the letter T.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+NOVARTIS PHARMACEUTICALS CORP,"First, for clinical trial NCT00651261 among the more effective regimen ingredients, identify which ingredient starts with the letter M.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+SUN PHARMACEUTICAL INDUSTRIES LTD,"First, for clinical trial NCT00416507 among the more effective regimen ingredients, identify which ingredient starts with the letter G.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+DEXAMETHASONE,"For clinical trial NCT00833833. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+Not_Listed,"For clinical trial NCT01251107, review the more effective regimen ingredients and identify which ingredient starts with the letter P.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+,"For clinical trial NCT00703326 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+,"For clinical trial NCT00003782 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+22.75,"For clinical trial NCT00718549, review the more effective regimen ingredients and identify which ingredient starts with the letter C.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+ZHUHAI BEIHAI BIOTECH CO LTD,"First, for clinical trial NCT00446225 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+ZHUHAI BEIHAI BIOTECH CO LTD,"First, for clinical trial NCT00441922 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+DOCETAXEL,"For clinical trial NCT00084318. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+LENALIDOMIDE,"For clinical trial NCT00430365. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with L
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"Jan 6, 2027","First, for clinical trial NCT00079274 among the more effective regimen ingredients, identify which ingredient starts with the letter I.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+,"For clinical trial NCT00021255 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+,"For clinical trial NCT00718549 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+,"For clinical trial NCT03800134 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+IPSEN BIOPHARMACEUTICALS INC,"First, for clinical trial NCT00079274 among the more effective regimen ingredients, identify which ingredient starts with the letter I.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+IRINOTECAN HYDROCHLORIDE,"For clinical trial NCT00720512. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with I
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+DOCETAXEL,"For clinical trial NCT01038661. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+99.87999725341797,"For clinical trial NCT02672527, review the more effective regimen ingredients and identify which ingredient starts with the letter T.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Apr 27, 2027","First, for clinical trial NCT00238238 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+FRESENIUS KABI USA LLC,"First, for clinical trial NCT00513955 among the more effective regimen ingredients, identify which ingredient starts with the letter B.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+Not_Listed,"For clinical trial NCT00090051, review the more effective regimen ingredients and identify which ingredient starts with the letter C.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+,"For clinical trial NCT01469000 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+MIDOSTAURIN,"For clinical trial NCT00651261. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with M
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"May 31, 2026","First, for clinical trial NCT00718549 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"May 15, 2026","For clinical trial NCT02950051 among the more effective regimen ingredients, identify which ingredient starts with the letter V.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"Jul 1, 2033","First, for clinical trial NCT00416507 among the more effective regimen ingredients, identify which ingredient starts with the letter G.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+21.139999389648438,"For clinical trial NCT01667419, review the more effective regimen ingredients and identify which ingredient starts with the letter V.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+Not_Listed,"For clinical trial NCT01998503, review the more effective regimen ingredients and identify which ingredient starts with the letter B.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Dec 3, 2031","First, for clinical trial NCT01776840 among the more effective regimen ingredients, identify which ingredient starts with the letter I.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"Dec 18, 2037","First, for clinical trial NCT00256776 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+PACLITAXEL,"For clinical trial NCT00064077. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with P
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"Jul 1, 2033","First, for clinical trial NCT00262769 among the more effective regimen ingredients, identify which ingredient starts with the letter G.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+SHILPA MEDICARE LTD,"First, for clinical trial NCT04988295 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+DOCETAXEL,"For clinical trial NCT03150875. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+Not_Listed,"For clinical trial NCT01282463, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+TRABECTEDIN,"For clinical trial NCT02672527. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with T
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"Apr 27, 2027","First, for clinical trial NCT01197560 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+DOCETAXEL,"For clinical trial NCT00003782. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+DEXCEL PHARMA TECHNOLOGIES LTD,"First, for clinical trial NCT00033332 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+46.72999954223633,"For clinical trial NCT01718379, review the more effective regimen ingredients and identify which ingredient starts with the letter L.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"May 16, 2036","First, for clinical trial NCT00376792 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+46.72999954223633,"For clinical trial NCT01197560, review the more effective regimen ingredients and identify which ingredient starts with the letter L.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+,"For clinical trial NCT01998503 among the more effective regimen ingredients, identify which ingredient starts with the letter B.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+BORTEZOMIB,"For clinical trial NCT01998503. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with B
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+,"For clinical trial NCT00376792 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"Dec 18, 2037","First, for clinical trial NCT00033332 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"May 16, 2036","First, for clinical trial NCT00978549 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"Mar 27, 2027","For clinical trial NCT02257736. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with AP.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+OLAPARIB,"For clinical trial NCT01924533. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with O
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+20.200000762939453,"For clinical trial NCT00417911, review the more effective regimen ingredients and identify which ingredient starts with the letter B.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+FRESENIUS KABI USA LLC,"First, for clinical trial NCT01478048 among the more effective regimen ingredients, identify which ingredient starts with the letter B.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+,"For clinical trial NCT01282463 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+DOCETAXEL,"For clinical trial NCT00478049. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+LENALIDOMIDE,"For clinical trial NCT01307605. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with L
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+,"For clinical trial NCT01924533 among the more effective regimen ingredients, identify which ingredient starts with the letter O.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+13.229999542236328,"For clinical trial NCT02340221, review the more effective regimen ingredients and identify which ingredient starts with the letter F.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Jan 29, 2032","First, for clinical trial NCT02993523 among the more effective regimen ingredients, identify which ingredient starts with the letter V.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+LENALIDOMIDE,"For clinical trial NCT01938001. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with L
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+,"For clinical trial NCT00004100 among the more effective regimen ingredients, identify which ingredient starts with the letter G.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+BRISTOL-MYERS SQUIBB CO,"First, for clinical trial NCT00002662 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"May 15, 2026","For clinical trial NCT02993523 among the more effective regimen ingredients, identify which ingredient starts with the letter V.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"Apr 27, 2027","First, for clinical trial NCT01938001 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+,"For clinical trial NCT00052936 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+DOCETAXEL,"For clinical trial NCT00703326. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+PREDNISONE,"For clinical trial NCT01251107. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with P
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+THIOTEPA,"For clinical trial NCT00002870. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with T
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+49.51612854003906,"For clinical trial NCT01108445, review the more effective regimen ingredients and identify which ingredient starts with the letter E.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+Not_Listed,"For clinical trial NCT00445601, review the more effective regimen ingredients and identify which ingredient starts with the letter G.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+,"For clinical trial NCT00084318 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+Not_Listed,"For clinical trial NCT00190762, review the more effective regimen ingredients and identify which ingredient starts with the letter P.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+,"For clinical trial NCT02898077 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+Not_Listed,"For clinical trial NCT00703326, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+DOCETAXEL,"For clinical trial NCT00446225. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+NOVARTIS PHARMACEUTICALS CORP,"First, for clinical trial NCT01108445 among the more effective regimen ingredients, identify which ingredient starts with the letter E.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+SHILPA MEDICARE LTD,"First, for clinical trial NCT01469000 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+SHILPA MEDICARE LTD,"First, for clinical trial NCT04538664 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+CYCLOSPORINE,"For clinical trial NCT00260689. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with C
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+Not_Listed,"For clinical trial NCT00004100, review the more effective regimen ingredients and identify which ingredient starts with the letter G.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+VEMURAFENIB,"For clinical trial NCT01667419. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with V
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+LENALIDOMIDE,"For clinical trial NCT00238238. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with L
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+FRESENIUS KABI USA LLC,"First, for clinical trial NCT01998503 among the more effective regimen ingredients, identify which ingredient starts with the letter B.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Oct 3, 2026","For clinical trial NCT01356511 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+Not_Listed,"For clinical trial NCT04988295, review the more effective regimen ingredients and identify which ingredient starts with the letter P.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+157.02000427246094,"For clinical trial NCT02257736. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with AP.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+HORIZON THERAPEUTICS USA INC,"First, for clinical trial NCT01251107 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+,"For clinical trial NCT04538664 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+Not_Listed,"For clinical trial NCT00262769, review the more effective regimen ingredients and identify which ingredient starts with the letter G.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+IBRUTINIB,"For clinical trial NCT01776840. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with I
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+ZHUHAI BEIHAI BIOTECH CO LTD,"First, for clinical trial NCT00478049 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"May 16, 2036","First, for clinical trial NCT01282463 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+LENALIDOMIDE,"For clinical trial NCT01718379. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with L
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+Not_Listed,"For clinical trial NCT00002582, review the more effective regimen ingredients and identify which ingredient starts with the letter C.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+FRESENIUS KABI USA LLC,"First, for clinical trial NCT00417911 among the more effective regimen ingredients, identify which ingredient starts with the letter B.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Jul 12, 2034","First, for clinical trial NCT00002662 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"May 16, 2036","First, for clinical trial NCT01038661 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+,"For clinical trial NCT00445601 among the more effective regimen ingredients, identify which ingredient starts with the letter G.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"Nov 3, 2032","First, for clinical trial NCT00513955 among the more effective regimen ingredients, identify which ingredient starts with the letter B.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"Oct 3, 2026","For clinical trial NCT00833833 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+DEXAMETHASONE,"For clinical trial NCT00256776. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+,"For clinical trial NCT00446225 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+ZHUHAI BEIHAI BIOTECH CO LTD,"First, for clinical trial NCT00703326 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+,"For clinical trial NCT00417911 among the more effective regimen ingredients, identify which ingredient starts with the letter B.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+PEMETREXED DISODIUM,"For clinical trial NCT04538664. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with P
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+35.55500030517578,"For clinical trial NCT01924533, review the more effective regimen ingredients and identify which ingredient starts with the letter O.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+58.59000015258789,"For clinical trial NCT02950051, review the more effective regimen ingredients and identify which ingredient starts with the letter V.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"May 16, 2036","First, for clinical trial NCT00084318 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+SHORLA PHARMA LTD,"First, for clinical trial NCT00002870 among the more effective regimen ingredients, identify which ingredient starts with the letter T.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Jan 6, 2027","First, for clinical trial NCT00720512 among the more effective regimen ingredients, identify which ingredient starts with the letter I.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+24.75,"For clinical trial NCT00064077, review the more effective regimen ingredients and identify which ingredient starts with the letter P.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Mar 26, 2035","First, for clinical trial NCT04538664 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+BRISTOL-MYERS SQUIBB CO,"First, for clinical trial NCT00003128 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+Not_Listed,"For clinical trial NCT00833833, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+ZHUHAI BEIHAI BIOTECH CO LTD,"First, for clinical trial NCT00084318 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+BORTEZOMIB,"For clinical trial NCT00417911. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with B
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+IPSEN BIOPHARMACEUTICALS INC,"First, for clinical trial NCT00012389 among the more effective regimen ingredients, identify which ingredient starts with the letter I.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+24.75,"For clinical trial NCT00003128, review the more effective regimen ingredients and identify which ingredient starts with the letter P.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+GEMCITABINE HYDROCHLORIDE,"For clinical trial NCT00262769. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with G
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+15.140000343322754,"For clinical trial NCT00012389, review the more effective regimen ingredients and identify which ingredient starts with the letter I.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"May 16, 2036","First, for clinical trial NCT00441922 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+DOCETAXEL,"For clinical trial NCT00441922. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"May 28, 2026","For clinical trial NCT01197560 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+GEMCITABINE HYDROCHLORIDE,"For clinical trial NCT00004100. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with G
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+DOCETAXEL,"For clinical trial NCT00021255. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"Nov 3, 2032","First, for clinical trial NCT01998503 among the more effective regimen ingredients, identify which ingredient starts with the letter B.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+SHILPA MEDICARE LTD,"First, for clinical trial NCT03800134 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+,"For clinical trial NCT01667419 among the more effective regimen ingredients, identify which ingredient starts with the letter V.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"Jan 29, 2032","First, for clinical trial NCT02950051 among the more effective regimen ingredients, identify which ingredient starts with the letter V.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+,"For clinical trial NCT00090051 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+ZHUHAI BEIHAI BIOTECH CO LTD,"First, for clinical trial NCT00978549 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Jun 26, 2035","First, for clinical trial NCT00002582 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+DEXAMETHASONE,"For clinical trial NCT01356511. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+SUN PHARMACEUTICAL INDUSTRIES LTD,"First, for clinical trial NCT00262769 among the more effective regimen ingredients, identify which ingredient starts with the letter G.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+LENALIDOMIDE,"For clinical trial NCT01197560. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with L
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"May 16, 2036","First, for clinical trial NCT00703326 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+Not_Listed,"For clinical trial NCT01038661, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+IRINOTECAN HYDROCHLORIDE,"For clinical trial NCT00079274. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with I
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+EUGIA PHARMA SPECIALITIES LTD,"First, for clinical trial NCT00002582 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Mar 26, 2035","First, for clinical trial NCT00190762 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"Oct 3, 2026","For clinical trial NCT00256776 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+,"For clinical trial NCT00260689 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+24.75,"For clinical trial NCT02898077, review the more effective regimen ingredients and identify which ingredient starts with the letter P.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+24.75,"For clinical trial NCT00002662, review the more effective regimen ingredients and identify which ingredient starts with the letter P.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+SUN PHARMACEUTICAL INDUSTRIES LTD,"First, for clinical trial NCT00445601 among the more effective regimen ingredients, identify which ingredient starts with the letter G.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Nov 3, 2032","First, for clinical trial NCT01478048 among the more effective regimen ingredients, identify which ingredient starts with the letter B.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"Nov 29, 2025","First, for clinical trial NCT00685646 among the more effective regimen ingredients, identify which ingredient starts with the letter Z.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"Jul 12, 2034","First, for clinical trial NCT00064077 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+Not_Listed,"For clinical trial NCT00441922, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+PHARMACYCLICS LLC,"First, for clinical trial NCT01776840 among the more effective regimen ingredients, identify which ingredient starts with the letter I.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+EMD SERONO INC,"First, for clinical trial NCT00718549 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+,"For clinical trial NCT01038661 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"Jul 12, 2034","First, for clinical trial NCT02898077 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+Not_Listed,"For clinical trial NCT00978549, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Dec 18, 2037","First, for clinical trial NCT01356511 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+20.200000762939453,"For clinical trial NCT00513955, review the more effective regimen ingredients and identify which ingredient starts with the letter B.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+GEMCITABINE HYDROCHLORIDE,"For clinical trial NCT00445601. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with G
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+JANSSEN BIOTECH INC,"For clinical trial NCT02257736. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with AP.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+Not_Listed,"For clinical trial NCT01356511, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+CYCLOPHOSPHAMIDE,"For clinical trial NCT00002582. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with C
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+Not_Listed,"For clinical trial NCT00003782, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+Not_Listed,"For clinical trial NCT00446225, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Aug 3, 2027","First, for clinical trial NCT00052936 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+EUGIA PHARMA SPECIALITIES LTD,"First, for clinical trial NCT00090051 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+,"For clinical trial NCT00978549 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+BRISTOL MYERS SQUIBB,"First, for clinical trial NCT00238238 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+BRISTOL MYERS SQUIBB,"First, for clinical trial NCT01197560 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+DEXCEL PHARMA TECHNOLOGIES LTD,"First, for clinical trial NCT00256776 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"May 28, 2026","For clinical trial NCT01718379 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+58.59000015258789,"For clinical trial NCT02993523, review the more effective regimen ingredients and identify which ingredient starts with the letter V.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+DEXCEL PHARMA TECHNOLOGIES LTD,"First, for clinical trial NCT01356511 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Apr 27, 2027","First, for clinical trial NCT01718379 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+"May 28, 2026","For clinical trial NCT00430365 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+NOVARTIS PHARMACEUTICALS CORP,"First, for clinical trial NCT00685646 among the more effective regimen ingredients, identify which ingredient starts with the letter Z.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+"Feb 25, 2031","First, for clinical trial NCT00260689 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+34.470001220703125,"For clinical trial NCT01639001, review the more effective regimen ingredients and identify which ingredient starts with the letter C.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+SUN PHARMACEUTICAL INDUSTRIES LTD,"First, for clinical trial NCT00004100 among the more effective regimen ingredients, identify which ingredient starts with the letter G.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+,"For clinical trial NCT00003128 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+DOCETAXEL,"For clinical trial NCT00978549. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"Mar 26, 2035","First, for clinical trial NCT04988295 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+EVEROLIMUS,"For clinical trial NCT01108445. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with E
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"Jul 7, 2028","First, for clinical trial NCT02672527 among the more effective regimen ingredients, identify which ingredient starts with the letter T.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+46.72999954223633,"For clinical trial NCT01307605, review the more effective regimen ingredients and identify which ingredient starts with the letter L.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+ZHUHAI BEIHAI BIOTECH CO LTD,"First, for clinical trial NCT01282463 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+ZHUHAI BEIHAI BIOTECH CO LTD,"First, for clinical trial NCT03150875 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+ZOLEDRONIC ACID,"For clinical trial NCT00685646. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with Z
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+Not_Listed,"For clinical trial NCT00021255, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Aug 12, 2027","First, for clinical trial NCT01924533 among the more effective regimen ingredients, identify which ingredient starts with the letter O.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+Not_Listed,"For clinical trial NCT00084318, review the more effective regimen ingredients and identify which ingredient starts with the letter D.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+CLADRIBINE,"For clinical trial NCT00718549. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with C
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+PF PRISM CV,"First, for clinical trial NCT01639001 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+JANSSEN PRODUCTS LP,"First, for clinical trial NCT02672527 among the more effective regimen ingredients, identify which ingredient starts with the letter T.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+31.94444465637207,"For clinical trial NCT00685646, review the more effective regimen ingredients and identify which ingredient starts with the letter Z.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Mar 26, 2035","First, for clinical trial NCT03800134 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+SHILPA MEDICARE LTD,"First, for clinical trial NCT00190762 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+DEXAMETHASONE,"For clinical trial NCT00033332. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with D
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"Jan 6, 2027","First, for clinical trial NCT00012389 among the more effective regimen ingredients, identify which ingredient starts with the letter I.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+Not_Listed,"For clinical trial NCT03800134, review the more effective regimen ingredients and identify which ingredient starts with the letter P.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"Jul 1, 2033","First, for clinical trial NCT00004100 among the more effective regimen ingredients, identify which ingredient starts with the letter G.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+PACLITAXEL,"For clinical trial NCT00003128. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with P
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+PEMETREXED DISODIUM,"For clinical trial NCT03800134. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with P
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+PACLITAXEL,"For clinical trial NCT00002662. Among the more effective regimen ingredients; find which is the ingredient with the first letter start with P
+ return only the name of the ingredient or unknown in all CAPS in the format of INGREDIENT: name",Ingredient
+"Oct 3, 2026","For clinical trial NCT00033332 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+,"For clinical trial NCT00478049 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+Not_Listed,"For clinical trial NCT00079274, review the more effective regimen ingredients and identify which ingredient starts with the letter I.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+"May 28, 2026","For clinical trial NCT01307605 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"Apr 27, 2027","First, for clinical trial NCT01307605 among the more effective regimen ingredients, identify which ingredient starts with the letter L.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+ABBVIE INC,"First, for clinical trial NCT00260689 among the more effective regimen ingredients, identify which ingredient starts with the letter C.
+
+Then, find which company has the latest FDA approval date up till Dec, 2024 for this identified ingredient. Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals. 
+Return only the company name in format of COMPANY: name.",Applicant_Full_Name
+46.72999954223633,"For clinical trial NCT01938001, review the more effective regimen ingredients and identify which ingredient starts with the letter L.
+
+Then, determine which pharmaceutical company received the most recent FDA approval (up until December 2024) for this identified ingredient.
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+
+If this company is listed on any US stock market (including over-the-counter markets), provide:
+1. The stock ticker symbol
+2. The opening stock price on the FDA approval date
+
+If the company is not listed on any US stock market, please indicate ""NOT LISTED"".",Open_on_Approval
+,"For clinical trial NCT00416507 among the more effective regimen ingredients, identify which ingredient starts with the letter G.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+,"For clinical trial NCT02340221 among the more effective regimen ingredients, identify which ingredient starts with the letter F.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
+"May 16, 2036","First, for clinical trial NCT00478049 among the more effective regimen ingredients, identify which ingredient starts with the letter D.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its patent expiration date?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+Return only the date only the year YYYY format of date: YYYY.",Patent_Expire_Date_Text
+,"For clinical trial NCT01251107 among the more effective regimen ingredients, identify which ingredient starts with the letter P.
+
+Then, for this identified ingredient that was last approved up till Dec, 2024, when is its exclusivity date according to the FDA?
+Note that we are only look for overall FDA drug approval, not new indidcation, not supplemental approvals.
+If no exclusivity date exists or if it's not available, respond with 'DATE: NA'. Otherwise, return only the date in MM-DD-YYYY format of date: MM-DD-YYYY.",Exclusivity_Date
