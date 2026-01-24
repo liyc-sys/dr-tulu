@@ -6,7 +6,7 @@ python3 scripts/pubmed_data_generator/answer_curebench_with_tools.py \
     --concurrency 1
 
 uv run --project /workspace/math_science_data_cloud/lyc/1205/dr-tulu/rl/open-instruct \
-  python3 /workspace/math_science_data_cloud/lyc/1205/dr-tulu/scripts/pubmed_data_generator/answer_curebench_with_tools2.py \
+  python3 /workspace/math_science_data_cloud/lyc/1205/dr-tulu/scripts/pubmed_data_generator/answer_curebench_with_tools3.py \
   --local-model-url http://localhost:8001/v1 \
   --model-name /workspace/math_science_data_cloud/lyc/models/DR-Tulu-8B \
   --instance-id port8001 \
