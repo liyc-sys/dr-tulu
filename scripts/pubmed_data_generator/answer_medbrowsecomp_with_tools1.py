@@ -75,12 +75,16 @@ When solving problems using tools, adhere to the following strict protocols:
 
 1. **medbrowsecomp_search** - Unified medical search (RECOMMENDED - USE THIS FIRST)
    - Format: <call_tool name="medbrowsecomp_search" reason="purpose">query</call_tool>
-   - Input: Query string (NCT ID or ingredient name)
-   - Optional parameter: reason (can be: "trial info", "patent", "approval", "exclusivity")
-   - Auto-detects NCT IDs and routes to get_trial_info
-   - For ingredient queries, uses reason parameter to route to correct tool
-   - Example: <call_tool name="medbrowsecomp_search" reason="patent">crizotinib</call_tool>
-   - Example: <call_tool name="medbrowsecomp_search">NCT01639001</call_tool>
+   - Input: Query string (NCT ID or ingredient query)
+   - Optional parameter: reason (can be: "patent", "approval", "exclusivity")
+   - **Routing rules:**
+     * If query contains NCT ID (e.g., "NCT01639001") → auto-routes to get_trial_info (reason parameter is ignored)
+     * If query contains "ingredient" keyword → uses reason parameter to route to drug tools
+   - **CRITICAL for drug queries:** The query MUST contain the word "ingredient" to trigger drug lookup routing
+   - Example (NCT lookup): <call_tool name="medbrowsecomp_search">NCT01639001</call_tool>
+   - Example (patent lookup): <call_tool name="medbrowsecomp_search" reason="patent">ingredient crizotinib</call_tool>
+   - Example (approval lookup): <call_tool name="medbrowsecomp_search" reason="approval">ingredient crizotinib</call_tool>
+   - Example (exclusivity lookup): <call_tool name="medbrowsecomp_search" reason="exclusivity">ingredient crizotinib</call_tool>
 
 2. **get_trial_info** - Get ClinicalTrials.gov trial information by NCT number
    - Format: <call_tool name="get_trial_info">NCT_ID</call_tool>
@@ -117,12 +121,12 @@ When solving problems using tools, adhere to the following strict protocols:
 - Only use specific tools when you need very precise control or medbrowsecomp_search fails
 
 1. **medbrowsecomp_search (USE THIS FIRST)** - Use for:
-   - Any NCT trial lookup → Auto-routes to get_trial_info
-   - Drug patent lookup with `reason="patent"` → Auto-routes to get_drug_patents
-   - Drug approval lookup with `reason="approval"` → Auto-routes to get_drug_approvals
-   - Drug exclusivity lookup with `reason="exclusivity"` → Auto-routes to get_drug_exclusivities
-   - ✅ More flexible and handles edge cases better
-   - ✅ Better error messages
+   - Any NCT trial lookup → Auto-routes to get_trial_info (just include NCT ID in query)
+   - Drug patent lookup → Use `reason="patent"` with query containing "ingredient" keyword
+   - Drug approval lookup → Use `reason="approval"` with query containing "ingredient" keyword
+   - Drug exclusivity lookup → Use `reason="exclusivity"` with query containing "ingredient" keyword
+   - ⚠️ For drug queries, query MUST contain "ingredient" keyword (e.g., "ingredient crizotinib")
+   - ✅ Better error messages and unified interface
 
 2. **get_trial_info** - Use when you need:
    - Clinical trial sponsor information
@@ -260,7 +264,7 @@ Workflow (RECOMMENDED):
 2. Call: <call_tool name="medbrowsecomp_search">NCT01639001</call_tool>
 3. Wait for result → ingredients: ["Crizotinib", "Pemetrexed", ...]
 4. Filter by first letter "C" → Crizotinib
-5. Call: <call_tool name="medbrowsecomp_search" reason="patent">crizotinib</call_tool>
+5. Call: <call_tool name="medbrowsecomp_search" reason="patent">ingredient crizotinib</call_tool>
 6. Extract expiry_date from result
 7. Format answer: "Jun 26, 2035" or "2035" (as specified in question format)
 
@@ -273,7 +277,7 @@ Workflow (RECOMMENDED with verification):
 2. Check history: "I have checked conversation history and am not repeating previous actions"
 3. Call: <call_tool name="medbrowsecomp_search">NCT01307605</call_tool>
 4. Wait for result → Filter by letter "L" → e.g., "Lirilumab"
-5. Call: <call_tool name="medbrowsecomp_search" reason="approval">lirilumab</call_tool>
+5. Call: <call_tool name="medbrowsecomp_search" reason="approval">ingredient lirilumab</call_tool>
 6. Extract marketing_authorisation_holder from result (this is automatically the latest since results are sorted)
 7. **VERIFY in <think>**: "Verifying company name = 'BRISTOL MYERS SQUIBB' from tool output. Performing character-level check. Question asks for latest approval up to Dec 2024. Tool returned approval from [year]. Confirming this is within the valid time range."
 8. Format answer: "COMPANY: BRISTOL MYERS SQUIBB" (exact copy from tool output)
@@ -287,7 +291,7 @@ Workflow (RECOMMENDED with null-handling):
 2. Check history: "I have checked conversation history and am not repeating previous actions"
 3. Call: <call_tool name="medbrowsecomp_search">NCT03150875</call_tool>
 4. Wait for result → Filter by letter "D" → e.g., "Durvalumab"
-5. Call: <call_tool name="medbrowsecomp_search" reason="exclusivity">durvalumab</call_tool>
+5. Call: <call_tool name="medbrowsecomp_search" reason="exclusivity">ingredient durvalumab</call_tool>
 6. Check tool output carefully:
    - If tool says "No exclusivity found" or count=0: **VERIFY in <think>**: "Tool returned no exclusivity data. As per instructions, I must return 'DATE: NA' and NOT invent a date."
    - If exclusivity exists: Extract end_date and **VERIFY in <think>**: "Verifying end_date = '[exact_date]' from tool output. Performing character-level check."

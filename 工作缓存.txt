@@ -13,7 +13,7 @@ uv run --project /workspace/math_science_data_cloud/lyc/1205/dr-tulu/rl/open-ins
   --concurrency 3 \
   --limit 10
 
-uv run --project /workspace/math_science_data_cloud/lyc/1205/dr-tulu/rl/open-instruct python scripts/pubmed_data_generator/answer_medbrowsecomp_with_tools.py --local-model-url http://localhost:8001/v1 --model-name  /workspace/math_science_data_cloud/lyc/models/DR-Tulu-8B --concurrency 3 --limit 10  # 测试用，只处理前10个问题
+uv run --project /workspace/math_science_data_cloud/lyc/1205/dr-tulu/rl/open-instruct python scripts/pubmed_data_generator/answer_medbrowsecomp_with_tools1.py --local-model-url http://localhost:8001/v1 --model-name  /workspace/math_science_data_cloud/lyc/models/DR-Tulu-8B --concurrency 3 --limit 10  # 测试用，只处理前10个问题
 
 
 
