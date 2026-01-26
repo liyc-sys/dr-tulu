@@ -30,7 +30,8 @@ docker ps | grep crawl4ai
 export http_proxy="http://httpproxy.glm.ai:8888"
 export https_proxy="http://httpproxy.glm.ai:8888"
 export no_proxy="127.0.0.1,localhost,platform.glm.ai"
-export OPENROUTER_API_KEY="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"
+export OPENROUTER_API_KEY='sk-or-mambaoutv1-4fadcdab1598d1835a3d787b4094e950bfd061035ab871fa6c7457f547a1fbd3'
+
 export MCP_TRANSPORT="StreamableHttpTransport"
 export MCP_TRANSPORT_PORT="8003"
 export MCP_TRANSPORT_HOST="127.0.0.1"
