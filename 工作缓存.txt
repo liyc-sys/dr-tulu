@@ -7,15 +7,15 @@ python3 scripts/pubmed_data_generator/answer_curebench_with_tools.py \
 
 uv run --project /workspace/math_science_data_cloud/lyc/1205/dr-tulu/rl/open-instruct \
   python3 /workspace/math_science_data_cloud/lyc/1205/dr-tulu/scripts/pubmed_data_generator/answer_curebench_with_tools3.py \
-  --local-model-url http://localhost:8001/v1 \
+  --local-model-url http://localhost:8009/v1 \
   --model-name /workspace/math_science_data_cloud/lyc/models/DR-Tulu-8B \
-  --instance-id port8001 \
-  --concurrency 3 \
-  --limit 10
+  --instance-id port8009 \
+  --concurrency 3
 
 uv run --project /workspace/math_science_data_cloud/lyc/1205/dr-tulu/rl/open-instruct python scripts/pubmed_data_generator/answer_medbrowsecomp_with_tools1.py --local-model-url http://localhost:8001/v1 --model-name  /workspace/math_science_data_cloud/lyc/models/DR-Tulu-8B --concurrency 3 --limit 10  # 测试用，只处理前10个问题
 
-
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 CUDA_VISIBLE_DEVICES=5 vllm serve /workspace/math_science_data_cloud/lyc/models/DR-Tulu-8B --port 8005 --max-model-len 40960
 
