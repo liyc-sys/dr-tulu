@@ -193,12 +193,42 @@ class PubMedAnswerer:
         self,
         local_model_url: str = "http://localhost:8000/v1",
         model_name: str = "Qwen3-8B",
-        max_turns: int = 10
+        max_tokens: int = 40960
     ):
         self.local_model_url = local_model_url
         self.model_name = model_name
-        self.max_turns = max_turns
+        self.max_tokens = max_tokens
         self.tool_executor = MCPToolExecutor(host=MCP_HOST, port=MCP_PORT)
+
+        # 初始化 tokenizer（尝试使用 tiktoken，否则用字符估算）
+        self._tokenizer = None
+        try:
+            import tiktoken
+            # 使用 cl100k_base 编码（GPT-4/ChatGPT 使用的编码，对大多数模型也适用）
+            self._tokenizer = tiktoken.get_encoding("cl100k_base")
+        except ImportError:
+            print("  ⚠ tiktoken 未安装，将使用字符数估算 token（约 4 字符 = 1 token）")
+
+    def _count_tokens(self, text: str) -> int:
+        """计算文本的 token 数量"""
+        if self._tokenizer:
+            return len(self._tokenizer.encode(text))
+        else:
+            # 粗略估算：英文约 4 字符 = 1 token，中文约 2 字符 = 1 token
+            # 这里使用保守估算
+            return len(text) // 3
+
+    def _count_messages_tokens(self, messages: List[Dict]) -> int:
+        """计算整个消息列表的 token 数量"""
+        total = 0
+        for msg in messages:
+            # 每条消息有额外的格式开销（约 4 tokens）
+            total += 4
+            total += self._count_tokens(msg.get("role", ""))
+            total += self._count_tokens(msg.get("content", ""))
+        # 对话格式的额外开销
+        total += 3
+        return total
 
     def _remove_hallucinated_tool_output(self, content: str) -> str:
         """移除模型可能生成的假 tool_output 内容"""
@@ -359,8 +389,22 @@ Abstract: {abstract}</snippet>"""
         interleaved_parts = []
         model_answer = ""
         model_reasoning = ""
+        token_limit_reached = False
 
-        for turn in range(self.max_turns):
+        while True:
+            # 检查 token 数量是否接近上限
+            current_tokens = self._count_messages_tokens(messages)
+
+            # 预留 3000 tokens 给模型生成答案，达到阈值时强制结束
+            if current_tokens > self.max_tokens - 3000:
+                print(f"  ⚠️ Token 数量 ({current_tokens}) 接近上限 ({self.max_tokens})，强制要求给出答案")
+                token_limit_reached = True
+                # 添加提醒消息
+                messages.append({
+                    "role": "user",
+                    "content": f"⚠️ CRITICAL: Context length ({current_tokens}/{self.max_tokens} tokens) is near the limit. You MUST stop all tool calls and provide your final answer IMMEDIATELY using the <answer> tag. Summarize what you have found so far and give your best answer based on available information."
+                })
+
             # 调用本地 LLM
             response = await self._call_local_llm(messages)
 
@@ -394,7 +438,7 @@ Abstract: {abstract}</snippet>"""
                     tool_call_matches = [(tool_name, params_str, query)]
                     print(f"  ⚠ 检测到未闭合的 <call_tool>，自动修复")
 
-            if tool_call_matches:
+            if tool_call_matches and not token_limit_reached:
                 # 清理内容
                 clean_content = self._clean_model_output(content, tool_call_matches[0])
                 interleaved_parts.append(clean_content)
@@ -460,6 +504,12 @@ Abstract: {abstract}</snippet>"""
                             model_reasoning = answer_match.group(1).strip()
 
                     print(f"  ✓ 模型答案: {model_answer[:100]}...")
+                    break
+                elif token_limit_reached:
+                    # 已达到 token 限制，但模型没有给出答案，强制使用当前内容
+                    interleaved_parts.append(content)
+                    print(f"  ⚠️ Token 限制已达到，但模型未给出答案，使用当前内容")
+                    model_answer = content.strip()
                     break
                 else:
                     interleaved_parts.append(content)
