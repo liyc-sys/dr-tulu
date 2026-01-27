@@ -106,7 +106,6 @@ For medical/scientific questions, **pubmed_search should be your first choice** 
 - Unclosed tags like `<call_tool name="pubmed_search">query` without `</call_tool>`
 - Fabricating PMIDs, paper titles, or results
 - Using more than 6 keywords in pubmed_search
-- Calling tools (any combination) more than 5 times total
 
 ### After <call_tool> (CRITICAL)
 - **You MUST STOP your response IMMEDIATELY after `</call_tool>` - do NOT write anything else**
@@ -116,9 +115,6 @@ For medical/scientific questions, **pubmed_search should be your first choice** 
 - Your response should end exactly at `</call_tool>` - nothing after it
 
 ## CRITICAL LIMITS (MUST FOLLOW)
-- **You can call tools AT MOST 5 times in total (including pubmed_search, browse_webpage, google_search)**
-- **After 5 tool calls, you MUST provide your final answer immediately**
-- **Do NOT exceed this limit under any circumstances**
 - pubmed_search: Use 3-6 keywords maximum per search
 - Plan your tool usage carefully to maximize information from each call
 
@@ -426,14 +422,7 @@ Abstract: {abstract}</snippet>"""
                 interleaved_parts.append(tool_output_text)
 
                 messages.append({"role": "assistant", "content": clean_content})
-
-                # 检查是否达到工具调用限制
-                if total_tool_calls >= 5:
-                    reminder = f"{tool_output_text}\n\n⚠️ You have reached the maximum limit of 5 tool calls. You MUST provide your final answer now using the <answer> tag."
-                    messages.append({"role": "user", "content": reminder})
-                    print(f"  ⚠️ 已达到工具调用上限 (5次)，提醒模型给出答案")
-                else:
-                    messages.append({"role": "user", "content": tool_output_text})
+                messages.append({"role": "user", "content": tool_output_text})
 
             else:
                 # 检查是否有 <answer>
