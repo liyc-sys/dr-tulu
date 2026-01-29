@@ -400,24 +400,60 @@ Extracted Information:
         
         return f"<tool_output>{json.dumps(raw_result, ensure_ascii=False)[:2000]}</tool_output>"
     
-    def _format_question_with_options(self, question: str, options: Dict[str, str]) -> str:
-        """格式化问题和选项"""
+    def _format_question_with_options(self, question: str, options) -> str:
+        """格式化问题和选项
+
+        支持两种 options 格式：
+        1. 字典格式: {"A": "选项内容", "B": "选项内容", ...}
+        2. 列表格式: ["A: 选项内容", "B: 选项内容", ...]
+        """
         formatted = f"{question}\n\n"
-        for key in sorted(options.keys()):
-            formatted += f"{key}) {options[key]}\n"
+
+        if isinstance(options, dict):
+            # 字典格式
+            for key in sorted(options.keys()):
+                formatted += f"{key}) {options[key]}\n"
+        elif isinstance(options, list):
+            # 列表格式 ["A: xxx", "B: xxx", ...]
+            for opt in options:
+                formatted += f"{opt}\n"
+        else:
+            formatted += str(options)
+
         return formatted.strip()
+
+    def _parse_options(self, options) -> Dict[str, str]:
+        """将 options 统一解析为字典格式
+
+        支持两种输入格式：
+        1. 字典格式: {"A": "选项内容", ...} -> 直接返回
+        2. 列表格式: ["A: 选项内容", ...] -> 转换为字典
+        """
+        if isinstance(options, dict):
+            return options
+        elif isinstance(options, list):
+            result = {}
+            for opt in options:
+                if isinstance(opt, str) and ": " in opt:
+                    key, value = opt.split(": ", 1)
+                    result[key.strip()] = value.strip()
+            return result
+        return {}
     
     async def answer_question(self, question_data: Dict) -> CureBenchResult:
         """为单个 CureBench 问题生成答案"""
-        
+
         question_id = question_data.get("id", "")
         question = question_data.get("question", "")
         question_type = question_data.get("question_type", "")
-        options = question_data.get("options", {})
+        options_raw = question_data.get("options", {})
         correct_answer = question_data.get("correct_answer", "")
-        
-        # 格式化问题
-        formatted_question = self._format_question_with_options(question, options)
+
+        # 将 options 统一解析为字典格式（用于结果保存）
+        options = self._parse_options(options_raw)
+
+        # 格式化问题（支持原始格式）
+        formatted_question = self._format_question_with_options(question, options_raw)
         
         messages = [
             {"role": "system", "content": CUREBENCH_SYSTEM_PROMPT},
@@ -849,13 +885,13 @@ class CureBenchRunner:
 async def main():
     """主函数"""
     import argparse
-    
+
     parser = argparse.ArgumentParser(description="使用本地模型 + MCP 工具回答 CureBench 问题")
     _root = (Path(__file__).resolve().parent / ".." / "..").resolve()
-    _default_data = str(_root / "训练和benchmark数据0120" / "curebench_valset_pharse1.jsonl")
+    _default_data = str(_root / "训练和benchmark数据0120" / "1_question_gen_seed1.6_all_question_format.jsonl")
     _default_output = str(_root / "pubmed_training_data")
     parser.add_argument("--data-file", type=str, default=_default_data,
-                        help="CureBench 数据文件路径（默认：项目根/训练和benchmark数据0120/curebench_valset_pharse1.jsonl）")
+                        help="数据文件路径（默认：项目根/训练和benchmark数据0120/1_question_gen_seed1.6_all_question_format.jsonl）")
     parser.add_argument("--local-model-url", type=str, default="http://localhost:8000/v1", 
                         help="本地模型API地址（OpenAI兼容格式）")
     parser.add_argument("--model-name", type=str, default="Qwen3-8B", help="模型名称")
