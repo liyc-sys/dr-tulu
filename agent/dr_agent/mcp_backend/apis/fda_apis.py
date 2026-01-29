@@ -468,7 +468,7 @@ async def search_fda_drug_label_async(
 
                     except (aiohttp.ClientError, asyncio.TimeoutError) as e:
                         if attempt < max_retries - 1:
-                            print(f"⚠️ {search_config['name']} 失败，{retry_delay}秒后重试...")
+                            print(f"⚠️ {search_config['name']} 失败 ({type(e).__name__}: {e})，{retry_delay}秒后重试... (proxy={proxy})")
                             await asyncio.sleep(retry_delay)
                             retry_delay *= 2
 
@@ -509,7 +509,7 @@ async def search_fda_drug_label_async(
 
                     except (aiohttp.ClientError, asyncio.TimeoutError) as e:
                         if attempt < max_retries - 1:
-                            print(f"⚠️ 回退搜索失败，{retry_delay}秒后重试...")
+                            print(f"⚠️ 回退搜索失败 ({type(e).__name__}: {e})，{retry_delay}秒后重试... (proxy={proxy})")
                             await asyncio.sleep(retry_delay)
                             retry_delay *= 2
 
