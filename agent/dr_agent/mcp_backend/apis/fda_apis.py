@@ -32,6 +32,11 @@ class FDASearchResult:
         self.raw_results = raw_results
 
 
+def _get_proxy() -> Optional[str]:
+    """获取代理设置"""
+    return os.getenv("https_proxy") or os.getenv("HTTPS_PROXY") or os.getenv("http_proxy") or os.getenv("HTTP_PROXY")
+
+
 async def _call_openrouter_llm_async(
     prompt: str,
     api_key: Optional[str] = None,
@@ -67,12 +72,15 @@ async def _call_openrouter_llm_async(
     payload = {"model": model_name, "messages": messages}
 
     base_sleep_time = 10
+    proxy = _get_proxy()
 
     async with aiohttp.ClientSession() as session:
         for retry_count in range(max_retries):
             try:
                 async with session.post(
-                    url, headers=headers, json=payload, timeout=aiohttp.ClientTimeout(total=120)
+                    url, headers=headers, json=payload,
+                    timeout=aiohttp.ClientTimeout(total=120),
+                    proxy=proxy
                 ) as response:
                     if response.status == 200:
                         result = await response.json()
@@ -429,6 +437,7 @@ async def search_fda_drug_label_async(
 
     raw_results = None
     search_strategy = None
+    proxy = _get_proxy()
 
     # 使用 aiohttp 进行异步 HTTP 请求
     async with aiohttp.ClientSession() as session:
@@ -444,7 +453,7 @@ async def search_fda_drug_label_async(
                 for attempt in range(max_retries):
                     try:
                         async with session.get(
-                            url, timeout=aiohttp.ClientTimeout(total=60)
+                            url, timeout=aiohttp.ClientTimeout(total=60), proxy=proxy
                         ) as response:
                             if response.status == 200:
                                 result_data = await response.json()
@@ -483,7 +492,7 @@ async def search_fda_drug_label_async(
                 for attempt in range(max_retries):
                     try:
                         async with session.get(
-                            url, timeout=aiohttp.ClientTimeout(total=60)
+                            url, timeout=aiohttp.ClientTimeout(total=60), proxy=proxy
                         ) as response:
                             if response.status == 200:
                                 result_data = await response.json()
